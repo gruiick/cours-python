@@ -27,6 +27,7 @@ Parser du RSS et télécharger les émissions:
      * `setup.py`
      * scripts, entry points
 
+* Données binaires, encodage
 * Remplacer Matlab par Python + numpy + matplotlib
 * Effets audio
 * Jeux vidéos (pygame)
