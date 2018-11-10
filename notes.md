@@ -36,3 +36,5 @@ Parser du RSS et télécharger les émissions:
 * IOT : micro-controller, Rasberry Pi
 * Blender/GIMP
 * Stéganographie: cacher un texte dans une image
+
+* Patcher des binaires Windows pour le fun?
