@@ -14,9 +14,12 @@ Sessions:
 * classes
     * héritage
     * super()
+* Données binaires, encodage (binaire, ASCII, hexadécimal, unicode ...)
 
 * virtualenv, pip, et bibliothèques tierces
-* tests: pytest, test-driven developement
+* tests: pytest, TDD
+
+* linters, déboguage
 
 # Idées d'ateliers
 
@@ -27,7 +30,6 @@ Parser du RSS et télécharger les émissions:
      * `setup.py`
      * scripts, entry points
 
-* Données binaires, encodage
 * Remplacer Matlab par Python + numpy + matplotlib
 * Effets audio
 * Jeux vidéos (pygame)
