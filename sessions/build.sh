@@ -3,10 +3,9 @@
 set -e
 
 if [[ -z $1 ]]; then
-  echo "Usage: build.sh INPUT.md"
+  echo "Usage: build.sh NUMBER"
   exit 1
 fi
 
 
-out=${1:s/.md/.html}
-darkslide --linenos=no $1 --destination ${out}
+darkslide --linenos=no "${1}.md" --destination "${1}.html"
