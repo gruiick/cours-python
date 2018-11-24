@@ -609,3 +609,11 @@ détail comment ça marche plus tard).
       Trop grand
       26
       Gagné
+
+---
+
+# Liens
+
+
+* Les sources sont [sur GitHub](https://github.com/E2L/cours-python/tree/master/sources).
+* La présentation est disponible en PDF sur [le site de l'e2l](https://cours.getall.fr/e2l/DownLoads/0q0udu7qgaicv3djgevjlfpck4/C1600_chapitre-01.pdf)

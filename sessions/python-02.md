@@ -15,7 +15,6 @@ Dimitri Merejkowsky <br />
 
 Note:
 
-* La présentation est en ligne [sur mon site](https://dmerej.info/pub/cours-python/chapitre-01)
 * Les sources sont [sur GitHub](https://github.com/E2L/cours-python/tree/master/sources).
 * Mais il vaut mieux **recopier** le code vous-mêmes.
 
