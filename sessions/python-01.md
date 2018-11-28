@@ -149,7 +149,7 @@ C'est le `.` qui fait le flottant
 
 # Variables
 
-    !pycon
+   !pycon
     >>> a = 2
     >>> a
     2
@@ -165,7 +165,7 @@ C'est le `.` qui fait le flottant
 # Variables (2)
 
 
-    !pycon
+   !pycon
     >>> a = 2
     >>> a
     2
