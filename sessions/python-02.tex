@@ -1,14 +1,16 @@
+% !TEX encoding = UTF-8 Unicode
 \documentclass{beamer}
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{minted}
+\usepackage{listings}
+\lstset{language=Python, showstringspaces=false}
 
 \usetheme{Madrid}
 
 \hypersetup{colorlinks=true}
 
-\title{Introduction à la programmation avec Python (chapitre 2)}
+\title{Introduction à la programmation avec Python \\ (chapitre 2)}
 \author{Dimitri Merejkowsky}
 \institute{E2L}
 
@@ -53,17 +55,17 @@ Mais il vaut mieux recopier le code vous-mêmes.
 
 
 
-\begin{minted}{python}
-# À adapter
+\begin{lstlisting}
+# A adapter
 import random
 secret = random.randint()
 
 print("Devine le nombre auquel je pense")
 while True:
-    reponse = input("Ta réponse: ")
+    reponse = input("Ta reponse: ")
     response = int(response)
     ...
-\end{minted}
+\end{lstlisting}
 
 \end{frame}
 
@@ -72,12 +74,12 @@ while True:
 \begin{frame}[fragile]
     \frametitle{Retour sur print}
 
-\begin{minted}{python}
+\begin{lstlisting}
 >>> a = 1
 >>> b = 2
 >>> print("a is", a, "b is", b)
 a is 1, b is 2
-\end{minted}
+\end{lstlisting}
 
 \begin{itemize}
   \item On peut fournir plusieurs valeurs, séparées par des virgules
@@ -90,11 +92,11 @@ a is 1, b is 2
 \begin{frame}[fragile]
   \frametitle{Retour sur print (2)}
 
-\begin{minted}{python}
+\begin{lstlisting}
 a = 1
 b = 2
 print("a=", 1, "b=2", sep="", end="")
-\end{minted}
+\end{lstlisting}
 
 \end{frame}
 
@@ -105,10 +107,10 @@ print("a=", 1, "b=2", sep="", end="")
 \begin{frame}[fragile]
   \frametitle{Répéter une string}
 
-\begin{minted}{python}
+\begin{lstlisting}
 >>> "argh " * 3
 argh argh argh
-\end{minted}
+\end{lstlisting}
 
 \end{frame}
 
@@ -116,14 +118,14 @@ argh argh argh
 \begin{frame}[fragile]
   \frametitle{Faire une longue string sur plusieurs lignes}
 
-\begin{minted}{python}
+\begin{lstlisting}
 poeme = """
-Ceci est un poème
+Ceci est un poeme
 
 Qui contient "des quotes"
 Et parle d'autre choses ...
 """
-\end{minted}
+\end{lstlisting}
 
 \begin{block}{Note}
 Marche aussi avec des "triples-simple-quotes", mais c'est moins lisible :P
