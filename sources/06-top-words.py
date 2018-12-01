@@ -31,9 +31,6 @@ def main():
                     scores[word] += 1
 
     stream.close()
-    top = sorted(scores.items(), key=get_value, reverse=True)
-    for word, count in top[0:10]:
-        print(count, word)
 
 
 if __name__ == "__main__":
