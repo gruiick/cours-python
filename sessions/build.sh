@@ -8,6 +8,7 @@ if [[ -z $1 ]]; then
 fi
 
 (
-   cd build
-   texi2pdf ../python-${1}.tex
+  mkdir -p build
+  cd build
+  texi2pdf ../python-${1}.tex
 )
