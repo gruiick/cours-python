@@ -16,21 +16,13 @@
 
 \begin{document}
 
-\frame{\titlepage}
-
-\begin{frame}
-
-\frametitle{Session 2}
-
-\end{frame}
-
 \begin{frame}
 
 Note: \\~\\
 
+Les sources sont sur GitHub:
 
-Les sources sont
-\href{https://github.com/E2L/cours-python/tree/master/sources}{sur GitHub}. \\~\\
+\url{https://github.com/E2L/cours-python/tree/master/sources}. \\~\\
 
 
 Mais il vaut mieux recopier le code vous-mêmes.
@@ -43,66 +35,64 @@ Mais il vaut mieux recopier le code vous-mêmes.
 \frametitle{Plan}
 
 \begin{itemize}
-  \item Retour sur le chapitre 1
-  \item Structures de données
+  \item Retours sur le chapitre 1
   \item Fonctions
+  \item Structures de données
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Retour sur input()}
-
-
-
-\begin{lstlisting}
-# A adapter
-import random
-secret = random.randint()
-
-print("Devine le nombre auquel je pense")
-while True:
-    reponse = input("Ta reponse: ")
-    response = int(response)
-    ...
-\end{lstlisting}
-
-\end{frame}
-
-
-
-\begin{frame}[fragile]
-    \frametitle{Retour sur print}
-
-\begin{lstlisting}
->>> a = 1
->>> b = 2
->>> print("a is", a, "b is", b)
-a is 1, b is 2
-\end{lstlisting}
-
-\begin{itemize}
-  \item On peut fournir plusieurs valeurs, séparées par des virgules
-  \item \textit{print()} insère des espaces
-  \item et va à la ligne
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Retour sur print (2)}
-
-\begin{lstlisting}
-a = 1
-b = 2
-print("a=", 1, "b=2", sep="", end="")
-\end{lstlisting}
-
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    Retours sur le chapitre 1
+  \end{beamercolorbox}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Retour sur les strings}
+
+\begin{lstlisting}
+
+>>> text = "Je suis un message\nSur deux lignes")
+>>> print(text)
+Je suis un message
+Sur deux lignes
+\end{lstlisting}
+
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Concaténation implicite}
+
+\begin{lstlisting}
+
+  >>> text = "Je suis une " "longue" " string"
+  >>> text
+  'Je suis une longue string'
+\end{lstlisting}
+
+\begin{alertblock}{Note}
+  A double tranchant ...
+\end{alertblock}
+
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Concaténer des strings (2)}
+\begin{lstlisting}
+message = (
+    "ligne 1\n"
+    "ligne 2\n"
+)
+\end{lstlisting}
+
+Les parenthèse permettent d'aller à la ligne dans le code :)
+
+\end{frame}
+
 
 \begin{frame}[fragile]
   \frametitle{Répéter une string}
@@ -134,118 +124,229 @@ Marche aussi avec des "triples-simple-quotes", mais c'est moins lisible :P
 
 
 
+\begin{frame}[fragile]
+  \frametitle{Retour sur input()}
+On peut afficher un message avant de lire l'entrée utilisateur.
+
+\begin{lstlisting}
+# A adapter
+import random
+secret = random.randint()
+
+print("Devine le nombre auquel je pense")
+while True:
+    reponse = input("Ta reponse: ")
+    response = int(response)
+    ...
+\end{lstlisting}
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Retour sur print()}
+
+On peut spécifier le caractère de fin. \textbackslash n par défaut.
+
+\begin{lstlisting}
+# Dans hello.py
+print("Bonjour", end=" ")
+print("monde", end="!\n")
+\end{lstlisting}
+
+\begin{lstlisting}
+$ python hello.py
+Bonjour monde!
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    Fonctions
+  \end{beamercolorbox}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Sans arguments}
+
+\begin{lstlisting}
+def say_hello():
+    print("Hello")
+
+say_hello()
+\end{lstlisting}
+
+\vfill
+
+Notez l'utilisation des parenthèses pour \emph{appeler} la fonction
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Définition simple}
+
+\begin{lstlisting}
+def add(a, b):
+    return a + b
+
+a = 1
+b = 2
+c = add(a, b)
+print(c)
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Paramètres nommés}
+\begin{lstlisting}
+def greet(name, shout=False):
+    result = "Hello, "
+    result += name
+    if shout:
+        result += "!"
+    return result
+
+>>> greet("John")
+'Hello, John'
+
+>>> greet("Jane", shout=True)
+'Hello, Jane!'
+\end{lstlisting}
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Note}
+\texttt{print()} est une fonction :)
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    Structures de données
+  \end{beamercolorbox}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Créer une liste}
+\begin{lstlisting}
+
+>>> ma_liste = list()  # liste vide
+>>> ma_liste = []  # aussi une liste vide
+>>> ma_liste = [1, 2, 3] # trois entiers
+
+\end{lstlisting}
+
+\vfill
+
+\begin{alertblock}{Note}
+  \texttt{list()} est \textbf{aussi} une fonction :)
+\end{alertblock}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Listes hétérogènes}
+
+On peut mettre des types différents dans une même liste:
+
+\begin{lstlisting}
+>>> pommes_et_carottes = [True, 2, "three"]
+\end{lstlisting}
+
+\vfill
+Et même des listes dans des listes:
+
+\begin{lstlisting}
+>>> liste_de_liste = [[1, 2], ["one", "two"]]
+\end{lstlisting}
+
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Connaître la taille d'une liste}
+Avec la fonction \texttt{len()}:
+
+\vfill
+
+\begin{lstlisting}
+>>> liste_vide = []
+>>> len(liste_vide)
+0
+>>> autre_liste = [1, 2, 3]
+>>> len(autre_liste)
+3
+\end{lstlisting}
+
+\end{frame}
 
 
 
-%---
+\begin{frame}[fragile]
+  \frametitle{Indexer une liste}
 
-%# Concaténer des strings
+\begin{lstlisting}
 
-     %!python
-      %message = (
-         %"Première ligne\n"
-         %"Deuxième ligne\n"
-      %)
+>>> liste = [1, 2, 3]
+>>> liste[0]   # ca commence a zero
+1
+>>> liste[4] # erreur!
+\end{lstlisting}
 
-%Les parenthèse permettent d'aller à la ligne dans le code :)
+\vfill
 
-%---
+Astuce: l'index maximal est \texttt{len(list) -1}. Retenez-le :)
 
-%# Slicer des strings
+\end{frame}
 
-    %!pycon
-      %>>> message = "Bonjour, monde !"
-      %>>> message[0]  # ça commence à zéro
-      %"B"
-      %>>> message[15]
-      %"!"
-      %>>>> message[-1]  # compter à l'envers
-      %"!"
+\begin{frame}[fragile]
+  \frametitle{Modifer une liste}
+\begin{lstlisting}
+>>> liste = [1, 2, 3]
+>>> liste[1] = 4
+>>> liste
+[1, 4, 3]
+\end{lstlisting}
 
-%---
+\end{frame}
 
-%# Slicer des strings (2)
+\begin{frame}[fragile]
+  \frametitle{Itérer sur les éléments d'une liste}
+\begin{lstlisting}
+names = ["Alice", "Bob", "Charlie"]
+for name in names:
+    print("Bonjour", name)
 
-     %!pycon
-      %>>> message = "Bonjour, monde !"
-      %>>> message[1:4]  # début, fin
-      %'onj'
-      %>>> message[:7] # début implicite
-      %'Bonjour'
-      %>>> message[9:-2] # fin négative
-      %'monde'
+Bonjour Alice
+Bonjour Bob
+Bonjour Charlie
+\end{lstlisting}
 
-%---
+\end{frame}
 
-%# Listes
+\begin{frame}[fragile]
+  \frametitle{Test de présence}
 
-%---
+Avec le mot-clé \texttt{in}:
 
-%# Créer une liste
+\vfill
 
-     %!pycon
-      %>>> my_list = []  # liste vide
-      %>>> primes = [2, 3, 5, 7, 11]  # liste d'entiers
+\begin{lstlisting}
+>>> fruits = ["pomme", "banane"]
+>>> "pomme" in fruits
+True
+>>> "orange" in fruits
+False
+\end{lstlisting}
 
-%---
-
-%# Listes hétérogènes
-
-%On peut mettre des types différents dans une même liste:
-
-     %!pycon
-      %>>> pommes_et_carottes = [True, 2, "three"]
-
-%Et même des listes dans des listes:
-
-     %!pycon
-      %>>> liste_de_liste = [[1, 2, 3], ["one", "two", "three"]]
-
-%----
-
-%# Slicer des listes
-
-%Même principe que pour les strings!
-
-     %!pycon
-      %>>> liste = [1, 2, 3]
-      %>>> liste[0:2]
-      %[1, 2]
-
-%---
-
-%# Modifier une liste
-
-     %!pycon
-      %>>> liste = [1, 2, 3]
-      %>>> liste[1] = 4
-      %>>> liste
-      %[1, 4, 3]
-
-
-%*Attention*: ça ne marche pas avec les strings:
-
-     %!pycon
-      %>>> message = "Bonjour, monde !"
-      %>>> message[-1] = "?"
-      %TypeError: 'str' object does not support item assignment
-
-%---
-
-%# Boucles for
-
-%Itérer sur les éléments d'une liste:
-
-
-     %!python
-      %names = ["Alice", "Bob", "Charlie"]
-      %for name in names:
-         %print("Bonjour", name)
-
-      %Bonjour Alice
-      %Bonjour Bob
-      %Bonjour Charlie
-
-%---
+\end{frame}
 
 \end{document}
