@@ -1,0 +1,29 @@
+
+\begin{frame}[fragile]
+    \frametitle{Slicer des strings}
+
+\begin{lstlisting}
+>>> message = "Bonjour, monde !"
+>>> message[0]  # ça commence à zéro
+"B"
+>>> message[15]
+"!"
+>>>> message[-1]  # compter à l'envers
+"!"
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Slicer des strings (2)}
+
+\begin{lstlisting}
+>>> message = "Bonjour, monde !"
+>>> message[1:4]  # début, fin
+'onj'
+>>> message[:7] # début implicite
+'Bonjour'
+>>> message[9:-2] # fin négative
+'monde'
+\end{lstlisting}
+\end{frame}
