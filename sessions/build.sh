@@ -7,5 +7,7 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
-
-darkslide --linenos=no "${1}.md" --destination "${1}.html"
+(
+   cd build
+   texi2pdf ../python-${1}.tex
+)
