@@ -3,6 +3,7 @@ import random
 def read_words():
     stream = open("noms.txt")
     words = stream.read().splitlines()
+    stream.close()
     return words
 
 
@@ -13,7 +14,10 @@ def choose_word(words):
 
 
 def has_won(word, letters):
-    return set(word) == letters
+    for letter in word:
+        if letter not in letters:
+            return False
+    return True
 
 
 def display_hint(word, letters):
