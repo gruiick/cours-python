@@ -6,6 +6,8 @@ b = 2
 c = add(a, b)
 print(c)
 
+
+
 def greet(name, shout=False):
     print("Hello,", end=" ")
     print(name, end="")
