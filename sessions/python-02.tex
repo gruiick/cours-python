@@ -119,6 +119,39 @@ Marche aussi avec des "triples-simple-quotes", mais c'est moins lisible :P
 \end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{Opérations sur les strings (1)}
+
+\begin{lstlisting}
+>>> text = "  bonjour! \n "
+>>> text.strip()
+"bonjour!"
+\end{lstlisting}
+Nouvelle syntaxe: notez le '.' entre la variable et la "fonction".
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Opérations sur les strings (2)}
+
+Modification de la casse:
+
+\begin{lstlisting}
+>>> text = "HeLlO"
+>>> text.upper()
+"HELLO"
+
+>>> text = "Au Revoir"
+>>> text.upper()
+"AU REVOIR"
+
+>>> text = "ceci est un titre"
+>>> text.title()
+"Ceci est un titre"
+\end{lstlisting}
+
+\end{frame}
+
+
 
 \begin{frame}[fragile]
   \frametitle{Retour sur input()}
