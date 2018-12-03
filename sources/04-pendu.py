@@ -1,5 +1,6 @@
 import random
 
+
 def read_words():
     stream = open("noms.txt")
     words = stream.read().splitlines()
@@ -29,8 +30,6 @@ def display_hint(word, letters):
     print("")
 
 
-
-
 def main():
     words = read_words()
     word = choose_word(words)
@@ -46,5 +45,6 @@ def main():
         if has_won(word, letters):
             print("Gagné")
             return
+
 
 main()
