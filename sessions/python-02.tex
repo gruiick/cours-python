@@ -43,11 +43,35 @@ Mais il vaut mieux recopier le code vous-mêmes.
 
 \end{frame}
 
+
 \begin{frame}[fragile]
   \centering
   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
     Retours sur le chapitre 1
   \end{beamercolorbox}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Combiner assignation et opérations}
+
+\begin{lstlisting}
+>>> a = 3
+>>> a = a + 1
+3
+\end{lstlisting}
+
+Même résultat que:
+
+\begin{lstlisting}
+>>> a = 3
+>>> a += 1
+\end{lstlisting}
+
+\vfill
+
+Marche aussi avec \texttt{-=}, \texttt{*=} etc.
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -136,13 +160,13 @@ Nouvelle syntaxe: notez le '.' entre la variable et la "fonction".
 Modification de la casse:
 
 \begin{lstlisting}
->>> text = "HeLlO"
+>>> text = "Hello"
 >>> text.upper()
 "HELLO"
 
 >>> text = "Au Revoir"
->>> text.upper()
-"AU REVOIR"
+>>> text.lower()
+"au revoir"
 
 >>> text = "ceci est un titre"
 >>> text.title()
