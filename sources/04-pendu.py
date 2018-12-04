@@ -3,8 +3,9 @@ import random
 
 def read_words():
     stream = open("noms.txt")
-    words = stream.read().splitlines()
+    contents = stream.read()
     stream.close()
+    words = contents.splitlines()
     return words
 
 
@@ -45,6 +46,7 @@ def main():
         if has_won(word, letters):
             print("Gagné")
             return
+
 
 
 main()
