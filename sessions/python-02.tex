@@ -351,7 +351,8 @@ Avec la fonction \texttt{len()}:
 >>> liste = [1, 2, 3]
 >>> liste[0]   # ca commence a zero
 1
->>> liste[4] # erreur!
+>>> liste[4]
+IndexError
 \end{lstlisting}
 
 \vfill
@@ -464,7 +465,7 @@ Des clés et des valeurs:
 >>> scores["john"] = 12  # John marque deux points
 >>> scores["bob"] = 3  # Bob entre dans la partie
 >>> scores["personne"]
-Erreur!
+KeyError
 \end{lstlisting}
 \end{frame}
 
@@ -488,6 +489,8 @@ Erreur!
 >>> scores = {"john": 12, "bob": 23}
 >>> scores.pop("john")
 # {"bob': 23}
+>>> scores.pop("personne")
+KeyError
 \end{lstlisting}
 
 \end{frame}
@@ -503,11 +506,13 @@ Création avec la fonction \texttt{set()}:
 >>> sac = {}  # oups, c'est un dictionnaire vide!
 
 >>> sac = {"one", "two"} # un set avec deux strings
+>>> len(sac)  # len() fonctionne aussi avec les ensembles
+>>> 2
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Ajout d'un élement dans un ensoble}
+  \frametitle{Ajout d'un élement dans un ensemble}
 \begin{lstlisting}
 >>> sac = {"one", "two"}
 >>> sac.add("three"}
