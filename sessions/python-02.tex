@@ -21,12 +21,6 @@
 
 Note: \\~\\
 
-Les sources sont sur GitHub:
-
-\url{https://github.com/E2L/cours-python/tree/master/sources}. \\~\\
-
-
-Mais il vaut mieux recopier le code vous-mêmes.
 
 \end{frame}
 
@@ -77,6 +71,8 @@ Marche aussi avec \texttt{-=}, \texttt{*=} etc.
 \begin{frame}[fragile]
   \frametitle{Retour sur les strings}
 
+\texttt{\textbackslash n} sert à échapper les retours à la ligne:
+
 \begin{lstlisting}
 
 >>> text = "Je suis un message\nSur deux lignes")
@@ -90,26 +86,14 @@ Sur deux lignes
 \begin{frame}[fragile]
   \frametitle{Concaténation implicite}
 
+Pas besoin de `+` pour concaténer des "littéraux".
+
 \begin{lstlisting}
 
   >>> text = "Je suis une " "longue" " string"
   >>> text
   'Je suis une longue string'
 \end{lstlisting}
-
-\end{frame}
-
-
-\begin{frame}[fragile]
-  \frametitle{Concaténer des strings (2)}
-\begin{lstlisting}
-message = (
-    "ligne 1\n"
-    "ligne 2\n"
-)
-\end{lstlisting}
-
-Les parenthèse permettent d'aller à la ligne dans le code :)
 
 \end{frame}
 
@@ -277,6 +261,12 @@ def greet(name, shout=False):
 \begin{frame}[fragile]
   \frametitle{Note}
 \texttt{print()} est une fonction :)
+
+\vfill
+
+On dit qu'elle est "built-in", ou "native" en Français,
+parce que vous n'avez pas eu à l'implémenter.
+
 \end{frame}
 
 
@@ -310,14 +300,14 @@ def greet(name, shout=False):
 On peut mettre des types différents dans une même liste:
 
 \begin{lstlisting}
->>> pommes_et_carottes = [True, 2, "three"]
+>>> pommes_et_carottes = [True, 2, "trois"]
 \end{lstlisting}
 
 \vfill
 Et même des listes dans des listes:
 
 \begin{lstlisting}
->>> liste_de_liste = [[1, 2], ["one", "two"]]
+>>> liste_de_liste = [[1, 2], ["un", "deux"]]
 \end{lstlisting}
 
 
@@ -326,7 +316,7 @@ Et même des listes dans des listes:
 
 \begin{frame}[fragile]
   \frametitle{Connaître la taille d'une liste}
-Avec la fonction \texttt{len()}:
+Avec la fonction \texttt{len()} (encore un built-in).
 
 \vfill
 
@@ -441,7 +431,7 @@ Erreur!
 
 \begin{lstlisting}
 >>> message = "un deux trois"
->>> message.split()  # espaces
+>>> message.split()
 ["un", "deux", "trois"]
 \end{lstlisting}
 \end{frame}
@@ -514,8 +504,8 @@ Création avec la fonction \texttt{set()}:
 >>> sac = set()
 >>> sac = {}  # oups, c'est un dictionnaire vide!
 
->>> sac = {"one", "two"} # un set avec deux strings
->>> len(sac)  # len() fonctionne aussi avec les ensembles
+>>> sac = {"un", "deux"} # un ensemble de deux strings
+>>> len(sac)  # les ensembles ont une taille
 >>> 2
 \end{lstlisting}
 \end{frame}
@@ -523,20 +513,21 @@ Création avec la fonction \texttt{set()}:
 \begin{frame}[fragile]
   \frametitle{Ajout d'un élement dans un ensemble}
 \begin{lstlisting}
->>> sac = {"one", "two"}
->>> sac.add("three"}
-# {"one", "two", "three"}
->>> sac.add("one")
-# {"one", "two", "three"}  # pas de changement
+>>> sac = {"un", "deux"}
+>>> sac.add("trois"}
+# {"un", "deux", "trois"}
+>>> sac.add("un")
+# {"un", "deux", "trois"}  # pas de changement
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Autres opérations}
 \begin{lstlisting}
->>> s1 = {"one", "two"}
->>> s2 = {"one", "three"}
-# {"two"}
+>>> s1 = {"un", "deux"}
+>>> s2 = {"deux", "trois"}
+>>> s2.intersection(s1)
+# {"deux"}
 \end{lstlisting}
 
 Aussi:
@@ -544,7 +535,7 @@ Aussi:
 \begin{itemize}
   \item \texttt{update()}
   \item \texttt{union()}
-  \item \texttt{intersection()}
+  \item \texttt{difference()}
 \end{itemize}
 \end{frame}
 
@@ -553,7 +544,17 @@ Aussi:
   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
     Jeu du pendu
   \end{beamercolorbox}
+\end{frame}
 
+
+\begin{frame}[fragile]
+  \frametitle{Avant de commencer à coder}
+
+Coder sans réfléchir nuit à la qualité du code.
+
+\vfill
+
+Prenons le temps de la réflexion!
 \end{frame}
 
 
@@ -563,11 +564,11 @@ Aussi:
 \begin{itemize}
   \item Lire les mots possibles depuis un fichier texte
   \item Choisir un mot au hasard
-  \item Afficher un "hint"
+  \item Afficher un indice ("hint")
   \item Démarrer une boucle
     \begin{itemize}
       \item Demander une lettre
-      \item Afficher le "hint" mis à jour
+      \item Afficher l'indice mis à jour
       \item Vérfier si le jeu est fini
       \item Repartir au début de la boucle
     \end{itemize}
@@ -576,12 +577,23 @@ Aussi:
 \end{frame}
 
 \begin{frame}[fragile]
+  \frametitle{Une liste de mots Français}
+
+À télecharger ici:
+
+\url{https://github.com/E2L/cours-python/blob/master/sources/pendu.txt}.
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
   \frametitle{Une fonction par tâche}
 
 \begin{itemize}
   \item \texttt{read\_words()}
   \item \texttt{choose\_word()}
-  \item \texttt{display\_hint()}
+  \item \texttt{display\_indice()}
   \item \texttt{has\_won()}
 \end{itemize}
 
@@ -593,21 +605,43 @@ Aussi:
   \item Une liste pour les mots dans le fichier
   \item Un ensemble pour les bonnes lettre devinées
 \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{C'est parti!}
+
+Le moment est venu d'écrire le code.
+
+Les sources sont sur GitHub:
+
+\url{https://github.com/E2L/cours-python}. \\~\\
+
+Mais il vaut mieux recopier le code vous-mêmes.
 
 \end{frame}
+
 
 \begin{frame}[fragile]
   \frametitle{Implémentation: lire un fichier}
 
 \begin{itemize}
   \item \texttt{open()} renvoie un "objet fichier"
-  \item \texttt{read()} lit le fichier \textbf{en entier} et retourne une string
+  \item \texttt{file.read()} lit le fichier \textbf{en entier} et retourne une string
+  \item \texttt{file.close()} ferme le fichier
 \end{itemize}
 
+\begin{alertblock}{Note}
+  N'oubliez pas de fermer tous les fichiers que vous ouvrez!
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Implémentation: lire un fichier}
 
 \begin{lstlisting}
 def read_words():
-    stream = open("noms.txt")
+    stream = open("pendu.txt")
     contents = stream.read()
     stream.close()
     words = splitlines()
@@ -620,11 +654,15 @@ def read_words():
   \frametitle{Choisir un mot au hasard dans la liste}
 \begin{lstlisting}
 import random   # remember me?
+
 def choose_word(words):
     n = len(words)
     index = random.randint(0, n-1)
     return words[index]
 \end{lstlisting}
+
+Rappel: les index commencent à zéro et se terminent à \texttt{len - 1}.
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -649,10 +687,12 @@ _ac__
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{L'utilisateur a-t-il gagné?}
+  \frametitle{Find de partie}
 
-L'utilisateur a gagné si toutes les lettres ont
+Le joueur a gagné si toutes les lettres ont
 été devinées:
+
+\vfill
 
 \begin{lstlisting}
 def has_won(word, letters):
@@ -697,7 +737,24 @@ main()  # ne pas oublier de l'appeler!
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Pour la prochaine fois}
 
+Notez que le jouer \textbf{ne peut pas perdre}.
+
+\vfill
+
+Si vous le souhaitez, essayer d'adapter le code pour limiter le nombre d'essais:
+
+\begin{itemize}
+  \item Afficher le nombre d'essais restant à chaque coup
+  \item Afficher la réponse et un message d'erreur si le jouer a dépassé le
+    nombre maximum d'essais.
+\end{itemize}
+
+Envoyez-moi vos solutions à d.merej@gmail.com!
+
+\end{frame}
 
 
 \end{document}
