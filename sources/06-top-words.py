@@ -17,11 +17,11 @@ def get_word(chunk):
 
 def main():
     filename = sys.argv[1]
-    stream = open(filename, "r")
+    file = open(filename, "r")
 
     scores = {}
 
-    for line in stream.readlines():
+    for line in file.readlines():
         for chunk in line.split():
             word = get_word(chunk)
             if word:
@@ -30,7 +30,7 @@ def main():
                 else:
                     scores[word] += 1
 
-    stream.close()
+    file.close()
 
 
 main()

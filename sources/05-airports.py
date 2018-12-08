@@ -3,8 +3,8 @@ import sys
 
 def build_airport_dict():
     result = dict()
-    stream = open("airports.txt", "r")
-    contents = stream.read()
+    file = open("airports.txt", "r")
+    contents = file.read()
     lines = contents.splitlines()
     for line in lines:
         words = line.split(" ", maxsplit=1)

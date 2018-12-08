@@ -641,9 +641,9 @@ Mais il vaut mieux recopier le code vous-mêmes.
 
 \begin{lstlisting}
 def read_words():
-    stream = open("pendu.txt")
-    contents = stream.read()
-    stream.close()
+    file = open("pendu.txt")
+    contents = file.read()
+    file.close()
     words = splitlines()
     return words
 \end{lstlisting}
