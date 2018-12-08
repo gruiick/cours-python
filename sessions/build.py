@@ -16,7 +16,7 @@ def main():
         cmd.append("texi2pdf")
     else:
         cmd.append("pdflatex")
-    cmd.append(f"../python-{number}")
+    cmd.append(f"../python-{number}.tex")
     subprocess.run(cmd, cwd="build", check=True)
 
 
