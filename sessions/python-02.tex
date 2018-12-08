@@ -221,11 +221,15 @@ Notez l'utilisation des parenthèses pour \emph{appeler} la fonction
 def add(a, b):
     return a + b
 
-a = 1
-b = 2
-c = add(a, b)
-print(c)
+nombre_1 = 1
+nombre_2 = 2
+total = add(nombre_1, nombre_2)
+print(total)
 \end{lstlisting}
+
+\vfill
+
+Affiche \texttt{3}.
 
 \end{frame}
 
@@ -240,6 +244,9 @@ def greet(name, shout=False):
     return result
 
 >>> greet("John")
+'Hello, John'
+
+>>> greet("John", shout=False)  # meme resultat
 'Hello, John'
 
 >>> greet("Jane", shout=True)
@@ -367,6 +374,8 @@ Bonjour Charlie
 
 \end{frame}
 
+
+
 \begin{frame}[fragile]
   \frametitle{Test de présence}
 
@@ -379,6 +388,29 @@ Avec le mot-clé \texttt{in}:
 >>> "pomme" in fruits
 True
 >>> "orange" in fruits
+False
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Ça marche aussi avec les strings}
+Les strings sont \emph{presque} des liste de lettres:
+
+\begin{lstlisting}
+for letter in "vache":
+    print(letter)
+v
+a
+c
+h
+e
+\end{lstlisting}
+
+\begin{lstlisting}
+>>> "v" in "vache"
+True
+>>> 'x' in "vache"
 False
 \end{lstlisting}
 
@@ -418,15 +450,27 @@ Erreur!
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Découper une string en liste}
+  \frametitle{Découper une string en liste (1)}
 
 \begin{lstlisting}
->>> message = "un deux trois"
->>> message.split()
-["un", "deux", "trois"]
+>>> path = "documents/e2l/foo.py"
+>>> message.split("/")
+["documents", "e2l", "foo"]
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Découper une string en liste (2)}
+\begin{lstlisting}
+>>> texte = """"\
+ligne1
+ligne2
+ligne3
+"""
+>>>texte.splitlines()
+["ligne1", "ligne2", "ligne3"]
+\end{lstlisting}
+\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Dictionnaires}
@@ -449,28 +493,30 @@ Des clés et des valeurs:
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Insertion}
+  \frametitle{Accès}
 \begin{lstlisting}
 >>> scores = {"john": 10 }
->>> scores["john"] = 12  # John marque deux points
->>> scores["bob"] = 3  # Bob entre dans la partie
+>>> scores["john"]
+10
 >>> scores["personne"]
 KeyError
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Fusion de dictionnaires}
+  \frametitle{Modification}
 
 \begin{lstlisting}
->>> s1 = {"john": 12, "bob": 2}
->>> s2 = {"bob": 3, "charlie": 4}
->>> s1.update(s2)
->>> s1
-{"john": 12, "bob": 3, "charlie": 4}
+>>> scores["john"] = 12  # John marque deux points
+>>> scores["bob"] = 3  # Bob entre dans la partie
+>>> scores
+{"john": 12, "bob": 3}
 \end{lstlisting}
-\end{frame}
 
+\vfill
+
+Même code pour mettre à jour une clé et en créer une!
+\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Destruction}
@@ -710,19 +756,22 @@ while True:
     display_hint(word, letters)
     if has_won(word, letters):
         print("OK")
-        return
+        break  # interrompt la boucle parente
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Une tradition}
-Traditionnelement, on appelle ce genre de fonction \texttt{main()}:
+Traditionnellement, on appelle ce genre de fonction \texttt{main()}:
 
 \begin{lstlisting}
 def main():
     words = read_words()
     word = choose_word(words)
     ...
+    if has_won(words, letters):
+        print("Ok")
+        return    # sort de la fonction tout de suite
 
 main()  # ne pas oublier de l'appeler!
 \end{lstlisting}
@@ -731,7 +780,7 @@ main()  # ne pas oublier de l'appeler!
 \begin{frame}[fragile]
   \frametitle{Pour la prochaine fois}
 
-Notez que le jouer \textbf{ne peut pas perdre}.
+Notez que le joueur \textbf{ne peut pas perdre}.
 
 \vfill
 
