@@ -2,9 +2,9 @@ import random
 
 
 def read_words():
-    stream = open("noms.txt")
-    contents = stream.read()
-    stream.close()
+    file = open("pendu.txt")
+    contents = file.read()
+    file.close()
     words = contents.splitlines()
     return words
 
