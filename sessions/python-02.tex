@@ -18,15 +18,6 @@
 \frame{\titlepage}
 
 \begin{frame}
-
-Note: \\~\\
-
-
-\end{frame}
-
-
-\begin{frame}
-
 \frametitle{Plan}
 
 \begin{itemize}
@@ -593,7 +584,7 @@ Prenons le temps de la réflexion!
 \begin{itemize}
   \item \texttt{read\_words()}
   \item \texttt{choose\_word()}
-  \item \texttt{display\_indice()}
+  \item \texttt{display\_hint()}
   \item \texttt{has\_won()}
 \end{itemize}
 
@@ -644,7 +635,7 @@ def read_words():
     file = open("pendu.txt")
     contents = file.read()
     file.close()
-    words = splitlines()
+    words = contents.splitlines()
     return words
 \end{lstlisting}
 
