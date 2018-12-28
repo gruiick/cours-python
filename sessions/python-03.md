@@ -321,3 +321,218 @@ Plus de précisions dans la documentation:
 
 
 \url{https://docs.python.org/fr/3/library/string.html#format-specification-mini-language}.
+
+#
+
+\center
+None
+
+# Exprimer l'absence
+
+```python
+>>> scores = { "Anne": 42, "Bernard": 5 }
+>>> score1 = scores.get("Anne")
+>>> score1
+42
+>>> score2 = scores.get("Sophie")
+>>> score2
+<rien>
+```
+
+En réalité, `score2` a bien une valeur: `None`.
+
+L'interpréteur n'affiche rien quand la valeur est `None`
+
+
+# None est falsy
+
+```python
+element = dictionnaire.get(clé)
+if element:
+    ...
+```
+
+Mais ici, comment faire la différence entre:
+
+* la clé existe et vaut 0, une chaîne vide, ou quoique ce soit de falsy
+* la clé existe et vaut None
+* la clé n'existe pas
+
+# Tester l'appartenance
+
+Avec `in`:
+
+```python
+if clé in dictionnaire:
+    # La clé existe, pas d'erreur
+    valeur = dictionnaire[clé]
+```
+
+# Tester None
+
+Avec `is`:
+
+```python
+>>> scores = { "Anne": 42, "Bernard": 5 }
+>>> score1 = scores.get("Anne")
+>>> score1 is None
+False
+>>> score2 = scores.get("Sophie")
+>>> score2 is None
+True
+```
+
+# Lever l'ambiguïté
+
+Notez qu'ici Sophie peut être dans le dictionnaire, mais avec une valeur 'None',
+ou bien ne pas y être.
+
+Attention aux ambiguïtés, donc!
+
+Pas de méthode magique : il faut être au courant du problème.
+
+
+# Retourner None
+
+`None` est aussi la valeur par défaut lorsqu'il n'y a pas de `return`
+dans le corps de la fonction:
+
+```python
+>>> def ne_retourne_rien(a, b):
+>>>     c = a + b
+
+>>> résultat = ne_retourne_rien(3, 2)
+>>> résultat is None
+True
+```
+
+# Retourner None au autre chose
+
+```python
+def trouve_dans_liste1(liste, element):
+    if element in list:
+        return liste.index(element)
+
+
+def trouve_dans_liste2(liste, element):
+    if element in list:
+        return liste.index(element)
+    else:
+        return None
+```
+
+\vfill
+
+Les deux fonctions font la même chose! `trouve_dans_liste2` est simplement plus *explicite.*
+
+# Types optionnels
+
+```python
+def trouve_dans_liste(liste, element):
+    if element in list:
+        return liste.index(element)
+    else:
+        return None
+```
+On dit aussi que le type de retour de  `trouve_dans_liste` est *optionnel*.
+
+#
+
+\center Les tuples
+
+# Création de tuples
+
+
+```python
+mon_tuple = tuple()  # un tuple vide
+mon_tuple = ()  # aussi un tuple vide
+mon_tuple = (1, 2)  # un tuple à deux éléments
+```
+
+# Note
+
+C'est la virgule qui fait le tuple, pas les parenthèses
+(on n'utilise les parenthèse que pour l'esthétique)
+
+\vfill
+
+```python
+(1)
+# pas un tuple, juste le nombre 1 (entre parenthèses)
+(1,)
+# un tuple à un élément
+1,
+# le *même* tuple
+```
+
+# Indexation, test d'appartenance
+
+```python
+>>> couple = ('Starsky', 'Hutch')
+>>> couple[0]
+'Starsky'
+>>> couple[1]
+'Hutch'
+>>> couple[3]
+IndexError
+
+
+>>> 'Starsky' in couple
+True
+>>> 'Batman' in couple
+False
+```
+
+Rien de nouveau en principe :p
+
+# Déstructuration
+
+Créer plusieurs variables en une seule ligne
+
+```python
+>>> couple = ("Batman", "Robin")
+>>> héro, side_kick = couple
+>>> héro
+'Batman'
+>>> side_kick
+'Robin'
+
+>>> héro, side_kick, ennemi = couple
+ValueError 3 != 2
+>>> héro, = couple
+ValueError 1 != 2
+ValueError
+
+>>> héro = couple
+# OK, mais la variable héro est maintenant un tuple ...
+```
+
+# On peut aussi déstructurer des listes
+
+```python
+>>> fruits = ["pomme", "banane", "orange"]
+>>> premier, deuxième, troisième = fruits
+```
+
+# Retours multiple
+
+Retourner plusieurs valeurs:
+
+#TODO: better Exemple, pleaz
+
+```python
+def age_sexe_ville(pseudo):
+    age = ...
+    sexe = ..
+    ville = ...
+    return (age, sexe, ville)
+
+(a, s, v) = age_sexe_ville('kevin')
+# on dit aussi: unpacking
+```
+
+```
+a -> 14
+s -> M
+v -> Paris
+```
