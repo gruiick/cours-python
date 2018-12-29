@@ -1,30 +1,49 @@
 import sys
 
 
-def build_airport_dict():
-    result = dict()
+def lire_code():
+    if len(sys.argv) < 2:
+        print(
+            "Pas assez d'arguments",
+            file=sys.stderr
+        )
+        sys.exit(1)
+    return sys.argv[1].upper()
+
+def fabrique_dico():
+    dico = dict()
     file = open("airports.txt", "r")
-    contents = file.read()
-    lines = contents.splitlines()
-    for line in lines:
-        words = line.split(" ", maxsplit=1)
-        assert len(words) == 2
-        code = words[0]
-        name = words[1].strip()
-        result[code] = name
-    return result
+    contenu = file.read()
+    lignes = contenu.splitlines()
+    for ligne in lignes:
+        code = ligne[0:3]
+        nom = ligne[4:]
+        dico[code] = nom
+    return dico
+
+
+def trouve_code(code, dico):
+    if code in dico:
+        return dico[code]
+
+
+def affiche_erreur(code):
+    print(
+        "Code:", code,
+        "non trouvé",
+        file=sys.stderr
+    )
+    sys.exit(2)
 
 
 def main():
-    if len(sys.argv) < 2:
-        sys.exit("Not enough arguments")
-
-    airport_dict = build_airport_dict()
-    code = sys.argv[1]
-    if code not in airport_dict:
-        sys.exit("Code not found")
-    result = airport_dict[code]
-    print(result)
+    dico = fabrique_dico()
+    code = lire_code()
+    nom = trouve_code(code, dico)
+    if nom:
+        print(nom)
+    else:
+        affiche_erreur(code)
 
 
 main()
