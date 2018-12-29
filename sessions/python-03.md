@@ -1,13 +1,151 @@
 % Programmation avec Python (chapitre 3)
 % Dimitri Merejkowsky
 
-\centering
-Retours sur le chapitre 2
+
+\center \huge None
+
+# Exprimer l'absence
+
+Exemple: clé non présente dans un dictionnaire:
+
+```python
+>>> scores = { "Anne": 42, "Bernard": 5 }
+>>> score1 = scores.get("Anne")
+>>> score1
+42
+>>> score2 = scores.get("Sophie")
+>>> score2
+<rien>
+```
+
+En réalité, `score2` a bien une valeur: `None`.
+
+L'interpréteur n'affiche rien quand la valeur est `None`
+
+
+# None est ambigu
+
+None est `falsy`, tout comme 0, False et les listes vides:
+
+```python
+element = dictionnaire.get(clé)
+if not element:
+    ...
+```
+
+Mais ici, comment faire la différence entre:
+
+* la clé existe et vaut None
+* la clé existe et est falsy
+* la clé n'existe pas ?
+
+# Solution 1: tester l'appartenance
+
+Avec `in`:
+
+```python
+if clé in dictionnaire:
+    # La clé existe, pas d'erreur
+    valeur = dictionnaire[clé]
+```
+
+# Solution 2: tester None
+
+Avec `is`:
+
+```python
+>>> scores = { "Anne": 42, "Bernard": 5 }
+>>> score1 = scores.get("Anne")
+>>> score1 is None
+False
+>>> score2 = scores.get("Sophie")
+>>> score2 is None
+True
+```
+
+
+# Retourner None
+
+`None` est aussi la valeur par défaut lorsqu'il n'y a pas de `return`
+dans le corps de la fonction:
+
+```python
+>>> def ne_retourne_rien(a, b):
+>>>     c = a + b
+
+>>> résultat = ne_retourne_rien(3, 2)
+>>> résultat is None
+True
+```
+
+# Retourner None (2)
+
+On dit aussi que la fonction est une *procédure*.
+
+On a déjà écrit des procédures: dans `pendu.py`, `display_hint()` et `main()`
+ne retournaient rien.
+
+# Retourner None au autre chose
+
+```python
+def trouve_dans_liste1(liste, element):
+    if element in list:
+        return liste.index(element)
+
+
+def trouve_dans_liste2(liste, element):
+    if element in list:
+        return liste.index(element)
+    else:
+        return None
+```
+
+\vfill
+
+Les deux fonctions font la même chose : `trouve_dans_liste2` est simplement plus *explicite.*
+
+# Types optionnels
+
+```python
+def trouve_dans_liste(liste, element):
+    if element in list:
+        return liste.index(element)
+    else:
+        return None
+```
+On dit aussi que le type de retour de  `trouve_dans_liste` est *optionnel*.
 
 #
 
-\centering
-Retour sur les listes
+\centering \huge Retour sur les listes
+
+# Méthodes
+
+```python
+fruits = ["pomme", "banane"]
+fruits.append("orange")
+```
+
+Quand on écrit `fruits.append("orange")`, on peut voir `append()`
+comme une "fonction" qui prendrait `fruits` en argument implicite
+(avant le `.`), et `orange` en argument explicite.
+
+On appelle ce genre de fonction une **méthode**.
+
+# clear()
+
+Pour vider une liste:
+
+```python
+>>> fruits = ["pomme", "banane"]
+>>> fruits.clear()
+>>> fruits
+[]
+```
+
+Notez que la méthode `clear()` ne renvoie rien!
+La liste est modifiée *sur place*.
+
 
 # extend()
 
@@ -30,9 +168,11 @@ Peut aussi s'écrire `+=`
 [1, 2, 3, 4]
 ```
 
+
 # pop()
 
-`pop()` existe aussi pour les listes:
+On a vu la méthode `pop()` pour les dictionnaires, mais elle existe
+aussi pour les listes:
 
 \vfill
 
@@ -42,22 +182,16 @@ Peut aussi s'écrire `+=`
 'pomme'
 >>> fruits  # Et modifie la liste
 ["banane"]
+```
 
->>> vide = list()
->>> vide.pop()
+# pop() sur liste vide
+
+```python
+>>> liste_vide = list()
+>>> liste_vide.pop()
 IndexError
 ```
 
-# clear()
-
-Pour vider une liste:
-
-```python
->>> fruits = ["pomme", "banane"]
->>> fruits.clear()
->>> fruits
-[]
-```
 
 # index()
 
@@ -85,99 +219,6 @@ Pour compter le nombre d'occurrences d'un élément
 0
 ```
 
-
-# sort()
-
-Pour trier une liste.
-
-\vfill
-
-* Par ordre naturel
-
-```python
->>> nombres = [2, 3, 1, 5]
->>> nombres.sort()
->>> nombres
-[1, 2, 3, 5]
-```
-
-\vfill
-
-* Par ordre alphabétique
-
-```python
->>> mots = ["abeille", "faucon", "chat"]
->>> mots.sort()
-['abeille', 'chat', 'faucon']
-```
-
-# Ordre lexicographique
-
-Pour chaque "liste-élément" on compare le premier élément.
-S'il y a égalité, on regarde le deuxième élément, etc:
-
-```python
->>> composite = [["chat", 1], ["abeille", 2], ["chat", 3]]
->>> composite.sort()
-[['abeille', 2], ['chat', 1], ['chat', 3]]
-```
-
-\vfill
-
-L'ordre alphabétique est l'ordre lexicographique pour les chaînes de caractères :)
-
-# Attention!
-
-```python
->>> mauvaise_liste = ["un", 2]
->>> mauvaise_liste.sort()
-TypeError
-```
-
-
-# Comparer autrement
-
-Trier les mots par leur taille
-
-* Avec l'argument `key`
-
-\vfill
-
-```python
-def taille(mot):
-    return len(mot)
-
-mots = ["chat", "abeille", "faucon"]
-mots.sort(key=taille)
->>> mots
-["chat", "faucon", "abeille"]
-```
-
-# Lambda
-
-Sert définir une fonction sans utiliser `def`
-
-```python
->>> retourne_42 = lambda: 42  # pas d'argument
->>> retourne_42()
-42
->>> ajoute_deux = lambda x: x + 2  # un seul argument
->>> ajoute_deux(3)
-5
->>> multiplie = lambda x, y: x* y  # deux arguments
->>> multiplie(2, 3)
-6
-```
-Note: le corps de la fonction doit tenir en une seule ligne
-
-# Utilisation avec sort
-
-```python
->>> mots = ["chat", "abeille", "faucon"]
->>> mots.sort(key=lambda x: len(x))
->>> mots
-["chat", "faucon", "abeille"]
-```
 
 # Indexer des listes
 
@@ -214,14 +255,19 @@ Ou "faire des slices", ou "slicer".
 ['d', 'e']
 >>> lettres[1:-2]  # fin négative
 ['b', 'c']
->>> lettres[:]  # une copie
-['a', 'b', 'c', 'd', 'e']
 ```
+
 
 #
 
-\centering
-Retour sur les strings
+\centering \huge Retour sur les strings
+
+# Rappel
+
+On a vu que les strings étaient "presque" des liste de caractères.
+
+Par exemple, on peut itérer sur les lettres d'un mot avec: `for lettre
+in mot`.
 
 # index() et count() marchent aussi
 
@@ -235,7 +281,7 @@ Retour sur les strings
 
 # Trancher des chaînes de caractères
 
-Ou slicer des strings:
+On peu aussi slicer des strings:
 
 \vfill
 
@@ -249,290 +295,359 @@ Ou slicer des strings:
 'monde'
 ```
 
+# Les strings sont immuables
 
-# Formater des chaînes de caractères
-
-Problème:
-
-\vfill
+Mais on ne **peut pas** modifier une string "sur place".
 
 ```python
->>> nom = "Ford"
->>> résultat = 42
->>> message = "Bonjour, " + nom + ". "
->>> message += "La réponse est: " + str(résultat) + "."
->>> message
-'Bonjour, Ford. La réponse est: 42.'
+>>> message = "Bonjour, monde !"
+>>> message[-1] = "?"
+TypeError
 ```
-
-\vfill
-
-Ce n'est pas très lisible!
-
-# format()
-
-Solution: utiliser un "template" et la méthode `format()`
-
-\vfill
 
 ```python
->>> nom = "Ford"
->>> résultat = 42
->>> template = "Bonjour, {}. La réponse est: {}"
->>> message = template.format(nom, résultat)
->>> message
-'Bonjour, Ford. La réponse est: 42.'
+>>> message = "Bonjour, monde !"
+>>> message.clear()
+AttributeError
 ```
-
-# format() avancé
-
-On peut aussi nommer les remplacements:
-
-```python
-template = "Bonjour, {nom}. La réponse est: {résultat}"
-template.format(nom="Ford", résultat=42)
-```
-
-# format() avancé
-
-On peut aussi faire des alignements et du "padding":
-
-\vfill
-
-```python
-template = "{name:>10}: {score:03}"
-print(template.format(name="Alice", score=42))
-print(template.format(name="Bob", score=5))
-```
-
-```
-     Alice: 042
-       Bob: 005
-```
-
-# Explications
-
-Le texte dans les accolades après le `:` est un mini-langage de spécification de format:
-
-* `>10` signifie: "aligner a droite, taille maximale 10"
-* `03` signifie: "rajouter des zéros en début de nombre jusquà atteindre 3 chiffres".
-
-Plus de précisions dans la documentation:
-
-
-\url{https://docs.python.org/fr/3/library/string.html#format-specification-mini-language}.
 
 #
 
-\center
-None
+\centering \huge La ligne de commande
 
-# Exprimer l'absence
+# Schéma
 
-```python
->>> scores = { "Anne": 42, "Bernard": 5 }
->>> score1 = scores.get("Anne")
->>> score1
-42
->>> score2 = scores.get("Sophie")
->>> score2
-<rien>
+![programme](programme.png)
+
+# Entrée / sortie
+
+3 canaux:
+
+* Une entrée qu'on peut lire (`stdin`)
+* Deux sorties:
+    * Sortie normale (ou standard) (`stdout`)
+    * Sortie d'erreur (`stdout`)
+
+
+# Accès en Python
+
+* Pour lire stdin: `input()`
+* Pour écrire dans stdout: `print()`
+* Pour écrire dans stderr: pas de fonction native
+
+# Accès en Python (2)
+
+Rajouter `import sys` en haut du fichier, puis:
+
+* `sys.stdin.read()`
+* `sys.stout.write()`
+* `sys.stderr.write()`
+
+On peut aussi utiliser:
+
+`print("erreur", file=sys.stderr)`
+
+
+# Accès depuis l'invite de commande
+
+On dit aussi *shell*, ou *CLI* (pour *command line interface*).
+
+* stdin: Taper quand le shell vous laisse la main, finir par 'entrée'
+* stdout et stderr sont affichés en même temps pas défaut
+
+# Rediriger stdout
+
+Linux , macOS, Windows:
+
+```
+python3 fichier.py > output.txt
 ```
 
-En réalité, `score2` a bien une valeur: `None`.
-
-L'interpréteur n'affiche rien quand la valeur est `None`
+stdout sera écrit dans `output.txt`, et seul `stderr` sera visible.
 
 
-# None est falsy
+# Code de retour
 
-```python
-element = dictionnaire.get(clé)
-if element:
-    ...
+
+* 0 quand tout va bien
+* un autre entier quand quelque chose va mal
+
+\vfill
+
+> Toutes les familles heureuses se ressemblent, mais chaque famille
+> malheureuse l'est à sa façon.
+>
+>    Tolstoï
+
+# Code de retour
+
+Les valeurs d'erreur possibles sont en général présentes
+dans la documentation.
+
+Note: **ne pas retourner 0** en cas d'erreur, même minime, et même si
+un message a été affiché.
+
+C'est important pour pourvoir composer plusieurs programmes (on y
+reviendra).
+
+
+# Afficher le code retour depuis le shell
+
+```bash
+# Linux, macOS
+$ python3 code.py
+$ echo $?
+0
 ```
 
-Mais ici, comment faire la différence entre:
-
-* la clé existe et vaut 0, une chaîne vide, ou quoique ce soit de falsy
-* la clé existe et vaut None
-* la clé n'existe pas
-
-# Tester l'appartenance
-
-Avec `in`:
-
-```python
-if clé in dictionnaire:
-    # La clé existe, pas d'erreur
-    valeur = dictionnaire[clé]
+```bash
+# Windows
+> python3 code.py
+> echo %ERRORLEVEL%
+0
 ```
 
-# Tester None
+# Gestion du code de retour en Python
 
-Avec `is`:
+Par défaut, le code de retour est 0.
+
+On peut terminer le programme avec `sys.exit()` et un numéro:
 
 ```python
->>> scores = { "Anne": 42, "Bernard": 5 }
->>> score1 = scores.get("Anne")
->>> score1 is None
-False
->>> score2 = scores.get("Sophie")
->>> score2 is None
-True
+import sys
+
+def fait_quelque_chose():
+     if erreur:
+         sys.exit(1)
 ```
 
-# Lever l'ambiguïté
+Note: dans un vrai programme, veillez à construire et afficher un
+message utile!
 
-Notez qu'ici Sophie peut être dans le dictionnaire, mais avec une valeur 'None',
-ou bien ne pas y être.
+# Gestion du code de retour en Python (2)
 
-Attention aux ambiguïtés, donc!
-
-Pas de méthode magique : il faut être au courant du problème.
-
-
-# Retourner None
-
-`None` est aussi la valeur par défaut lorsqu'il n'y a pas de `return`
-dans le corps de la fonction:
+`sys.exit(0)` pour terminer immédiatement et sans erreur.
 
 ```python
->>> def ne_retourne_rien(a, b):
->>>     c = a + b
+import sys
 
->>> résultat = ne_retourne_rien(3, 2)
->>> résultat is None
-True
+def antivirus():
+    problèmes = cherche_problèmes()
+
+    if not problèmes:
+        print("Aucun problème trouvé")
+        sys.exit(0)
+
+    for problème in problèmes:
+        # traite chaque problème un à un
+        ...
+````
+
+# Gestion du code de retour en Python - un raccourci
+
+On peut passer le message d'erreur directement à `sys.exit()` avec
+une string au lieu d'un numéro:
+
+```python
+if erreur:
+    sys.exit("Une erreur est survenue")
+
 ```
 
-# Retourner None au autre chose
+# Les arguments d'un programme
+
+Pour lancer un programme, on tape son nom, suivi de mots séparés pas
+des espaces.
+
+En Python, ça donne
+
+```
+python3 fichier.py arg1 arg2
+```
+
+# Accès aux arguments en Python
+
+* `import sys`
+* `sys.argv`
+
+`sys.argv` est une liste, et son premier argument est
+*toujours* le nom du fichier exécuté.
+
+# Exemple
 
 ```python
-def trouve_dans_liste1(liste, element):
-    if element in list:
-        return liste.index(element)
-
-
-def trouve_dans_liste2(liste, element):
-    if element in list:
-        return liste.index(element)
-    else:
-        return None
+# Dans foo.py
+import sys
+print("Fichier source:", sys.argv[0])
+print("Reste des arguments:", sys.argv[1:])
 ```
 
 \vfill
 
-Les deux fonctions font la même chose! `trouve_dans_liste2` est simplement plus *explicite.*
-
-# Types optionnels
-
-```python
-def trouve_dans_liste(liste, element):
-    if element in list:
-        return liste.index(element)
-    else:
-        return None
 ```
-On dit aussi que le type de retour de  `trouve_dans_liste` est *optionnel*.
+$ python3 foo.py un deux
+Fichier source: foo.py
+Reste des arguments: ['un', 'deux']
+```
 
 #
 
-\center Les tuples
+\center \huge Cas pratique
 
-# Création de tuples
+# Squelette
 
+Décodeur de noms d'aéroports
+
+* Lire un fichier avec les codes et les noms associés
+* En faire un dictionnaire
+* Utiliser le premier argument comme nom de code
+* Afficher le nom complet de l'aéeroport, ou une
+  erreur s'il est inconnu.
+
+# Différentes approches
+
+* Bottom-up (approche *ascendante*)
+* Top-Bottom (approche *descendante*)
+
+# Approches bottom-up
+
+Utilisé pour le pendu:
+
+* construire des blocs élémentaires (les petites fonctions `has_won`,
+  `display_hint`, etc...)
+* les assembler pour faire un tout plus "haut niveau" (le corps de la
+  fonction `main()`
+
+# Approche top-down
+
+Essayons de partir du plus "haut niveau" et de "descendre" vers les
+blocs élémentaires
+
+# Code
 
 ```python
-mon_tuple = tuple()  # un tuple vide
-mon_tuple = ()  # aussi un tuple vide
-mon_tuple = (1, 2)  # un tuple à deux éléments
+def main():
+    dico = fabrique_dico()
+    code = lire_code()
+    nom = trouve_code(code, dico)
+    if nom:
+        print(nom)
+    else:
+        affiche_erreur(code)
+
+main()
 ```
 
-# Note
+On a fait comme si le code dont on avait besoin était déjà écrit :)
 
-C'est la virgule qui fait le tuple, pas les parenthèses
-(on n'utilise les parenthèse que pour l'esthétique)
+# lire_code()
+
+```python
+import sys
+
+def lire_code():
+    if len(sys.argv) < 2:
+        print(
+            "Pas assez d'arguments",
+            file=sys.stderr
+        )
+        sys.exit(1)
+    argument = sys.argv[1]
+    # On accepte `cdg` ou `CDG`.
+    code = argument.upper()
+    return code
+```
+
+
+# fabrique_dico()
+
+Le fichier `airports.txt` ressemble à ça:
+
+```
+CDG Paris-Charles de Gaulle
+ORY Paris-Orly
+NCE Nice-Côte d'Azur
+...
+```
+
+Téléchargez-le ici:
+
+\url{https://raw.githubusercontent.com/E2L/cours-python/master/sources/airports.txt}
+
+Clique droit / Enregistrer sous / airports.txt
+
+# fabrique_dico() - 2
+
+```python
+def fabrique_dico():
+    dico = dict()
+    fichier = open("airports.txt", "r")
+    contenu = fichier.read()
+    fichier.close()
+
+    lignes = contenu.splitlines()
+    for ligne in lignes:
+        code = ligne[0:3]
+        nom = ligne[4:]
+        dico[code] = nom
+    return dico
+```
+
+# trouve_code()
+
+```python
+def trouve_code(code, dico):
+    if code in dico:
+        return dico[code]
+```
 
 \vfill
 
-```python
-(1)
-# pas un tuple, juste le nombre 1 (entre parenthèses)
-(1,)
-# un tuple à un élément
-1,
-# le *même* tuple
-```
+Notez le `return None` implicite!
 
-# Indexation, test d'appartenance
+
+# affiche_erreur()
 
 ```python
->>> couple = ('Starsky', 'Hutch')
->>> couple[0]
-'Starsky'
->>> couple[1]
-'Hutch'
->>> couple[3]
-IndexError
-
-
->>> 'Starsky' in couple
-True
->>> 'Batman' in couple
-False
+def affiche_erreur(code):
+    print(
+        "Code:", code,
+        "non trouvé",
+        file=sys.stderr
+    )
+    sys.exit(2)
 ```
 
-Rien de nouveau en principe :p
+Notes:
 
-# Déstructuration
+* on affiche le code qu'on a pas trouvé (c'est utile de l'avoir dans
+  le message)
+* valeur d'erreur différente du cas où il n'y avait pas assez
+  d'arguments
 
-Créer plusieurs variables en une seule ligne
+# Rappel du `main()`
 
-```python
->>> couple = ("Batman", "Robin")
->>> héro, side_kick = couple
->>> héro
-'Batman'
->>> side_kick
-'Robin'
-
->>> héro, side_kick, ennemi = couple
-ValueError 3 != 2
->>> héro, = couple
-ValueError 1 != 2
-ValueError
-
->>> héro = couple
-# OK, mais la variable héro est maintenant un tuple ...
-```
-
-# On peut aussi déstructurer des listes
-
-```python
->>> fruits = ["pomme", "banane", "orange"]
->>> premier, deuxième, troisième = fruits
-```
-
-# Retours multiple
-
-Retourner plusieurs valeurs:
-
-#TODO: better Exemple, pleaz
-
-```python
-def age_sexe_ville(pseudo):
-    age = ...
-    sexe = ..
-    ville = ...
-    return (age, sexe, ville)
-
-(a, s, v) = age_sexe_ville('kevin')
-# on dit aussi: unpacking
-```
 
 ```
-a -> 14
-s -> M
-v -> Paris
+def main():
+    dico = fabrique_dico()
+    code = lire_code()
+    nom = trouve_code(code, dico)
+    if nom:
+        print(nom)
+    else:
+        affiche_erreur(code)
+
+main()
 ```
+
+#
+
+\centering \huge Démo
+
+
+# Pour la prochaine fois
+
+Prenez le temps de réfléchir :)
+
+Quelle approche avez-vous préféré ? Pourquoi ?
