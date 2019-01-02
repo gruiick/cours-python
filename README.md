@@ -1,11 +1,10 @@
 # Cours Python pour E2L
 
-## Plan
+Ce dépôt contient:
 
-* [01 - introduction](sessions/01.md)
-* [02 - plus de concepts](sessions/02.md)
+* Les sources de tous les supports de cours donnés à l'E2L, dans le
+  répertoire [sessions](sessions). Les présentations elles mêmes sont
+  disponibles dans la section "Ressources" du [site de l'E2L]() si vous
+  êtes à jour de cotisation :)
 
-
-## Notes
-
-* [notes](notes.md)
+* Les sources des exemples le répertoire [sources](sources)
