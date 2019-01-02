@@ -8,3 +8,6 @@ Ce dépôt contient:
   êtes à jour de cotisation :)
 
 * Les sources des exemples le répertoire [sources](sources)
+
+* Les répertoires `notes` in `fragments` sont à usage interne, et servent
+  à préparer les prochaines sessions.
