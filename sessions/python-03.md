@@ -317,7 +317,7 @@ AttributeError
 
 # Schéma
 
-![programme](programme.png)
+![programme](img/programme.png)
 
 # Entrée / sortie
 
@@ -646,8 +646,8 @@ main()
 \centering \huge Démo
 
 
-# Pour la prochaine fois
+# Place au débat
 
-Prenez le temps de réfléchir :)
+Quelle approche avez-vous préférée entre bottom-up et top-down?
 
-Quelle approche avez-vous préféré ? Pourquoi ?
+Pourquoi?
