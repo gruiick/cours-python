@@ -1,12 +1,10 @@
-# Cours Python
-
-Sessions:
-
-* [01](sessions/01.md)
-* [02](sessions/02.md)
-
 # Sujets à évoquer plus tard
 
+* [tuples, mutables et immutables](fragments/tuples.md)
+* [tris, lamdbas](fragments/sort.md)
+* [formatage de strings](fragments/format.md)
+* itération sur les dictionnaires
+* liste par compréhension et filtres
 
 * le mot-clé 'with'
 * modules et packages

@@ -90,3 +90,14 @@ Note: le corps de la fonction doit tenir en une seule ligne
 >>> mots
 ["chat", "faucon", "abeille"]
 ```
+
+
+# sorted()
+
+```python
+b = a.copy()
+b.sort()
+
+# or
+b = sorted(a)
+```
