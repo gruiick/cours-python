@@ -1,4 +1,6 @@
-# Sujets à évoquer plus tard
+Ce fichier contient diverses notes utiles à la préparation des futurs cours.
+
+# Sujets à évoquer
 
 * [tuples, mutables et immutables](fragments/tuples.md)
 * [tris, lamdbas](fragments/sort.md)

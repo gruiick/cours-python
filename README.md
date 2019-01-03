@@ -9,5 +9,5 @@ Ce dépôt contient:
 
 * Les sources des exemples le répertoire [sources](sources)
 
-* Les répertoires `notes` in `fragments` qui sont à usage interne, et servent
+* Le fichier `notes.md` et le répertoire  `fragments` qui sont à usage interne, et servent
   à préparer les prochaines sessions.
