@@ -354,7 +354,7 @@ AttributeError
 Rajouter `import sys` en haut du fichier, puis:
 
 * `sys.stdin.read()`
-* `sys.stout.write()`
+* `sys.stdout.write()`
 * `sys.stderr.write()`
 
 On peut aussi utiliser:
@@ -521,7 +521,7 @@ Décodeur de noms d'aéroports
 # Différentes approches
 
 * Bottom-up (approche *ascendante*)
-* Top-Bottom (approche *descendante*)
+* Top-Down (approche *descendante*)
 
 # Approches bottom-up
 
