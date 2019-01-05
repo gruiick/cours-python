@@ -7,7 +7,7 @@ Ce dépôt contient:
   disponibles dans la section "Ressources" du [site de l'E2L]() si vous
   êtes à jour de cotisation :)
 
-* Les sources des exemples le répertoire [sources](sources)
+* Les sources des exemples dans le répertoire [sources](sources)
 
 * Le fichier `notes.md` et le répertoire  `fragments` qui sont à usage interne, et servent
   à préparer les prochaines sessions.
