@@ -1,9 +1,9 @@
 def add(a, b):
     return a + b
 
-a = 1
-b = 2
-c = add(a, b)
+nombre_1 = 1
+nombre_2 = 2
+c = add(nombre_1, nombre_2)
 print(c)
 
 
