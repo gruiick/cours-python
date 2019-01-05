@@ -4,7 +4,7 @@ secret = random.randint(0, 100)
 
 print("Devine le nombre auquel je pense")
 while True:
-    response = input()
+    response = input("votre reponse: ")
     response = int(response)
 
     if response == secret:
