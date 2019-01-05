@@ -4,23 +4,37 @@
 
 \center \huge None
 
-# Exprimer l'absence
-
-Exemple: clé non présente dans un dictionnaire:
+# Jouons avec les dictionnaires
 
 ```python
 >>> scores = { "Anne": 42, "Bernard": 5 }
->>> score1 = scores.get("Anne")
->>> score1
+>>> scores["Anne"]
 42
->>> score2 = scores.get("Sophie")
->>> score2
+>>> scores.get("Anne")
+42
+
+>>> scores["Sophie"]
+KeyError
+>>> scores.get("Sophie")
 <rien>
 ```
 
-En réalité, `score2` a bien une valeur: `None`.
+Que se passe-t-il?
 
-L'interpréteur n'affiche rien quand la valeur est `None`
+# Exprimer l'absence
+
+En réalité, `get()` retourne None quand la clé n'est pas présente
+
+\vfill
+
+```python
+>>> a = 42
+>>> a
+42
+>>> b = None
+>>> b
+<rien>
+```
 
 
 # None est ambigu
