@@ -23,6 +23,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Idées d'ateliers
 
+* Persistence de données (écriture/lecture de fichiers). Stocker les scores du pendu?
+
 Parser du RSS et télécharger les émissions:
 
   * Source: https://github.com/dmerejkowsky/pypodget/
