@@ -1,10 +1,7 @@
-% notions: tuples, immuables & mutables, passage par référence,
-% copie, retour multiples
+% Programmation avec Python (chapitre 4)
+% Dimitri Merejkowsky
 
-#
-
-\center Les tuples
-
+\center \huge Les tuples
 
 # Création de tuples
 
@@ -18,7 +15,7 @@ mon_tuple = (1, 2)  # un tuple à deux éléments
 # Note
 
 C'est la virgule qui fait le tuple, pas les parenthèses
-(on n'utilise les parenthèse que pour l'esthétique)
+(on n'utilise les parenthèses que pour l'esthétique)
 
 \vfill
 
@@ -135,8 +132,6 @@ Les méthodes qui modifieraient le tuple n'existent pas:
 >>> couple.clear()
 AttributeError
 ```
-
-
 
 #
 
