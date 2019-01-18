@@ -104,7 +104,7 @@ def tire_carte(():
     return (valeur, couleur)
 
 (v, c) = tire_carte()
-print("{} de {}", v, c)
+print(v, "de", c)
 # 10 de trèfle
 ```
 
@@ -195,9 +195,237 @@ x = get_max(ma_liste)
 * on peut aussi utiliser la fonction native "max()"
 * on peut aussi utiliser une slice: `autre_liste = liste[:]`
 
-# Conclusion
 
-Une fonction ne peut modifier la valeur de ses arguments qui s'ils sont
+# Valeur par défaut
+
+```python
+def exemple_bizarre(l=[1, 2, 3]):
+    l.append(4)
+    return l
+
+>>> exemple_bizarre()
+[1, 2, 3, 4]
+>>> exemple_bizarre()
+[1, 2, 3, 4, 4]
+```
+
+* Les arguments par défaut ne sont évalué qu'une seule fois)
+
+# Valeur par défaut (2)
+
+Parfois, ce comportement *peut* être voulu
+
+\vfill
+
+```python
+def grosse_fonction(x, cache=dict()):
+    if x in cache:
+        return cache[x]
+    else:
+        resultat = ... # plein de calculs
+        cache[x] = resultat
+        return resultat
+```
+
+# Valeur par défaut (3)
+
+Sinon, remplacez l'argument mutable par un argument immutable
+
+```python
+def exemple_bizarre(l=None):
+    if not l:
+        l = [1, 2, 3]
+    l.append(4)
+    return l
+
+>>> exemple_bizarre()
+[1, 2, 3, 4]
+>>> exemple_bizarre()
+[1, 2, 3, 4, 4]
+```
+
+# Conclusions
+
+* Une fonction ne peut modifier la valeur de ses arguments qui s'ils sont
 mutables.
 
-Toutes les copies doivent être explicites
+* Toutes les copies doivent être explicites
+
+#
+
+\center Itérer sur les dictionnaires
+
+
+# Itérer sur les clés
+
+```python
+scores = { "alice": 3, "bob": 4 }
+for prénom in scores:
+    score = scores[prénom]
+    print(prénom, score)
+```
+
+\vfill
+Même chose avec la méthode `.keys()`
+
+```python
+for prénom in scores.keys():
+    ...
+
+```
+
+# Itérer sur les valeurs
+
+```python
+scores = { "alice": 3, "bob": 4 }
+for score in scores.values():
+    print(score)
+```
+
+# Itérer sur les clés *et* les valeurs
+
+```python
+for (prénom, score) in scores.items()
+    print(prénom, score)
+```
+
+\vfill
+
+Notes:
+
+* on a gagné une ligne par rapport au premier exemple.
+* `items()` renvoie une liste de tuples
+
+# Presque des listes
+
+Les méthodes `.keys()`, `.values()` et `.items()` ne retournent pas des listes,
+mais des "vues".
+
+```python
+>>> prénoms = scores.keys()
+>>> prénoms[1]
+TypeError: 'dict_keys' object does not support indexing
+```
+
+\vfill
+
+On détaillera cette question plus tard.
+
+# Forcer des listes
+
+En attendant, vous pouvez convertir les vues en listes:
+
+```python
+>>> prénoms = scores.keys()
+>>> premier_prénom = list(prénoms)[0]
+```
+
+#
+
+\center \huge La programmation n'est pas un art solitaire
+
+# Le mythe
+
+> Un développeur dans son garage a une idée géniale,
+> l'implémente tout seul et gagne un tas de pognon.
+
+\vfill
+
+Ça n'existe pas (ou plus)
+
+
+* Sauf dans les fictions
+* Quasiment mon seul reproche à propos de la série *Silicon Valley*
+
+# La code review
+
+Ce qu'on a fait avec l'exercice de la dernière fois :)
+
+# Par mail - envoi
+
+```text
+Bonjour Alice, voici une nouvelle fonction:
+
+def ma_fonction():
+    ma_liste = ...
+
+    if len(ma_liste) == 0:
+        # la liste est vide
+
+
+
+signé: Bob
+```
+
+# Par mail - réponse
+
+```text
+Bonjour Bob, et merci pour ta contribution!
+
+def ma_fonction():
+    ma_liste = ...
+
+    if len(ma_liste) == 0:
+        # la liste est vide
+        >> Ici tu pourrais mettre `if not ma_liste`
+
+
+signé Alice
+```
+
+# Par mail - envoi 2
+
+```text
+Bonjour Alice, voici une nouvelle version de mes changements
+
+def ma_fonction():
+    ma_liste = ...
+
+    if not ma_liste:
+        ...
+```
+
+# Code review
+
+Croyez-le ou nom, plein de projets fonctionnent comme ça.
+
+Pas d'outil spécifiques, on peut tout faire avec des e-mail
+et du texte brut
+
+# D'autres outils
+
+Des outils essayent de "simplifier" le processus. En vrac: `gerrit`, `github`, `gitlab` ...
+
+Mais dans son essence le concept n'a pas changé
+
+#
+
+\center \huge Un atelier
+
+# Mob programming
+
+Ou programmation en foule
+
+# Les règles
+
+* Un pilote: le seul autorisé à modifier le code
+* Un copilote: indique au pilote quoi faire
+* On tourne toutes les 15 minutes
+
+# Le challenge
+
+On va prendre deux discours politique et faire de l'analyse automatique de texte dessus.
+
+Notamment, repérer les mots qui reviennent le plus
+
+# Jean Véronis - aparté
+
+Un universitaire malheureusement décédé s'en était fait une spécialité.
+
+Vous pouvez lire *Les Mots du Président* si ça vous dit.
+
+Il utilisait d'autres outils, bien sûr, mais ce qu'on va faire n'est pas si loin
+
+# Squelette du code
+
+Parlons-en!
