@@ -439,4 +439,11 @@ Il utilisait d'autres outils, bien sûr, mais ce qu'on va faire n'est pas si loi
 
 #
 
-#
+# À vous maintenant
+
+Résultat de l'atelier:
+
+https://github.com/E2L/cours-python/blob/master/sources/06-top-words.py
+
+À vous de corriger les bugs et de m'envoyer vos solutions par mail
+(d.merej@gmail.com)
