@@ -1,6 +1,9 @@
 % Programmation avec Python (chapitre 4)
 % Dimitri Merejkowsky
 
+
+#
+
 \center \huge Les tuples
 
 # Création de tuples
@@ -209,7 +212,7 @@ def exemple_bizarre(l=[1, 2, 3]):
 [1, 2, 3, 4, 4]
 ```
 
-* Les arguments par défaut ne sont évalué qu'une seule fois)
+* Les arguments par défaut ne sont évalué qu'une seule fois
 
 # Valeur par défaut (2)
 
@@ -253,7 +256,7 @@ mutables.
 
 #
 
-\center Itérer sur les dictionnaires
+\center \huge Itérer sur les dictionnaires
 
 
 # Itérer sur les clés
@@ -376,7 +379,7 @@ signé Alice
 # Par mail - envoi 2
 
 ```text
-Bonjour Alice, voici une nouvelle version de mes changements
+Bonjour Alice, voici le code corrigé:
 
 def ma_fonction():
     ma_liste = ...
@@ -390,11 +393,15 @@ def ma_fonction():
 Croyez-le ou nom, plein de projets fonctionnent comme ça.
 
 Pas d'outil spécifiques, on peut tout faire avec des e-mail
-et du texte brut
+et du texte brut.
+
+Et c'est souvent comme ça qu'on contribue à du code open-source.
 
 # D'autres outils
 
-Des outils essayent de "simplifier" le processus. En vrac: `gerrit`, `github`, `gitlab` ...
+Des outils essayent de "simplifier" le processus. En vrac: `gerrit`, `github`, `gitlab`, `bitbucket`, `phabricator` ...
+
+\vfill
 
 Mais dans son essence le concept n'a pas changé
 
@@ -426,6 +433,82 @@ Vous pouvez lire *Les Mots du Président* si ça vous dit.
 
 Il utilisait d'autres outils, bien sûr, mais ce qu'on va faire n'est pas si loin
 
-# Squelette du code
+#
 
-Parlons-en!
+\center \huge Let's go!
+
+#
+
+#
+
+
+\center \huge Lire et écrire des fichiers
+
+# Rappel: lire
+
+```python
+file = open("toto.txt", "r")   # 'r' comme 'read'
+contenu = file.read()
+file.close()
+```
+
+Note: le fichier `toto.txt` doit exister!
+
+# Écrire
+
+On peut écrire tout le contenu d'un coup:
+
+```python
+contenu = "du texte à sauvegarder"
+file = open("article.txt", "w") # 'w' comme 'write'
+file.write(contenu)
+file.close()
+```
+
+
+* Le fichier `article.txt` sera écrasé s'il existe déjà.
+* N'oubliez surtout pas d'appeler `close()`
+
+# Que faire en cas d'erreur ?
+
+```python
+file = open("article.txt", "w") # 'w' comme 'write'
+# ... beacoup de code ici
+# ... < une erreur
+file.close()
+```
+
+S'il y a une erreur entre `open()` et `close()`, le fichier ne sera pas fermé!
+
+
+# Le mot-clé with
+
+```python
+with open("toto.txt", "w") as file:
+    file.write("du texte")
+```
+
+Quand on sort du bloc `with` on a la garantie que `file.close()` sera appelé,
+*même* si on sort du bloc à cause d'une erreur.
+
+# Convention
+
+Il n'y a maintenant plus aucune raison d'appeler `.close()` "à la main",
+donc ne le faites pas ...
+
+# Lire et écrire des lignes
+
+Très courant:
+
+```python
+with open("toto.txt", "r") as file:
+    lignes = file.readlines()
+
+# faire quelque chose avec la liste de lignes
+
+with open("toto.txt", "w") as file:
+    file.writelines(lignes)
+```
+
+Pensez à fermer le premier fichier avant d'ouvrir le second.
+(ça marche même s'ils ont le même nom)
