@@ -101,7 +101,7 @@ f((a, b, c)) # appelle f() avec un seul argument
 Retourner plusieurs valeurs:
 
 ```python
-def tire_carte(():
+def tire_carte():
     valeur = "10"
     couleur = "trèfle"
     return (valeur, couleur)
@@ -169,10 +169,10 @@ ajoute_trois(mon_entier)
 # Exemple 2
 
 ```python
-def ajoute_trois(l):
-    l.append(3)
+def ajoute_trois(liste):
+    liste.append(3)
     # Ne crée pas de nouvelle référence
-    # Appelle une méthode qui modifie 'l' sur place
+    # Appelle une méthode qui modifie 'liste' sur place
 
 ma_liste = [1, 2]
 ajoute_trois(ma_liste)
@@ -202,9 +202,9 @@ x = get_max(ma_liste)
 # Valeur par défaut
 
 ```python
-def exemple_bizarre(l=[1, 2, 3]):
-    l.append(4)
-    return l
+def exemple_bizarre(liste=[1, 2, 3]):
+    liste.append(4)
+    return liste
 
 >>> exemple_bizarre()
 [1, 2, 3, 4]
@@ -235,16 +235,16 @@ def grosse_fonction(x, cache=dict()):
 Sinon, remplacez l'argument mutable par un argument immutable
 
 ```python
-def exemple_bizarre(l=None):
-    if not l:
-        l = [1, 2, 3]
-    l.append(4)
+def exemple_bizarre(liste=None):
+    if not liste:
+        liste = [1, 2, 3]
+    liste.append(4)
     return l
 
 >>> exemple_bizarre()
 [1, 2, 3, 4]
 >>> exemple_bizarre()
-[1, 2, 3, 4, 4]
+[1, 2, 3, 4]
 ```
 
 # Conclusions
