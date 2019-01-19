@@ -2,14 +2,13 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Sujets à évoquer
 
-* [tuples, mutables et immutables](fragments/tuples.md)
 * [tris, lamdbas](fragments/sort.md)
 * [formatage de strings](fragments/format.md)
-* itération sur les dictionnaires
+* [lecture / écriture de fichiers](fragments/sort.md)
 * liste par compréhension et filtres
+* `help()`, doc en ligne (également en français)
 
-* le mot-clé 'with'
-* modules et packages
+* modules et packages - débugger avec l'interpréteur avec `import/relod()`.
 * décorateurs
 * classes
     * héritage
