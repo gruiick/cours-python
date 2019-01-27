@@ -328,8 +328,8 @@ import sys
 def main():
    if len(sys.argv) < 2:
       sys.exit("not enough arguments")
-      filename = sys.argv[1]
-      ...
+   filename = sys.argv[1]
+   ...
 ```
 
 #
