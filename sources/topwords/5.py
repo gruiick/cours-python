@@ -1,6 +1,3 @@
-import sys
-
-
 def clean_fragment(fragment):
     result = ""
     for c in fragment:
@@ -25,8 +22,10 @@ def split_fragments(text):
     res = list()
     for fragment in text.split():
         if "’" in fragment:
-            before = fragment.split("’")[0]
-            after = fragment.split("’")[1]
+            try:
+                (before, after) = fragment.split("’")
+            except:
+                breakpoint()
             res.append(before)
             res.append(after)
         else:
@@ -58,11 +57,10 @@ def print_scores(scores):
 
 
 def main():
-    if len(sys.argv) < 2:
-        sys.exit("not enough arguments")
-    filename = sys.argv[1]
+    filename = "../ruffin.txt"
     file = open(filename)
     contents = file.read()
+    file.close()
     words = split_words(contents)
     frequencies = get_frequencies(words)
     scores = get_scores(frequencies)

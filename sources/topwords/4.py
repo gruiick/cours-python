@@ -1,6 +1,3 @@
-import sys
-
-
 def clean_fragment(fragment):
     result = ""
     for c in fragment:
@@ -25,8 +22,7 @@ def split_fragments(text):
     res = list()
     for fragment in text.split():
         if "’" in fragment:
-            before = fragment.split("’")[0]
-            after = fragment.split("’")[1]
+            (before, after) = fragment.split("’")
             res.append(before)
             res.append(after)
         else:
@@ -52,22 +48,6 @@ def get_scores(frequencies):
     return res
 
 
-def print_scores(scores):
-    for count, word in scores:
-        print(count, word)
-
-
-def main():
-    if len(sys.argv) < 2:
-        sys.exit("not enough arguments")
-    filename = sys.argv[1]
-    file = open(filename)
-    contents = file.read()
-    words = split_words(contents)
-    frequencies = get_frequencies(words)
-    scores = get_scores(frequencies)
-    top_words = scores[:20]
-    print_scores(top_words)
-
-
-main()
+frequencies = {"pomme": 1, "poire": 2, "banane": 3}
+top_words = get_scores(frequencies)
+print(top_words)
