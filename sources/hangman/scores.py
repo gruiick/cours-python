@@ -7,10 +7,22 @@ def parse_scores():
     return res
 
 
-def main():
-    scores = parse_scores()
+def print_scores(scores):
+    print("Tableau des résultats:")
     for name, score in scores.items():
         print(name, score)
+
+
+def register_score(scores, name, new_score):
+    pass
+
+
+def main():
+    scores = parse_scores()
+    name = input("nom: ")
+    new_score = input("score: ")
+    register_score(scores, name, new_score)
+    print_scores(scores)
 
 
 main()
