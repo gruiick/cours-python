@@ -23,7 +23,7 @@ Les problèmes que j'ai vu:
 
 * L'un des problèmes les plus compliqué de l'informatique
 
-* Tout en Anglais
+ Tout en Anglais
 * Pas d'abbréviation
 * Pas de redondance
 
@@ -69,6 +69,24 @@ On peut ré-utiliser le même nom plusieurs fois!
 #
 
 \center \huge Repartons du début
+
+\normalsize (un genre de corrigé)
+
+# Revoir les changements chez vous
+
+Vous pourrez voir la suite des changements sur github:
+
+https://github.com/E2L/cours-python/tree/master/sources/topwords/
+
+
+# Note importante
+
+En programmation, il y a très rarement une seule
+bonne réponse !
+
+Ceci n'est qu'une solution possible, et une *technique possible*
+pour arriver à cette solution ...
+
 
 # Découper les mots
 
@@ -509,3 +527,12 @@ with open("toto.txt", "w") as file:
 
 Pensez à fermer le premier fichier avant d'ouvrir le second.
 (ça marche même s'ils ont le même nom)
+
+#
+
+\center \huge Atelier 2
+
+# Problème à résoudre
+
+Garder une liste de scores persistent dans
+le jeu du pendu
