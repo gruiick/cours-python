@@ -3,7 +3,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 # Sujets à évoquer
 
 * short circuit in if: `if a is not None and a.b == 42`
-* style: trailing white space, editor configuration
+* style: trailing white space, editor configuration,
+* IDEs: don't use them ... yet (or ever)
 * [formatage de strings](fragments/format.md)
 * liste par compréhension et filtres
 * `help()`, doc en ligne (également en français)
