@@ -27,11 +27,11 @@ def register_score(scores, name, new_score):
     # Mise à jour des tableaux des scores
     # Et écriture dans un fichier
     scores[name] = new_score
-    
+
     with open("scores.txt", "w") as file:
         file.write(convert(scores))
-    
-    
+
+
 def main():
     scores = parse_scores()
     name = input("nom: ")
@@ -40,4 +40,4 @@ def main():
     print_scores(scores)
 
 
-main()    
+main()
