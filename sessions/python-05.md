@@ -571,3 +571,10 @@ https://github.com/E2L/cours-python/tree/master/sources/hangman
 * Version modifiée du pendu (grâce aux suggestions de certains
   d'entre vous)
 * Préparation d'un squelette isolé
+
+# Pour la prochaine fois
+
+* Essayez d'implémenter la gestion des scores multi joueurs
+  dans `hangman.py` en partant de `scores.py`.
+
+* Envoyez moi vos solutions par e-mail :)
