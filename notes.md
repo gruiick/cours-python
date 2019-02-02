@@ -3,8 +3,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 # Sujets à évoquer
 
 * short circuit in if: `if a is not None and a.b == 42`
+* files: "wa", accès séquentiel (chunk = file.read(chunk_size))
 * style: trailing white space, editor configuration,
-* IDEs: don't use them ... yet (or ever)
 * [formatage de strings](fragments/format.md)
 * liste par compréhension et filtres
 * `help()`, doc en ligne (également en français)
@@ -21,9 +21,14 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * Données binaires, encodage (binaire, ASCII, hexadécimal, unicode ...)
 
 * virtualenv, pip, et bibliothèques tierces
+
+* IDEs: don't use them ... yet (or ever)
+    * linters,
+    * déboguage
+    * demo: pyflakes - black
+
 * tests: pytest, TDD
 
-* linters, déboguage
 
 # Idées d'ateliers
 
