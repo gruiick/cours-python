@@ -10,7 +10,7 @@
 
 Travail de la dernière fois.
 
-Les problèmes que j'ai vu:
+Les problèmes que j'ai vus:
 
 * noms
 * méthodologie
@@ -21,10 +21,10 @@ Les problèmes que j'ai vu:
 
 # Quelques principes
 
-* L'un des problèmes les plus compliqué de l'informatique
+L'un des problèmes les plus compliqué de l'informatique
 
- Tout en Anglais
-* Pas d'abbréviation
+* Tout en anglais (sorry)
+* Pas d'abréviation
 * Pas de redondance
 
 # Exemples
@@ -51,7 +51,7 @@ for fragment in list_frag:
 for fragment in fragments:
    fragment = fragment.lower()
    fragment = clean(fragment)
-   liste_mot.append(fragment)
+   words.append(fragment)
 ```
 
 On peut ré-utiliser le même nom plusieurs fois!
@@ -60,11 +60,31 @@ On peut ré-utiliser le même nom plusieurs fois!
 
 \center \huge Style
 
-# Espaces
+# Espaces - exemple
+
+\vfill
+
+
+```python
+def foo(a, b):
+    a = 42
+    bar(a, spam=False)
+
+
+def bar(a, spam=True):
+    ...
+
+```
+
+# Espaces - règles
+
 
 * Deux lignes entre chaque fonction
 * Des espaces autour des `=` pour les affectations
 * Pas d'espace quand c'est un argument nommé
+* Exactement un espace après chaque virgule
+
+Question de convention. Voir PEP8.
 
 #
 
@@ -95,7 +115,10 @@ Dans la liste se trouvent des mots mal découpés:
 * `peutétre`
 * `lhumanité`
 
-Reprenons depuis le début
+Il faut revoir pas mal de code! (comme souvent après la découverte
+d'un bug).
+
+On va essayer d'être plus méthodique.
 
 # Tester chaque fonction une par une
 
@@ -447,13 +470,17 @@ Note: le corps de la fonction doit tenir en une seule ligne
 
 # sorted()
 
+Si on a besoin de l'ordre initial après coup:
+
 ```python
 b = a.copy()
 b.sort()
 
-# or
+# ou:
 b = sorted(a)
 ```
+
+#
 
 
 \center \huge Compléments - fichiers
@@ -509,7 +536,7 @@ Quand on sort du bloc `with` on a la garantie que `file.close()` sera appelé,
 # Convention
 
 Il n'y a maintenant plus aucune raison d'appeler `.close()` "à la main",
-donc ne le faites pas ...
+donc ne le faites pas et utilisez `with`.
 
 # Lire et écrire des lignes
 
@@ -536,3 +563,11 @@ Pensez à fermer le premier fichier avant d'ouvrir le second.
 
 Garder une liste de scores persistent dans
 le jeu du pendu
+
+# Point de départ
+
+https://github.com/E2L/cours-python/tree/master/sources/hangman
+
+* Version modifiée du pendu (grâce aux suggestions de certains
+  d'entre vous)
+* Préparation d'un squelette isolé
