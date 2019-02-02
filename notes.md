@@ -8,7 +8,11 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * liste par compréhension et filtres
 * `help()`, doc en ligne (également en français)
 
-* modules et packages - débugger avec l'interpréteur avec `import/relod()`.
+* modules et packages:
+  * scripts vs modules
+  * débugger avec l'interpréteur avec `import/relod()`.
+  * `if __name__ == "__main__"`
+
 * décorateurs
 * classes
     * héritage
