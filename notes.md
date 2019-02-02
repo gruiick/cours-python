@@ -3,9 +3,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 # Sujets à évoquer
 
 * short circuit in if: `if a is not None and a.b == 42`
-* [tris, lamdbas](fragments/sort.md)
+* style: trailing white space, editor configuration
 * [formatage de strings](fragments/format.md)
-* [lecture / écriture de fichiers](fragments/sort.md)
 * liste par compréhension et filtres
 * `help()`, doc en ligne (également en français)
 
