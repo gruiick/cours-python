@@ -2,6 +2,15 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Sujets à évoquer
 
+## bits
+* dict: setdefault
+* listes: pop prend un argument
+* slices takes a step too [::-1] -> reverse
+* with: contextmanager, ContextDecorator
+
+## big stuff
+
+* exceptions: try, catch, finally
 * short circuit in if: `if a is not None and a.b == 42`
 * files: "wa", accès séquentiel (chunk = file.read(chunk_size))
 * style: trailing white space, editor configuration,
