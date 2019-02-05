@@ -3,6 +3,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 # Sujets à évoquer
 
 ## bits
+* class attributes vs instances attributes, @classmethod, properties
+*
 * dict: setdefault
 * listes: pop prend un argument
 * slices takes a step too [::-1] -> reverse
