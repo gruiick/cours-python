@@ -4,7 +4,7 @@
 
 #
 
-\center \huge Les classes
+\center \huge Orienté objet et classes
 
 # Paradigmes
 
@@ -250,3 +250,216 @@ class Car:
 * Instance: objet issue d'une classe
 * Méthode: fonction dans une classe (qui prend `self` en premier argument)
 * Attribut: variable dans un objet
+
+#
+
+\center \huge Modules
+
+# Un fichier = un module
+
+Et oui, vous faites des modules sans le savoir depuis le début :)
+
+Un fichier `foo.py` correspond au module `foo`
+
+# Attention
+
+C'est pas tout à fait réciproque. Le module `foo` peut venir d'autre chose
+qu'un fichier.
+
+\vfill
+
+On y reviendra.
+
+# Importer un module
+
+Ou: accéder à du code provenant d'un *autre* fichier source.
+
+
+```python
+# Dans foo.py
+a = 42
+```
+
+\vfill
+
+```python
+# Dans bar.py
+import foo
+print(foo.a)
+
+```
+\vfill
+
+* Affiche '42'
+
+# Espaces de noms
+On dit aussi *namespace*.
+
+Du point de vue de `bar.py`, `a` est dans l'*espace de nom* foo.
+
+* On retrouve la syntaxe pour accèder à un attribut: `<variable>.<membre>`.
+(ce n'est pas un hasard)
+
+* Les namespaces sont automatiques en Python
+
+# Importer dans le REPL
+
+```python
+# dans foo.py
+
+def ma_fonction():
+    return 42
+```
+
+```python
+# dans le REPL
+>>> import foo
+>>> foo.ma_fonction()
+42
+```
+
+* Plus sympa que de rajouter des `print()` à la fin de `foo.py` ;)
+
+# Les imports ne sont faits qu'une seule fois
+
+```python
+# Dans foo.py
+print("Je suis le module foo et tu viens de m’importer")
+
+```
+
+```python
+>>> import foo
+Je suis le module foo et tu viens de m’importer
+>>> import foo
+<rien>
+```
+
+On retrouve le concept de *cache*.
+
+# Attention
+
+Il faudra donc redémarrer le REPL à chaque fois que le code change.
+
+Parfois, les gens conseillent d'utiliser `reload()` mais cette fonction n'est pas toujours fiable :/
+
+# Un raccourci
+
+```
+>>> from foo import *
+>>> ma_fonction()
+42
+```
+
+* Utile dans le REPL
+* Pas une très bonne idée dans du vrai code
+  * On perd la trace de où vient la variable * Possibilité de collisions de noms
+
+# Retour sur les scripts
+
+Un script, par opposition à un module n'est pas censé être importé.
+
+Une solution est de mettre des tirets dans le nom:
+
+```python
+# Dans foo.py
+import my-script
+
+```
+
+* Essaye de soustraire `script` à `my`
+* ça ne fonctionne pas
+
+
+# Retour sur main()
+
+La méthode `main()` ne *doit* pas être exécutée quand on importe le code!
+
+Solution:
+
+```python
+# Dans foo.py
+def my_function():
+    # Fonction utile qui peut être ré-utilisée
+
+def main():
+    # Fonction d'entrée principale
+    # Utilise my_function()
+
+
+# magie!
+if __name__ == "__main__":
+   main()
+```
+
+
+# Explication (partielle) de la magie
+
+Le `if` n'est vrai *que* quand on lance `python3 foo.py`, mais pas quand on appelle `import foo` depuis
+un autre module.
+
+La variable magique `__name__` est égale au nom du module quand il est importé, et à `__main__` sinon.
+
+
+# La librarie standard (1)
+
+* Une collection de modules directement utilisables fournis à l'installation de Python.
+* on a déjà vu `sys`, pour `sys.exit()` ou `sys.argv`
+
+# La librarie standard (2)
+
+Toute la librarie standard est documentée - même en Français.
+
+https://docs.python.org/fr/3/library/index.html
+
+* Gardez-là sous votre oreiller :)
+
+# La librarie standard (3)
+
+Beacoup de choses dedans. (*batteries included*)
+
+De quoi faire de la manipulation de texte, des statistiques, du réseau, de la concurrence, etc ...
+
+
+#
+
+\center \huge  Atelier
+
+# Jouons avec les API Web
+
+API web: un serveur avec qui on peut parler depuis un programme.
+
+Il en existe des quantités sur internet.
+
+Aujourd'hui on va utiliser `numbersapi.com`
+
+# Numbersapi
+
+Example: On fait une requête sur `http://numbersapi.com/42`, on récupère du texte
+contenant un fait intéressant (*trivia* en anglais) à propos du nombre 42 .
+
+# Squelette
+
+```python
+import sys
+import urllib.request
+
+BASE_URL = "http://numbersapi.com/"
+
+def main():
+    number = sys.argv[1]
+    url = BASE_URL = number
+    with urllib.request.urlopen(url) as request:
+        response = request.read().decode("utf-8")
+        print(response)
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+# Idée
+
+* Transformer ceci en une classe réutilisable
+* Gérer les autres fonctionnalités de numbersapi.com (dates, tirages aléatoires, etc ...)
