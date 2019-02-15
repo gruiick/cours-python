@@ -6,22 +6,6 @@
 
 \center \huge Orienté objet et classes
 
-# Paradigmes
-
-Une façon d'envisager le code.
-Pour l'instant on n'a vu que le paradigme *procédural* (ou (impératif).
-
-Il y en a plein d'autres! (*fonctionnel* notamment, dont on parlera un jour)
-
-# Détails du procédural
-
-* des types simples (entiers, booléens)
-* des structures de données (dictionnaires, listes ...)
-* des fonctions qui manipulent des types simples ou des structures
-* les fonctions sont appelées les unes après les autres
-
-Aujourd'hui on va parler de *l'orienté objet*.
-
 # Un petit détour
 
 Un nouveau built-in: `id()`
@@ -39,6 +23,36 @@ L'adresse de l'objet pointé par la variable:
 >>> id(c)
 ```
 
+On en aura besoin tout à l'heure.
+
+# Paradigmes
+
+Une façon d'envisager le code.
+Pour l'instant on n'a vu que le paradigme *procédural* (ou (impératif).
+
+Il y en a plein d'autres! (*fonctionnel* notamment, dont on parlera un jour)
+
+# Détails du procédural
+
+* des types simples (entiers, booléens)
+* des structures de données (dictionnaires, listes ...)
+* des fonctions qui manipulent des types simples ou des structures
+* les fonctions sont appelées les unes après les autres
+
+Aujourd'hui on va parler de *l'orienté objet*, OOP en anglais (ou juste OO)
+
+# Orienté objet - une mauvaise définition
+
+Un "objet" informatique *représente* un véritable "objet" physique
+dans le vrai monde véritable.
+
+Ce n'est pas une très bonne définition:
+
+1. Ce n'est pas nécessaire
+2. Ce n'est même pas forcément souhaitable!
+
+Je le mentionne juste parce que c'est une idée reçue très répandue.
+
 # Orienté objet - 1ère définition
 
 Mettre au même endroit:
@@ -48,7 +62,6 @@ Mettre au même endroit:
 
 L'important c'est que les deux aillent ensemble
 
-OOP en Anglais (ou juste OO)
 
 # Orienté objet - 2ème définition
 
@@ -59,6 +72,7 @@ Notamment, les cellules ne "voient" que leur état interne.
 On peut envoyer un message d'une cellule à une autre *sans* connaître
 beaucoup de détails à propos du destinataire du message
 
+
 # Les classes
 
 On va parler *d'une* façon de faire de l'orienté objet: avec des classes.
@@ -67,7 +81,9 @@ Mais notez bien qu'on peut faire de l'orienté objet *sans* classes!
 
 # Le plan de construction
 
-La seule chose dont on a besoin, c'est le mot-clé `class` et un nom.
+La seule chose dont on a besoin pour construire un objet, c'est un plan.
+
+On note le plan avec le mot-clé `class` et un nom:
 
 ```python
 class MyObject:
@@ -80,17 +96,29 @@ La classe est le plan de construction de notre objet.
 
 ```python
 >>> object_1 = MyObject()
->>> object_2 = MyObject()
 ```
 
 Python ne sait rien de l'objet à part son adresse on mémoire et son nom:
 
 ```python
-print(object_1)
+>>> id(object_1)
+139993522758320
+>>> print(object_1)
  <__main__.MyObject at 0x7f52c831e2b0>
 ```
 
-On appelle `object_1` et `object_2` des *instances* de la classe `MyObject`.
+On appelle `object_1` une *instance* de la classe `MyObject`.
+
+
+# Créons d'autres objets
+
+```python
+>>> object_2 = MyObject()
+>>> print(object_2)
+<__main__.MyObject at 0x7fb39e5ac748>
+```
+
+Une autre adresse mémoire, donc un objet différent.
 
 # Méthodes
 
@@ -106,7 +134,7 @@ C'est tout!
 
 # Méthodes - 2
 
-La méthode n'existe pas en dehors de la classe (souvenez vous des cellules !)
+La méthode n'existe pas en dehors de la classe - souvenez vous des cellules !
 
 ```
 >>> my_method()
@@ -116,8 +144,14 @@ NameError
 Hello, <MyObject at 0x7f52c9f6d6d8>
 ```
 
-Notez que `my_method` a pris en premier argument ce qu'il y avait *à gauche* du point:
+# Méthodes - 2
 
+```
+>>> object.my_method()
+Hello, <MyObject at 0x7f52c9f6d6d8>
+```
+
+Notez que `my_method` a pris en premier argument ce qu'il y avait *à gauche* du point.
 D'ailleurs, ce code fonctionne aussi et retourne *la même chose*:
 
 ```
@@ -138,7 +172,8 @@ class MyObject:
 ```python
 >>> o = MyObject()
 >>> o.broken()
-TypeError: broken() takes 0 positional arguments but 1 was given
+TypeError: broken() takes 0 positional arguments
+           but 1 was given
 ```
 
 # Conventions
@@ -202,7 +237,7 @@ Avec `__init__`:
 
 * méthode "spéciale"
 * appelée automatiquement
-* notez les deux underscores avant et après ('dunder' en Anglais)
+* notez les deux underscores avant et après ('dunder' en anglais)
 
 ```python
 class MyObject:
@@ -265,10 +300,6 @@ Un fichier `foo.py` correspond au module `foo`
 
 C'est pas tout à fait réciproque. Le module `foo` peut venir d'autre chose
 qu'un fichier.
-
-\vfill
-
-On y reviendra.
 
 # Importer un module
 
@@ -353,7 +384,8 @@ Parfois, les gens conseillent d'utiliser `reload()` mais cette fonction n'est pa
 
 * Utile dans le REPL
 * Pas une très bonne idée dans du vrai code
-  * On perd la trace de où vient la variable * Possibilité de collisions de noms
+  * On perd la trace de où vient la variable
+  * Possibilité de collisions de noms
 
 # Retour sur les scripts
 
@@ -398,7 +430,7 @@ if __name__ == "__main__":
 Le `if` n'est vrai *que* quand on lance `python3 foo.py`, mais pas quand on appelle `import foo` depuis
 un autre module.
 
-La variable magique `__name__` est égale au nom du module quand il est importé, et à `__main__` sinon.
+La variable magique `__name__` est égale au nom du module quand il est importé, et à la string `"__main__"` sinon.
 
 
 # La librarie standard (1)
