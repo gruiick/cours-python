@@ -87,7 +87,7 @@ On note le plan avec le mot-clé `class` et un nom:
 
 ```python
 class MyObject:
-    pas
+    pass
 ```
 
 La classe est le plan de construction de notre objet.
@@ -114,6 +114,8 @@ On appelle `object_1` une *instance* de la classe `MyObject`.
 
 ```python
 >>> object_2 = MyObject()
+>>> id(object_2)
+140409432622920
 >>> print(object_2)
 <__main__.MyObject at 0x7fb39e5ac748>
 ```
@@ -374,6 +376,24 @@ Il faudra donc redémarrer le REPL à chaque fois que le code change.
 
 Parfois, les gens conseillent d'utiliser `reload()` mais cette fonction n'est pas toujours fiable :/
 
+# Importer juste une seule fonction ou variable
+
+```python
+# Dans foo.py
+a = 42
+
+def ma_fonction():
+    return 43
+```
+
+\vfill
+
+```python
+# Dans bar.py
+from foo import ma_fonction()
+ma_fonction()
+```
+
 # Un raccourci
 
 ```
@@ -476,12 +496,9 @@ contenant un fait intéressant (*trivia* en anglais) à propos du nombre 42 .
 import sys
 import urllib.request
 
-BASE_URL = "http://numbersapi.com/"
-
 def main():
     number = sys.argv[1]
-    url = BASE_URL = number
-    with urllib.request.urlopen(url) as request:
+    with urllib.request.urlopen("http://numbersapi.com/" + number) as request:
         response = request.read().decode("utf-8")
         print(response)
 
@@ -494,4 +511,52 @@ if __name__ == "__main__":
 # Idée
 
 * Transformer ceci en une classe réutilisable
-* Gérer les autres fonctionnalités de numbersapi.com (dates, tirages aléatoires, etc ...)
+* Gérer les faits mathématiques (avec une URL en http://numbersapi/42/math) en plus
+  des trivias (avec une URL en http://numbersapi/42)
+
+# Refactoring
+
+Démo faite en cours.
+
+# Extraction de variable
+
+*avant*:
+```python
+with urllib.request.urlopen(
+  "http://numbersapi.com/" + number) as request:
+    ...
+```
+
+*après*:
+```
+url = "http://numbersapi.com/" + number
+with urllib.request.urlopen(url) as request:
+```
+
+
+# Extraction de méthode - avant
+
+```python
+def get_trivia(self, number):
+    url = "http://numbersapi.com/" + number
+    with urllib.request.urlopen(url) as request:
+        response = request.read().decode("utf-8")
+        return response
+```
+
+
+# Extraction de méthode - après
+
+```python
+def build_url(self, number):
+    return "http://numbersapi.com/" + number
+
+def do_request(self, url):
+    with urllib.request.urlopen(url) as request:
+        response = request.read().decode("utf-8")
+        return response
+
+def get_trivia(self, number):
+    url = self.build_url(number)
+    return self.do_request(url)
+```
