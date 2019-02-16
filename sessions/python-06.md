@@ -12,18 +12,20 @@ Un nouveau built-in: `id()`
 
 L'adresse de l'objet pointé par la variable:
 
-```
+```python
 >>> a = 42532
 >>> id(a)
 94295009035968
 >>> b = a
 >>> id(b)   # même objet
 94295009035968
->>> c = 42532  # objet différent, même valeur
+>>> c = 42532  # objet différent
 >>> id(c)
+140400601470800
 ```
 
-On en aura besoin tout à l'heure.
+Notez bien les deux objets différents (le fait que
+l'objet *pointé* ait la même valeur n'a pas d'importance)
 
 # Paradigmes
 
@@ -124,13 +126,15 @@ Une autre adresse mémoire, donc un objet différent.
 
 # Méthodes
 
-Une fonction dans une classe
+Une fonction dans une classe:
 
-```
+```python
 class MyObject:
     def my_method(the_object):
         print("hello", the_object)
 ```
+
+\vfill
 
 C'est tout!
 
@@ -138,7 +142,7 @@ C'est tout!
 
 La méthode n'existe pas en dehors de la classe - souvenez vous des cellules !
 
-```
+```python
 >>> my_method()
 NameError
 >>> object = MyObject()
@@ -148,8 +152,11 @@ Hello, <MyObject at 0x7f52c9f6d6d8>
 
 # Méthodes - 2
 
-```
->>> object.my_method()
+```.python
+>>> object = MyObject()
+>>> object
+<MyObject at 0x7f52c9f6d6d8>
+>>>> object.my_method()
 Hello, <MyObject at 0x7f52c9f6d6d8>
 ```
 
@@ -199,7 +206,7 @@ class MyObject:
 
 ```python
 >>> object = MyObject()
->>> object.attribute   # ici l'attribut n'existe pas
+>>> object.attribute   # l'attribut n'existe pas
 AttributError
 >>> object.attribute = 42  # maintenant oui
 >>> object.attribute
@@ -223,10 +230,10 @@ class MyObject:
 
 ```python
 >>> object = MyObject()
->>> object.print_attribute()  # ici l'attribut n'existe pas
+>>> object.print_attribute()  # l'attribut n'existe pas
 AttributError
 >>> object.attribute = 42
->>> object.print_attribute() # ça marche
+>>> object.print_attribute() # maintenant oui
 42
 >>> object.change_attribute(43)
 >>> object.attribute
@@ -490,7 +497,9 @@ Aujourd'hui on va utiliser `numbersapi.com`
 Example: On fait une requête sur `http://numbersapi.com/42`, on récupère du texte
 contenant un fait intéressant (*trivia* en anglais) à propos du nombre 42 .
 
-# Squelette
+# Code de départ
+
+Voir sur GitHub: https://github.com/E2L/cours-python/blob/master/sources/numbers/numbers_proc.py
 
 ```python
 import sys
@@ -560,3 +569,32 @@ def get_trivia(self, number):
     url = self.build_url(number)
     return self.do_request(url)
 ```
+
+
+# Code final
+
+Voir sur GitHub:
+https://github.com/E2L/cours-python/blob/master/sources/numbers/numbers_object.py
+
+
+# Pour la prochaine fois - Exercice 1
+
+
+Partir des sources dans le répertoire `hangman`:
+
+https://github.com/E2L/cours-python/tree/master/sources/hangman
+
+* Rajouter la gestion des scores (dans `scores.py`) au code exsistant
+  du jeu du pendu (dans `hangman.py`)
+
+
+* Refactorer en essayant d'introduire des classes
+
+# Pour la prochaine fois - Exercice 2
+
+Partir du code dans `numbers_object.py`, rajouter la getsion
+des autres URL de http://numbersapi.com
+
+# Des questions? Du code?
+
+Envoyez-moi un e-mail à `d.merej@gmail.com` :)
