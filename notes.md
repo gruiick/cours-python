@@ -3,32 +3,36 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 # Sujets à évoquer
 
 ## bits
+
+* scopes, closures, global, nonlocal
+* no overlaod in python
+   * several __init__ ? Nope, alternative constructors
 * class attributes vs instances attributes, @classmethod, properties
-*
+   https://code-maven.com/slides/python-programming/class-methods-alternative-constructor
+* stable sorts
 * dict: setdefault
 * listes: pop prend un argument
 * slices takes a step too [::-1] -> reverse
 * with: contextmanager, ContextDecorator
+* short circuit in if: `if a is not None and a.b == 42`
 
 ## big stuff
 
 * exceptions: try, catch, finally
-* short circuit in if: `if a is not None and a.b == 42`
 * files: "wa", accès séquentiel (chunk = file.read(chunk_size))
 * style: trailing white space, editor configuration,
 * [formatage de strings](fragments/format.md)
 * liste par compréhension et filtres
 * `help()`, doc en ligne (également en français)
 
-* modules et packages:
-  * scripts vs modules
-  * débugger avec l'interpréteur avec `import/relod()`.
-  * `if __name__ == "__main__"`
+* packages, libraries tierces
+* requests, HTTP protocol (headers, methodes, urls, anchors, links ...)
 
 * décorateurs
 * classes
     * héritage
     * super()
+
 * Données binaires, encodage (binaire, ASCII, hexadécimal, unicode ...)
 
 * virtualenv, pip, et bibliothèques tierces
