@@ -28,7 +28,7 @@ On en aura besoin tout à l'heure.
 # Paradigmes
 
 Une façon d'envisager le code.
-Pour l'instant on n'a vu que le paradigme *procédural* (ou (impératif).
+Pour l'instant on n'a vu que le paradigme *procédural* (ou impératif).
 
 Il y en a plein d'autres! (*fonctionnel* notamment, dont on parlera un jour)
 
