@@ -4,6 +4,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 ## bits
 
+* attributes on functions (you never know)
+* __call__, functors
 * scopes, closures, global, nonlocal
 * no overlaod in python
    * several __init__ ? Nope, alternative constructors
