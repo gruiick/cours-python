@@ -3,9 +3,13 @@ import requests
 import shutil
 import time
 import textwrap
+import sys
 
 
 def main():
+    # Get name from command line
+    name = sys.argv[1]
+
     # Read api keys from the text file
     with open("api-keys.txt", "r") as file:
         lines = file.readlines()
@@ -29,17 +33,16 @@ def main():
     params["hash"] = digest
 
 
-    # Other parameters:
-    name = "Spider-Man"
-    params["name"]  = name
 
 
     # Perform the request
+    params["name"]  = name
     url = base_url + "/characters"
     response = requests.get(url, params=params)
     status_code = response.status_code
     assert status_code == 200, "got status: " + str(status_code)
     body = response.json()
+
     description = body["data"]["results"][0]["description"]
 
     # Print the description
@@ -47,6 +50,9 @@ def main():
     columns = terminal_size.columns
     print("\n".join(textwrap.wrap(description, width=columns)))
 
+    # Print attribution (comply with API agreement)
+    print("---")
+    print(body["attributionText"])
 
 if __name__ == "__main__":
     main()
