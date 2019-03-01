@@ -236,16 +236,9 @@ C'est ce que vous voyez quand vous faites "show source"
 
 Vous voyez parfois le code de retour (le plus connu étant 404)
 
-# API Web et navigateurs
-
-Grosso modo, quand vous visitez une page, vous faites un GET,
-et quand vous remplissez un formulaire, vous faites un POST
-
 *C'est très simplifié*
 
 # Utiliser une API Web
-
-Grosso modo:
 
 * Lire les conditions d'utilisation (important!)
 * Regarder les URLs possibles et les paramètres attendus
@@ -256,7 +249,7 @@ Notez qu'on a *absolument* aucune connaissance du code qui tourne sur le serveur
 
 # JSON
 
-* Un format *texte*.
+* Un format *texte*. (Comme HTML)
 *  *Très* utilisé justement pour échanger des données entre des machines différentes.
 * Implémenté dans plein de langages.
 
@@ -340,3 +333,34 @@ None        | null
 * Le nettoyer en introduisant des classes
 * Le rendre plus flexible
 * Etc ...
+
+# Requests
+
+*La* librarie pour faire des requêtes HTTP en Python.
+
+Malheureusement pas dans la librarie standard.
+
+```python
+import requests
+
+>>> response = request.get(url)
+>>> response.status_code
+200 # si tout va bien
+>>> response.text
+"<!DOCTYPE html ..."> # le texte de la réponse
+```
+
+# Requests + JSON
+
+```python
+>>> response = requests.get(url)
+>>> text = response.text
+>>> data = json.loads(text)
+```
+
+Ou directement
+
+```python
+>>> response = requests.get(url)
+>>> data = response.json()
+```
