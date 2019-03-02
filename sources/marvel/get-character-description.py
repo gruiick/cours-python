@@ -36,8 +36,6 @@ def main():
     params["hash"] = digest
 
 
-
-
     # Perform the request
     params["name"]  = name
     url = base_url + "/characters"
@@ -57,6 +55,7 @@ def main():
     # Print attribution (comply with API agreement)
     print("---")
     print(body["attributionText"])
+
 
 if __name__ == "__main__":
     main()
