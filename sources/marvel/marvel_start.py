@@ -24,7 +24,7 @@ def main():
     # base url
     base_url = "http://gateway.marvel.com/v1/public"
 
-    # Authorizsation stuff
+    # Authorization stuff
     params = dict()
     params["apikey"] = public_key
     ts = str(time.time())
