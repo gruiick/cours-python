@@ -386,3 +386,9 @@ Ou directement
 ```
 
 # Conclusion
+
+Les sources de départ et d'arrivée sont sur GitHub:
+
+https://github.com/E2L/cours-python/tree/master/sources/marvel
+
+On repartira du code d'arrivée la prochaine fois
