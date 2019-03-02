@@ -13,7 +13,10 @@ def main():
     # Read api keys from the text file
     with open("api-keys.txt", "r") as file:
         lines = file.readlines()
-    assert len(lines) == 2, "Incorrect api-keys file"
+
+    if len(lines) != 2:
+        sys.exit("Incorrect api-keys file")
+
     public_key = lines[0].strip()
     private_key = lines[1].strip()
 
@@ -40,7 +43,8 @@ def main():
     url = base_url + "/characters"
     response = requests.get(url, params=params)
     status_code = response.status_code
-    assert status_code == 200, "got status: " + str(status_code)
+    if status_code != 200:
+        sys.exit("got status: " + str(status_code))
     body = response.json()
 
     description = body["data"]["results"][0]["description"]

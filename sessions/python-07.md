@@ -1,43 +1,15 @@
 % Programmation avec Python (chapitre 7)
 % Dimitri Merejkowsky
 
-#
-
-\center \huge Un nouveau mot-clé
-
-# Les mots-clés
-
-Des mots qui ne peut être utilisé pour des noms de variales.
-
-On a déjà vu: `def`, `class`, `import`, etc ...
-
-# Assertions
-
-* Arrêter immédiatement le programme avec un message
-* Ressemble à `sys.exit()`
-* Mais usage un peu différent
-
-# Les assertions sont là pour les dévelopeurs
-
-* Le message n'aura en général *aucun* sens si c'est un simple utilisateur
-  qui le lit.
-* Il indique en général un problème *interne*, dans le code lui-même,
-  par opposition aux erreurs *externes*
-Mais on en reparlera :)
-
-#
-
 \center \huge Rappels sur les classes
-
 
 # Définition d'une classe
 
-Construire la classe`Counter` avec un attribut `count`:
+Construire une classe`Counter` vide:
 
 ```python
-class Counter:
-    def __init__(self):
-        self.count = 0
+class MyClass:
+   ...
 ```
 
 
@@ -46,35 +18,59 @@ class Counter:
 Construire une nouvelle *instance* de `Counter`
 
 ```python
->>> counter = Counter()
->>> counter.count
-0
+>>> my_instance = MyClass()
 ```
 
-# Méthode
+# Méthodes
 
-Ajouter une méthode pour incrémenter le compteur:
+Ajouter une méthode:
 
 ```python
-class Counter:
+class MyClass:
+    def my_method(self):
+        ...
+```
+
+`self` représente l'objet courant.
+
+# Méthodes
+     
+Appeler une méthode:
+
+```python
+>>> my_instance = MyClass()
+>>> my_instance.my_method()
+```
+
+# Ajouter un attribut
+
+```python
+>>> my_instance = MyClass()
+>>> my_instance.my_attribute = 0
+```
+
+# Accéder à un attribut dans la classe
+
+```python
+class MyClass():
+    def my_method(self):
+    	print(self.my_attribute)
+```
+
+# Méthode spéciale: __init__
+
+Initialiser les attributs:
+
+```python
+class MyClass:
     def __init__(self):
-        self.count = 0
+        self.my_attribute = 0
 
-    def increment(self):
-    	self.count += 1
-
-```
-
-# Apeller une méthode
-
-```python
->>> counter = Counter()
->>> counter.count
+>>> my_instance = MyClass()
+>>> my_instance.my_attribute
 0
->>> counter.increment()
->>> counter.count
-1
 ```
+
 
 #
 
@@ -132,17 +128,12 @@ Avec un joli `@classmethod` au-dessus
 class Car:
     total_number_of_cars = 0
 
-
     @classmethod
     def print_number_of_cars(cls):
     	print(cls.total_number_of_cars, "have been made")
-
-
-   def print_color(self):
-       print("This car is", self.color)
 ```
 
-Notez le `cls`
+Notez le `cls`.
 
 # Méthodes de classes
 
@@ -154,6 +145,13 @@ Pour appeler:
 >>> Car.print_number_of_cars()
 2 cars have been made
 ```
+
+# Note
+
+Au lieu de dire "de classe" on utilise parfois "statique". 
+
+Mais "statique" veut dire plein d'autres chose...
+
 
 # On retrouve le même mécanisme
 
@@ -199,13 +197,11 @@ def print_number_of_cars(cls):
 \center \huge Les API Web
 
 
-# Concepts
-
 # HTTP
 
-Une façon pour des machines différentes de parler entre elles.
+Un *protocole*: une façon pour des machines différentes d'échanger des informations.
 
-On fait toujours un aller-retour du *client* vers le *serveur*.
+On fait souvent un aller-retour du *client* vers le *serveur*.
 
 ![](img/client-serveur.png)
 
@@ -215,7 +211,7 @@ Une requête part du client vers le serveur et consite en:
 
 * Une URL
 * Un verbe (souvent GET)
-* Des paramètres
+* Des paramètres (sous la forme: `?a=42&b=true`)
 * Et d'autres trucs
 
 # Réponses
@@ -238,11 +234,50 @@ Vous voyez parfois le code de retour (le plus connu étant 404)
 
 *C'est très simplifié*
 
+#  Le format HTML
+
+Des règles pour interpréter du texte:
+
+```html
+<body>
+<h1>Ceci est un titre</h1>
+<p>
+Ceci est un paragraphe
+</p>
+</body>
+```
+
+# Faire des requêtes en Python
+
+Avec `requests`, *la* librarie pour faire des requêtes HTTP en Python.
+
+Malheureusement pas dans la librarie standard.
+
+```python
+import requests
+
+>>> response = request.get(url)
+>>> response.status_code
+200 # si tout va bien
+>>> response.text
+"<!DOCTYPE html ..."> # le texte de la réponse
+```
+
+
+
+# Une API Web
+
+Faire tourner de code sur le client, en utilisant du code sur un
+serveur *via* le protocole HTTP.
+
+![](img/client-serveur.png)
+
+
 # Utiliser une API Web
 
 * Lire les conditions d'utilisation (important!)
 * Regarder les URLs possibles et les paramètres attendus
-* Faire quelque chose avec la réponse
+* Ensuite seulement, écrire du code.
 
 Notez qu'on a *absolument* aucune connaissance du code qui tourne sur le serveur!
 
@@ -270,8 +305,11 @@ Examples:
 {
    "color": "blue",
    "size": 3
+   "pretty": bool,
 }
 ```
+
+**Attention**: les clés json sont *toujours* des strings.
 
 # JSON
 
@@ -284,8 +322,6 @@ On peut imbriquer les objets les uns dans les autres:
    "c": ["one", "two"],
 }
 ```
-
-On dit que JSON est un format *texte* par ce qu'on peut le mettre dans une string.
 
 
 # JSON / Python
@@ -333,22 +369,6 @@ None        | null
 * Le nettoyer en introduisant des classes
 * Le rendre plus flexible
 * Etc ...
-
-# Requests
-
-*La* librarie pour faire des requêtes HTTP en Python.
-
-Malheureusement pas dans la librarie standard.
-
-```python
-import requests
-
->>> response = request.get(url)
->>> response.status_code
-200 # si tout va bien
->>> response.text
-"<!DOCTYPE html ..."> # le texte de la réponse
-```
 
 # Requests + JSON
 
