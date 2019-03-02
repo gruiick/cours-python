@@ -15,7 +15,7 @@ class MyClass:
 
 # Instantiation
 
-Construire une nouvelle *instance* de `Counter`
+Construire une nouvelle *instance* de `MyClass`
 
 ```python
 >>> my_instance = MyClass()
@@ -34,7 +34,7 @@ class MyClass:
 `self` représente l'objet courant.
 
 # Méthodes
-     
+
 Appeler une méthode:
 
 ```python
@@ -148,7 +148,7 @@ Pour appeler:
 
 # Note
 
-Au lieu de dire "de classe" on utilise parfois "statique". 
+Au lieu de dire "de classe" on utilise parfois "statique".
 
 Mais "statique" veut dire plein d'autres chose...
 
@@ -305,7 +305,7 @@ Examples:
 {
    "color": "blue",
    "size": 3
-   "pretty": bool,
+   "pretty": true,
 }
 ```
 
@@ -384,3 +384,5 @@ Ou directement
 >>> response = requests.get(url)
 >>> data = response.json()
 ```
+
+# Conclusion
