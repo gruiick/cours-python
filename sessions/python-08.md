@@ -223,7 +223,7 @@ class Person:
 
 >>> nestor = Dog()
 >>> john = Person(pet=nestor)
->>> jonh.pet
+>>> john.pet
 nestor
 ```
 
@@ -260,7 +260,7 @@ class B(A):
 
 * A est la classe *parente* de B.
 * B *hérite* de A.
-* B est une classe *file* de A.
+* B est une classe *fille* de A.
 
 
 # Utilisation
