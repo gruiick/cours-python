@@ -30,45 +30,45 @@ class Authorization:
         return params
 
 
-class CharacterDescriptionGetter:
+class InformationRetriever:
     base_url = "http://gateway.marvel.com/v1/public"
 
     def __init__(self, auth):
         self.auth = auth
 
-    def get_character_description(self, name):
+    def make_request(self, path, query_params):
         params = self.auth.generate_params()
-        params["name"] = name
-        url = CharacterDescriptionGetter.base_url + "/characters"
+        params.update(query_params)
+        url = InformationRetriever.base_url + path
         response = requests.get(url, params=params)
         status_code = response.status_code
         if status_code != 200:
             sys.exit("got status: " + str(status_code))
         body = response.json()
-        description = body["data"]["results"][0]["description"]
         attribution = body["attributionText"]
+        return (body, attribution)
+
+
+class CharacterDescriptionGetter(InformationRetriever):
+
+    def get_character_description(self, name):
+        params = {"name": name}
+        body, attribution = self.make_request("/characters", params)
+        first_result = body["data"]["results"][0]
+        description = first_result["description"]
         return (description, attribution)
 
 
-class CreatorNumberOfSeriesGetter:
-    base_url = "http://gateway.marvel.com/v1/public"
-
-    def __init__(self, auth):
-        self.auth = auth
+class CreatorNumberOfSeriesGetter(InformationRetriever):
 
     def get_number_of_series(self, first_name, last_name):
-        params = self.auth.generate_params()
-        params["firstName"] = first_name
-        params["lastName"] = last_name
-        url = CreatorNumberOfSeriesGetter.base_url + "/creators"
-        response = requests.get(url, params=params)
-        status_code = response.status_code
-        if status_code != 200:
-            sys.exit("got status: " + str(status_code))
-        body = response.json()
-        result = body["data"]["results"][0]
-        attribution = body["attributionText"]
-        return result["series"]["available"], attribution
+        params = {
+            "firstName": first_name,
+            "lastName": last_name,
+        }
+        body, attribution = self.make_request("/creators", params)
+        first_result = body["data"]["results"][0]
+        return (first_result["series"]["available"], attribution)
 
 
 class Display:
