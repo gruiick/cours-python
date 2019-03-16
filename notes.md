@@ -2,11 +2,17 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Sujets à évoquer
 
+## next chapter
+
+* Let's create *explicit* hidden interfaces!
+
 ## bits
 
+* base class / derived class -> more vocabulary
 * attributes on functions (you never know)
 * `__call__`, functors
 * scopes, closures, global, nonlocal
+* private
 * no overlaod in python
    * several `__init__` ? Nope, alternative constructors
    * https://code-maven.com/slides/python-programming/class-methods-alternative-constructor
