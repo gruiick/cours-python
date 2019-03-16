@@ -53,7 +53,8 @@ class CharacterDescriptionGetter(InformationRetriever):
 
     def get_character_description(self, name):
         params = {"name": name}
-        body, attribution = self.make_request("/characters", params)
+        body, attribution = self.make_request("/characters",
+                                              params)
         first_result = body["data"]["results"][0]
         description = first_result["description"]
         return (description, attribution)
@@ -66,7 +67,8 @@ class CreatorNumberOfSeriesGetter(InformationRetriever):
             "firstName": first_name,
             "lastName": last_name,
         }
-        body, attribution = self.make_request("/creators", params)
+        body, attribution = self.make_request("/creators",
+                                              params)
         first_result = body["data"]["results"][0]
         return (first_result["series"]["available"], attribution)
 

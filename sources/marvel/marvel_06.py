@@ -1,3 +1,4 @@
+# WARNING: Don't read this unless you want to get spoiled!
 import abc
 import hashlib
 import requests
