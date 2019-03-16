@@ -37,6 +37,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 * décorateurs
 
+* regular expressions
+
 * Données binaires, encodage (binaire, ASCII, hexadécimal, unicode ...)
 
 * virtualenv, pip, et bibliothèques tierces
