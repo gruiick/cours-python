@@ -30,44 +30,45 @@ class Authorization:
         return params
 
 
-class Client():
+class CharacterDescriptionGetter:
     base_url = "http://gateway.marvel.com/v1/public"
 
     def __init__(self, auth):
         self.auth = auth
 
-    def make_request(self, path, query_params):
+    def get_character_description(self, name):
         params = self.auth.generate_params()
-        params.update(query_params)
-        url = Client.base_url + path
+        params["name"] = name
+        url = CharacterDescriptionGetter.base_url + "/characters"
         response = requests.get(url, params=params)
         status_code = response.status_code
         if status_code != 200:
             sys.exit("got status: " + str(status_code))
         body = response.json()
-        return (body, body["attributionText"])
+        description = body["data"]["results"][0]["description"]
+        attribution = body["attributionText"]
+        return (description, attribution)
 
 
-class CharacterDescriptionGetter(Client):
+class CreatorNumberOfSeriesGetter:
+    base_url = "http://gateway.marvel.com/v1/public"
+
     def __init__(self, auth):
-        super().__init__(auth)
-
-    def get_character_description(self, name):
-        params = { "name": name }
-        response, attribution = super().make_request("/characters", params)
-        description = response["data"]["results"][0]["description"]
-        return description, attribution
-
-
-class CreatorNumberOfSeriesGetter(Client):
-    def __init__(self, auth):
-        super().__init__(auth)
+        self.auth = auth
 
     def get_number_of_series(self, first_name, last_name):
-        params = { "firstName": first_name, "lastName": last_name }
-        response, attribution = super().make_request("/creators", params)
-        result = response["data"]["results"][0]["series"]["available"]
-        return result, attribution
+        params = self.auth.generate_params()
+        params["firstName"] = first_name
+        params["lastName"] = last_name
+        url = CreatorNumberOfSeriesGetter.base_url + "/creators"
+        response = requests.get(url, params=params)
+        status_code = response.status_code
+        if status_code != 200:
+            sys.exit("got status: " + str(status_code))
+        body = response.json()
+        result = body["data"]["results"][0]
+        attribution = body["attributionText"]
+        return result["series"]["available"], attribution
 
 
 class Display:
