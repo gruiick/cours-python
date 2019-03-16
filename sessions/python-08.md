@@ -430,3 +430,11 @@ class B(A):
 
 *Une autre vision de l'héritage*: on va rajouter une fonctionnalité dans
 notre script marvel, puis on va réduire le code dupliqué.
+
+# Résultats
+
+* Départ: https://github.com/E2L/cours-python/blob/master/sources/marvel/marvel_04.py
+
+\vfill
+
+* Arrivée: prochainement sur `git.e2li.org` :)
