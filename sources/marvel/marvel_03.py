@@ -36,7 +36,7 @@ class Client:
     def __init__(self, auth):
         self.auth = auth
 
-    def get_character_description(self,name):
+    def get_character_description(self, name):
         params = self.auth.generate_params()
         params["name"] = name
         url = Client.base_url + "/characters"

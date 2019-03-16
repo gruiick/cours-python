@@ -1,4 +1,4 @@
-all: python-07.pdf
+all: python-08.pdf
 
 %.pdf: %.md
 	pandoc -t beamer $< -o $@

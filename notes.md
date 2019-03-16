@@ -5,12 +5,12 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 ## bits
 
 * attributes on functions (you never know)
-* __call__, functors
+* `__call__`, functors
 * scopes, closures, global, nonlocal
 * no overlaod in python
-   * several __init__ ? Nope, alternative constructors
-* class attributes vs instances attributes, @classmethod, properties
-   https://code-maven.com/slides/python-programming/class-methods-alternative-constructor
+   * several `__init__` ? Nope, alternative constructors
+   * https://code-maven.com/slides/python-programming/class-methods-alternative-constructor
+* properties on classes
 * stable sorts
 * dict: setdefault
 * listes: pop prend un argument
@@ -25,15 +25,11 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * style: trailing white space, editor configuration,
 * [formatage de strings](fragments/format.md)
 * liste par compréhension et filtres
-* `help()`, doc en ligne (également en français)
-
+* `help()`
 * packages, libraries tierces
 * requests, HTTP protocol (headers, methodes, urls, anchors, links ...)
 
 * décorateurs
-* classes
-    * héritage
-    * super()
 
 * Données binaires, encodage (binaire, ASCII, hexadécimal, unicode ...)
 
