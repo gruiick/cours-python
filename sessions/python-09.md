@@ -1,7 +1,182 @@
 % Programmation avec Python (chapitre 9)
 % Dimitri Merejkowsky
 
-\center \huge Rappels
+
+
+\center \huge Formats et chaînes de caractères
+
+# Formater des chaînes de caractères
+
+Problème:
+
+\vfill
+
+```python
+>>> nom = "Ford"
+>>> résultat = 42
+>>> message = "Bonjour, " + nom + ". "
+>>> message += "La réponse est: " + str(résultat) + "."
+>>> message
+'Bonjour, Ford. La réponse est: 42.'
+```
+
+\vfill
+
+Ce n'est pas très lisible ...
+
+3 solutions différentes en Python
+
+# Solution 1: À l'ancienne
+
+* Avec `%`
+* Compatible avec les très vieux Pythons
+* Compatibles avec d'autres langage (`printf` en C par example)
+
+
+# Example 1
+
+```python
+name = "John"
+print("Bonjour %s!" % name)   # 's' comme string
+
+age = 42
+print("Vous avez %i ans" % 42)  # 'i' comme integer
+
+```
+
+# Attention aux types:
+
+```python
+>>> print("Bonjour %i!" % name)
+TypeError: %i format: a number is required, not str
+```
+
+# On peut en mettre plusieurs
+
+Avec un tuple:
+```python
+print("Bonjour %s, vous avez %i" % (name, age))
+```
+\vfill
+
+Avec un dictionnaire:
+```python
+data = {"name": "John", "age": 42}
+print("Bonjour %(name)s, vous avez %(age)i ans" % data)
+```
+
+# Solution 2: format()
+
+Des `{}` comme "placeholders" et une *méthode* sur les strings:
+
+```python
+>>> nom = "Ford"
+>>> résultat = 42
+>>> template = "Bonjour, {}. La réponse est: {}"
+>>> message = template.format(nom, résultat)
+>>> message
+'Bonjour, Ford. La réponse est: 42.'
+```
+
+* Pas de types!
+
+# format() - à plusieurs
+
+On peut aussi nommer les remplacements:
+
+```python
+template = "Bonjour, {nom}. La réponse est: {résultat}"
+template.format(nom="Ford", résultat=42)
+```
+
+# format() - à plusieurs
+
+On peut les ordonner:
+
+```python
+template = "Bonjour {1}. La réponse est {0}"
+template.format(reponse, name)
+```
+
+* Pas possible avec `%`!
+
+# Solution 3: f-strings
+
+* La meilleure de toutes :)
+* Plus succint que `format()`
+* Plus performant que `%` et `.format()`
+* Mais pas avant Python 3.6
+
+# Principe
+
+On peut mettre du *code* dans `{}` avec la lettre `f` devant la chaîne:
+
+```python
+name = "Patrick"
+score = 42
+text = f"Bonjour {name}. Votre score est: {score}"
+```
+
+\vfill
+
+Mais aussi:
+
+```python
+text = f"2 + 2 égale { 2 + 2 }"
+```
+
+# Conclusion
+
+Je vous ai présenté `%` et `format()` parce que vous risquez d'en voir.
+
+Mais si vous avez le choix, utilisez des `f-strings`!
+
+
+# Spécifications de formats
+
+* Permet des opérations pendant la conversion en texte
+* Fonctionne avec les 3 solutions
+
+# Tronquer
+
+```python
+>>> pi = 3.14159265359
+>>> truncated = "%.2f" % pi
+3.14
+```
+
+Le texte dans les accolades après le `:` est un mini-langage de spécification de format.
+`.2` veut dire: 2 chiffres après la virgule maximum.
+
+# Alignements et paddings
+
+On peut aussi faire des alignements et du "padding":
+
+\vfill
+
+```python
+template = "{name:>10}: {score:03}"
+print(template.format(name="Alice", score=42))
+print(template.format(name="Bob", score=5))
+```
+
+```
+     Alice: 042
+       Bob: 005
+```
+
+* `>10` : aligné à gauche, taille minimum 10
+* `03`: rajouter jusqu'à 2 zéros à gauche pour que la taille fasse 3
+
+# Documentation
+
+Documentation ici:
+
+htps://docs.python.org/fr/3/library/string.html#format-specification-mini-language
+
+#
+
+\center \huge Rappels sur les classes
 
 # Classes
 
@@ -37,7 +212,7 @@ class Client:
         self.auth = auth
 
     def make_request(self):
-    	password = self.auth.password
+    	password = self.auth.get_password()
     	requests.get(url, password=password)
 ```
 
@@ -155,4 +330,117 @@ class Pet(Animal):
 class Dog(Pet):
    def __init__(self, name):
    	super().init("dog", name)
+```
+
+#
+
+\center \huge Interfaces et classes abstraites
+
+# Example
+
+Imaginons un jeu où il faut retrouver le nom d'un super-héros à partir
+de sa description.
+
+On a une classe `MarvelClient` qui permet de lister les personnages et leurs
+descriptions et une class `Game` pour la logique du jeu
+
+# Implémentation - MarvelClient
+
+```python
+class MarvelClient:
+    url = "https://marvel.com/api"
+
+    def __init__(self, credentials_file):
+        # réupére les clés depuis un fichier
+
+   def get_all_characters(self):
+        # appelle l'api marvel pour récupérer
+        # tous les personnages
+
+    def get_description(self, character_name)
+        # appelle l'api marvel pour récupérer
+        # une description
+
+```
+
+# Implémentation - Game
+
+```python
+import random
+
+
+class Game:
+  def __init__(self, marvel_client)
+    self.auth = marvel_client
+
+  def play(self):
+    characters = self.marvel_client.get_all_characters()
+    name_to_guess = random.choice(characters)
+    description = self.marvel_client.get_description(
+      name_to_guess)
+
+    while not self.won():
+      ...
+```
+
+# Contrats implicites - 1
+
+Il y a un *contrat implicite* entre `Game` et `MarvelClient`.
+
+Dans `play` on appelle `self.marvel_client.get_all_characters()` donc la méthode
+`get_all_characters()` doit:
+
+* exister
+* ne prendre aucun agrument
+* retourner une liste de noms
+
+# Contrats implicites - 2
+
+Pareil avec `get_description()`. La méthode doit:
+
+* exister
+* prendre un nom en unique argument
+* retourner une description
+
+# Une force et une faiblesse
+
+On peut passer à `Client.__init__()` n'importe qu'elle classe pourvu qu'elle ait
+les bonnes méthodes!
+
+On appelle ça "duck typing"
+
+# duck typing
+
+Définition traditionnelle (pas exacte à mon sens):
+
+* Si ça marche comme un canard et que ça fait coin-coin comme un canard alors c'est un canard.
+
+\vfill
+
+Meilleure définition:
+
+* Tu peux passer remplacer le canard par une vache. Tant que la vache a un bec et fait coin-coin, c'est bon!
+
+# En image
+
+![canard vache](img/canard-vache.jpg)
+
+# Exmaple utile
+
+
+```python
+class FakeCLient():
+    def get_all_characters(self):
+       return ["Spider-Man", "Batman", "Superman"]
+
+    def get_description(self, name):
+        if name == "Spider-Man":
+           ...
+
+       ...
+fake_client = FakeMarvelClient()
+game = Game(fake_client)
+game.play()
+
+# Tout marche!
 ```
