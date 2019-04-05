@@ -425,11 +425,11 @@ Meilleure définition:
 
 ![canard vache](img/canard-vache.jpg)
 
-# Exmaple utile
+# Exemple utile
 
 
 ```python
-class FakeCLient():
+class FakeClient():
     def get_all_characters(self):
        return ["Spider-Man", "Batman", "Superman"]
 
@@ -438,9 +438,82 @@ class FakeCLient():
            ...
 
        ...
-fake_client = FakeMarvelClient()
+fake_client = FakeClient()
 game = Game(fake_client)
 game.play()
 
 # Tout marche!
 ```
+
+# Problème
+
+Comment s'assurer que `FakeClient` et `MarvelClient` restent synchronisés?
+
+
+# Solution
+
+Une classe *abstraite*:
+
+```python
+import abc
+
+class BaseClient(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def get_all_characters(self):
+        pass
+
+    @abc.abstractmethod
+    def get_description(self, name):
+        pass
+
+
+>>> client = BaseClient()
+
+```
+
+On retrouve le `@` au-dessus des méthodes.
+On reparlera des metaclasses plus tard :)
+
+# Utilisation
+
+On ne peut pas instancier la classe abstraite directement:
+
+```python
+>>> client = BaseClient()
+# Cannot instantiate abstract class BaseClient
+# with abstract methods
+# get_all_characters, get_description
+```
+
+En revanche on peut en hériter:
+
+
+```python
+class MarvelClient(BaseClient):
+    def get_all_characters(self):
+    	...
+
+    def get_description(self, name):
+    	...
+```
+
+
+# Pistes de réflexion
+
+* Que se passe-t-il si on rajoute une méthode dans `BaseClient` sans toucher
+  à `MarvelClient` ni à `FakeClient` ?
+* Que se passe-t-il si la signature de `get_description()` change?
+
+# Conclusion
+
+Plein de languages ont un concept d'interface. C'est bien utile de savoir,
+les définir en Python, même si ça ne résout pas tous les problèmes.
+
+\center \huge Atelier
+
+Encore un refactoring
+
+# Pour la prochaine fois:
+
+* Créer un compte dévelopeur sur le site de Marvel
+* Implémenter le jeu!
