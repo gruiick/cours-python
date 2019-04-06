@@ -385,7 +385,7 @@ import random
 
 class Game:
   def __init__(self, marvel_client)
-    self.auth = marvel_client
+    self.marvel_client = marvel_client
 
   def play(self):
     characters = self.marvel_client.get_all_characters()
@@ -418,7 +418,7 @@ Pareil avec `get_description()`. La méthode doit:
 
 # Une force et une faiblesse
 
-On peut passer à `Client.__init__()` n'importe qu'elle classe pourvu qu'elle ait
+On peut passer à `Game.__init__()` n'importe qu'elle classe pourvu qu'elle ait
 les bonnes méthodes!
 
 On appelle ça "duck typing"
