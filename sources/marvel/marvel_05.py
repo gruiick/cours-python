@@ -1,3 +1,4 @@
+import abc
 import hashlib
 import requests
 import shutil
@@ -30,26 +31,56 @@ class Authorization:
         return params
 
 
-class InformationRetriever:
+class Client:
     base_url = "http://gateway.marvel.com/v1/public"
 
     def __init__(self, auth):
         self.auth = auth
 
-    def make_request(self, path, query_params):
+    def make_request(self, query):
         params = self.auth.generate_params()
-        params.update(query_params)
-        url = InformationRetriever.base_url + path
+        params.update(query.params())
+        url = Client.base_url + query.path()
         response = requests.get(url, params=params)
         status_code = response.status_code
         if status_code != 200:
             sys.exit("got status: " + str(status_code))
         body = response.json()
         attribution = body["attributionText"]
-        return (body, attribution)
+        response = query.extract(body)
+        return (response, attribution)
 
 
-class CharacterDescriptionGetter(InformationRetriever):
+class Display:
+    def __init__(self, width=80):
+        self.width = width
+
+    def display(self, text):
+        print("\n".join(textwrap.wrap(text, width=self.width)))
+
+
+class Query(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def params(self):
+        pass
+
+    @abc.abstractmethod
+    def path(self):
+        pass
+
+    @abc.abstractmethod
+    def extract(self, body):
+        pass
+
+    @abc.abstractmethod
+    def text(self, response):
+        pass
+
+
+class CharacterDescription(Query):
+
+    def __init__(self, name):
+        self.name = name
 
     def get_character_description(self, name):
         params = {"name": name}
@@ -59,8 +90,26 @@ class CharacterDescriptionGetter(InformationRetriever):
         description = first_result["description"]
         return (description, attribution)
 
+    def params(self):
+        return {"name": self.name}
 
-class CreatorNumberOfSeriesGetter(InformationRetriever):
+    def path(self):
+        return "/characters"
+
+    def extract(self, body):
+        first_result = body["data"]["results"][0]
+        description = first_result["description"]
+        return description
+
+    def text(self, response):
+        return response
+
+
+class CreatorNumberOfSeries(Query):
+
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
 
     def get_number_of_series(self, first_name, last_name):
         params = {
@@ -72,30 +121,36 @@ class CreatorNumberOfSeriesGetter(InformationRetriever):
         first_result = body["data"]["results"][0]
         return (first_result["series"]["available"], attribution)
 
+    def params(self):
+        return { "firstName": self.first_name, "lastName": self.last_name }
 
-class Display:
-    def __init__(self, width=80):
-        self.width = width
+    def path(self):
+        return "/creators"
 
-    def display(self, text):
-        print("\n".join(textwrap.wrap(text, width=self.width)))
+    def extract(self, body):
+        first_result = body["data"]["results"][0]
+        return first_result["series"]["available"]
+
+    def text(self, response):
+        return f"{self.first_name} {self.last_name} worked on {response} series"
 
 
 def main():
     auth = Authorization("api-keys.txt")
 
-    query = sys.argv[1]
-    if query == "character-description":
+    query_type = sys.argv[1]
+    if query_type == "character-description":
         name = sys.argv[2]
-        character_description_getter = CharacterDescriptionGetter(auth)
-        description, attribution = character_description_getter.get_character_description(name)
-        text = description
-    elif query == "creator-number-of-series":
+        query = CharacterDescription(name)
+
+    elif query_type == "creator-number-of-series":
         first_name = sys.argv[2]
         last_name = sys.argv[3]
-        creator_number_of_series_getter = CreatorNumberOfSeriesGetter(auth)
-        result, attribution = creator_number_of_series_getter.get_number_of_series(first_name, last_name)
-        text = first_name + " " + last_name + " worked on " + str(result) + " series"
+        query = CreatorNumberOfSeries(first_name, last_name)
+
+    client = Client(auth)
+    response,attribution = client.make_request(query)
+    text = query.text(response)
 
     terminal_size = shutil.get_terminal_size()
     columns = terminal_size.columns
