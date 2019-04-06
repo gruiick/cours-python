@@ -2,21 +2,24 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Sujets à évoquer
 
-## next chapter
-
-* Let's create *explicit* hidden interfaces!
-
 ## bits
 
-* base class / derived class -> more vocabulary
+### classes
+* constants are UPPER_CASE
+* multiple inheritance
+* delegation
+* properties on classes
+* isinstance
+*   * several `__init__` ? Nope, alternative constructors
+   * https://code-maven.com/slides/python-programming/class-methods-alternative-constructor private
+* magical methods: __str__, __repr__, __add__, ...
+
+### rest
+
 * attributes on functions (you never know)
 * `__call__`, functors
 * scopes, closures, global, nonlocal
-* private
 * no overlaod in python
-   * several `__init__` ? Nope, alternative constructors
-   * https://code-maven.com/slides/python-programming/class-methods-alternative-constructor
-* properties on classes
 * stable sorts
 * dict: setdefault
 * listes: pop prend un argument
@@ -34,6 +37,9 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * `help()`
 * packages, libraries tierces
 * requests, HTTP protocol (headers, methodes, urls, anchors, links ...)
+
+* design patters
+* solid
 
 * décorateurs
 

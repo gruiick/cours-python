@@ -241,6 +241,8 @@ class B(A):
         self.attribute_in_a # ok
 ```
 
+On dit aussi que A est la classe *de base* et B la classe *dérivée*.
+
 # Héritage - ordre de résolution des méthodes
 
 ```python
