@@ -42,9 +42,8 @@ class Client:
     def make_request(self, query):
         params = self.auth.generate_params()
         params.update(query.params())
-        url = Client.base_url + query.path()
-        url_query = urllib.parse.urlencode(params)
-        full_url = url + "?" + url_query
+        query_string = urllib.parse.urlencode(params)
+        full_url = Client.base_url + query.path() + "?"  + query_string
        	with urllib.request.urlopen(full_url) as response:
             status_code = response.getcode()
             if status_code != 200:
