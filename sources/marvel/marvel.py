@@ -43,8 +43,8 @@ class Client:
         params = self.auth.generate_params()
         params.update(query.params())
         query_string = urllib.parse.urlencode(params)
-        full_url = Client.base_url + query.path() + "?"  + query_string
-       	with urllib.request.urlopen(full_url) as response:
+        full_url = Client.base_url + query.path() + "?" + query_string
+        with urllib.request.urlopen(full_url) as response:
             status_code = response.getcode()
             if status_code != 200:
                 sys.exit("got status: " + str(status_code))
@@ -81,14 +81,12 @@ class Query(metaclass=abc.ABCMeta):
 
 
 class CharacterDescription(Query):
-
     def __init__(self, name):
         self.name = name
 
     def get_character_description(self, name):
         params = {"name": name}
-        body, attribution = self.make_request("/characters",
-                                              params)
+        body, attribution = self.make_request("/characters", params)
         first_result = body["data"]["results"][0]
         description = first_result["description"]
         return (description, attribution)
@@ -109,23 +107,18 @@ class CharacterDescription(Query):
 
 
 class CreatorNumberOfSeries(Query):
-
     def __init__(self, first_name, last_name):
         self.first_name = first_name
         self.last_name = last_name
 
     def get_number_of_series(self, first_name, last_name):
-        params = {
-            "firstName": first_name,
-            "lastName": last_name,
-        }
-        body, attribution = self.make_request("/creators",
-                                              params)
+        params = {"firstName": first_name, "lastName": last_name}
+        body, attribution = self.make_request("/creators", params)
         first_result = body["data"]["results"][0]
         return (first_result["series"]["available"], attribution)
 
     def params(self):
-        return { "firstName": self.first_name, "lastName": self.last_name }
+        return {"firstName": self.first_name, "lastName": self.last_name}
 
     def path(self):
         return "/creators"
@@ -136,11 +129,8 @@ class CreatorNumberOfSeries(Query):
 
     def text(self, response):
         return "{} {} worked on {} series".format(
-        	self.first_name,
-        	self.last_name,
-                response
-    	)
-
+            self.first_name, self.last_name, response
+        )
 
 
 def main():
@@ -159,7 +149,7 @@ def main():
         sys.exit("Unkwnon query type: {}".format(query_type))
 
     client = Client(auth)
-    response,attribution = client.make_request(query)
+    response, attribution = client.make_request(query)
     text = query.text(response)
 
     terminal_size = shutil.get_terminal_size()
