@@ -1,8 +1,10 @@
 import abc
 import hashlib
-import requests
+import json
 import shutil
 import time
+import urllib.parse
+import urllib.request
 import textwrap
 import sys
 
@@ -41,11 +43,13 @@ class Client:
         params = self.auth.generate_params()
         params.update(query.params())
         url = Client.base_url + query.path()
-        response = requests.get(url, params=params)
-        status_code = response.status_code
-        if status_code != 200:
-            sys.exit("got status: " + str(status_code))
-        body = response.json()
+        url_query = urllib.parse.urlencode(params)
+        full_url = url + "?" + url_query
+       	with urllib.request.urlopen(full_url) as response:
+            status_code = response.getcode()
+            if status_code != 200:
+                sys.exit("got status: " + str(status_code))
+            body = json.loads(response.read())
         attribution = body["attributionText"]
         response = query.extract(body)
         return (response, attribution)
@@ -132,7 +136,12 @@ class CreatorNumberOfSeries(Query):
         return first_result["series"]["available"]
 
     def text(self, response):
-        return f"{self.first_name} {self.last_name} worked on {response} series"
+        return "{} {} worked on {} series".format(
+        	self.first_name,
+        	self.last_name,
+                response
+    	)
+
 
 
 def main():
@@ -147,6 +156,8 @@ def main():
         first_name = sys.argv[2]
         last_name = sys.argv[3]
         query = CreatorNumberOfSeries(first_name, last_name)
+    else:
+        sys.exit("Unkwnon query type: {}".format(query_type))
 
     client = Client(auth)
     response,attribution = client.make_request(query)
