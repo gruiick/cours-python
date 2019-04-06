@@ -40,7 +40,10 @@ name = "John"
 print("Bonjour %s!" % name)   # 's' comme string
 
 age = 42
-print("Vous avez %i ans" % 42)  # 'i' comme integer
+print("Vous avez %i ans" % age)  # 'i' comme integer
+
+poids = 68.5
+print("Vous pesez %f kilos" % poids)  # 'f' comme integer
 
 ```
 
@@ -105,7 +108,7 @@ template.format(reponse, name)
 * La meilleure de toutes :)
 * Plus succint que `format()`
 * Plus performant que `%` et `.format()`
-* Mais pas avant Python 3.6
+* Mais pas avant Python 3.6 (2016)
 
 # Principe
 
@@ -122,7 +125,9 @@ text = f"Bonjour {name}. Votre score est: {score}"
 Mais aussi:
 
 ```python
-text = f"2 + 2 égale { 2 + 2 }"
+a = 2
+b = 3
+text = f"résultat: {a + b}"
 ```
 
 # Conclusion
@@ -141,12 +146,19 @@ Mais si vous avez le choix, utilisez des `f-strings`!
 
 ```python
 >>> pi = 3.14159265359
->>> truncated = "%.2f" % pi
-3.14
+>>> f"pi vaut à peu près {pi:.2f}"
+pi vaut à peu près 3.14
 ```
 
 Le texte dans les accolades après le `:` est un mini-langage de spécification de format.
-`.2` veut dire: 2 chiffres après la virgule maximum.
+`.2f` veut dire: 2 chiffres après la virgule maximum.
+
+Fonctionne aussi avec `.format()` `et %`:
+
+```python
+"pi vaut à peu près {:.2f}".format(pi)
+"pi vaut à peu près %.2f" % pi
+```
 
 # Alignements et paddings
 
@@ -273,19 +285,19 @@ class B(A):
 
 ```python
 class A:
-    def method(self):
+    def do_stuff(self):
         print("A!")
 
 class B(A):
-    def method(self):
+    def do_stuff(self):
         print("B!")
 
 >>> a = A()
->>> a.method() # ok
+>>> a.do_stuff() # ok
 'A!'
 
 >>> b = B()
->>> b.method()
+>>> b.do_stuff()
 'B!'
 ```
 
@@ -294,19 +306,19 @@ class B(A):
 
 ```python
 class A:
-    def method(self):
+    def do_stuff(self):
         print("A!")
 
 class B(A):
-    def method(self):
-        super().method()
+    def do_stuff(self):
+        super().do_stuff()
         print("B!")
 
 >>> a = A()
->>> a.method() # ok
+>>> a.do_stuff() # ok
 'A!'
 >>> b = B()
->>> b.method()
+>>> b.do_stuff()
 'A!'
 'B!'
 ```
@@ -329,7 +341,7 @@ class Pet(Animal):
 # All dogs are pets
 class Dog(Pet):
    def __init__(self, name):
-   	super().init("dog", name)
+        super().init("dog", name)
 ```
 
 #
@@ -391,7 +403,7 @@ Dans `play` on appelle `self.marvel_client.get_all_characters()` donc la méthod
 `get_all_characters()` doit:
 
 * exister
-* ne prendre aucun agrument
+* ne prendre aucun argument
 * retourner une liste de noms
 
 # Contrats implicites - 2
@@ -465,10 +477,6 @@ class BaseClient(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def get_description(self, name):
         pass
-
-
->>> client = BaseClient()
-
 ```
 
 On retrouve le `@` au-dessus des méthodes.
@@ -497,21 +505,23 @@ class MarvelClient(BaseClient):
     	...
 ```
 
-
-# Pistes de réflexion
-
-* Que se passe-t-il si on rajoute une méthode dans `BaseClient` sans toucher
-  à `MarvelClient` ni à `FakeClient` ?
-* Que se passe-t-il si la signature de `get_description()` change?
+À la construction, Python va vérifier que les méthodes abstraites
+sont bien surchargées.
 
 # Conclusion
 
-Plein de languages ont un concept d'interface. C'est bien utile de savoir,
-les définir en Python, même si ça ne résout pas tous les problèmes.
+Plein de langages ont un concept d'interface.
+
+C'est utile de savoir que les interfaces existent en Python et ça peut rendre
+le code plus clair.
+
+Cela dit, dans le cas de Python c'est complètement *optionnel*.
+
+#
 
 \center \huge Atelier
 
-Encore un refactoring
+# Encore un refactoring
 
 # Pour la prochaine fois:
 
