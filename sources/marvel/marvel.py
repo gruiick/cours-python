@@ -84,13 +84,6 @@ class CharacterDescription(Query):
     def __init__(self, name):
         self.name = name
 
-    def get_character_description(self, name):
-        params = {"name": name}
-        body, attribution = self.make_request("/characters", params)
-        first_result = body["data"]["results"][0]
-        description = first_result["description"]
-        return (description, attribution)
-
     def params(self):
         return {"name": self.name}
 
@@ -110,12 +103,6 @@ class CreatorNumberOfSeries(Query):
     def __init__(self, first_name, last_name):
         self.first_name = first_name
         self.last_name = last_name
-
-    def get_number_of_series(self, first_name, last_name):
-        params = {"firstName": first_name, "lastName": last_name}
-        body, attribution = self.make_request("/creators", params)
-        first_result = body["data"]["results"][0]
-        return (first_result["series"]["available"], attribution)
 
     def params(self):
         return {"firstName": self.first_name, "lastName": self.last_name}
