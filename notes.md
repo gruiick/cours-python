@@ -56,6 +56,10 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 * tests: pytest, TDD
 
+## other subjects
+
+* the dvorak layout
+* markdown, pandoc, beamer
 
 # Idées d'ateliers
 
@@ -74,3 +78,5 @@ Parser du RSS et télécharger les émissions:
 * Stéganographie: cacher un texte dans une image
 
 * Patcher des binaires Windows pour le fun?
+
+* csv, Microsoft Office integration
