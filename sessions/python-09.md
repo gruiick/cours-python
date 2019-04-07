@@ -525,7 +525,14 @@ Cela dit, dans le cas de Python c'est complètement *optionnel*.
 
 # Encore un refactoring
 
+Résultat sur `git.e2li.org`:
+
+`dmerejkowsky/cours-python/sources/marvel/marvel.py`
+
 # Pour la prochaine fois:
 
 * Créer un compte dévelopeur sur le site de Marvel
 * Implémenter le jeu!
+* Consignes:
+
+`dmerejkowsky/cours-python/sources/marvel/consignes.md`
