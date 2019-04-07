@@ -343,7 +343,7 @@ class Pet(Animal):
 # All dogs are pets
 class Dog(Pet):
    def __init__(self, name):
-        super().init("dog", name)
+        super().__init__("dog", name)
 ```
 
 #
