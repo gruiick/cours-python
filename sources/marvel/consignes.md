@@ -54,3 +54,8 @@ Astuces:
 * Dans la fonction `main()`, utilisez la présence ou nom de la chaîne de
   charactères "--test" dans `sys.argv` pour choisir le client à utiliser
   (FakeClient ou MarvelClient)
+
+
+# Rendu
+
+Envoyez votre solutions ou questions par e-mail à `d.merej@gmail.com`. Bonne chance!
