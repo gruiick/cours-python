@@ -43,7 +43,7 @@ age = 42
 print("Vous avez %i ans" % age)  # 'i' comme integer
 
 poids = 68.5
-print("Vous pesez %f kilos" % poids)  # 'f' comme integer
+print("Vous pesez %f kilos" % poids)  # 'f' comme float
 
 ```
 
