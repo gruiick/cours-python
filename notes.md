@@ -26,6 +26,7 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * slices takes a step too [::-1] -> reverse
 * with: contextmanager, ContextDecorator
 * short circuit in if: `if a is not None and a.b == 42`
+* splat operator, *args, **kwags, keyword-only
 
 ## big stuff
 
