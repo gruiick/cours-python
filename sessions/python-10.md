@@ -5,16 +5,7 @@
 
 \center \huge Exceptions
 
-# Examples d'erreurs
-
-  * division par zéro
-  * dépassement d'un tableau
-  * clé non trouvée dans un dico
-  * opération entre types incompatibles
-  * le fichier n'existe pas
-  * la variable n'existe pas
-
-# Les backtraces
+# Exemple
 
 ```python
 def une_fonction():
@@ -39,8 +30,9 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 ```
 
+ZeroDivisionError est une *classe*.
 
-# Les backtraces
+# Exemple modifié
 
 ```python
 def une_fonction(diviseur):
@@ -52,7 +44,8 @@ def une_autre_fonction():
 une_autre_fonction()
 ```
 
-# Les backtraces
+# Exemple modifié
+
 
 ```
 Traceback (most recent call last):
@@ -65,15 +58,48 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 ```
 
-# Lever une exception
+**Prenez le temps de lire les backtraces soigneusement!**
 
 
-```python
-def retirer_somme(compte, montant):
-   solde = ...
-   if montant >= solde:
-           raise ValueError("montant supérieur au solde!")
+# Exemples d'erreurs
+
+  * `b += 2` - **NameError**
+  * `a / 9` - **ZeroDivisionError**
+  * `my_list[42]` -  **IndexError**
+  * ``my_dict["bad-key"]`` - **KeyError**
+  * `1 + "two"` - **TypeError**
+  * `open("badpath")` - **FileNotFoundError**
+
+# Hiérarchie d'exceptions (simplifiée)
+
 ```
+BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- Exception
+      +-- ArithmeticError
+      |    +-- ZeroDivisionError
+      +-- LookupError
+      |    +-- IndexError
+      |    +-- KeyError
+      +-- OSError
+      |    +-- FileNotFoundError
+      +-- TypeError
+      +-- ValueError
+
+```
+
+Liste complète dans la documentation:
+https://docs.python.org/fr/3/library/exceptions.html#exception-hierarchy
+
+# KeyboardInterrupt et SystemExit
+
+* `KeyboardInterrupt` est levée quand on fait `ctrl-c`.
+
+* `SystemExit` est levé quand on utilise `sys.exit()`
+  * Python cache la backtrace dans ce cas-là
+  * Pas utile de l'attrapper en général
+
 
 # Attraper une exception
 
@@ -85,16 +111,11 @@ except ZeroDivisionError:
     print("someone tried to divide by zero!")
 ```
 
-* Note: si l'exception n'est pas une fille de la classe attrapee, c'est rate.
+* Note: si l'exception n'est pas une fille de la classe attrapée, c'est raté.
 
 # Attraper une exception
 
-* On peut mettre plusieurs blocs de `except`
-* On peut attraper plusieurs exceptions d'un coup
-
-
-# Attraper une exception
-
+On peut mettre plusieurs blocs de `except`
 
 ```python
 try:
@@ -105,43 +126,71 @@ except FileNotFoundError:
     print("file not found")
 ```
 
+# Attraper une exception
 
-
-Attention aux bare except
-
-# Hiérarchies
-
-À connaître
-À utiliser si vous faites une librairie.
-
-# finally, else
-
-# WBYL et EAFP
-
-Watch Before You Leap
-Easier to Ask for Forgiveness than Permission
-
-fichiers encore:
-
-```python
-if exists():
-if pas_un_dossier():
-if j_ai_les_droits_en_lecture():
-open(filename):
-```
+On peut attraper plusieurs exceptions d'un coup
 
 ```python
 try:
-    open(filename):
-catch IOError:
-    ...
+    something_dangerous()
+except (ZeroDivisionError, FileNotFoundError):
+   print("something bad happened")
 ```
 
+# finally, else
 
-# avec with
 
+```python
+try:
+	something_dangerous()
+except SomeError:
+    print("something bad happened")
+else:
+    print("everything went well")
+finally:
+    clean_up()
+```
 
-# attention a ou vous mettez except
+# WBYL
+
+* Watch Before You Leap
+
+```python
+if exists():
+    if pas_un_dossier():
+        if j_ai_les_droits_en_lecture():
+            open(filename):
+```
+
+# EAFP
+
+* Easier to Ask for Forgiveness than Permission
+
+```python
+try:
+    file = open(filename)
+catch IOError:
+    ...
+finally:
+   file.close()
+```
+
+# Avec with
+
+Pas besoin de `finally` :)
+
+```python
+try:
+    with file = open(filename):
+        lines = file.readlines()
+except FileNotFoundError:
+    print("Fichier non trouvé")
+```
+
+L'exception est capturée, le fichier est fermé, puis  l'exception est
+levée à nouveau.
+
+# Attention à la position du except
 
 ```python
 if truc:
@@ -149,6 +198,8 @@ if truc:
         for bidule in chose:
             raise MyError("kaboom!")
 ````
+
+# Attention à la position du except
 
 ```python
 if truc:
@@ -161,6 +212,7 @@ if truc:
 
 ```
 
+# Attention à la position du except
 
 ```python
 if truc:
@@ -173,9 +225,45 @@ if truc:
 
 ````
 
+# Accédér aux détails de l'exception
 
-# Accédér aux détails de l'exceptions
+* Avec `as`:
 
-* Avec `as`
-* Attrribut `args`
-* Parfois d'autres atttributs (voir la doc)
+```python
+
+try:
+    something_dangerous()
+except FileNotFoundError as error:
+    print("file not found:", error.filename)
+```
+
+\vfill
+
+Voir la documentation pour les attributs disponibles.
+
+
+# Lever une exception
+
+* Avec raise
+
+```python
+def retirer_somme(compte, montant):
+   solde = ...
+   if montant >= solde:
+           raise ValueError("montant supérieur au solde!")
+```
+
+# Créer vos propres exceptions
+
+Toujours hériter de `Exception`.
+
+```python
+class BankError(Exception):
+    ....
+
+class NotEnoughMoney(BankError):
+    def __init__(self, amount, withdrawal):
+         self.amount = amount
+         self.withdrawal = withdrawal
+```
+
