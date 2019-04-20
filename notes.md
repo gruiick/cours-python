@@ -2,10 +2,18 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Sujets à évoquer
 
+* virtualenv, pip, et bibliothèques tierces
+
+* IDEs: don't use them ... yet (or ever)
+    * linters,
+    * déboguage
+    * demo: pyflakes - black
+
 ## bits
 
-### classes
 * constants are UPPER_CASE
+
+### classes
 * multiple inheritance
 * delegation
 * properties on classes
@@ -30,7 +38,6 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 ## big stuff
 
-* exceptions: try, catch, finally
 * files: "wa", accès séquentiel (chunk = file.read(chunk_size))
 * style: trailing white space, editor configuration,
 * [formatage de strings](fragments/format.md)
@@ -48,12 +55,7 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 * Données binaires, encodage (binaire, ASCII, hexadécimal, unicode ...)
 
-* virtualenv, pip, et bibliothèques tierces
 
-* IDEs: don't use them ... yet (or ever)
-    * linters,
-    * déboguage
-    * demo: pyflakes - black
 
 * tests: pytest, TDD
 
