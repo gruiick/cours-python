@@ -64,7 +64,7 @@ ZeroDivisionError: division by zero
 # Exemples d'erreurs
 
   * `b += 2` - **NameError**
-  * `a / 9` - **ZeroDivisionError**
+  * `a / 0` - **ZeroDivisionError**
   * `my_list[42]` -  **IndexError**
   * ``my_dict["bad-key"]`` - **KeyError**
   * `1 + "two"` - **TypeError**
@@ -169,7 +169,7 @@ if exists():
 ```python
 try:
     file = open(filename)
-catch IOError:
+except IOError:
     ...
 finally:
    file.close()
@@ -181,7 +181,7 @@ Pas besoin de `finally` :)
 
 ```python
 try:
-    with file = open(filename):
+    with open(filename) as file:
         lines = file.readlines()
 except FileNotFoundError:
     print("Fichier non trouvé")
