@@ -1,15 +1,12 @@
 % Programmation avec Python (chapitre 10)
 % Dimitri Merejkowsky
 
-\center \huge Rappels
-
-* string formatting (%, .format(), f"")
-* abstract base classes
-
+#
 
 \center \huge Exceptions
 
-* Examples:
+# Examples d'erreurs
+
   * division par zéro
   * dépassement d'un tableau
   * clé non trouvée dans un dico
@@ -17,9 +14,7 @@
   * le fichier n'existe pas
   * la variable n'existe pas
 
-* les backtraces
-  * comment les lire
-  * y a un sens!
+# Les backtraces
 
 ```python
 def une_fonction():
@@ -31,7 +26,21 @@ def une_autre_fonction():
 une_autre_fonction()
 ```
 
+# Les backtraces
 
+```
+Traceback (most recent call last):
+  File "foo.py", line 7, in <module>
+    une_autre_fonction()
+  File "foo.py", line 5, in une_autre_fonction
+    une_fonction()
+  File "foo.py", line 2, in une_fonction
+    return 1 / 0
+ZeroDivisionError: division by zero
+```
+
+
+# Les backtraces
 
 ```python
 def une_fonction(diviseur):
@@ -43,7 +52,21 @@ def une_autre_fonction():
 une_autre_fonction()
 ```
 
+# Les backtraces
+
+```
+Traceback (most recent call last):
+  File "foo.py", line 7, in <module>
+    une_autre_fonction()
+  File "foo.py", line 5, in une_autre_fonction
+    une_fonction(diviseur=0)
+  File "foo.py", line 2, in une_fonction
+    return 1 / diviseur
+ZeroDivisionError: division by zero
+```
+
 # Lever une exception
+
 
 ```python
 def retirer_somme(compte, montant):
@@ -54,9 +77,35 @@ def retirer_somme(compte, montant):
 
 # Attraper une exception
 
-* Quand c'est pas le bon type, ben ça throw quand même
-* On peut mettre plusieurs blocs de `catch`
+```python
+try:
+    a = 1 / 0
+    this_will_never_happen()
+except ZeroDivisionError:
+    print("someone tried to divide by zero!")
+```
+
+* Note: si l'exception n'est pas une fille de la classe attrapee, c'est rate.
+
+# Attraper une exception
+
+* On peut mettre plusieurs blocs de `except`
 * On peut attraper plusieurs exceptions d'un coup
+
+
+# Attraper une exception
+
+
+```python
+try:
+    something_dangerous()
+except ZeroDivisionError:
+    print("tried to devide by zero")
+except FileNotFoundError:
+    print("file not found")
+```
+
+
 
 Attention aux bare except
 
