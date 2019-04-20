@@ -267,3 +267,10 @@ class NotEnoughMoney(BankError):
          self.withdrawal = withdrawal
 ```
 
+#
+
+\center \huge Atelier
+
+# Convertisseur d'unités
+
+Miles en kilomètres, gallons en litres, etc.
