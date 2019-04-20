@@ -66,6 +66,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Idées d'ateliers
 
+ * Writing GUIs: PyQt, Kivy
+
 Parser du RSS et télécharger les émissions:
 
   * Source: https://github.com/dmerejkowsky/pypodget/
