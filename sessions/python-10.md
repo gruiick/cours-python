@@ -279,10 +279,20 @@ Miles en kilomètres, gallons en litres, etc.
 
 \center \huge Pour la prochain fois
 
+# Consignes
+
+Point de départ; `git.e2li.org / dmerejkowsky / cours-python / sources / conversions`
+
 * Rajouter le support d'autres unités (comme les volumes, ...)
 * Gérer toutes les erreurs possibles (unité non trouvée, ...)
 
 Plus dur:
+
 * Gérer les vitesses (mètres par secone vers miles par heure)
 * Gérer les températures (dégres Celsius vers Farenheit)
 * Gérer les monnaies
+
+# Contact
+
+Envoyez questions, résultats de vos travaux ou resources sur Python
+à `d.merej@gmail.com`.
