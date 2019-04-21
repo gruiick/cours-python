@@ -274,3 +274,15 @@ class NotEnoughMoney(BankError):
 # Convertisseur d'unités
 
 Miles en kilomètres, gallons en litres, etc.
+
+#
+
+\center \huge Pour la prochain fois
+
+* Rajouter le support d'autres unités (comme les volumes, ...)
+* Gérer toutes les erreurs possibles (unité non trouvée, ...)
+
+Plus dur:
+* Gérer les vitesses (mètres par secone vers miles par heure)
+* Gérer les températures (dégres Celsius vers Farenheit)
+* Gérer les monnaies
