@@ -12,6 +12,7 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 ## bits
 
 * constants are UPPER_CASE
+* argparse
 
 ### classes
 * multiple inheritance
@@ -27,7 +28,6 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * attributes on functions (you never know)
 * `__call__`, functors
 * scopes, closures, global, nonlocal
-* no overlaod in python
 * stable sorts
 * dict: setdefault
 * listes: pop prend un argument
@@ -35,12 +35,12 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * with: contextmanager, ContextDecorator
 * short circuit in if: `if a is not None and a.b == 42`
 * splat operator, *args, **kwags, keyword-only
+* regex in Python, and why they're useful
 
 ## big stuff
 
 * files: "wa", accès séquentiel (chunk = file.read(chunk_size))
 * style: trailing white space, editor configuration,
-* [formatage de strings](fragments/format.md)
 * liste par compréhension et filtres
 * `help()`
 * packages, libraries tierces
@@ -50,12 +50,8 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 * solid
 
 * décorateurs
-
 * regular expressions
-
 * Données binaires, encodage (binaire, ASCII, hexadécimal, unicode ...)
-
-
 
 * tests: pytest, TDD
 
@@ -81,7 +77,3 @@ Parser du RSS et télécharger les émissions:
 * IOT : micro-controller, Rasberry Pi
 * Blender/GIMP
 * Stéganographie: cacher un texte dans une image
-
-* Patcher des binaires Windows pour le fun?
-
-* csv, Microsoft Office integration
