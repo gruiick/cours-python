@@ -82,6 +82,8 @@ print(sys.path)
 * /usr/lib/python3.7/site-packages
 ```
 
+* Le chemin courant à la priorité sur la bibliothèque standard!
+
 # À noter
 
 Seul deux des composants sont accessibles en *écriture* par
@@ -127,7 +129,7 @@ Mais comment faire pour le mettre dans `sys.path`?
 
 On peut récupérer les sources et les installer avec `python3 setup.py install --user`
 
-* Quasiment *tous* les projets python on un `setup.py` utilisable de cette façon.
+* Quasiment *tous* les projets python ont un `setup.py` utilisable de cette façon.
 * On utilise `--user` pour éviter des problèmes de permissions
 
 * Démo!
@@ -181,7 +183,7 @@ cli_ui.info("Ceci est en", cli_ui.bold, "gras")
 
 En fait, `cli-ui` utilise *d'autres* bibliothèques.
 
-Par example:
+Par exemple:
 
 ```python
 headers=["name", "score"]
@@ -218,16 +220,16 @@ setup(
 * S'utilise avec `python3 -m pip install --user ...`
 
 
-# Fonctionalités en plus
+# Fonctionnalités en plus
 
-* Peut supprimer quelque chose d'installé - `python3 -m pip uninstall <>`
+* Peut supprimer quelque chose installé - `python3 -m pip uninstall <>`
 * Peut chercher sur `pypi` directement - `python3 -m pip search <>`
 * Peut lister ce qui est installé - `python3 -m pip list`
 
 # Limitations de pip seul
 
 * Il faut penser à utiliser `--user`
-* Si le paquet est déjà installé dans le système (genre `/usr/lib/` source linux),
+* Si le paquet est déjà installé dans le système (genre `/usr/lib/` sous Linux),
   pip ne saura pas le mettre à jour - il faudra passer par le gestionnaire de paquet de
   la distribution
 
@@ -259,11 +261,11 @@ Comment faire pour travailler sur les deux projets?
 
 * Un chemin *isolé* du reste du système.
 * Contient un binaire python légèrement différent du binaire ordinaire.
-* Se crée avec `python3 -m venv <le chemin>` - sauf sous debian ;-(
+* Se crée avec `python3 -m venv <le chemin>` - sauf sous Debian ;-(
 
 # Avec virtualenv
 
-* Vous pouvez aussi install `virtualenv` avec pip puis utiliser `virtualenv`
+* Vous pouvez aussi installer `virtualenv` avec pip puis utiliser `virtualenv`
 
 ```bash
 $ python3 -m pip install virtualenv --user
@@ -290,3 +292,21 @@ Si taper le chemin du virtualenv vous embête, vous pouves
 *l'activer* avec `source bin/activate`
 
 Pour sortir: `deactivate`.
+
+# Les règles
+
+* Un virtualenv par projet et par version de Python
+* Toujours utiliser pip depuis un virtualenv
+
+C'est plus long, mais ça vous évitera un tas de problèmes ...
+
+# Pour aller plus loin
+
+* `requirements.txt`
+* `pipenv`
+* `poetry`
+
+Veillez à bien comprendre le problème que ces outils résolvent avant de vous
+en servir!
+
+On y reviendra
