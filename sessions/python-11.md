@@ -310,3 +310,18 @@ Veillez à bien comprendre le problème que ces outils résolvent avant de vous
 en servir!
 
 On y reviendra
+
+#
+
+\center \huge À vous de jouer!
+
+#
+
+Pas d'atelier collectif cette fois. Objectif:
+
+* Créer un virtualenv et installer pygame dedans
+* Suivre le tutoriel par vous-même :)
+
+https://nerdparadise.com/programming/pygame
+
+Je suis là si vous avez des questions!
