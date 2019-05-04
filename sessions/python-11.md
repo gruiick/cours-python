@@ -108,7 +108,7 @@ scores = [
   ["Mary-Jane", 2],
   ["Bob", 543],
 ]
-table = tabulate.tabulate(score)
+table = tabulate.tabulate(scores)
 print(table)
 ```
 
@@ -324,7 +324,7 @@ Et vous avez aussi un `pip` spécial dans `/le chemin/bin/pip`
 # Activer un virtualenv
 
 Si taper le chemin du virtualenv vous embête, vous pouves
-*l'activer* avec `source bin/activate`
+*l'activer* avec `source <chemin>/bin/activate`
 
 Pour sortir: `deactivate`.
 
