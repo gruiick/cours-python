@@ -7,25 +7,25 @@
 
 ```python
 try:
-    fp = open("file.txt")
+    file = open("file.txt")
     1 / 0
 except ZeroDivisionError:
     print("got you")
 finally:
     print("closing")
-    fp.close()
+    file.close()
 ```
 
 # versus
 
 ```python
 try:
-    fp = open("file.txt")
+    file = open("file.txt")
     1 / 0
 except ZeroDivisionError:
     print("got you")
 
-fp.close()
+file.close()
 ```
 
 # Réponse:
@@ -41,18 +41,18 @@ Que se passe-t-il si l'exception *n'est pas* ZeroDivisionError?
 ```python
 import foo
 
-answer = foo.get_answer()
+foo.bar()
 ```
 
 Fonctionne si:
 
-* Il y a un `foo.py` quelque part qui contient une fonction `get_answer`
+* Il y a un `foo.py` quelque part qui contient une fonction `bar`
 * Dans le dossier courant
 * Ou dans la bibliothèque standard Python
 
 # Parlons de PATH
 
-* Vous connaissez peut-être la variable PATH, qui dit
+* Vous connaissez peut-être la variable d'environement PATH, qui dit
   où sont les exécutables.
 
 ```bash
@@ -60,8 +60,10 @@ PATH="/bin:/usr/bin:/usr/sbin"
 $ ifconfig
 # résout sur /usr/sbin/ifconfig
 $ ls
-# résount sur /bin/ls
+# résout sur /bin/ls
 ```
+
+Résoudre: trouver le premier élément dans la liste.
 
 # sys.path
 
@@ -82,7 +84,7 @@ print(sys.path)
 * /usr/lib/python3.7/site-packages
 ```
 
-* Le chemin courant à la priorité sur la bibliothèque standard!
+* Le chemin courant a la priorité sur la bibliothèque standard!
 
 # À noter
 
@@ -124,6 +126,12 @@ On peut trouver le code source de `tabulate` facilement.
 
 Mais comment faire pour le mettre dans `sys.path`?
 
+# Dans la distribution
+
+Si vous êtes sous Linux, peut-être que vous pouvez utiliser votre
+gestionnaire de paquets.
+
+Du genre: `sudo apt install python3-tabulate`.
 
 # À la main
 
@@ -157,14 +165,14 @@ Sur linux, si le paquet contient des *scripts*, ils arriveront dans `~/.local/bi
 
 Sous macOS et Windows, ce sera un autre emplacement, mais qui *dépendra de la version de Python*.
 
-* Utilisez `python3 -m` quand c'est possible!
+Il faudra peut-être changer le PATH sur votre machine si vous voulez lancer les scripts
+directement. Ou alors, utilisez `python3 -m` (quand c'est possible).
 
+Example:
 
-# Avec pip
-
-* `pip` vient par défaut avec Python3
-* Vous pouvez aussi l'installer avec `get-pip.py`
-* Toujours le lancer avec `python3 -m pip`.
+```
+python3 -m tabulate
+```
 
 # Dépendances
 
@@ -212,6 +220,20 @@ setup(
 )
 ```
 
+# pypi
+
+pypi.org: un site que recense plein de bibliothèques python.
+
+Vive l'open source!
+
+cli-ui et tabulate y sont présents.
+
+# pip
+
+* `pip` vient par défaut avec Python3
+* Vous pouvez aussi l'installer avec `get-pip.py` (python3 get-pip.py --user)
+* Toujours le lancer avec `python3 -m pip`.
+
 # Intérêt de pip
 
 * Va chercher tout seul sur `pypi`
@@ -220,11 +242,12 @@ setup(
 * S'utilise avec `python3 -m pip install --user ...`
 
 
+
 # Fonctionnalités en plus
 
 * Peut supprimer quelque chose installé - `python3 -m pip uninstall <>`
 * Peut chercher sur `pypi` directement - `python3 -m pip search <>`
-* Peut lister ce qui est installé - `python3 -m pip list`
+* Peut lister ce qui est installé - `python3 -m pip freeze`
 
 # Limitations de pip seul
 
@@ -232,6 +255,8 @@ setup(
 * Si le paquet est déjà installé dans le système (genre `/usr/lib/` sous Linux),
   pip ne saura pas le mettre à jour - il faudra passer par le gestionnaire de paquet de
   la distribution
+  
+
 
 # Versions de dépendances
 
@@ -245,10 +270,20 @@ On peut donner des versions dans `setup.py`:
 
 ```python
 install_requires=[
-   "cli-ui <= 0.8",
+   "cli-ui < 0.8",
    ...
 ]
 ```
+
+
+# Apparté - pourquoi sudo pip c'est pas une bonne idée
+
+Les fichiers dans `/usr/lib` sont contrôllés par votre gestionnaire de paquet.
+
+Les mainteneurs de votre distribution font en sorte qu'ils marchent bien les uns
+avec les autres.
+
+Si vous lancer `sudo pip` vous risquez de casser votre système.
 
 # Plusieurs projets
 
@@ -259,7 +294,7 @@ Comment faire pour travailler sur les deux projets?
 
 # Environements virtuels
 
-* Un chemin *isolé* du reste du système.
+* Un répertoire *isolé* du reste du système.
 * Contient un binaire python légèrement différent du binaire ordinaire.
 * Se crée avec `python3 -m venv <le chemin>` - sauf sous Debian ;-(
 
@@ -302,12 +337,10 @@ C'est plus long, mais ça vous évitera un tas de problèmes ...
 
 # Pour aller plus loin
 
+* PYTHONPATH
 * `requirements.txt`
 * `pipenv`
 * `poetry`
-
-Veillez à bien comprendre le problème que ces outils résolvent avant de vous
-en servir!
 
 On y reviendra
 
