@@ -357,4 +357,4 @@ Pas d'atelier collectif cette fois. Objectif:
 
 https://nerdparadise.com/programming/pygame
 
-Je suis là si vous avez des questions!
+Questions à dimitri@e2li.org
