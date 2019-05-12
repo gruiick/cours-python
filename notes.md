@@ -2,6 +2,12 @@ Ce fichier contient diverses notes utiles à la préparation des futurs cours.
 
 # Sujets à évoquer
 
+
+> Software engineering is what happens to programming when you add time and
+other programmers.
+> – Russ Cox
+
+
 * virtualenv, pip, et bibliothèques tierces
 
 * IDEs: don't use them ... yet (or ever)
