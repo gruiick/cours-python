@@ -1,4 +1,4 @@
-all: python-11.pdf
+all: python-12.pdf
 
 %.pdf: %.md
 	pandoc -t beamer $< -o $@
