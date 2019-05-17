@@ -50,7 +50,8 @@ comment ne rien casser?
 tdd: une *discipline* pour faire evoluer le code de production et le
 code de prod *en même temps*
 
-le cycle
+3 règles
+un cycle
 
 
 \center \huge Atelier
