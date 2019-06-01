@@ -429,6 +429,25 @@ def zero_to_five():
 
 #
 
-\center \huge Atelier
+\center \huge Consignes
 
-# Listons des fichiers
+
+#
+
+* Repartir de git.e2li.org/dmerejkowsky/cours-python/sources/lister
+
+* Ajouter le code pour gérer correctement l'attribut <is_directory> de l
+  class Entry
+
+* Utiliser TDD pour la suite!
+
+* Faire en sorte d'afficher les répertoires avec un `/` à la fin
+* Afficher la date de modification de manière plus lisible
+  (voir `time` dans la bibliothèque standard)
+* Grouper les éléments sur plusieurs colonnes
+* Implémenter d'autres options (`--sort=time`, etc.)
+* Réécrire parse_args() en utilisant `argparse`.
+
+# Solutions et questions
+
+Envoyez-moi un email à dimitri@e2li.org !
