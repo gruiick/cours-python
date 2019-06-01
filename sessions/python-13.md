@@ -252,7 +252,7 @@ On peut le voir si on utilise des parenthèses:
 >>> generator
 <generator object <genexpr> at 0x7f654c272138>
 >>> list(generator)
-[1, 2, 3]
+[0, 1, 2]
 ```
 
 Les générateurs sont "feignants": ils ne calculent leur valeurs que quand
@@ -263,7 +263,7 @@ c'est demandé
 ```python
 >>> generator =  (x for x in range(0, 3))
 >>> list(generator)
-[1, 2, 3]
+[0, 1, 2]
 >>> list(generator)
 []
 ```
