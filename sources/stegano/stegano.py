@@ -28,6 +28,7 @@ def by_chunk(iterable, size, fillvalue=0):
             yield chunk
             chunk = []
 
+
 def set_bit(old_byte, new_bit):
     b = list(bin(old_byte))
     b[-1] = str(new_bit)
