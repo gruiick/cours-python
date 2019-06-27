@@ -1,5 +1,4 @@
 import PIL.Image
-import itertools
 
 import sys
 
@@ -22,9 +21,12 @@ def parse_bitstream(stream):
 
 def by_chunk(iterable, size, fillvalue=0):
     "Collect data into fixed-length chunks or blocks"
-    args = [iter(iterable)] * size
-    return itertools.zip_longest(*args, fillvalue=fillvalue)
-
+    chunk = []
+    for x in iterable:
+        chunk.append(x)
+        if len(chunk) >= size:
+            yield chunk
+            chunk = []
 
 def set_bit(old_byte, new_bit):
     b = list(bin(old_byte))
@@ -33,8 +35,8 @@ def set_bit(old_byte, new_bit):
 
 
 def main_encrypt():
-    base_name = sys.argv[2]
-    message = (sys.argv[3] + "\n").encode()
+    message = (sys.argv[2] + "\n").encode()
+    base_name = sys.argv[3]
     carrier_name = base_name.replace(".png", ".carrier.png")
     base_image = PIL.Image.open(base_name)
     width, height = base_image.size
@@ -42,7 +44,7 @@ def main_encrypt():
     bitstream = get_bitstream(message)
     for row in range(height):
         for col in range(width):
-            r, g, b = base_image.getpixel((col, row))
+            r, g, b, = base_image.getpixel((col, row))
             value = None
             try:
                 value = next(bitstream)
@@ -60,7 +62,7 @@ def yield_bits(carrier_image):
     width, height = carrier_image.size
     for row in range(height):
         for col in range(width):
-            r, g, b = carrier_image.getpixel((col, row))
+            r, g, b, = carrier_image.getpixel((col, row))
             last_bit = int(bin(r)[-1])
             yield last_bit
 
