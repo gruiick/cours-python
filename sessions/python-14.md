@@ -73,14 +73,33 @@ On peut interpréter des octets comme du texte - c'est la table ASCII
 * Ça sert à *envoyer* du texte sur des terminaux d'où les "caractères" non-imprimables dans la liste
 * Mais c'est une convention *très* utilisée
 
-# En ASCII
+# Utiliser ASCII en Python
 
-C'est aussi la façon dont l'affiche python
+Avec `ord` et `chr`
+
+```python
+>>> ord('a')
+97
+>>> chr(98)
+'b'
+```
+
+# Affichage des bytearrays en Python
+
+Python utilise ASCII pour afficher les bytearrays si les caractères sont "imprimables"
 
 ```python
 >>> data = bytearray([97,98,99])
 >>> data
 bytearray(b"abc")
+```
+
+Et `\x` et le code hexa sinon:
+
+```python
+>>> data = bytearray([7, 69,  76, 70])
+>>> data
+bytearray(b'\x07ELF')
 ```
 
 # Types
@@ -120,17 +139,6 @@ Par contre on peut modifier un bytearray
 >>> b[0] = 95
 >>> b
 bytearray("_oo")
-```
-
-
-# Quand ce n'est pas imprimable
-
-Python affiche `\x` et le code hexa:
-
-```python
->>> data = bytearray([7, 69,  76, 70])
->>> data
-bytearray(b'\x07ELF')
 ```
 
 # Plus loin que l'ASCII
