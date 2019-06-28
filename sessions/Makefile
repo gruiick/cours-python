@@ -1,4 +1,4 @@
-all: python-13.pdf
+all: python-14.pdf
 
 %.pdf: %.md
-	pandoc -t beamer $< -o $@
+	pandoc --pdf-engine=xelatex -t beamer $< -o $@
