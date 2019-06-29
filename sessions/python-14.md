@@ -44,6 +44,16 @@ On peut *interpréter* bits et octets comme des nombres
 "0xda2"
 ```
 
+# Poids des bits
+
+```python
+0b0010010 # 18
+0b0010011 # 19
+0b1010010 # 82
+```
+
+Le premier bit est plus "fort" que le dernier - little endian
+
 # Manipuler des octets en Python
 
 Avec `bytearray` par exemple:
@@ -143,6 +153,19 @@ Par contre on peut modifier un bytearray
 bytearray("goo")
 ```
 
+# Conversion octets - texte
+
+Avec `encode()` et `decode()`:
+
+```python
+>>> text = "hello"
+>>> text.encode("ascii")
+b"hello"
+>>> octets = b"goodbye"
+>>> text = octets.decode("ascii")
+"goodbye"
+```
+
 
 # Plus loin que l'ASCII
 
@@ -151,13 +174,13 @@ Pas de caractères accentués dans ASCII. Du coup, on a d'autres *conventions* q
 ```python
 # latin-1: utilisé sur certains vieux sites
 # souvent européens
->>> bytearray([0b11101001]).decode('latin-1')
+>>> bytearray([233]).decode('latin-1')
 'é'
 ```
 
 ```python
 # cp850: dans l'invite de commande Windows
->>> bytearray([0b11101001]).decode('cp850')
+>>> bytearray([233]).decode('cp850')
 'Ú'
 ```
 
