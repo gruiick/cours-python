@@ -21,14 +21,16 @@ Détaillons.
 On peut *interpréter* bits et octets comme des nombres
 
 ```
+10: 0..9     305 305  3*100 + 0*10 + 5*1
  2: 01         5 101  1*4 + 0*2 + 1*1
-10: 0..9     305 305  3*10 + 0*10 + 5*1
 16: 0..9..F 3490 DA2  (d=13)*256 + (a=10)*16 + 2*1
 ```
 
 # Bases en Python
 
 ```python
+>>> 5
+5
 >>> 0b101
 5
 >>> 0xda2
@@ -50,8 +52,8 @@ Avec `bytearray` par exemple:
 data = bytearray(
   [0b1100001,
    0b1100010,
-   0b1100011,
-   0b1100100]
+   0b1100011
+  ]
 )
 # equivalent:
 data = bytearray([97,98,99])
@@ -75,13 +77,13 @@ On peut interpréter des octets comme du texte - c'est la table ASCII
 
 # Utiliser ASCII en Python
 
-Avec `ord` et `chr`
+Avec `chr` et `ord`
 
 ```python
->>> ord('a')
-97
 >>> chr(98)
 'b'
+>>> ord('a')
+97
 ```
 
 # Affichage des bytearrays en Python
@@ -99,12 +101,12 @@ Et `\x` et le code hexa sinon:
 ```python
 >>> data = bytearray([7, 69,  76, 70])
 >>> data
-bytearray(b'\x07ELF')
+bytearray(b"\x07ELF")
 ```
 
 # Types
 
-La variable `b"abc"` est une "chaîne de bits", de même que `"abc"` est une "chaîne de caractères".
+La variable `b"abc"` est une "chaîne d'octets", de même que `"abc"` est une "chaîne de caractères".
 
 Python apelle ces types `bytes` et `str`:
 
@@ -114,7 +116,7 @@ str
 >>> type(b"abc")
 bytes
 ```
-Notez bien que ce qu'affiche Python n'est qu'une *interpétation* du tableau de bits.
+Notez bien que ce qu'affiche Python n'est qu'une *interpétation* d'une séquence d'octets.
 
 # bits versus bytearray
 
@@ -136,18 +138,19 @@ Par contre on peut modifier un bytearray
 
 ```python
 >>> b = bytearray(b"foo")
->>> b[0] = 95
+>>> b[0] = 103
 >>> b
-bytearray("_oo")
+bytearray("goo")
 ```
+
 
 # Plus loin que l'ASCII
 
-Pas de caractères accentuès dans ASCII. Du coup, on a d'autres *conventions* qu'on appelle "encodage".
+Pas de caractères accentués dans ASCII. Du coup, on a d'autres *conventions* qu'on appelle "encodage".
 
 ```python
 # latin-1: utilisé sur certains vieux sites
-# - souvent européens
+# souvent européens
 >>> bytearray([0b11101001]).decode('latin-1')
 'é'
 ```
@@ -158,24 +161,44 @@ Pas de caractères accentuès dans ASCII. Du coup, on a d'autres *conventions* q
 'Ú'
 ```
 
-Mais ça, c'était avant. Avant UTF-8, un encodage qui a mis tout le monde d'accord.
+Mais ça, c'était avant.
+
+# UTF-8
+
+* La table unicode - caractère -> codepoint
+* Un encodage qui a mis tout le monde d'accord
+* Compatible avec ASCII
 
 # UTF-8 en pratique
 
-* Compatible avec ASCII
-* Mais certains caractères sont représentés par 2 octets ou plus:
+* Certains caractères sont représentés par 2 octets ou plus:
 
 ![utf8 exemple](img/utf8.png)
+
+*note: toutes les séquences d'octets ne sont pas forcément valides*
 
 # Conséquences
 
 * Peut représenter *tout* type de texte (latin, chinois, coréen, langues disparues, ....)
 * On ne peut pas accéder à la n-ème lettre directement dans une chaîne unicode, il faut parcourir lettre par lettre
-* Et toutes les séquences de bits ne sont pas forcément valides
+
+
+# Fichiers
+
+```python
+with open("fichier.txt", "r") as f:
+    contents = f.read()  # type: str
+```
+
+\vfill
+
+```python
+with open("fichier.txt", "rb") as f:
+    contents = f.read() # type: bytes
+```
 
 # Conclusions
 
 * On utilise souvent le binaire pour échanger entre Python et le monde extérieur
-* Python vous cache un peu ça en utilisant UTF-8 par défaut donc ça marche souvent
 * Le 'plain text' n'existe pas: tout texte a un *encodage*, et il vous faut connaître cet encodage
 * Si vous avez le choix, utilisez UTF-8
