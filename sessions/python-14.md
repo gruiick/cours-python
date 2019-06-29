@@ -26,6 +26,13 @@ On peut *interpréter* bits et octets comme des nombres
 16: 0..9..F 3490 DA2  (d=13)*256 + (a=10)*16 + 2*1
 ```
 
+# Valeurs possibles
+
+Le nombre de valeurs possible augmente *très* rapidement avec le nombre d'octets:
+
+* 1 octet:   $2^8$:            255
+* 2 octets:  $2^{16}$:        65.536
+* 4 octets:  $2^{32}$: 4.294.967.296
 # Bases en Python
 
 ```python
@@ -84,6 +91,7 @@ On peut interpréter des octets comme du texte - c'est la table ASCII
 * Le A est pour American
 * Ça sert à *envoyer* du texte sur des terminaux d'où les "caractères" non-imprimables dans la liste
 * Mais c'est une convention *très* utilisée
+* Techniquement, on n'a besoin que de 7 bits, mais on préfère envoyer des octets
 
 # Utiliser ASCII en Python
 
