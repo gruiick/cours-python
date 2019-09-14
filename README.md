@@ -2,15 +2,9 @@
 
 Ce dépôt contient:
 
-* Les sources de tous les supports de cours donnés à l'E2L, dans le
-  répertoire [sessions](sessions). Les présentations elles mêmes sont
-  disponibles dans la section "Ressources" du [site de l'E2L]() si vous
-  êtes à jour de cotisation :)
+* Le fichier `notes.md` et le répertoire  `fragments` qui sont à usage interne, et servent à préparer les prochaines sessions.
 
-* Les sources des exemples dans le répertoire [sources](sources)
-
-* Le fichier `notes.md` et le répertoire  `fragments` qui sont à usage interne, et servent
-  à préparer les prochaines sessions.
+* Un répertoire par saison, contenant à chaque fois les sources des présentations (dans un sous-répertoire 'sessions/'), et le code écrit pendant les ateliers (dans un sous-répertoire 'sources/')
 
 # License
 
