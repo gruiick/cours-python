@@ -9,6 +9,7 @@
 * L'interpréteur interactif
 * Un jeu simple
 
+#
 
 \center \huge La ligne de commande
 
@@ -25,9 +26,13 @@
 
 On tape un commande, on appuie sur entrée, l'ordinateur interprète ce qui a été tapé et affiche un message:
 
-* `cd`
+* `cd chemin/vers/fichier`
 * `ls` (ou `dir` sous Windows)
 * `pwd`
+
+* Le premier mot est une 'commande', les autres mots sont des 'arguments'
+
+#
 
 \center \huge Python
 
@@ -85,14 +90,23 @@ N'utilisez *pas* Python2, sinon certaines choses expliquées ici ne marcheront p
 
 # L'interpréteur interactif
 
-
+Il se lance depuis l'invite de commande du système d'exploitation:
 
 ```
+$ python3
 Python 3.7.1 (default, Oct 22 2018, 10:41:28)
 [GCC 8.2.1 20180831] on linux
 Type "help", "credits" or "license" for more information.
+>>>
 ```
 
+# Deux invites de commandes
+
+Notez les trois chevrons: `>>>`. Cela vous permet de différencier l'invite
+de commandes du système d'exploitation de celle de Python.
+
+* Système d'exploitation -> Python: taper `python3` (sans arguments)
+* Python -> Système d'exploitation: taper `quit()`
 
 # Note
 
@@ -213,7 +227,7 @@ Avec des simple quotes (`'`)
 
 ```
 >>> 'Bonjour monde!'
-'Bonjour monde'
+'Bonjour monde!'
 ```
 
 Marche aussi avec des double quotes (`"`)
@@ -276,7 +290,9 @@ On ne mélange pas les torchons et les serviettes!
 
 
 
-# Conversions
+#
+
+\center \huge Conversions
 
 
 # Entier vers string
@@ -361,11 +377,13 @@ True
 # Non persistance
 
 ```
+$ python3
 >>> a = 2
 >>> quit()
 ```
 
 ```
+$ python3
 >>> a
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -471,37 +489,37 @@ Profitez qu'on soit là pour vous aider si vous avez des erreurs que vous ne com
 L'essence de la programmation!
 
 
-# while
-
-Répéter tant qu'une condition est vraie
+# if
 
 ```python
-print("Bonjour, monde")
-while True:
-    print("spam!")
+a = 3
+b = 4
+if a == b:
+    print("a et b sont égaux")
+print("on continue")
 ```
+
 
 Notes:
 
 * deux points à la fin de la ligne
 * indentation après les deux points
+* si la condition n'est pas vraie, rien ne se passe
 
-# Notre première boucle infinie
+# if (2)
 
+Notez qu'on peut mettre uniquement une variable ou une valeur
+après le if. Ceci ne fonctionne pas:
 
+```python
+if a = 3:
+	print("a égale 3")
 ```
-$ python bonjour.py
-Bonjour, monde
-spam!
-spam!
-spam!
-....
-```
 
-CTRL-C pour interrompre
+et fait une erreur de syntaxe
 
 
-# Conditions
+# if / else
 
 ```python
 a = 3
@@ -509,40 +527,74 @@ b = 4
 if a == b:
     print("a et b sont égaux")
 else:
-    print("a et be sont différents")
+    print("a et b sont différent")
 ```
 
-Rappel:
 
-* deux points à la fin de la ligne
-* indentation après les deux points
+# if / elif
+
+```python
+if age < 10:
+	print("inférieur à dix")
+elif 10 <= age < 20:
+	print("âge entre 10 et 20")
+elif 20 <= age < 40:
+	print("âge entre 20 et 40")
+else:
+	print("âge supérieur à 40")
+```
+
+On peut mettre autont de `elif` qu'on veut!
+Le derier `else` s'éxécute en dernier
+
+
+# while
+
+Répéter tant qu'une condition est vraie
+
+```python
+i = 0
+while i < 3:
+    print(i)
+    i = i + 1
+```
+
+```
+0
+1
+2
+```
+
+
+# Notre première boucle infinie
+
+```python
+while True:
+	print("spam!")
+```
+
+CTRL-C pour interrompre
 
 
 # Combiner while et if
 
-Interrompt la boucle quand une condition devient vraie:
+On peut "sortir" de la boucle `while` avec `break`
 
 
 ```python
 i = 0
 while True:
     i = i + 1
+    print(i)
     if i > 3:
-        print("i est plus grand que 3, on arrête")
         break
-    print("i =" + str(i))
-    print("i est plus petit que 3, on continue")
 ```
 
-
 ```
-i = 1
-i est plus petit que 3, on continue
-i = 2
-i est plus petit que 3, on continue
-i = 3
-i est plus petit que 3, on continue
-i est plus grand que 3, on arrête
+1
+2
+3
+4
 ```
 
 
