@@ -11,10 +11,41 @@ def choisir_mot_au_hasard():
     return mots[index]
 
 
-
 def main():
     mot = choisir_mot_au_hasard()
-    print(mot)
+    # pour debuggage
+    # print(mot)
+    tentatives = []
+    while True:
+        afficher_indice(mot, tentatives)
+        lettre = demander_lettre()
+        tentatives += [lettre]
+        if a_gagné(mot, tentatives):
+            print("Gagné")
+            print(mot)
+            break
+
+
+def a_gagné(mot, tentatives):
+    for c in mot:
+        if c not in tentatives:
+            return False
+    return True
+
+
+def demander_lettre():
+    print("entrer une lettre")
+    lettre = input()
+    return lettre
+
+
+def afficher_indice(mot, tentatives):
+    for c in mot:
+        if c in tentatives:
+            print(c, end="")
+        else:
+            print("_", end="")
+    print()
 
 
 main()
