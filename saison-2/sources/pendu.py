@@ -32,6 +32,7 @@ def demander_joueur():
 
 def jeu():
     mot = choisir_mot_au_hasard()
+    # pour débugger:
     print(mot)
     tentatives = []
     while True:
