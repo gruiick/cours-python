@@ -81,7 +81,6 @@ def trouve_record(scores):
 
 
 def ajouter_resultat(scores, joueur_courant, score_courant):
-# main()
     if not scores:
         print("Vous avez établi le record à", score_courant)
         return {joueur_courant: score_courant}
@@ -95,9 +94,8 @@ def ajouter_resultat(scores, joueur_courant, score_courant):
     else:
         return scores
 
-anciens_scores = {"Bob": 30}
-joueur_courant = "Alice"
-score_courant = 28
+def main():
+    # Votre code ici ...
+    print("bonjour")
 
-nouveaux_scores = ajouter_resultat(anciens_scores, joueur_courant, score_courant)
-print(nouveaux_scores)
+main()
