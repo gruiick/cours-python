@@ -41,8 +41,8 @@ def jeu():
         tentatives += [lettre]
         score = len(tentatives)
         if a_gagné(mot, tentatives):
-            print("Gagné")
             print(mot)
+            print("Gagné: score", score)
             return score
 
 
@@ -87,7 +87,7 @@ def ajouter_resultat(scores, joueur_courant, score_courant):
 
     ancien_record = trouve_record(scores)
     if score_courant < ancien_record:
-        print("Vous avez battu le record de", ancien_record)
+        print("Vous avez battu le précédent record:", ancien_record)
         nouveaux_scores= scores
         nouveaux_scores[joueur_courant] = score_courant
         return nouveaux_scores
