@@ -68,24 +68,32 @@ def afficher_indice(mot, tentatives):
     print()
 
 
-def ajouter_resultat(scores, joueur_courant, score_courant):
+def trouve_record(scores):
     record = None
     for nom in scores:
         score = scores[nom]
         if record is None:
             record = score
-        elif score < record:
-            record = score
-    if record is None:
-        record = score_courant
-        print(joueur_courant + ", vous avez établi le record à ", record)
-    elif score_courant < record:
-        print(joueur_courant + ", vous avez battu le record de ", record)
-    scores[joueur_courant] = record
-    return scores
+        else:
+            if score < record:
+                record = score
+    return record
 
 
+def ajouter_resultat(scores, joueur_courant, score_courant):
 # main()
+    if not scores:
+        print("Vous avez établi le record à", score_courant)
+        return {joueur_courant: score_courant}
+
+    ancien_record = trouve_record(scores)
+    if score_courant < ancien_record:
+        print("Vous avez battu le record de", ancien_record)
+        nouveaux_scores= scores
+        nouveaux_scores[joueur_courant] = score_courant
+        return nouveaux_scores
+    else:
+        return scores
 
 anciens_scores = {"Bob": 30}
 joueur_courant = "Alice"
