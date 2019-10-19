@@ -622,3 +622,25 @@ Ce n'est pas une nouvelle syntaxe, juste de la manipulation de tuples!
 
 #
 Retour au pendu, mais cette fois nous voulons implémenter la gestion des high scores!
+
+#
+
+\center \huge Consignes pour travailler chez vous
+
+# Préparation
+
+* Récupérer l'archive `pendu-1.zip` dans la section Cours/Ateliers/Labos du site de l'ECL
+* L'extraire dans un répertoire quelconque
+* Se rendre dans ce répertoire et taper `python3.py pendu.py`
+* Si tout va bien, le message 'bonjour' s'affiche
+
+
+
+# Consignes
+
+* Remplacer le code dans `main()` en appelant correctement les autres fonctions définies dans le ficher.
+* Vérifier que le code fonctionne en jouant avec plusieurs noms différents.
+* Envoyez votre code ou questions par mail à dimitri@e2li.org
+
+
+
