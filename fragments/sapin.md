@@ -1,14 +1,17 @@
 # Ateleir du sapin
 
+Question: pourquoi etes vous-la ?
 
 ## Deroule de la session
 
 Introduire deux concepts:
-    - range()
-     - imports
 
+  - range()
+  - imports
 
 Annoncer l'exo: dessiner des sapins!
+
+_Pourquoi: pour que vous sachiez faire tous seuls_
 
 Example:
 
