@@ -22,6 +22,7 @@ Example:
 #######
    #
    #
+
 ```
 
 
@@ -42,7 +43,7 @@ Go!
 
 Si ca se passe bien:
 
-1/ Au fait, dans shutil il y a get_terminal_size
+1/ Au fait, dans shutil il y a `get_terminal_size`
 qui renvoie un tuple (colonnes, lignes) - pouvez-vous
 dessiner un sapin qui prend tout l'espace disponible
 
