@@ -1,4 +1,4 @@
-% Programmation avec Python (chapitre 3)
+% Programmation avec Python (chapitre 4)
 % Dimitri Merejkowsky
 
 
@@ -30,11 +30,39 @@
 
 ```python
 >>> a = 3
->>> b = 3
+>>> b = 4
 >>> a == b
-True
->>> a < 3
 False
+>>> a < b
+True
+```
+
+# Chaînes de caractères
+
+```python
+>>> prénom = "Alice"
+>>> message = "Bonjour, " + prénom
+>>> message
+"Bonjour, Alice"
+```
+
+# input()
+
+
+Lire une entrée utilisateur
+
+```python
+prénom = input("Entrez votre prénom: ")
+```
+
+
+# Conversions
+
+```python
+score = 42
+message = "Votre score est de: " + str(42)
+réponse = input("Entrez votre age") 
+age = int(response) 
 ```
 
 # Blocs - if
@@ -43,7 +71,7 @@ False
 if a == 3:
     print("a égale 3")
 else:
-    print("a est différent de 3"
+    print("a est différent de 3")
 ```
 
 # Blocs - while
@@ -78,15 +106,55 @@ def additionne(x, y):
 ```
 
 
-# Portée des variables
+# Variables globales
 
 ```python
-def additionne(x, y):
-    return x + y
+# salutation est une variable globale
+salutation = "Bonjour "
 
->>> x = 3
->>> additionne(x, 5)
-8
+def dire_bonjour(prénom):
+    print(salutation + prénom)
+
+dire_bonjour("Dimitri")
+```
+
+# Variables locales
+
+```python
+def dire_bonjour(prénom):
+    # prénom est une variable locale
+    print("Bonjour " + prénom)
+
+dire_bonjour("Dimitri")
+print(prénom)
+```
+
+# Variables locales (2)
+
+```python
+def dire_bonjour(prénom):
+    print("Bonjour " + prénom)
+
+prénom = "Dimitri"
+dire_bonjour(prénom)
+```
+
+# Argument par défaut
+
+```python
+def dire_bonjour(prénom, enthousiaste=False):
+    message = "Bonjour " + prénom
+    if enthousiaste:
+        message += "!"
+    print(message)
+```
+
+```python
+>>> dire_bonjour("John", enthousiaste=True)
+Bonjour John!
+
+>>> dire_bonjour("John")
+Bonjour John
 ```
 
 # print
@@ -109,15 +177,6 @@ print("mais en plusieurs bouts")
 ```text
 un message sur une seule ligne mais en plusieurs bouts
 ```
-
-# input()
-
-Lire une entrée utilisateur
-
-```python
-prénom = input("Entrez votre prénom: ")
-```
-
 
 # Listes
 
@@ -168,7 +227,7 @@ False
 
 ```python
 un_dictionnaire_vide = {}
-une_clé_une_valeur = { la_terre_est_plate: False }
+une_clé_une_valeur = { "la_terre_est_plate": False }
 scores = { "Alice": 20, "Bob": 14 }
 ```
 
