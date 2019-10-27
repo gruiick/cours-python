@@ -273,7 +273,7 @@ False
 ```python
 scores = { "Alice": 20, "Bob": 14 }
 for nom in scores:
-    score = scores[nome]
+    score = scores[nom]
     print(nom, "a un score de", score)
 ```
 
