@@ -61,8 +61,8 @@ prénom = input("Entrez votre prénom: ")
 ```python
 score = 42
 message = "Votre score est de: " + str(42)
-réponse = input("Entrez votre age") 
-age = int(response) 
+réponse = input("Entrez votre age")
+age = int(response)
 ```
 
 # Blocs - if
@@ -296,3 +296,52 @@ for nom in scores:
    #
    #
 ```
+
+
+# À faire chez vous
+
+Préparation:
+
+
+* Aller sur:
+   *  git.e2li.org/
+   *  dmerejkowsky/cours-python /
+   *  tree /
+   *  saison-2/sources/sapin
+
+* Récupérer `sapin_a.py` et `sapin_b.py`
+
+* Choisir celui que vous préférez comme point de départ.
+
+# Premier exercice
+
+* Ajouter `import shutil` en haut du fichier
+* Utiliser la fonction `shutil.get_terminal_size()` pour dessiner un saping qui
+  prend toute la place disponible
+
+# Deuxième exercice
+
+Ajouter `import random` en haut du fichier
+
+Utiliser la fonction `random.randint(0, n)` qui renvoie un entier entre 0 et `n-1` pour
+remplacer certains des `#` par des `.` ou des `O` de façon à obtenir un sapin décoré:
+
+```text
+                #
+               ##.
+              ####.
+             ###.O##
+            ####OO#.#
+           ##O####O###
+          #.########.##
+         ##..##O.#######
+        ########.######.O
+                #
+                #
+```
+
+#
+
+Envoyez votre code et/ou vos questions par mail à `dimitri@e2li.org`
+
+Bonne chance!
