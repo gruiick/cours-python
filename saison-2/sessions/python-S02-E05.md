@@ -34,6 +34,39 @@ def ma_fonction(x):
 x vaut 42
 ```
 
+# Aparté - le mot-clé `pass`
+
+En Python, à cause de l'organisation en blocs identés, on ne
+peut pas vraiment avoir de blocs vides. Mais parfois, on
+a besoin d'un bloc qui ne fasse rien.
+
+Dans ce cas, on peut utiliser le mot-clé `pass`, par exemple
+après un if:
+
+```python
+une_condition = False
+if une_condition:
+    pass
+else:
+    print("une_condition n'est pas vraie")
+```
+
+# Le mot-clé `pass` - 2
+
+On peut aussi - et c'est l'usage le plus courant - utiliser `pass` pour
+définir une fonction qui ne fait rien:
+
+```python
+def ne_fait_rien():
+    pass
+```
+
+```python
+>>> ne_fait_rien()
+<rien>
+```
+
+
 # Changement de paradigme
 
 Ce qu’on a vu jusqu’ici:
@@ -62,25 +95,18 @@ Je le mentionne juste parce que c'est une idée reçue très répandue.
 
 # Orienté objet - 2ème définition
 
-Mettre au même endroit:
+Une meilleure définition, c'est de dire que la programmation
+orintée objet permet de mettre au même endroit:
 
 * des données
 * des fonctions qui opèrent sur ces données
 
 L'important c'est que les deux aillent ensemble!
 
+\vfill
 
-# Orienté objet - 3ème définition
-
-Des "cellules" qui s'envoient des "messages".
-
-Notamment, les cellules ne "voient" que leur état interne.
-
-On peut envoyer un message d'une cellule à une autre *sans* connaître
-beaucoup de détails à propos du destinataire du message.
-
-On a déjà vu ce concepts avec des fonctions fonctionnant en mode
-*boîte noire* du point de vue du code qui les appelle.
+*Note: ce n'est pas **la** meilleure définition de l'orienté objet, mais on s'en contentera
+pour le moment ...*
 
 
 # Les classes
@@ -91,22 +117,28 @@ Mais notez bien qu'on peut faire de l'orienté objet *sans* classes!
 
 # Le plan de construction
 
-La seule chose dont on a besoin pour construire un objet, c'est d'un *plan de construction*.
+Pour construire un objet en Python, on a besoin d'un *plan de construction*.
 
 On appelle ce plan une *classe* et on la définit ainsi:
+
+```python
+class MonObjet:
+    # du code ici
+```
+
+Comme les fonctions, les classes contienent un *corps*, qui est le bloc *identé* en dessous
+du mot-clé `class`, de nom de la classe et du `:` en fin de ligne
+
+# Créons des objets
+
+On peut faire un plan de construction vide avec le mot clé pass:
 
 ```python
 class MonObjet:
     pass
 ```
 
-Ça ressemble un peu à la définition d'une fonction. Les noms des classes commencent souvent
-par une majuscule.
-
-
-# Créons des objets
-
-On crée un objet en mettant le nom de la classe suivi d'une paire de parenthèses -
+Dans ce cas, on crée un objet en mettant le nom de la classe suivi d'une paire de parenthèses -
 un peu comme pour appeler une fonction:
 
 ```python
@@ -117,7 +149,7 @@ Ici, `objet_1` est une *instance* de la classe `MonObjet`.
 
 # Attributs
 
-Les attributs sont des éléments _nommés_ "à l'intérieur" d'un objet.
+Les attributs sont des éléments **nommés** à *l'intérieur* d'un objet.
 
 On peut y accéder avec la syntaxe `<objet>.<attribut>`:
 
@@ -136,8 +168,8 @@ func = a.x
 func(10)
 ```
 
-Ici, on crée une variable `func` qui prend la valeur de l'attribut `x` dans `a`, puis
-on l'appelle dans la ligne suivante.
+Ici, on crée une variable `func` qui prend la valeur de l'attribut `x` dans l'objet `a`, puis
+on l'appelle avec l'argument `10` à la ligne suivante.
 
 Le code suivant fait exactement la même chose, mais avec une ligne de moins:
 
@@ -156,18 +188,18 @@ nombre_au_hasard = random.randint(0, 10)
 ```
 
 Ici, `random` est un module, et `randint` est un *attribut* du module `random`. Il se trouve
-que cet attribut est un fonction qu'on peut appeler avec deux arguments.
+que cet attribut est une fonction qu'on peut appeler avec deux arguments.
 
 On reviendra sur les modules dans un prochain chapitre.
 
 # Attributs - 4
 
-On peut *rajouter* des attributs à n'importe quel objet, en utilisant l'*assignation*:
+On peut *créer* des attributs dans *n'importe quel objet*, en utilisant l'*assignation*:
 
 ```python
 >>> mon_instance = MonObjet()
 
-# Création de l'attribut `x dans `mon_instance`
+# Création de l'attribut `x` dans `mon_instance`
 >>> mon_instance.x = 42
 
 # Accés à l'attribut `x` dans `mon_instance`
@@ -184,8 +216,6 @@ moins un argument appelé `self`, et être à l'intérieur du bloc de la classe:
 
 ```python
 class MonObjet:
-    # le bloc 'def' est a l'intérieur du bloc
-    # de la classe
     def ma_méthode(self):
         return 42
 ```
@@ -337,7 +367,7 @@ class MonObjet:
 
 # \_\_init\_\_ - 2
 
-On prend souvent les *valeurs* des attributs à créer en paramètres de la méthode `__init__ `.
+On prend souvent les *valeurs* des attributs à créer en arguments de la méthode `__init__ `.
 
 ```python
 class MonObjet:
@@ -346,7 +376,7 @@ class MonObjet:
         self.y = y
 ```
 
-Dans ce cas, les paramètres des `__init__` apparaissent à l'intérieur des parenthèses après le
+Dans ce cas, les arguments de la méthode `__init__` apparaissent à l'intérieur des parenthèses après le
 nom de la classe:
 
 ```
@@ -367,3 +397,13 @@ nom de la classe:
 * Instance: objet issue d'une classe
 * Méthode: fonction dans une classe (qui prend `self` en premier argument)
 * `__init__`: méthode magique appelée automatiquement pendant l'instaciation
+
+
+# Classes et programmation orienté objet
+
+Ainsi, on peut ranger au même endroit des données et des fonctions opérant sur ces donées.
+
+Les donées sont les attributs, et les fonctions opérant sur ces attributs sont les méthodes.
+
+On peut ainsi séparer les *responsabilités* à l'intérieur d'un code en les répartissant
+entres plusieurs classes.
