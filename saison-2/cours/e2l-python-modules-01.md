@@ -14,8 +14,9 @@ qu'un fichier foo.py.**
 
 Ou: accéder à du code provenant d'un *autre* fichier source.
 
-Imaginons un fichier bonjour.py` contenant seulement une assignation
-d'une variable `a` à l'entier 42
+Imaginons un fichier `bonjour.py` contenant seulement une assignation
+d'une variable `a` à l'entier 42 :
+
 ```python
 # Dans bonjour.py
 a = 42
@@ -30,14 +31,20 @@ exemple depuis l'interpréteur:
 42
 ```
 
+Notez que pour que cela fonctionne:
+
+* Il faut lancer la commande `python` sans argument
+* Il faut la lancer depuis le répertoire qui contient `bonjour.py`.
+
 On voit que l'assignation de la variable `a` dans `bonjour.py` est devenue
 un *attribut* du module `bonjour` lorsque `bonjour` a été importé
+
+\newpage
 
 Si maintenant on rajoute une fonction `dire_bonjour` dans `bonjour.py`:
 
 ```python
 # toujours dans bonjour.py
-a = 42
 a = 42
 def dire_bonjour():
     print("Bonjour!")
