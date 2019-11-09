@@ -495,5 +495,7 @@ Vous êtes développeur dans une usine de fabrication de robots.
 * Contient déjà le `main()` de test - à vous d'implémenter la classe!
 
 
+# Pour aller plus loin
 
+* Le robot n'a pas le droit d'avoir deux fois le même nom. À vous de coder cela!
 
