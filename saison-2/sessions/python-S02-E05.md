@@ -476,6 +476,142 @@ class MonObject:
 
 #
 
+\center \huge QCM
+
+#
+
+```python
+def dire_bonjour():
+    return "Bonjour"
+
+dire_bonjour()
+```
+
+1. Erreur
+2. Affiche "Bonjour"
+3. N'affiche rien
+
+\pause
+
+Réponse: 3: la fonction retourne quelque chose,
+mais on n'en fait rien
+
+#
+
+```python
+def différencernce(x, y):
+    return x - y
+
+z = différence(y=4, x=5)
+```
+
+Que vaut `z`?
+
+1. `1`
+2. `-1`
+3. Erreur
+
+\pause
+
+Réponse: 1 Quand on nomme les arguments, on les mets dans l'ordre qu'on veut.
+
+#
+
+```python
+class MonObject:
+    def ma_méthode():
+        print("Bonjour")
+
+mon_objet = MonObject()
+mon_objet.ma_méthode()
+```
+
+1. Erreur
+2. Affiche 'Bonjour'
+
+\pause
+
+Réponse 1: les méthodes prennent `self` en premier argument
+
+#
+
+```python
+class MonObject:
+    def ma_méthode():
+        print("mon attribut est", self.mon_attribut)
+
+mon_attribut = 42
+mon_objet = MonObject()
+mon_objet.ma_méthode()
+```
+
+1. Affiche "mon attribut est 42'
+2. Erreur
+
+\pause
+
+Réponse 2: Les attributs doivent exister quand ils sont utilisés comme valeur
+
+#
+
+```python
+class MonObject:
+    def ma_méthode(self):
+        print(self.mon_attribut)
+
+mon_objet = MonObject()
+mon_objet.mon_attribut = 42
+mon_objet.ma_méthode()
+```
+
+1. Erreur
+2. Affiche '42'
+
+\pause
+
+Réponse 2: On peut créer des attributs avec des assignations
+
+#
+
+```python
+class MonObject:
+    def ma_méthode(self):
+        self.mon_attribut = 42
+        print("mon attribut est", self.mon_attribut)
+
+mon_objet = MonObject()
+mon_objet.ma_méthode()
+```
+
+1. Affiche "mon attribut est 42'
+2. Erreur
+
+\pause
+
+Réponse 1: On peut créer des attributs dans
+des méthodes grâce à `self`.
+
+#
+
+```python
+class MonObject:
+    def __init__(self, valeur):
+        self.mon_attribut = valeur
+
+mon_objet = MonObject()
+valeur = mon_objet.mon_attribut
+print(valeur)
+```
+
+1. Erreur
+2. Affiche '42'
+
+\pause
+
+Réponse 2: `__init__` est une méthode magique appelée automatiquement.
+
+#
+
 \center \huge Atelier
 
 # Consignes
