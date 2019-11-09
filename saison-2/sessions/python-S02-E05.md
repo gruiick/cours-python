@@ -36,7 +36,7 @@ x vaut 42
 
 # Aparté - le mot-clé `pass`
 
-En Python, à cause de l'organisation en blocs identés, on ne
+En Python, à cause de l'organisation en blocs indentés, on ne
 peut pas vraiment avoir de blocs vides. Mais parfois, on
 a besoin d'un bloc qui ne fasse rien.
 
@@ -69,7 +69,7 @@ def ne_fait_rien():
 
 # Changement de paradigme
 
-Ce qu’on a vu jusqu’ici:
+Ce qu'on a vu jusqu’ici:
 
 * Des types simples (entiers, booléens, ...)
 * Des structures de données (listes, dictionnaires, ...)
@@ -96,7 +96,7 @@ Je le mentionne juste parce que c'est une idée reçue très répandue.
 # Orienté objet - 2ème définition
 
 Une meilleure définition, c'est de dire que la programmation
-orintée objet permet de mettre au même endroit:
+orientée objet permet de mettre au même endroit:
 
 * des données
 * des fonctions qui opèrent sur ces données
@@ -126,7 +126,7 @@ class MonObjet:
     # du code ici
 ```
 
-Comme les fonctions, les classes contienent un *corps*, qui est le bloc *identé* en dessous
+Comme les fonctions, les classes contiennent un *corps*, qui est le bloc *identé* en dessous
 du mot-clé `class`, de nom de la classe et du `:` en fin de ligne
 
 # Créons des objets
@@ -202,7 +202,7 @@ On peut *créer* des attributs dans *n'importe quel objet*, en utilisant l'*assi
 # Création de l'attribut `x` dans `mon_instance`
 >>> mon_instance.x = 42
 
-# Accés à l'attribut `x` dans `mon_instance`
+# Accès à l'attribut `x` dans `mon_instance`
 >>> mon_instance.mon_attribut
 42
 ```
@@ -237,7 +237,7 @@ Erreur
 42
 ```
 
-Notez qu'on ne passe *pas* d'argument quand on apelle `ma_méthode` depuis l'instance de l'objet.
+Notez qu'on ne passe *pas* d'argument quand on appelle `ma_méthode` depuis l'instance de l'objet.
 
 
 # Méthodes et attributs - 1
@@ -281,10 +281,10 @@ class MonObjet:
 
 # Méthodes et attributs - 3
 
-Les méthodes peuveunt aussi prendre plusieurs arguments, en plus de `self` - mais `self` doit
+Les méthodes peuvent aussi prendre plusieurs arguments, en plus de `self` - mais `self` doit
 toujours être le premier argument.
 
-Par example, pour créer un attribut avec une certaine valeur:
+Par exemple, pour créer un attribut avec une certaine valeur:
 
 
 ```python
@@ -396,14 +396,104 @@ nom de la classe:
 * Attribut: variable dans un objet
 * Instance: objet issue d'une classe
 * Méthode: fonction dans une classe (qui prend `self` en premier argument)
-* `__init__`: méthode magique appelée automatiquement pendant l'instaciation
+* `__init__`: méthode magique appelée automatiquement pendant l'instanciation
 
 
 # Classes et programmation orienté objet
 
-Ainsi, on peut ranger au même endroit des données et des fonctions opérant sur ces donées.
+Ainsi, on peut ranger au même endroit des données et des fonctions opérant sur ces données.
 
-Les donées sont les attributs, et les fonctions opérant sur ces attributs sont les méthodes.
+Les données sont les attributs, et les fonctions opérant sur ces attributs sont les méthodes.
 
 On peut ainsi séparer les *responsabilités* à l'intérieur d'un code en les répartissant
 entres plusieurs classes.
+
+# Encapsulation
+
+Définition: cacher à l'utilisateur de la classe certains détails du
+fonctionnement de celle-ci.
+
+On parle souvent d'opposition entre code *public*, utilisable à l'extérieur,
+de la classe, et code *privé*, utilisé à l'intérieur de la classe.
+
+Ou encore *d'interface* et de *d'implémentation*.
+
+# Exemple
+
+```python
+class MonObject:
+    def __init__(self):
+        # Notez le tiret bas en début
+        # du nom de l'attribut
+        self._mon_attribut_privé = ...
+
+    def ma_méthode_publique(self):
+        return self._mon_attribut_privé
+
+>>> mon_objet = MonObject()
+>>> mon_objet.ma_méthode_publique()
+```
+
+# Conventions
+
+Notez que rien ne vous empêche d'écrire:
+
+```python
+>>> mon_objet= MonObjet()
+>>> mon_objet._mon_attribut_privé = "une-autre-valeur"
+```
+
+mais alors vous n'êtes plus dans le cas d'usage prévu
+par l'auteur de la classe MonObjet.
+
+# Exemple d'usage - 1
+
+Si `_mon_attribut_privé` demande de longs calculs, on peut envisager de stocker le résultat
+de façon à ce que le deuxième appel à `ma_méthode_publique()` soit plus rapide.
+
+De l'extérieur, l'appel à `ma_méthode_publique()` sera "magiquement" plus rapide la deuxième
+fois :)
+
+# Exemple d'usage - 2
+
+```python
+class MonObject:
+    def __init__(self):
+        self._mon_attribut_privé = None
+
+    def ma_méthode_publique(self):
+        if self._mon_attribut_privé is None:
+            self._mon_attribut_privé = gros_calcul()
+        else:
+            return self._mon_attribut_privé
+
+>>> mon_objet = MonObject()
+>>> mon_objet.ma_méthode_publique()
+# gros_calcul() est appelée
+>>> mon_objet.ma_méthode_publique()
+# retourne une valeur immédiatement!
+```
+
+#
+
+\center \huge Atelier
+
+# Consignes
+
+Vous êtes développeur dans une usine de fabrication de robots.
+
+* Quand les robots sortent de la chaîne de montage, ils n'ont pas encore de nom
+* La première fois qu'on démarre un robot, un nom est généré au hasard, avec
+  le format suivant: deux lettres majuscules et trois chiffres. Par exemple:
+  `RX837` ou `BC811`
+* De temps en temps, les robots sont remis à aux paramètres d'usine, le nom
+  est effacé et doit être regénéré
+
+# Pour vous aider
+
+* Un squelette `robot.py`, à récupérer sur `git.e2li.org`
+* Contient déjà le `main()` de test - à vous d'implémenter la classe!
+
+
+
+

@@ -1,4 +1,4 @@
-%e Programmation avec Python (chapitre 5)
+% Programmation avec Python (chapitre 6)
 % Dimitri Merejkowsky
 
 
