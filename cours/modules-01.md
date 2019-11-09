@@ -23,9 +23,11 @@ a = 42
 ```
 
 On peut accéder à cette variable en important le module, par
-exemple depuis l'interpréteur:
+exemple depuis l'interpréteur, en utilisant le mot-clé `import`
+suivi du nom du module:
 
 ```python
+$ python
 >>> import bonjour
 >>> bonjour.a
 42
@@ -33,6 +35,8 @@ exemple depuis l'interpréteur:
 
 Notez que pour que cela fonctionne:
 
+* Le nom du module est écrit directement, ce n'est *pas* une
+  chaîne de caractères.
 * Il faut lancer la commande `python` sans argument
 * Il faut la lancer depuis le répertoire qui contient `bonjour.py`.
 
@@ -120,8 +124,21 @@ La bibliothèque standard est une collection de modules directement utilisables 
 
 Exemple: `sys`, `random`, ...
 
-Toute la bibliothèque standard est documentée - et en Français depuis peu:
+Toute la bibliothèque standard est documentée - et la traduction en Français est en cours:
 
 https://docs.python.org/fr/3/library/index.html
 
 Mettez ce lien dans vos favoris - il vous sera très utile.
+
+# Quelques exemples de modules de la bibliothèque standard
+
+## Easter eggs
+
+(Ou fonctionnalités cachées)
+
+* `import antigravity`
+* `import this`
+
+Je vous laisse découvrir ce que fait le premier. Quant au deuxième, il contient
+une liste de préceptes que la plupart des développeurs Python s'efforcent de
+respecter. On en reparlera ...
