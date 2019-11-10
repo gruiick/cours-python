@@ -73,7 +73,7 @@ Ce qu'on a vu jusqu’ici:
 
 * Des types simples (entiers, booléens, ...)
 * Des structures de données (listes, dictionnaires, ...)
-* Des fonctions qui manipulent ces types ou ces types
+* Des fonctions qui manipulent ces données ou ces types
 * Des fonctions qui s’appellent les unes les autres
 
 On appelle cet ensemble de concepts, cette façon d'écrire du code, un *paradigme* -
@@ -109,9 +109,9 @@ L'important c'est que les deux aillent ensemble!
 pour le moment ...*
 
 
-# Les classes
+# Classes et instances
 
-On va parler *d'une* façon de faire de l'orienté objet: avec des classes.
+On va parler *d'une* façon de faire de l'orienté objet: avec des classes et des instances.
 
 Mais notez bien qu'on peut faire de l'orienté objet *sans* classes!
 
@@ -122,42 +122,42 @@ Pour construire un objet en Python, on a besoin d'un *plan de construction*.
 On appelle ce plan une *classe* et on la définit ainsi:
 
 ```python
-class MonObjet:
+class MaClasse:
     # du code ici
 ```
 
 Comme les fonctions, les classes contiennent un *corps*, qui est le bloc *identé* en dessous
 du mot-clé `class`, de nom de la classe et du `:` en fin de ligne
 
-# Créons des objets
+# Créons des instances
 
 On peut faire un plan de construction vide avec le mot clé pass:
 
 ```python
-class MonObjet:
+class MaClasse:
     pass
 ```
 
-Dans ce cas, on crée un objet en mettant le nom de la classe suivi d'une paire de parenthèses -
+Dans ce cas, on crée une instance en écrivant le nom de la classe suivi d'une paire de parenthèses -
 un peu comme pour appeler une fonction:
 
 ```python
->>> objet_1 = MonObjet()
+>>> mon_instance = MaClasse()
 ```
 
-Ici, `objet_1` est une *instance* de la classe `MonObjet`.
+Ici, `mon_instance` est une *instance* de la classe `MaClasse`.
 
 # Attributs
 
-Les attributs sont des éléments **nommés** à *l'intérieur* d'un objet.
+Les attributs sont des éléments **nommés** à *l'intérieur* d'une instance.
 
-On peut y accéder avec la syntaxe `<objet>.<attribut>`:
+On peut y accéder avec la syntaxe `<instance>.<attribut>`:
 
 ```python
 y = a.x
 ```
 
-Ici, `y` est l'attribut `x` de l'objet `a`.
+Ici, `y` est une variable qui a la valeur de l'attribut `x` de l'instance `a`.
 
 # Attributs - 2
 
@@ -168,7 +168,7 @@ func = a.x
 func(10)
 ```
 
-Ici, on crée une variable `func` qui prend la valeur de l'attribut `x` dans l'objet `a`, puis
+Ici, on crée une variable `func` qui prend la valeur de l'attribut `x` dans l'instance `a`, puis
 on l'appelle avec l'argument `10` à la ligne suivante.
 
 Le code suivant fait exactement la même chose, mais avec une ligne de moins:
@@ -194,10 +194,10 @@ On reviendra sur les modules dans un prochain chapitre.
 
 # Attributs - 4
 
-On peut *créer* des attributs dans *n'importe quel objet*, en utilisant l'*assignation*:
+On peut *créer* des attributs dans *n'importe quel instance*, en utilisant l'*assignation*:
 
 ```python
->>> mon_instance = MonObjet()
+>>> mon_instance = MaClasse()
 
 # Création de l'attribut `x` dans `mon_instance`
 >>> mon_instance.x = 42
@@ -215,29 +215,28 @@ On utilise `def`, comme pour les fonctions, mais les méthodes *doivent* avoir a
 moins un argument appelé `self`, et être à l'intérieur du bloc de la classe:
 
 ```python
-class MonObjet:
+class MaClasse:
     def ma_méthode(self):
         return 42
 ```
 
 # Méthodes - appel
 
-Une méthode ne peut être appelée que depuis une *instance* de
-l'objet:
+Une méthode ne peut être appelée que depuis une *instance*:
 
 ```python
-class MonObjet:
+class MaClasse:
     def ma_méthode(self):
             return 42
 >>> ma_méthode()
 Erreur
 
->>> mon_instance = MonObjet()
+>>> mon_instance = MaClasse()
 >>> mon_instance.ma_méthode()
 42
 ```
 
-Notez qu'on ne passe *pas* d'argument quand on appelle `ma_méthode` depuis l'instance de l'objet.
+Notez qu'on ne passe *pas* d'argument quand on appelle `ma_méthode` depuis l'instance de la classe.
 
 
 # Méthodes et attributs - 1
@@ -247,13 +246,13 @@ Notez qu'on ne passe *pas* d'argument quand on appelle `ma_méthode` depuis l'in
 On peut le voir en utilisant des attributs:
 
 ```python
-class MonObjet:
+class MaClasse:
     def affiche_attribut_x(self):
         # Accès à l'attribut `x` dans `self`
         print(self.x)
 
 
->>> mon_instance = MonObjet()
+>>> mon_instance = MaClasse()
 >>> mon_instance.x = 42
 >>> mon_instance.affiche_attribut_x()
 42
@@ -264,13 +263,13 @@ class MonObjet:
 On peut aussi *créer* des attributs dans une méthode:
 
 ```python
-class MonObjet:
+class MaClasse:
     def crée_attribut_x(self):
         self.x = 42
     def affiche_attribut_x(self):
         print(self.x)
 
->>> mon_instance = MonObjet()
+>>> mon_instance = MaClasse()
 >>> mon_instance.affiche_attribut_x()
 # Erreur: `mon_instance` n'a pas d'attribut `x`
 
@@ -288,14 +287,14 @@ Par exemple, pour créer un attribut avec une certaine valeur:
 
 
 ```python
-class MonObjet
+class MaClasse
     def crée_attribut_x(self, valeur_de_x):
         self.x = valeur_de_x
 
     def affiche_attribut_x(self);
         print(self.x)
 
->>> mon_instance = MonObjet()
+>>> mon_instance = MaClasse()
 >>> mon_instance.crée_attribut_x(42)
 >>> mon_instance.affiche_attribut_x()
 42
@@ -303,11 +302,11 @@ class MonObjet
 
 # Méthodes appelant d'autres méthodes - 1
 
-Comme les méthodes sont *aussi* des attributs, les méthodes d'un objet peuvent s'appeler
+Comme les méthodes sont *aussi* des attributs, les méthodes d'une classe peuvent s'appeler
 les unes les autres:
 
 ```python
-class MonObjet:
+class MaClasse:
     def méthode_1(self):
         print("démarrage de la méthode 1")
         print("la méthode 1 affiche bonjour")
@@ -324,7 +323,7 @@ class MonObjet:
 # Méthodes appelant d'autres méthodes - 2
 
 ```python
->>> mon_instance = MonObjet()
+>>> mon_instance = MaClasse()
 >>> mon_instance.méthode_2()
 ```
 
@@ -340,7 +339,7 @@ fin de la méthode 2
 # Une méthode spéciale
 
 Si vous définissez une méthode `__init__`, celle-ci est appelée *automatiquement*
-quand l'objet est construit.
+quand l'instance est construite.
 
 On dit que c'est une méthode "magique" parce qu'elle fait quelque chose _sans_ qu'on
 l'appelle explicitement.
@@ -351,12 +350,12 @@ On utilise souvent `__init__` pour créer des attributs
 
 
 ```python
-class MonObjet:
+class MaClasse:
     def __init__(self):
         self.x = 1
         self.y = 2
 
->>> mon_instance = MonObjet()
+>>> mon_instance = MaClasse()
 
 # __init__ est appelée automatiquement!
 >>> mon_instance.x
@@ -370,7 +369,7 @@ class MonObjet:
 On prend souvent les *valeurs* des attributs à créer en arguments de la méthode `__init__ `.
 
 ```python
-class MonObjet:
+class MaClasse:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -380,21 +379,26 @@ Dans ce cas, les arguments de la méthode `__init__` apparaissent à l'intérieu
 nom de la classe:
 
 ```
->>> mon_instance = MonObjet(3, 4)
+>>> mon_instance = MaClasse(3, 4)
 >>> mon_instance.x
 3
 >>> mon_instance.y
 4
 ```
 
-*Pour cette  raison, `__init__` est souvent appelé le _constructeur_ de la classe.*
+D'où le nom: `__init__` sert a initialiser les attributs de la classe.
+
+# Constructeurs
+
+Note: on appelle parfois la méthode `__init__` un constructeur, un terme qui est employé pour d'autres langages qui utilisent également des classes, comme Java ou  C++.
+
+Mais c'est un abus de langage: `__init__` en Python ne construit rien!
 
 # Récapitulatif
 
 * Classe: plan de construction
-* Objet: ce qu'on crée avec le plan
-* Attribut: variable dans un objet
-* Instance: objet issue d'une classe
+* Instance: ce qu'on construit avec une classe
+* Attribut: variable dans une instance
 * Méthode: fonction dans une classe (qui prend `self` en premier argument)
 * `__init__`: méthode magique appelée automatiquement pendant l'instanciation
 
@@ -421,7 +425,7 @@ Ou encore *d'interface* et de *d'implémentation*.
 # Exemple
 
 ```python
-class MonObject:
+class MaClasse:
     def __init__(self):
         # Notez le tiret bas en début
         # du nom de l'attribut
@@ -430,7 +434,7 @@ class MonObject:
     def ma_méthode_publique(self):
         return self._mon_attribut_privé
 
->>> mon_objet = MonObject()
+>>> mon_objet = MaClasse()
 >>> mon_objet.ma_méthode_publique()
 ```
 
@@ -439,12 +443,12 @@ class MonObject:
 Notez que rien ne vous empêche d'écrire:
 
 ```python
->>> mon_objet= MonObjet()
+>>> mon_objet= MaClasse()
 >>> mon_objet._mon_attribut_privé = "une-autre-valeur"
 ```
 
 mais alors vous n'êtes plus dans le cas d'usage prévu
-par l'auteur de la classe MonObjet.
+par l'auteur de la classe MaClasse.
 
 # Exemple d'usage - 1
 
@@ -457,7 +461,7 @@ fois :)
 # Exemple d'usage - 2
 
 ```python
-class MonObject:
+class MaClasse:
     def __init__(self):
         self._mon_attribut_privé = None
 
@@ -467,7 +471,7 @@ class MonObject:
         else:
             return self._mon_attribut_privé
 
->>> mon_objet = MonObject()
+>>> mon_objet = MaClasse()
 >>> mon_objet.ma_méthode_publique()
 # gros_calcul() est appelée
 >>> mon_objet.ma_méthode_publique()
@@ -499,7 +503,7 @@ mais on n'en fait rien
 #
 
 ```python
-def différencernce(x, y):
+def différence(x, y):
     return x - y
 
 z = différence(y=4, x=5)
@@ -518,11 +522,11 @@ Réponse: 1 Quand on nomme les arguments, on les mets dans l'ordre qu'on veut.
 #
 
 ```python
-class MonObject:
+class MaClasse:
     def ma_méthode():
         print("Bonjour")
 
-mon_objet = MonObject()
+mon_objet = MaClasse()
 mon_objet.ma_méthode()
 ```
 
@@ -536,12 +540,12 @@ Réponse 1: les méthodes prennent `self` en premier argument
 #
 
 ```python
-class MonObject:
-    def ma_méthode():
+class MaClasse:
+    def ma_méthode(self):
         print("mon attribut est", self.mon_attribut)
 
 mon_attribut = 42
-mon_objet = MonObject()
+mon_objet = MaClasse()
 mon_objet.ma_méthode()
 ```
 
@@ -555,11 +559,11 @@ Réponse 2: Les attributs doivent exister quand ils sont utilisés comme valeur
 #
 
 ```python
-class MonObject:
+class MaClasse:
     def ma_méthode(self):
         print(self.mon_attribut)
 
-mon_objet = MonObject()
+mon_objet = MaClasse()
 mon_objet.mon_attribut = 42
 mon_objet.ma_méthode()
 ```
@@ -574,12 +578,12 @@ Réponse 2: On peut créer des attributs avec des assignations
 #
 
 ```python
-class MonObject:
+class MaClasse:
     def ma_méthode(self):
         self.mon_attribut = 42
         print("mon attribut est", self.mon_attribut)
 
-mon_objet = MonObject()
+mon_objet = MaClasse()
 mon_objet.ma_méthode()
 ```
 
@@ -594,11 +598,11 @@ des méthodes grâce à `self`.
 #
 
 ```python
-class MonObject:
+class MaClasse:
     def __init__(self, valeur):
         self.mon_attribut = valeur
 
-mon_objet = MonObject()
+mon_objet = MaClasse()
 valeur = mon_objet.mon_attribut
 print(valeur)
 ```
@@ -608,7 +612,8 @@ print(valeur)
 
 \pause
 
-Réponse 2: `__init__` est une méthode magique appelée automatiquement.
+Réponse 1: `__init__` est une méthode magique appelée automatiquement,
+donc il *faut* passer un argument quand on instancie la classe: `mon_objet = MaClasse(42)`
 
 #
 
@@ -629,9 +634,3 @@ Vous êtes développeur dans une usine de fabrication de robots.
 
 * Un squelette `robot.py`, à récupérer sur `git.e2li.org`
 * Contient déjà le `main()` de test - à vous d'implémenter la classe!
-
-
-# Pour aller plus loin
-
-* Le robot n'a pas le droit d'avoir deux fois le même nom. À vous de coder cela!
-
