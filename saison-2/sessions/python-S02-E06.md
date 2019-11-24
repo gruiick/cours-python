@@ -1,4 +1,4 @@
-% Programmation avec Python (chapitre 6)
+% Programmation avec Python (Épisode 6)
 % Dimitri Merejkowsky
 
 
@@ -125,6 +125,8 @@ import sys
 
 def main():
    print(sys.argv)
+
+main()
 ```
 
 \vfill
@@ -146,6 +148,8 @@ import sys
 
 def main():
    print(sys.argv)
+
+main()
 ```
 
 \vfill
@@ -202,12 +206,13 @@ print(x)
 
 1. Erreur
 2. Affiche "Bonjour"
-3. Affiche 'None"
+3. Affiche "Bonjour" puis "None"
 
 \pause
 
-Réponse: 3 - pas de return, la fonction
-renvoie None
+Réponse: 3 - le premier print vient de l'appel de la fonction,
+comme la fonction ne renvoie rien (pas de `return`), x vaut
+None
 
 #
 
@@ -265,7 +270,8 @@ ma_variable = 42
 
 \pause
 
-Réponse 1: `ma_variable` est un *attribut* de `mon_module`.
+Réponse 1: `ma_variable` est un *attribut* de `mon_module`, elle n'est
+pas disponible en dehors.
 
 #
 
@@ -275,9 +281,9 @@ ma_variable = 42
 ```
 
 ```python
->>> import mon_module
->>> mon_module.ma_variable = 43
->>> mon_module.ma_variable
+import mon_module
+mon_module.ma_variable = 43
+print(mon_module.ma_variable)
 ```
 
 1. Erreur
