@@ -1,2 +1,0 @@
-rule pandoc
-  command = pandoc --pdf-engine=xelatex $in -o $out
