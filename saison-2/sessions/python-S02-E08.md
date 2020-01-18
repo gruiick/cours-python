@@ -201,7 +201,7 @@ print(message)
 entrée_utilisateur = "40"
 age = int(entrée_utilisateur)
 année_de_naissance = 2020 - age
-print(année - age)
+print(année_de_naissance)
 ```
 
 \vfill
@@ -348,7 +348,7 @@ else:
 
 \vfill
 
-1. âge entre 10 et 10
+1. âge entre 10 et 20
 2. âge supérieur à 40
 
 #
@@ -558,8 +558,8 @@ print(premier_fruit)
 
 \vfill
 
-1. "pomme"
-2. "poire"
+1. pomme
+2. poire
 
 
 #
@@ -612,7 +612,7 @@ print(prénoms)
 \vfill
 
 1. ['Alice', 'Bob', 'Charlie']
-2. ['Alice', 'Bob']
+2. ['Alice', 'Charlie']
 
 #
 
@@ -683,8 +683,8 @@ print("gagnant:", gagnant, "score:", score_max)
 
 \vfill
 
-1. Le gagnant est Bob avec un score de 6
-2. Le gagnant est Alice avec un score de 5
+1. gagnant: Bob, score: 6
+2. gagnant: Alice, score: 5
 
 #
 
@@ -903,7 +903,7 @@ class Enfant:
     def console(self):
         self.chat.caresse()
 
-boule_de_poils = Chat("boule_de_poils")
+boule_de_poils = Chat("Boule de poils")
 alice = Enfant("Alice", boule_de_poils)
 alice.console()
 ```
