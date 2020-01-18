@@ -1,18 +1,23 @@
 % Programmation avec Python (Épisode 8)
 % Dimitri Merejkowsky
+% 18 janvier 2020
 
 
-#
+# Quiz
 
-\center \huge Quizz de rentrée
+Les transparents qui suivent contiennent tous du code, suivi d'une liste
+numérotée de 1 à 2.
 
-# Le quizz
+Seule l'une des deux réponse est correcte - à vous de la trouver.
 
-Imaginez que le code est dans un fichier `quizz.py`,
-et qu'on lance `python3 quizz.py` exemple.
+Si vous n'êtes pas sûr, vous pouvez recopier le code dans un fichier
+`exemple.py` et lancer `python3 exemple.py` pour faire tourner
+le code :)
 
-Les questions portent sur ce qui est affiché.
+Vous pouvez aussi lire les chapitres 1 à 13 sur
+https://dmerej.info/books/python/
 
+À vous de jouer!
 
 #
 
@@ -910,3 +915,98 @@ alice.console()
 
 1. rien
 2. Boule de poils fait: "prrrrr"
+
+
+#
+
+\huge Atelier
+
+On va implémenter un pense bête en ligne de commande.
+
+# Consignes - 1
+
+* Le programme doit lancer une boucle interactive.
+* À chaque étape de la boucle, il faut afficher
+  les choses à faire, par exemple:
+
+```
+[ ] faire ceci
+[x] faire cela
+```
+
+\vfill
+
+Ici, `faire ceci` est à faire, mais `faire cela` est fait.
+
+# Consignes - 2
+
+Ensuite, l'utilisateur peut enter des actions, déterminé
+par le premier caractère:
+
+```
+> + faire un truc
+# ajoute un élément "faire un truc" à la liste
+> - 2
+# supprime le deuxième élement de la liste
+> x 1
+# marque le premier élément comme fait
+> o 3
+# marque le troisième élément comme non fait
+```
+
+# Consignes - 3
+
+Exemple d'interaction:
+
+```
+rien à faire pour le moment
+> + faire un premier truc
+1 [ ] faire un premier truc
+> + faire autre chose
+1 [ ] faire un premier truc
+2 [ ] faire autre chose
+> x 1
+1 [x] faire un premier truc
+2 [ ] faire autre chose
+> x 2
+1 [x] faire un premier truc
+2 [x] faire autre chose
+```
+
+# Squelette - 1
+
+Deux classes:
+
+```python
+class ChoseÀFaire:
+    def __init__(self, contenu, fait): ...
+
+class PenseBête:
+    """ Contient une liste de choses à faire """
+    def __init__(self):
+        self.liste = []
+    def ajouter(self, chose_à_faire): ...
+    # Attention! les index commencent à 1
+    def supprimer(self, index): ...
+    def marquer_comme_fait(self, index): ...
+    def marquer_comme_non_fait(self, index): ...
+```
+
+# Squelette - 2
+
+Deux fonctions:
+
+```python
+def parse(entrée_utilisateur):
+    """" Retourne un tuple (action, argument)
+    Par exemple:
+    >>> parse("+ quelque chose")
+    ("ajouter", "quelque chose")
+    >>> parse("- 2")
+    ("supprimer", 2)
+    """
+
+def main():
+    """" Boucle principale """
+    ....
+```
