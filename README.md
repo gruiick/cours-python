@@ -6,6 +6,8 @@ Ce dépôt contient:
 
 * Un répertoire par saison, contenant à chaque fois les sources des présentations (dans un sous-répertoire 'sessions/'), et le code écrit pendant les ateliers (dans un sous-répertoire 'sources/')
 
+* Enfin, un répertoire cours/ contenant les sources du cours en ligne.
+
 # License
 
 Le contenu de ce dépôt (cours et code source) est mis à disposition gratuitement selon les termes de la [Licence Creative Commons Attribution 3.0 France](https://creativecommons.org/licenses/by/3.0/fr/).
