@@ -10,7 +10,6 @@ release = "0.1"
 language = "fr"
 
 templates_path = ["_templates"]
-language = None
 exclude_patterns = []
 
 html_theme_path = [sphinx_nameko_theme.get_html_theme_path()]
