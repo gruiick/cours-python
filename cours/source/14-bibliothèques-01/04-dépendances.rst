@@ -75,7 +75,7 @@ On constate ici quelques limitations de ``pip``:
 
 * Il faut penser à utiliser ``--user`` (de la même façon que lorsqu'on lance ``setup.py`` à la main)
 * Si le paquet est déjà installé dans le système, pip ne saura pas le
-mettre à jour - il faudra passer par le gestionnaire de paquet de
+  mettre à jour - il faudra passer par le gestionnaire de paquet de
   la distribution
 
 En revanche, `pip` contient de nombreuses fonctionnalités intéressantes:

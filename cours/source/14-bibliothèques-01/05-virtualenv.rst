@@ -20,8 +20,8 @@ problème en :
 
 * installant le paquet ``python3-venv``,
 * ou en utilisant d'abord ``pip`` pour installer ``virtualenv``, avec
-``python3 -m pip install virtualenv --user`` puis en lançant ``python3 -m
-virtualenv foo-venv``.
+  ``python3 -m pip install virtualenv --user`` puis en lançant ``python3 -m
+  virtualenv foo-venv``.
 
 Comportement de python dans le virtualenv
 -----------------------------------------
@@ -58,7 +58,7 @@ habituel:
 
 * Le répertoire "global" dans ``~/.local/lib`` a disparu
 * Seuls quelques répertoires systèmes sont présents (ils correspondent
-plus ou moins à l'emplacement des modules de la bibliothèque standard)
+  plus ou moins à l'emplacement des modules de la bibliothèque standard)
 * Un répertoire *au sein* du virtualenv a été rajouté
 
 Ainsi, l'isolation du virtualenv est reflété dans la différence de la
