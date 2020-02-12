@@ -11,8 +11,9 @@ pages:
     - cd cours
     - poetry install
     - poetry run python build.py --werror
+    - mv build/html ../public/
   artifacts:
     paths:
-      - cours/build/html/
+      - public
   only:
     - master
