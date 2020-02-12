@@ -1,0 +1,18 @@
+image: python:latest
+
+
+
+before_script:
+  - pip install poetry
+
+
+pages:
+  script:
+    - cd cours
+    - poetry install
+    - poetry run python build.py
+  artifacts:
+    paths:
+      - cours/python/
+  only:
+    - master
