@@ -13,6 +13,6 @@ pages:
     - poetry run python build.py --werror
   artifacts:
     paths:
-      - cours/python/
+      - cours/build/html/
   only:
     - master
