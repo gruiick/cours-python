@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "cours-python"
+version = "0.1.0"
+description = "Programmation en Python"
+authors = ["Dimitri Merejkowsky <dimitri.merejkowsky@tanker.io>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+sphinx = "^2.3.1"
+sphinx-nameko-theme = "^0.0.3"
+
+[tool.poetry.dev-dependencies]
+sphinx-autobuild = "^0.7.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
