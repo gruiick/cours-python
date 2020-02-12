@@ -1,11 +1,8 @@
-+++
-title = "Ligne de commande"
-weight = 2
-+++
+La ligne de commande
+===================
 
-# La ligne de commande
-
-## Pourquoi la ligne de commande?
+Pourquoi la ligne de commande?
+------------------------------
 
 * Très puissant
 * Ancien, mais toujours d'actualité
@@ -13,7 +10,8 @@ weight = 2
 * Écrire des programmes qui marche dans la ligne de commande est (relativement) simple
 * Possibilités infines, même si on ne fait que manipuler du texte
 
-## Les bases
+Les bases
+----------
 
 On tape un commande, on appuie sur entrée, l'ordinateur interprète ce qui a été tapé et affiche un message:
 

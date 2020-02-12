@@ -1,30 +1,26 @@
-+++
-title = "Fonctions"
-weight = 1
-+++
+Fonctions
+=========
 
-# Fonctions
+Fonction sans argument
+---------------------
 
-## Fonction sans argument
+Définition::
 
-Définition:
-```python
-def dire_bonjour():
-    print("Bonjour")
-```
+    def dire_bonjour():
+        print("Bonjour")
+
 
 * avec `def`
 * avec un `:` à la fin et un _bloc indenté_ (appelé le "corps")
 
-Appel:
-```
->>> dire_bonjour()
-Bonjour
-```
+Appel::
+    >>> dire_bonjour()
+    Bonjour
 
 * avec le nom de la fonction et des parenthèses
 
-## Le pouvoir des fonctions
+Le pouvoir des fonctions
+------------------------
 
 Ici on vient de créer une nouvelle fonctionnalité
 à Python. Avant qu'on définisse la fonction
@@ -37,39 +33,33 @@ c'est une technique extrêmement utile en
 programmation.
 
 
-## Fonction avec un argument
+Fonction avec un argument
 
-Définition: avec l'argument à l'intérieur des parenthèses
+Définition: avec l'argument à l'intérieur des parenthèses::
 
-```python
-def dire_bonjour(prénom):
-	print("Bonjour " + prénom)
-```
+    def dire_bonjour(prénom):
+    	print("Bonjour " + prénom)
+Appel: en passant une variable ou une valeur dans les parenthèses::
 
-Appel: en passant une variable ou une valeur dans les parenthèses
+    >>> dire_bonjour("Germaine")
+    Bonjour Germaine
 
-```python
->>> dire_bonjour("Germaine")
-Bonjour Germaine
+     >>> prénom_de_charlotte = "Charlotte"
+     >>> dire_bonjour(prénom_de_charlotte)
+     Bonjour Charlotte
 
->>> prénom_de_charlotte = "Charlotte"
->>> dire_bonjour(prénom_de_charlotte)
-Bonjour Charlotte
-```
-
-## Exécution d'une fonction
+Exécution d'une fonction
+------------------------
 
 C'est exatement comme si on assignait les arguments de la fonction avant d'éxécuter le code
-dans le corps
+dans le corps::
 
-```python
-# Ceci:
-dire_bonjour("Dimitri")
+    # Ceci:
+    dire_bonjour("Dimitri")
 
-# Est équivalent à cela:
-prénom_de_dimitri = "Dimitri"
-print("Bonjour " + prénom_de_dimitri)
+    # Est équivalent à cela:
+    prénom_de_dimitri = "Dimitri"
+    print("Bonjour " + prénom_de_dimitri)
 
-# Lui-même équivalent à:
-print("Bonjour " + "Dimitri")
-```
+    # Lui-même équivalent à:
+    print("Bonjour " + "Dimitri")

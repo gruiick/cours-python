@@ -1,19 +1,17 @@
-+++
-title = "Objet de ce livre"
-weight = 1
-+++
-
-# Objet de ce livre
+Objet de ce livre
+=================
 
 Apprendre la programmation en partant de rien, en utilisant Python et la ligne de commande
 
-# Pourquoi Python?
+Pourquoi Python?
+----------------
 
 * Excellent langage pour débuter
 * Mon langage préféré
 * Vraiment cross-platform (sauf pour le mobile)
 
-# Pourquoi la ligne de commande?
+Pourquoi la ligne de commande?
+------------------------------
 
 Interface universelle
 

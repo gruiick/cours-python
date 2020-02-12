@@ -1,22 +1,19 @@
-+++
-title = "Flôt de contrôle"
-weight = 11
-+++
-
-# Flot de contrôle
+Flot de contrôle
+================
 
 L'essence de la programmation!
 
 
-## if
+if
+--
 
-```python
-a = 3
-b = 4
-if a == b:
-    print("a et b sont égaux")
-print("on continue")
-```
+.. code-block:: python
+
+   a = 3
+   b = 4
+   if a == b:
+       print("a et b sont égaux")
+   print("on continue")
 
 
 Notes:
@@ -26,17 +23,16 @@ Notes:
 * si la condition n'est pas vraie, rien ne se passe
 
 Notez qu'on peut mettre uniquement une variable ou une valeur
-après le if. Ceci ne fonctionne pas:
+après le if. Ceci ne fonctionne pas::
 
-```python
-if a = 3:
-	print("a égale 3")
-```
+    if a = 3:
+    	print("a égale 3")
 
 et fait une erreur de syntaxe
 
 
-## if / else
+if / else
+---------
 
 ```python
 a = 3
@@ -48,7 +44,8 @@ else:
 ```
 
 
-## if / elif
+if / elif
+--------
 
 ```python
 if age < 10:
@@ -65,7 +62,8 @@ On peut mettre autont de `elif` qu'on veut!
 Le derier `else` s'éxécute en dernier
 
 
-## while
+while
+-----
 
 Répéter tant qu'une condition est vraie
 
@@ -83,7 +81,8 @@ while i < 3:
 ```
 
 
-## Notre première boucle infinie
+Notre première boucle infinie
+-----------------------------
 
 ```python
 while True:
@@ -93,7 +92,8 @@ while True:
 CTRL-C pour interrompre
 
 
-## Combiner while et if
+Combiner while et if
+--------------------
 
 On peut "sortir" de la boucle `while` avec `break`
 

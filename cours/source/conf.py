@@ -12,6 +12,7 @@ language = "fr"
 templates_path = ["_templates"]
 exclude_patterns = []
 
+html_show_sourcelink = False
 html_theme_path = [sphinx_nameko_theme.get_html_theme_path()]
 html_theme = "nameko"
 html_static_path = ["_static"]

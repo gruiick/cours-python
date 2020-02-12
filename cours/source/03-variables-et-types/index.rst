@@ -1,4 +1,10 @@
-+++
-title = "Chapitre 3 - Variables et types"
-weight = 3
-+++
+Chapitre 3 - Variables et types
+================================
+
+.. toctree::
+   :maxdepth: 1
+
+   01-variables
+   02-chaînes-de-caractères
+   03-types
+   04-booléens

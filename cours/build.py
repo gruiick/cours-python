@@ -6,9 +6,11 @@ def main():
     dev = "--dev" in sys.argv
     if dev:
         program = "sphinx-autobuild"
+        opts = []
     else:
         program = "sphinx-build"
-    cmd = [program, "-d", "build", "-b", "html", "source", "build/html"]
+        opts = ["-W"]
+    cmd = [program, *opts, "-d", "build", "-b", "html", "source", "build/html"]
     subprocess.run(cmd, check=True)
 
 

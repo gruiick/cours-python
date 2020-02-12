@@ -1,62 +1,62 @@
-+++
-title = "Maths simples"
-weight = 5
-+++
+Maths simples
+=============
 
-# Maths simples
+Opérations avec des entiers
+---------------------------
 
-## Opérations avec des entiers
+.. code-block:: python
 
-```
->>> 1
-1
->>> 2
-2
->>> 1 + 2
-3
->>> 2 * 3
-6
-```
+   >>> 1
+   1
+   >>> 2
+   2
+   >>> 1 + 2
+   3
+   >>> 2 * 3
+   6
 
 
-## Opérantions avec des flottants
+Opérations avec des flottants
+-----------------------------
 
-C'est le `.` qui fait le flottant
+C'est le ``.`` qui fait le flottant
 
-```
->>> 0.5
-0.5
->>> 0.5 + 0.2
-0.7
->>> 10 / 3
-3.3333333333333335
-```
+
+.. code-block:: python
+
+   >>> 0.5
+   0.5
+   >>> 0.5 + 0.2
+   0.7
+   >>> 10 / 3
+   3.3333333333333335
 
 *Note: les flottants sont imprécis*
 
 
 
-## Division entières et modulo
+Division entières et modulo
+---------------------------
 
-```
->>> 14 // 3
-4
->>> 14 % 3
-2
-```
+.. code-block:: python
+
+   >>> 14 // 3
+   4
+   >>> 14 % 3
+   2
 
 *Le `%` n'a rien à voir avec un pourcentage!*
 
 
-## Priorité des opérations
+Priorité des opérations
+------------------------
 
 
-```
->>> 1 + 2 * 3
-7
->>> (1 + 2) * 3
-9
-```
+.. code-block:: python
+
+    >>> 1 + 2 * 3
+    7
+    >>> (1 + 2) * 3
+    9
 
 *Les parenthèses permettent de grouper les expressions*
-

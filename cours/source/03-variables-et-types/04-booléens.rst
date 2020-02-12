@@ -1,43 +1,40 @@
-+++
-title = "Booléens et conditions"
-weight = 9
-+++
+Booléens et conditions
+======================
 
-# Booléens et conditions
-
-## True et False
+True et False
+--------------
 
 
 En Python ce sont des mots-clés et les valeurs sont en majuscules!
 
 
-## Assignation
+Assignation
+-----------
 
 On peut assigner des variables aux valeurs True  et False
 
 
-```
->>> la_terre_est_plate = False
-...
->>> python_c_est_genial = True
-```
+.. code-block:: python
+
+    la_terre_est_plate = False
+    python_c_est_genial = True
 
 
 ## Comparaisons
 
-```
->>> a = 2
->>> b = 3
->>> a > b
-False
-```
+.. code-block:: python
 
-```
->>> 2 + 2 == 4
-True
-```
+   >>> a = 2
+   >>> b = 3
+   >>> a > b
+   False
 
-Note: `==` pour la comparaison, `=` pour l'assignation
+.. code-block:: python
+
+   >>> 2 + 2 == 4
+   True
+
+Note: ``==`` pour la comparaison, ``=`` pour l'assignation
 
 
 ```

@@ -1,43 +1,29 @@
-+++
-title = "Fonctions à plusieurs arguments"
-weight = 2
-+++
-
-# Fonctions à plusieurs arguments
+Fonctions à plusieurs arguments
+===============================
 
 On peut mettre autant d'arguments qu'on veut, séparés
-par des virgules:
-```python
-def afficher_addition(x, y):
-	résultat = x + y
-	print(résultat)
-```
+par des virgules::
 
-```python
->>> a = 4
->>> b = 5
->>> afficher_addition(a, b)
-9
-```
+    def soustraction(x, y):
+    	résultat = x - y
+        return résultat
 
-## Arguments nommés
+    résultat = soustraction(5, 4)
+    print(résultat)
+    # affiche: 1
+
+Arguments nommés
+----------------
 
 En Python, on peut aussi utiliser le *nom* des arguments au lieu de
-leur position:
+leur position::
 
-```python
-def dire_bonjour(prénom):
-	print("Bonjour " + prénom)
-```
+    def dire_bonjour(prénom):
+    	print("Bonjour " + prénom)
 
-```python
->>> dire_bonjour(prénom="Gertrude")
-Bonjour Gertrude
+    dire_bonjour(prénom="Gertrude")
+    # Affiche: Bonjour Gertrude
 
->>> afficher_addition(y=3, x=4)
-7
-```
-
-
-// TODO: soustraction
-
+    résultat = soustraction(y=4, x=5)
+    print(résultat)
+    # affiche: 1

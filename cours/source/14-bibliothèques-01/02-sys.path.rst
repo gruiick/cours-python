@@ -1,439 +1,57 @@
-+++
-title = "sys.path"
-weight = 2
-+++
+sys.path
+========
 
-# sys.path
+En Python, il existe une variable ``path`` prédéfinie dans le module ``sys`` qui fonctionne de manière similaire
+à la variable d'environnement ``PATH``.
 
-En Python, il existe une variable `path` prédéfinie dans le module `sys` qui fonctionne de manière similaire
-à la variable d'environnement `PATH`.
+Si j'essaye de l'afficher sur ma machine, voici ce que j'obtiens:
 
-Si j'essaye de l'afficher sur ma machine, voici ce que j'obtiens :
+    import sys
+    print(sys.path)
 
-```python
-import sys
-print(sys.path)
-```
+.. code-block:: text
 
-```
-[
- "",
- "/usr/lib/python3.8",
- "/usr/lib/python3.8/lib-dynload",
- "/home/dmerej/.local/lib/python3.8/",
- "/usr/lib/python3.8/site-packages",
-]
-```
+    [
+     "",
+     "/usr/lib/python3.8",
+     "/usr/lib/python3.8/lib-dynload",
+     "/home/dmerej/.local/lib/python3.8/",
+     "/usr/lib/python3.8/site-packages",
+    ]
 
 Le résultat dépend:
  * du système d'exploitation
  * de la façon dont Python a été installé
  * et de la présence ou non de certains réportoires.
 
-En fait, `sys.path` est construit dynamiquement par l'interpréteur Python au démarrage.
+En fait, ``sys.path`` est construit dynamiquement par l'interpréteur Python au démarrage.
 
-Notez également que `sys.path` commence par une chaîne vide. En pratique, cela signifie que le répertoire courant a la priorité sur tout le reste.
+Notez également que ``sys.path`` commence par une chaîne vide. En pratique, cela signifie que le répertoire courant a la priorité sur tout le reste.
 
-## Priorité du répertoire courant
+Priorité du répertoire courant
+------------------------------
 
 Prenons un exemple. Si vous ouvrez un explorateur de fichiers dans le deuxième
-élément de la liste de `sys.path` (`/usr/lib/python3.8/` sur ma machine), vous trouverez
+élément de la liste de ``sys.path`` (``/usr/lib/python3.8/`` sur ma machine), vous trouverez
 un grand nombre de fichiers Python.
 
-Notamment, vous devriez trouver un fichier `random.py` dans ce répertoire.
+notamment, vous devriez trouver un fichier ``random.py`` dans ce répertoire.
 
 En fait, vous trouverez la plupart des modules de la bibliothèque standard dans
 ce répertoire.
 
-Maintenant, imaginons que vous avez un deuxième fichier `random.py` dans votre répertoire courant. Finalement, imaginez
-que vous lancez un fichier `foo.py` contentant `import random` dans ce même réportoire.
+Maintenant, imaginons que vous avez un deuxième fichier ``random.py`` dans votre répertoire courant. Finalement, imaginez
+que vous lancez un fichier ``foo.py`` contentant ``import random`` dans ce même réportoire.
 
-Et bien, c'est le fichier `random.py` de votre répertoire qui sera utilisé, et non celui de la bibliothèque standard!
+Et bien, c'est le fichier ``random.py`` de votre répertoire qui sera utilisé, et non celui de la bibliothèque standard!
 
-## Permissions des répertoires de sys.path
+Permissions des répertoires de sys.path
+---------------------------------------
 
-Un autre aspect notable de `sys.path` est qu'il ne contient que deux répertoires dans lesquels l'utilisateur courant peut potentiellement écrire : le chemin courant et le chemin dans `~/.local/lib`. Tous les autres (`/usr/lib/python3.8/`, etc.) sont des chemins "système" et ne peuvent être modifiés que par un compte administrateur (avec `root` ou `sudo`, donc).
+Un autre aspect notable de ``sys.path`` est qu'il ne contient que deux
+répertoires dans lesquels l'utilisateur courant peut potentiellement écrire
+: le chemin courant et le chemin dans ``~/.local/lib``. Tous les autres
+(``/usr/lib/python3.8/``, etc.) sont des chemins "système" et ne peuvent
+être modifiés que par un compte administrateur (avec ``root`` ou ``sudo``, donc).
 
-La situation est semblable sur macOS et Windows [^2].
-
-## Bibliothèques tierces
-
-Prenons un exemple :
-
-```python
-# dans foo.py
-import tabulate
-
-scores = [
-  ["John", 345],
-  ["Mary-Jane", 2],
-  ["Bob", 543],
-]
-table = tabulate.tabulate(scores)
-print(table)
-```
-
-```
-$ python3 foo.py
----------  ---
-John       345
-Mary-Jane    2
-Bob        543
----------  ---
-```
-
-Ici, le module `tabulate` n'est ni dans la bibliothèque standard, ni écrit par l'auteur du script `foo.py`. On dit que c'est une bibliothèque tierce.
-
-On peut trouver [le code source de tabulate](https://bitbucket.org/astanin/python-tabulate/src/master/) facilement. La question qui se pose alors est: comment faire en sorte que `sys.path` contienne le module `tabulate`?
-
-Eh bien, plusieurs solutions s'offrent à vous.
-
-# Le gestionnaire de paquets
-
-Si vous utilisez une distribution Linux, peut-être pourrez-vous utiliser votre gestionnaire de paquets&nbsp;:
-
-```bash
-$ sudo apt install python3-tabulate
-```
-
-Comme vous lancez votre gestionnaire de paquets avec `sudo`, celui-ci sera capable d'écrire dans les chemins système de `sys.path`.
-
-# À la main
-
-Une autre méthode consiste à partir des sources - par exemple, si le paquet de votre distribution n'est pas assez récent, ou si vous avez besoin de modifier le code de la bibliothèque en question.
-
-Voici une marche à suivre possible :
-
-1. Récupérer les sources de la version qui vous intéresse dans la [section téléchargement de bitbucket](https://bitbucket.org/astanin/python-tabulate/downloads/?tab=tags).
-1. Extraire l'archive, par exemple dans `src/tabulate`
-1. Se rendre dans `src/tabulate` et lancer `python3 setup.py install --user`
-
-# Anatomie du fichier setup.py
-
-La plupart des bibliothèques Python contiennent un `setup.py` à
-la racine de leurs sources. Il sert à plein de choses, la commande `install`
-n'étant qu'une parmi d'autres.
-
-
-Le fichier `setup.py` contient en général simplement un `import` de `setuptools`, et un appel à la fonction `setup()`, avec de nombreux arguments :
-
-```python
-# tabulate/setup.py
-from setuptools import setup
-
-setup(
-  name='tabulate',
-  version='0.8.1',
-  description='Pretty-print tabular data',
-  py_modules=["tabulate"],
-  scripts=["bin/tabulate"],
-  ...
-)
-```
-
-
-# Résultat de l'invocation de setup.py
-
-
-Par défaut, `setup.py` essaiera d'écrire dans un des chemins système de
-`sys.path` [^3], d'où l'utilisation de l'option `--user`.
-
-Voici à quoi ressemble la sortie de la commande :
-
-```bash
-$ cd src/tabulate
-$ python3 setup.py install --user
-running install
-...
-Copying tabulate-0.8.4-py3.7.egg to /home/dmerej/.local/lib/python3.7/site-packages
-...
-Installing tabulate script to /home/dmerej/.local/bin
-```
-
-
-Notez que module a été copié dans `~/.local/lib/python3.7/site-packages/` et le script dans `~/.local/bin`. Cela signifie que *tous* les scripts Python lancés par l'utilisateur courant auront accès au module `tabulate`.
-
-Notez également qu'un script a été installé dans `~/.local/bin` - Une bibliothèque Python peut contenir aussi bien des modules que des scripts.
-
-Un point important est que vous n'avez en général pas besoin de lancer le script directement. Vous pouvez utiliser `python3 -m tabulate`. Procéder de cette façon est intéressant puisque vous n'avez pas à vous soucier de rajouter le chemin d'installation des scripts dans la variable d'environnement PATH.
-
-
-# Dépendances
-
-Prenons une autre bibliothèque : `cli-ui`.
-
-Elle permet d'afficher du texte en couleur dans un terminal
-
-```python
-import cli_ui
-
-cli_ui.info("Ceci est en", cli_ui.red, "rouge")
-```
-
-Elle permet également d'afficher des tableaux en couleur :
-
-```python
-headers=["name", "score"]
-data = [
-  [(bold, "John"), (green, 10.0)],
-  [(bold, "Jane"), (green, 5.0)],
-]
-cli_ui.info_table(data, headers=headers)
-```
-
-Pour ce faire, elle repose sur la bibliothèque `tabulate` vue précédemment. On dit que `cli-ui` *dépend* de `tabulate`.
-
-# Déclaration des dépendances
-
-La déclaration de la dépendance de `cli-ui` vers `tabulate` s'effectue également dans le fichier `setup.py`:
-
-```python
-setup(
-  name="cli-ui",
-  version="0.9.1",
-  install_requires=[
-     "tabulate",
-     ...
-  ],
-  ...
-)
-```
-
-# pypi.org
-
-On comprend dès lors qu'il doit nécessairement exister un *annuaire* permettant de relier les noms de dépendances à leur code source.
-
-Cet annuaire, c'est le site [pypi.org](https://pypi.org/). Vous y trouverez les pages correspondant à [tabulate](https://pypi.org/project/tabulate/) et [cli-ui](https://pypi.org/project/python-cli-ui/).
-
-# pip
-
-`pip` est un outil qui vient par défaut avec Python3[^4]. Vous pouvez également l'installer grâce au script [get-pip.py](https://bootstrap.pypa.io/get-pip.py), en lançant `python3 get-pip.py --user`.
-
-Il est conseillé de *toujours* lancer `pip` avec `python3 -m pip`. De cette façon, vous êtes certains d'utiliser le module `pip` correspondant à votre binaire `python3`, et vous ne dépendez pas de ce qu'il y a dans votre `PATH`.
-
-`pip` est capable d'interroger le site `pypi.org` pour retrouver les dépendances, et également de lancer les différents scripts `setup.py`.
-
-Comme de nombreux outils, il s'utilise à l'aide de *commandes*. Voici comment installer `cli-ui` à l'aide de la commande 'install' de  `pip`:
-
-```bash
-$ python3 -m pip install cli-ui --user
-Collecting cli-ui
-...
-Requirement already satisfied: unidecode in /usr/lib/python3.7/site-packages (from cli-ui) (1.0.23)
-Requirement already satisfied: colorama in /usr/lib/python3.7/site-packages (from cli-ui) (0.4.1)
-Requirement already satisfied: tabulate in /mnt/data/dmerej/src/python-tabulate (from cli-ui) (0.8.4)
-Installing collected packages: cli-ui
-Successfully installed cli-ui-0.9.1
-```
-
-On constate ici quelques limitations de `pip`:
-
-* Il faut penser à utiliser `--user` (de la même façon que lorsqu'on lance `setup.py` à la main)
-* Si le paquet est déjà installé dans le système, pip ne saura pas le mettre à jour - il faudra passer par le gestionnaire de paquet de
-  la distribution
-
-En revanche, `pip` contient de nombreuses fonctionnalités intéressantes:
-
-* Il est capable de désinstaller des bibliothèques (à condition toutefois qu'elles ne soient pas dans un répertoire système)
-* Il est aussi capable d'afficher la liste complète des bibliothèques Python accessibles par l'utilisateur courant avec `freeze`.
-
-Voici un extrait de la commande `python3 -m pip freeze` au moment de la rédaction de cet article sur ma machine:
-
-```
-$ python3 -m pip freeze
-apipkg==1.5
-cli-ui==0.9.1
-gaupol==1.5
-tabulate==0.8.4
-```
-
-On y retrouve les bibliothèques `cli-ui` et `tabulate`, bien sûr, mais aussi la bibliothèque `gaupol`, qui correspond au [programme d'édition de sous-titres](https://otsaloma.io/gaupol/) que j'ai installé à l'aide du gestionnaire de paquets de ma distribution. Précisons que les modules de la bibliothèque standard et ceux utilisés directement par pip sont omis de la liste.
-
-On constate également que chaque bibliothèque possède un *numéro de version*.
-
-# Numéros de version
-
-Les numéros de version remplissent plusieurs rôles, mais l'un des principaux est de spécifier des changements incompatibles.
-
-Par exemple, pour `cli-ui`, la façon d'appeler la fonction `ask_choice` a changé entre les versions 0.7 et 0.8, comme le montre cet extrait du [changelog](https://tankerhq.github.io/python-cli-ui/changelog.html#v0-8-0):
-
-> the list of choices used by ask_choice is now a named keyword argument:
-
-```python
-# Old (<= 0.7)
-ask_choice("select a fruit", ["apple", "banana"])
-# New (>= 0.8)
-ask_choice("select a fruit", choices=["apple", "banana"])
-```
-
-Ceci s'appelle un *changement d'API*.
-
-# Réagir aux changements d'API
-
-Plusieurs possibilités:
-
-* On peut bien sûr adapter le code pour utiliser la nouvelle API, mais cela n'est pas toujours possible ni souhaitable.
-* Une autre solution est de spécifier des *contraintes* sur le numéro de version dans la déclaration des dépendances. Par exemple :
-
-```python
-setup(
-  install_requires=[
-    "cli-ui < 0.8",
-    ...
-  ]
-)
-```
-
-# Aparté : pourquoi éviter sudo pip
-
-Souvenez-vous que les fichiers systèmes sont contrôlés par votre gestionnaire de paquets.
-
-Les mainteneurs de votre distribution font en sorte qu'ils fonctionnent bien les uns
-avec les autres. Par exemple, le paquet `python3-cli-ui` ne sera mis à jour que lorsque tous les paquets qui en dépendent seront prêts à utiliser la nouvelle API.
-
-En revanche, si vous lancez `sudo pip` (où `pip` avec un compte root), vous allez écrire dans ces mêmes répertoire et vous risquez de "casser" certains programmes de votre système.
-
-Mais il y a un autre problème encore pire.
-
-# Conflit de dépendances
-
-Supposons deux projets A et B dans votre répertoire personnel. Ils dépendent tous les deux de `cli-ui`, mais l'un des deux utilise `cli-ui 0.7` et l'autre `cli-ui 0.9`.  Que faire ?
-
-# Environnements virtuels
-
-La solution est d'utiliser un environnement virtuel (*virtualenv* en abrégé). C'est un répertoire *isolé* du reste du système.
-
-Il se crée par exemple avec la commande `python3 -m venv foo-venv`. où `foo-venv` est un répertoire quelconque.
-
-## Aparté : python3 -m venv sur Debian
-
-La commande `python3 -m venv` fonctionne en général partout, dès l'installation de Python3 (*out of the box*, en Anglais), *sauf* sur Debian et ses dérivées [^5].
-
-Si vous utilisez Debian, la commande pourrait ne pas fonctionner. En fonction des messages d'erreur que vous obtenez, il est possible de résoudre le problème en :
-
-* installant le paquet `python3-venv`,
-* ou en utilisant d'abord `pip` pour installer `virtualenv`, avec `python3 -m pip install virtualenv --user` puis en lançant `python3 -m virtualenv foo-venv`.
-
-## Comportement de python dans le virtualenv
-
-Ce répertoire contient de nombreux fichiers et dossiers, et notamment un binaire dans `foo-venv/bin/python3`.
-
-Voyons comment il se comporte en le comparant au binaire `/usr/bin/python3` habituel :
-
-```
-$ /usr/bin/python3 -c 'import sys; print(sys.path)'
-['',
-  ...
- '/usr/lib/python3.7',
- '/usr/lib/python3.7.zip',
- '/usr/lib/python3.7/lib-dynload',
- '/home/dmerej/.local/lib/python3.7/site-packages',
- '/usr/lib/python3.7/site-packages'
-]
-
-$ /home/dmerej/foo-venv/bin/python -c 'import sys; print(sys.path)'
-['',
- '/usr/lib/python3.7',
- '/usr/lib/python3.7.zip',
- '/usr/lib/python3.7/lib-dynload',
- '/home/dmerej/foo-venv/lib/python3.7/site-packages,
-]
-```
-
-À noter:
-
-* Le répertoire "global" dans `~/.local/lib` a disparu
-* Seuls quelques répertoires systèmes sont présents (ils correspondent plus ou moins à l'emplacement des modules de la bibliothèque standard)
-* Un répertoire *au sein* du virtualenv a été rajouté
-
-Ainsi, l'isolation du virtualenv est reflété dans la différence de la valeur de `sys.path`.
-
-Il faut aussi préciser que le virtualenv n'est pas complètement isolé du reste du système. En particulier, il dépend encore du binaire Python utilisé pour le créer.
-
-Par exemple, si vous utilisez `/usr/local/bin/python3.7 -m venv foo-37`, le virtualenv dans `foo-37` utilisera Python 3.7 et fonctionnera tant que le binaire `/usr/local/bin/python3.7` existe.
-
-Cela signifie également qu'il est possible qu'en mettant à jour le paquet `python3` sur votre distribution, vous rendiez inutilisables les virtualenvs créés avec l'ancienne version du paquet.
-
-
-## Comportement de pip dans le virtualenv
-
-D'après ce qui précède, le virtualenv ne devrait contenir aucun module en dehors de la bibliothèque standard et de `pip` lui-même.
-
-On peut s'en assurer en lançant `python3 -m pip freeze` depuis le virtualenv et en vérifiant que rien ne s'affiche.
-
-```
-$ python3 -m pip freeze
-# de nombreuses bibliothèques en dehors du virtualenv
-apipkg==1.5
-cli-ui==0.9.1
-gaupol==1.5
-tabulate==0.8.4
-
-$ /home/dmerej/foo-venv/bin/python3 -m pip freeze
-# rien :)
-```
-
-On peut alors utiliser le module `pip` *du virtualenv* pour installer des bibliothèques dans celui-ci :
-
-```
-$ /home/dmerej/foo-venv/bin/python3 -m pip install cli-ui
-Collecting cli-ui
-  Using cached https://pythonhosted.org/..cli_ui-0.9.1-py3-none-any.whl
-Collecting colorama (from cli-ui)
-  Using cached https://pythonhosted.org/..colorama-0.4.1-py2.py3-none-any.whl
-Collecting unidecode (from cli-ui)
-  Using cached https://pythonhosted.org/..Unidecode-1.0.23-py2.py3-none-any.whl
-Collecting tabulate (from cli-ui)
-Installing collected packages: colorama, unidecode, tabulate, cli-ui
-Successfully installed cli-ui-0.9.1 colorama-0.4.1 tabulate-0.8.3
-  unidecode-1.0.23
-```
-
-Cette fois, aucune bibliothèque n'est marquée comme déjà installée, et on récupère donc `cli-ui` et toutes ses dépendances.
-
-On a enfin notre solution pour résoudre notre conflit de dépendances :
-on peut simplement créer un virtualenv par projet. Ceci nous permettra
-d'avoir effectivement deux versions différentes de `cli-ui`, isolées les
-unes des autres.
-
-# Activer un virtualenv
-
-Devoir préciser le chemin du virtualenv en entier pour chaque commande peut devenir fastidieux ; heureusement, il est possible *d'activer* un virtualenv, en lançant une des commandes suivantes :
-
-* `source foo-venv/bin/activate` - si vous utilisez un shell POSIX
-* `source foo-venv/bin/activate.fish` - si vous utilisez Fish
-* `foo-venv\bin\activate.bat` - sous Windows
-
-Une fois le virtualenv activé, taper `python`, `python3` ou `pip` utilisera les binaires correspondants dans le virtualenv automatiquement,
-et ce, tant que la session du shell sera ouverte.
-
-Le script d'activation ne fait en réalité pas grand-chose à part modifier la variable `PATH` et rajouter le nom du virtualenv au début de l'invite de commandes :
-
-```
-# Avant
-user@host:~/src $ source foo-env/bin/activate
-# Après
-(foo-env) user@host:~/src $
-```
-
-Pour sortir du virtualenv, entrez la commande `deactivate`.
-
-# Conclusion
-
-Le système de gestions des dépendances de Python peut paraître compliqué et bizarre, surtout venant d'autres langages.
-
-Mon conseil est de toujours suivre ces deux règles :
-
-* Un virtualenv par projet et par version de Python
-* Toujours utiliser `pip` *depuis* un virtualenv
-
-Certes, cela peut paraître fastidieux, mais c'est une méthode qui vous évitera probablement de vous arracher les cheveux (croyez-en mon expérience).
-
-Dans un futur article, nous approfondirons la question, en évoquant d'autres sujets comme `PYTHONPATH`, le fichier `requirements.txt` ou des outils comme `poetry` ou `pipenv`. À suivre.
-
-
-[^1]: C'est une condition suffisante, mais pas nécessaire - on y reviendra.
-[^2]: Presque. Il peut arriver que l'utilisateur courant ait les droits d'écriture dans *tous* les segments de `sys.path`, en fonction de l'installation de Python. Cela dit, c'est plutôt l'exception que la règle.
-[^3]: Cela peut vous paraître étrange à première vue. Il y a de nombreuses raisons historiques à ce comportement, et il n'est pas sûr qu'il puisse être changé un jour.
-[^4]: Presque. Parfois il faut installer un paquet supplémentaire, notamment sur les distributions basées sur Debian
-[^5]: Je n'ai pas réussi à trouver une explication satisfaisante à ce choix des mainteneurs Debian. Si vous avez des informations à ce sujet, je suis preneur. _Mise à jour: Il se trouve que cette décision s'inscrit au sein de la "debian policy", c'est à dire une liste de règles que doivent respecter tous les programmes maintenus par Debian._
+La situation est semblable sur macOS et Windows.

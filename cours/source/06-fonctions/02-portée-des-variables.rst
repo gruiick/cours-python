@@ -1,39 +1,29 @@
-+++
-title = "Portée des variables"
-weight = 2
-+++
+Portée des variables
+====================
 
-# Portée des variables
+Les arguments d'une fonction n'existent que dans le corps de celle-ci::
 
-Les arguments d'une fonction n'existent que dans le corps de celle-ci
+    def dire_bonjour(prénom):
+    	print("Bonjour " + prénom)
 
-```python
-def dire_bonjour(prénom):
-	print("Bonjour " + prénom)
-
-dire_bonjour("Dimitri") # Ok
-print(prénom)  # Erreur
-```
+    dire_bonjour("Dimitri") # Ok
+    print(prénom)  # Erreur
 
 
-Les variables en dehors des fonctions sont disponibles partout:
+Les variables en dehors des fonctions sont disponibles partout::
 
-```python
-salutation = "Bonjour "
+    salutation = "Bonjour "
 
-def dire_bonjour(prénom):
-	print(salutation + prénom)
+    def dire_bonjour(prénom):
+    	print(salutation + prénom)
 
-dire_bonjour("Dimitri")
-```
+    dire_bonjour("Dimitri")
 
-Une variable peut avoir en "cacher" une autre si elle a une portée différente
+Une variable peut avoir en "cacher" une autre si elle a une portée différente::
 
-```python
-def dire_bonjour(prénom):
-	print("Bonjour " + prénom)   # portée: uniquement dans
-								 # le corps dire_bonjour
+    def dire_bonjour(prénom):
+    	print("Bonjour " + prénom)   # portée: uniquement dans
+    								 # le corps dire_bonjour
 
-prénom = "Dimitri"  # portée: dans tout le programme
-dire_bonjour(prénom) # Ok
-```
+    prénom = "Dimitri"  # portée: dans tout le programme
+    dire_bonjour(prénom) # Ok

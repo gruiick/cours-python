@@ -1,11 +1,8 @@
-+++
-title = "Le langage Python"
-weight = 3
-+++
+Présentation du langage Python
+==============================
 
-# Présentation du langage Python
-
-## Utilisation de Python
+Utilisation de Python
+----------------------
 
 * Aussi appelé "langage de script", `glue language`
 
@@ -19,7 +16,8 @@ weight = 3
     * Ligne de commande
     * ...
 
-## Petit détour: version d'un programme
+Petit détour: version d'un programme
+------------------------------------
 
 * Comme les versions d'un document
 * Si le nombre est plus grand, c'est plus récent
@@ -29,7 +27,8 @@ weight = 3
     * `1.5.1 -> 4.3`: beaucoup de changements
 * On omet souvent le reste des numéros quand c'est pas nécessaire
 
-## Historique
+Historique
+----------
 
 * Créé par Guido van Rossum. Conçu à la base pour l'enseignement.
 * Le nom vient des Monty Python (si, si)
@@ -37,7 +36,8 @@ weight = 3
 * Python 2: en 2000
 * Python 3: en 2008
 
-## Le grand schisme
+Le grand schisme
+----------------
 
 La plupart des langages continuent à être compatibles d'une version à l'autre.
 
@@ -45,10 +45,9 @@ La plupart des langages continuent à être compatibles d'une version à l'autre
 
 Heureusement, 10 ans plus tard, la situation s'est arrangée, et Python2 cessera d'être maintenu le premier janvier 2020.
 
-## Python3
+Python3
+-------
 
 Ce cours fonctionne donc uniquement avec Python3.
 
 N'utilisez *pas* Python2, sinon certaines choses expliquées ici ne marcheront pas :/
-
-
