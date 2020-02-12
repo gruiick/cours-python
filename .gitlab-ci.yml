@@ -10,7 +10,7 @@ pages:
   script:
     - cd cours
     - poetry install
-    - poetry run python build.py
+    - poetry run python build.py --werror
   artifacts:
     paths:
       - cours/python/
