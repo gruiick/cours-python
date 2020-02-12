@@ -6,7 +6,7 @@ Chapitre 7 - Listes
 Définition
 ----------
 
-Une liste est une _suite ordonée_ d'éléments.
+Une liste est une *suite ordonée* d'éléments.
 
 Créer une liste
 ---------------
@@ -89,62 +89,56 @@ Avec ``for ... in``::
 * Avec `[]` et un entier
 
 * Les index valides vont de 0 à `n-1` où `n` est la
-taille de la liste.
+  taille de la liste::
 
-```python
->>> fruits = ["pomme", "orange", "poire"]
->>> fruits[0]
-"pomme"
->>> fruits[1]
-"orange"
->>> list[2]
-"poire"
->>> fruits[3] # IndexError
-```
+    >>> fruits = ["pomme", "orange", "poire"]
+    >>> fruits[0]
+    "pomme"
+    >>> fruits[1]
+    "orange"
+    >>> list[2]
+    "poire"
+    >>> fruits[3] # IndexError
 
-## Modifier une liste
+Modifier une liste
+-------------------
 
-Encore une assignation:
+Encore une assignation::
 
-```python
->>> fruits = ["pomme", "orange", "poire"]
->>> fruits[0] = "abricot"
->>> fruits
-["abricot", "orange", "poire"]
-```
+    >>> fruits = ["pomme", "orange", "poire"]
+    >>> fruits[0] = "abricot"
+    >>> fruits
+    ["abricot", "orange", "poire"]
 
-## Les strings sont aussi des listes (presque)
+Les strings sont aussi des listes (presque)
+--------------------------------------------
 
-On peut itérer sur les caractères d'une string:
+On peut itérer sur les caractères d'une string::
 
-```python
-for c in "vache":
-	print(c)
-v
-a
-c
-h
-e
-```
+    for c in "vache":
+    	print(c)
 
-On peut tester si un caractère est présent:
+.. code-block: console
 
-```python
->>> "e" in "vache"
-True
->>> "x" in "vache"
-False
-```
+   v
+   a
+   c
+   h
+   e
+
+On peut tester si un caractère est présent::
+
+    >>> "e" in "vache"
+    True
+    >>> "x" in "vache"
+    False
 
 
-Mais on neut peut pas modifier une string
+Mais on neut peut pas modifier une string::
 
-```python
->>> prénom = "Charlotte"
->>> prénom[0]
-"C"
->>> prénom[3]
-"r"
->>> prénom[0] = "X" # TypeError
-```
-
+   >>> prénom = "Charlotte"
+   >>> prénom[0]
+   "C"
+   >>> prénom[3]
+   "r"
+   >>> prénom[0] = "X" # TypeError

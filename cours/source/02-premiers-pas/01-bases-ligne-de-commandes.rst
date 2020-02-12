@@ -1,5 +1,5 @@
 La ligne de commande
-===================
+====================
 
 Pourquoi la ligne de commande?
 ------------------------------

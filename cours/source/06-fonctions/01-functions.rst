@@ -1,8 +1,8 @@
 Fonctions
 =========
 
-Fonction sans argument
----------------------
+Fonctions sans argument
+-----------------------
 
 Définition::
 
@@ -11,9 +11,10 @@ Définition::
 
 
 * avec `def`
-* avec un `:` à la fin et un _bloc indenté_ (appelé le "corps")
+* avec un `:` à la fin et un *bloc indenté* (appelé le "corps")
 
 Appel::
+
     >>> dire_bonjour()
     Bonjour
 
@@ -28,7 +29,7 @@ Ici on vient de créer une nouvelle fonctionnalité
 il savait uniquement afficher des messages à
 l'écran.
 
-On dit qu'on a _créé une abstraction_. Et
+On dit qu'on a *créé une abstraction*. Et
 c'est une technique extrêmement utile en
 programmation.
 
@@ -39,6 +40,7 @@ Définition: avec l'argument à l'intérieur des parenthèses::
 
     def dire_bonjour(prénom):
     	print("Bonjour " + prénom)
+
 Appel: en passant une variable ou une valeur dans les parenthèses::
 
     >>> dire_bonjour("Germaine")

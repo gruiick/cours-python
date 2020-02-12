@@ -1,5 +1,5 @@
 Rappels
-======
+=======
 
 // TODO: drop?
 
@@ -24,7 +24,7 @@ Instanciation::
 Attributs
 ---------
 
-Un attribut est une variable _à l'intérieur_ d'autre chose (par exemple une instance de classe).
+Un attribut est une variable *à l'intérieur* d'autre chose (par exemple une instance de classe).
 
 La syntaxe consiste en l'instance à gauche et l'attribut à droite après un point::
 
@@ -56,7 +56,6 @@ Les méthodes sont des attributs des instances de classes::
     >>> mon_instance = MaClasse()
     >>> mon_instance.ma_méthode()
     42
-```
 
 
 self

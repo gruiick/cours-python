@@ -19,7 +19,7 @@ On fait deviner un nombre à l'utilisateur, en affichant 'trop grand', 'trop pet
 jusqu'à ce qu'il trouve la valeur exacte.
 
 Squelette
---------
+---------
 
 // TODO:
 * explication du Squelette

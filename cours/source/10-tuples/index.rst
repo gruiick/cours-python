@@ -13,6 +13,7 @@ Avec des parenthèses::
     tuple_vide = ()
     tuple_à_un_élement = (1,)   # notez la virgule
     tupble_à_deux_éléments = (1, 2)   # on dit aussi: "couple"
+
 Sauf pour le tuple vide, c'est la *virgule* qui fait le tuple
 
 Note: tous les tuples sont truthy, sauf les tuples vides.
