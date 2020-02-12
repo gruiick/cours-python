@@ -1,13 +1,31 @@
+import argparse
 import os
 import sys
 import shutil
 import subprocess
 
 
+def run(*cmd):
+    print("$", *cmd)
+    process = subprocess.run(cmd)
+    if process.returncode != 0:
+        sys.exit(1)
+
+
 def main():
-    dev = "--dev" in sys.argv
-    werror = "--werror" in sys.argv
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dev", action="store_true", help="Run with a live server")
+    parser.add_argument(
+        "--werror", action="store_true", help="Treat warnings as errors"
+    )
+    parser.add_argument("--clean", action="store_true", help="Clean first")
+    parser.add_argument("--format", help="Output format", default="html")
+    args = parser.parse_args()
+
+    dev = args.dev
+    werror = args.werror
     clean = "--clean" in sys.argv
+    format = args.format
     if dev:
         program = "sphinx-autobuild"
     else:
@@ -18,11 +36,15 @@ def main():
             shutil.rmtree("build")
     if werror:
         opts.append("-W")
-    cmd = [program, *opts, "-d", "build", "-b", "html", "source", "build/html"]
-    print("$", *cmd)
-    process = subprocess.run(cmd)
-    if process.returncode != 0:
-        sys.exit(1)
+    if format == "html":
+        builder = "html"
+    elif format == "pdf":
+        builder = "latex"
+    build_path = f"build/{builder}"
+    run(program, *opts, "-d", "build", "-b", builder, "source", build_path)
+    if format == "pdf":
+        run("make", "-C", build_path)
+        print("pdf generated in", build_path)
 
 
 if __name__ == "__main__":
