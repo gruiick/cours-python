@@ -293,12 +293,7 @@ Ensuite, certains caractères (comme ``é``) sont représentés par 2 octets::
     # Affiche: b'caf\xc3\xa9"
 
 
-Enfin, certains caractères (comme les emojis) sont représentés par pleins d'octets::
-
-    encodé = "I ❤️  you".encode("utf-8")
-    print(encodé)
-    b'I \xe2\x9d\xa4\xef\xb8\x8f  you'
-
+Enfin, certains caractères (comme les emojis) sont représentés par 3 voire plus octets.
 
 .. warning::
 
