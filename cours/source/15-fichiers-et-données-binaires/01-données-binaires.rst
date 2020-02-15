@@ -179,6 +179,13 @@ Python utilise ASCII pour afficher les bytearrays si les caractères sont "impri
    print(data)
    # affiche: bytearray(b"abc")
 
+
+.. note::
+
+   Notez que Python rajoute quelque chose qui ressemble à un
+   appel de fonction lorsqu'il affiche le bytearray: ce n'est
+   pas un *vrai* appel de fonction.
+
 Et ``\x`` et le code hexa sinon::
 
    data = bytearray([7, 69,  76, 70])
