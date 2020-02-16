@@ -1,45 +1,46 @@
 Variables
 =========
 
-.. code-block:: python
+On peut associer des *variables* à des *valeurs* en les plaçant
+de part et d'autre du signe `=`: on appelle cette opération
+une *assignation*.
 
-   >>> a = 2
-   >>> a
-   2
-   >>> b = 3
-   >>> a + b
-   5
+Ensuite, on peut utiliser la variable à la place de sa valeur:
+à chaque fois que l'interpréteur essaye d'exécuter du code,
+il commence par remplacer les variables par leurs valeurs::
 
-* On peut nommer des valeurs
-* On peut afficher la valeur d'une variable entrant son nom dans le REPL
+    a = 2
+    print(a)
+    # affiche: 2
 
-
-.. code-block:: python
-
-   >>> a = 2
-   >>> a
-   2
-   >>> a = 3
-   >>> a
-   3
-
-* On peut changer la valeur d'une variable (d'où son nom)
+    b = 3
+    print(a + b)
+    # affiche: 5
 
 
-* Quand Python essaie d'exécuter du code, il commence par remplacer les
-  variables par leurs valeurs
+On peut aussi *changer* la valeur d'une variable en l'assignant
+à une nouvelle valeur::
+
+
+    a = 2
+    print(a)
+    # affiche: 2
+
+    a = 3
+    print(a)
+    # affiche: 3
 
 
 Nom des variables
 -----------------
 
-Préférez des noms longs et descriptifs
+Ci-dessus j'ai utilisé des noms de variables à une lettre, comme en maths,
+mais il est préférable d'avoir des noms longs et descriptifs
 
-Toujours en minuscules
+Aussi, la convention est de:
 
-Séparez les "mots" par des tirets bas (underscore)
-
-.. code-block:: python
+* Les écrire en minuscules
+* De séparer les mots par des tirest bas (*underscore*)::
 
    score = 42
    age_moyen = 22

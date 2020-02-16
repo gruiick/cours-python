@@ -1,57 +1,55 @@
 Chaînes de caractères
 ======================
 
-Aussi appelées "string".
+Les chaînes de caractères, aussi appelées "string", permettent
+de représenter du texte. On a utilisé une string pour afficher
+"bonjour monde" dans le chapitre précédent.
 
+On écrit toujours les strings entre guillemets.
 
-Avec des simple quotes (``'``)
+soit avec des doubles guillemets::
 
-.. code-block:: python
+    print("Bonjour monde!")
+    # affiche: Bonjour monde!
 
-    >>> 'Bonjour monde!'
-    'Bonjour monde!'
+soit avec des guillemets simples::
 
-Marche aussi avec des double quotes (`"`)
-
-.. code-block:: python
-
-    >>> "Bonjour, monde!"
-    'Bonjour monde'
+    print("Bonjour monde!")
+    # affiche:  Bonjour monde!
 
 Double et simple quotes
 -----------------------
 
-On peut mettre des simples quotes dans des double quotes et vice-versa.
+On peut mettre des simples quotes dans des double quotes et vice-versa::
 
-.. code-block:: python
 
-   >>> "Il a dit: 'bonjour' ce matin."
-   "Il a dit: 'bonjour' ce matin."
+   print("Il a dit: 'bonjour' ce matin.")
+   # affiche: Il a dit: 'bonjour' ce matin.
 
-   >>> 'Il a dit: "bonjour" ce matin'
-   'Il a dit: "bonjour" ce matin!'
+   print('Il a dit: "bonjour" ce matin')
+   # affiche: Il a dit: "bonjour" ce matin
 
 
 Échappement
 -----------
 
-
-Avec la barre oblique inversée "backslash"
+On peut aussi *échapper* des caractères avec la
+barre oblique inversée ``\\`` - backslash.
 
 
 .. code-block:: python
 
-   >>> 'Il a dit: "bonjour". C\'est sympa!'
-   'Il a dit: "bonjour". C\'est sympa!'
+   print('Il a dit: "bonjour". C\'est sympa!')
+   # affiche: Il a dit: "bonjour". C'est sympa!
 
 
 Concaténation
 -------------
 
+On peut construire de longues chaînes de caractères en
+en concaténatant de plus petites::
 
-.. code-block:: python
-
-   >>> name = "John"
-   >>> message = "Bonjour " + name + " !"
-   >>> message
-   "Bonjour John !"
+   name = "John"
+   message = "Bonjour " + name + " !"
+   print(message)
+   # affiche: Bonjour John !

@@ -5,5 +5,6 @@ Chapitre 2 - Premiers pas
    :maxdepth: 1
 
    01-bases-ligne-de-commandes
-   02-interpréteur.rst
-   03-maths-simples.rst
+   02-installation
+   03-code-source
+   04-maths-simples.rst
