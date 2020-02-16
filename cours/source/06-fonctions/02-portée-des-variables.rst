@@ -22,8 +22,8 @@ Les variables en dehors des fonctions sont disponibles partout::
 Une variable peut avoir en "cacher" une autre si elle a une portée différente::
 
     def dire_bonjour(prénom):
-    	print("Bonjour " + prénom)   # portée: uniquement dans
-    								 # le corps dire_bonjour
+        print("Bonjour " + prénom)   # portée: uniquement dans
+                                     # le corps dire_bonjour
 
-    prénom = "Dimitri"  # portée: dans tout le programme
+    prénom = "Dimitri"   # portée: dans tout le programme
     dire_bonjour(prénom) # Ok

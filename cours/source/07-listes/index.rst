@@ -33,41 +33,48 @@ Connaître la taille d'une liste
 
 Avec ``len()`` - encore une fonction native::
 
-    >>> liste_vide = []
-    >>> len(liste_vide)
-    0
-    >>> trois_entiers = [1, 2, 3]
-    >>> len(trois_entiers)
-    3
+    liste_vide = []
+    taille = len(liste_vide)
+    print(taille)
+    # affiche:  0
+
+    trois_entiers = [1, 2, 3]
+    taille = len(trois_entiers)
+    print(taille)
+    # affiche:  3
 
 Concaténation de listes
 -----------------------
 
 Avec ``+``::
 
-    >>> prénoms = ["Alice", "Bob"]
-    >>> prénoms += ["Charlie", "Eve"]
-    >>> prénoms
-    ['Alice', 'Bob', "Charlie", 'Eve']
+    prénoms = ["Alice", "Bob"]
+    prénoms += ["Charlie", "Eve"]
+    print(prénoms)
+    # affiche: ['Alice', 'Bob', "Charlie", 'Eve']
 
 On ne peut concaténer des listes que avec d'autres listes::
 
-    >>> scores = [1, 2, 3]
-    >>> scores += 4  # TypeError
-    >>> scores += [4]  # OK
+    scores = [1, 2, 3]
+    scores += 4
+    # erreur
+
+    scores += [4]
+    print(scores)
+    # affiche: [1,2,3,4]
 
 Test d'appartenance
 -------------------
 
 Avec ``in``::
 
-    >>> prénoms = ["Alice", "Bob"]
-    >>> "Alice" in prénoms
-    True
+    prénoms = ["Alice", "Bob"]
+    print("Alice" in prénoms)
+    # affiche: True
 
-    >>> prénoms = ["Alice", "Bob"]
-    >>> "Charlie" in prénoms
-    False
+    prénoms = ["Alice", "Bob"]
+    print("Charlie" in prénoms)
+    # affiche: False
 
 Itérer sur les élements d'une liste
 ------------------------------------
@@ -80,35 +87,43 @@ Avec ``for ... in``::
    	# élément de la liste
        print("Bonjour", prénom)
 
+.. code-block:: text
+
    Bonjour Alice
    Bonjour Bob
    Bonjour Charlie
 
-## Indéxer une liste
+Indéxer une liste
+------------------
 
-* Avec `[]` et un entier
+* Avec ``[]`` et un entier
 
-* Les index valides vont de 0 à `n-1` où `n` est la
+* Les index valides vont de 0 à ``n-1`` où ``n`` est la
   taille de la liste::
 
-    >>> fruits = ["pomme", "orange", "poire"]
-    >>> fruits[0]
-    "pomme"
-    >>> fruits[1]
-    "orange"
-    >>> list[2]
-    "poire"
-    >>> fruits[3] # IndexError
+    fruits = ["pomme", "orange", "poire"]
+
+    print(fruits[0])
+    # affiche: "pomme"
+
+    print(fruits[1])
+    # affiche: "orange"
+
+    print(list[2])
+    # affiche: "poire"
+
+    fruits[3]
+    # erreur: IndexError
 
 Modifier une liste
 -------------------
 
 Encore une assignation::
 
-    >>> fruits = ["pomme", "orange", "poire"]
-    >>> fruits[0] = "abricot"
-    >>> fruits
-    ["abricot", "orange", "poire"]
+    fruits = ["pomme", "orange", "poire"]
+    fruits[0] = "abricot"
+    print(fruits)
+    # affiche: ["abricot", "orange", "poire"]
 
 Les strings sont aussi des listes (presque)
 --------------------------------------------
@@ -128,17 +143,45 @@ On peut itérer sur les caractères d'une string::
 
 On peut tester si un caractère est présent::
 
-    >>> "e" in "vache"
-    True
-    >>> "x" in "vache"
-    False
+    print("e" in "vache")
+    # affiche: True
+
+    print(x" in "vache")
+    # affiche: False
 
 
 Mais on neut peut pas modifier une string::
 
-   >>> prénom = "Charlotte"
-   >>> prénom[0]
-   "C"
-   >>> prénom[3]
-   "r"
-   >>> prénom[0] = "X" # TypeError
+   prénom = "Charlotte"
+   l = prénom[0]
+   print(l)
+   # affiche: "C"
+
+   l = prénom[3]
+   print(l)
+   # affiche: "r"
+
+   prénom[0] = "X"
+   # erreur: TypeError
+
+
+Falsy et truthy
+----------------
+
+
+En réalité on peut mettre autre chose qu'une comparaison ou une variable booléenne après le if.
+
+Si on met une liste vide, ``if`` se comportera comme si on avait mis une valeur fausse, et si
+la liste n'est pas vide , ``if`` se comportera comme si on avait mis une valeur vraie.::
+
+    ma_liste = [1, 2, 3]
+    if ma_liste:
+        print("ma_liste n'est pas vide")
+    # affiche: ma_liste n'est pas vide
+
+    mon_autre_liste = []
+    if not mon_autre_liste:
+        print("mon_autre_liste est vide")
+    # affiche: mon_autre_liste est vide
+
+On dit que les listes vides sont *Falsy* et les listes non-vides *Truthy*

@@ -26,9 +26,17 @@ corps de la fonction::
     		return
     	print("Heureux de faire votre connaissance")
 
-    >>> dire_bonjour("Dimitri", première_fois=True)
+    dire_bonjour("Dimitri", première_fois=True)
+
+.. code-block:: text
+
     Bonjour Dimitri
     Heureux de faire votre connaissance
 
-    >>> dire_bonjour("Dimitri", première_fois=False)
+.. code-block:: python
+
+    dire_bonjour("Dimitri", première_fois=False)
+
+.. code-block:: text
+
     Bonjour Dimitri

@@ -16,27 +16,27 @@ Importer un module
 
 Ou: accéder à du code provenant d'un *autre* fichier source.
 
-Imaginons un fichier `bonjour.py` contenant seulement une assignation
+Créons un fichier `bonjour.py` contenant seulement une assignation
 d'une variable `a` à l'entier 42 ::
 
     # Dans bonjour.py
     a = 42
 
-On peut accéder à cette variable en important le module, par
-exemple depuis l'interpréteur, en utilisant le mot-clé `import`
-suivi du nom du module::
+Comme un fichier = un module, on vient de crée un module ``bonjour`` contenant une variable ``a``.
 
-    $ python
-    >>> import bonjour
-    >>> bonjour.a
-    42
+Si maintenant on crée un fichier ``salutations.py`` dans le même répertoire,
+on peut accéder à cette variable en *important* le module::
 
-Notez que pour que cela fonctionne:
+    # Dans salutations.py
+    import bonjour
+    print(bonjour.a)
+    # affiche: 42
 
-* Le nom du module est écrit directement, ce n'est *pas* une
+
+.. note::
+
+  Le nom du module est écrit directement, ce n'est *pas* une
   chaîne de caractères.
-* Il faut lancer la commande `python` sans argument
-* Il faut la lancer depuis le répertoire qui contient `bonjour.py`.
 
 On voit que l'assignation de la variable `a` dans `bonjour.py` est devenue
 un *attribut* du module `bonjour` lorsque `bonjour` a été importé
@@ -44,52 +44,26 @@ un *attribut* du module `bonjour` lorsque `bonjour` a été importé
 
 Si maintenant on rajoute une fonction ``dire_bonjour`` dans ``bonjour.py``::
 
-    # toujours dans bonjour.py
+    # Dans bonjour.py
     a = 42
     def dire_bonjour():
         print("Bonjour!")
 
-On peut appeler la fonction ``dire_bonjour`` depuis l'interpréteur en accédant
-à l'attribut ``dire_bonjour`` du module ``bonjour``::
+On peut appeler la fonction ``dire_bonjour`` depuis ``salutations.py``
+en utilisant l'attribut ``dire_bonjour`` du module ``bonjour``::
 
-   >>> import bonjour
-   >>> bonjour.dire_bonjour()
-   Bonjour!
-
-Différence avec la commande python
------------------------------------
-
-Notez bien que lancer l'interpréteur et taper `import bonjour` dedans n'est pas
-la même chose que lancer `python bonjour.py`.
-
-Dans le deuxième cas, tout le code dans `bonjour.py` est exécuté, puis la commande python
-se termine.
-
-Dans le cas de l'interpréteur, on peut utiliser tous les attributs du module et appeler
-les fonctions autant de fois qu'on veut::
-
-    >>> import bonjour
-    >>> bonjour.dire_bonjour()
-    Bonjour!
-    >>> bonjour.dire_bonjour()
-    Bonjour!
-
-On peut aussi modifier les valeurs des attributs::
-
-    >>> import bonjour
-    >>> bonjour.a
-    42
-    >>> bonjour.a = 36
-    >>> bonjour.a
-    36
-
+   # Dans salutations.py
+   import bonjour
+   bonjour.dire_bonjour()
+   # affiche: Bonjour!
 
 Les imports ne sont faits qu'une seule fois
 -------------------------------------------
 
-Il est important de noter que le code à l'intérieur d'un
-module n'est *pas* ré-éxécuté si le module a déjà été
-importé auparavant.
+Il est important de noter que:
+
+* **tout** le code à l'intérieur d'un module est éxécuté lors du premier import
+* mais il n'est *pas* ré-éxécuté si le module a déjà été importé auparavant.
 
 On peut le voir en mettant du code dans `bonjour.py`,
 en plus des simples définitions de fonctions et assignations
@@ -97,15 +71,20 @@ de variables::
 
     # Dans bonjour.py
     print("Je suis le module bonjour et tu viens de m’importer")
+    def dire_bonjour():
+        ....
 
-    >>> import bonjour
-    Je suis le module foo et tu viens de m’importer
-    >>> import bonjour
-    <rien>
+.. code-block:: python
 
-Il faudra donc redémarrer l'interpréteur à chaque fois que le code dans `bonjour.py` change.
+    # Dans salutation.py
+    import bonjour
+    # affiche: Je suis le module bonjour et tu viens de m’importer
 
-a bibliothèque standard
+    import bojour
+    # n'affiche rien
+
+
+La bibliothèque standard
 ------------------------
 
 La bibliothèque standard est une collection de modules directement utilisables fournis à l'installation de Python.

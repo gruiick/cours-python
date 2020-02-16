@@ -18,16 +18,17 @@ On peut utiliser pour cela deux classes: `Chat` et `Humain`::
         def __init__(self, nom):
             self.nom = nom
 
-    >>> chat = Chat("Monsieur Moustaches")
-    >>> chat.nom
-    'Monsieur Moustaches'
+    chat = Chat("Monsieur Moustaches")
+    prin(chat.nom)
+    # affiche: Monsieur Moustaches
 
     class Humain:
         def __init__(self,  prénom):
             self.prénom = prénom
-    >>> alice = Humain(prénom="Alice")
-    >>> alice.prénom
-    "Alice"
+
+    alice = Humain(prénom="Alice")
+    print(alice.prénom)
+    # affiche: Alice
 
 Maintenant on veut que les humains puissent adopter des chats.
 Pour cela, on peut rajouter la méthode ``adopte`` dans la classe
@@ -43,10 +44,10 @@ classe ``Chat``::
         def adopte(self, chat):
             print(self.prénom, "adopte un chat")
 
-    >>> boule_de_poils = Chat("Boule de Poils")
-    >>> alice = Humain("Alice")
-    >>> alice.adopte(boule_de_poils)
-    "Alice adopte un chat"
+    boule_de_poils = Chat("Boule de Poils")
+    alice = Humain("Alice")
+    alice.adopte(boule_de_poils)
+    # affiche: "Alice adopte un chat"
 
 On peut accéder au nom du chat depuis la méthode ``adopte``,
 en utilisant la syntaxe ``nom.attribut`` vue précédemment::
@@ -58,10 +59,10 @@ en utilisant la syntaxe ``nom.attribut`` vue précédemment::
         def adopte(self, chat):
             print(self.prénom, "adopte", chat.nom)
 
-    >>> boule_de_poils = Chat("Boule de Poils")
-    >>> alice = Humain("Alice")
-    >>> alice.adopte(boule_de_poils)
-    "Alice adopte Boule de Poils"
+    boule_de_poils = Chat("Boule de Poils")
+    alice = Humain("Alice")
+    alice.adopte(boule_de_poils)
+    # affiche: Alice adopte Boule de Poils
 
 Couplage
 --------

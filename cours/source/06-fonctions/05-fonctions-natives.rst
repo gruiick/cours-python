@@ -18,19 +18,31 @@ On peut passer autant d'arguments qu'on veut à ``print`` et:
 * Il les sépare par des espaces
 * Ajoute un retour à la ligne à la fin::
 
-    >>> prénom = "Charlotte"
+    prénom = "Charlotte"
     print("Bonjour", pŕenom)
+    print("Ça va ?")
+
+.. code-block:: text
+
     Bonjour Charlotte
+    Ça va ?
+
 
 On peut demander à `print` de changer son séparateur::
 
-    >>> a = "chauve"
-    >>> b = "souris"
-    >>> print(a, b, sep="-")
+    a = "chauve"
+    b = "souris"
+    print(a, b, sep="-")
+
+.. code-block:: text
+
     chauve-souris
 
 Ou de changer le caractère de fin::
 
-    >>> print("Ceci tient", end="")
-    >>> print("sur une seule ligne")
-    Ceci tient sur une seule ligne
+    print("Ceci tient", end="")
+    print("sur une seule ligne")
+
+.. code-block:: text
+
+   Ceci tient sur une seule ligne

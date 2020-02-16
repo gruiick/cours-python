@@ -147,6 +147,9 @@ On peut aussi interpréter des octets comme du texte - c'est la table ASCII
 
 .. image::  ../img/ascii-table.png
 
+La table se lit ainsi: si on veut connaître la suite de 0 et de 1 qui correspond à `B`: on lit
+les 3 premiers bits de haut en bas sur la colonne: `100`, puis les 4 bits sur la ligne: `0010`.
+Du coup 'B' en s'écrit en 7 bits: `1000010`, soit 66 en décimal, et 42 en héxadécimal
 
 ASCII - remarques
 -----------------
@@ -155,20 +158,20 @@ ASCII - remarques
 * Le A est pour American
 * Ça sert à *envoyer* du texte sur des terminaux d'où les "caractères" non-imprimables dans la liste
 * Mais c'est une convention *très* utilisée
-* Techniquement, on n'a besoin que de 7 bits, mais on préfère envoyer des octets
+* Un message de 4 lettres ASCII sera souvent envoyé comme 4 octets (même si seulement 7 bits sont nécessaires)
 
 Utiliser ASCII en Python
 ------------------------
 
 Avec ``chr`` et ``ord``::
 
-    x = chr(98)
+    x = chr(0x42)
     print(x)
-    # affiche: b
+    # affiche: B
 
-    x = ord('a')
+    x = ord('B')
     print(x)
-    # affiche: 97
+    # affiche: 66
 
 Affichage des bytearrays en Python
 ----------------------------------

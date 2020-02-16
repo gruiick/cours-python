@@ -11,9 +11,11 @@ On peut aussi mettre des valeurs par défaut::
 
 Appel::
 
-    >>> dire_bonjour("Thomas", enthousiaste=True)
-    Bonjour Thomas!
-    >>> dire_bonjour("Thomas", enthousiaste=False)
-    Bonjour Thomas
-    >>> dire_bonjour("Thomas")
-    Bonjour Thomas
+    dire_bonjour("Thomas", enthousiaste=True)
+    # affiche: Bonjour Thomas!
+
+    dire_bonjour("Thomas", enthousiaste=False)
+    # affiche: Bonjour Thomas
+
+    dire_bonjour("Thomas")
+    # affiche: Bonjour Thomas

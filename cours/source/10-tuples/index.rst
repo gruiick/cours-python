@@ -35,10 +35,11 @@ Accès
 Avec ``[]`` et l'index de l'élément dans le tuple::
 
     mon_tuple = (42, "bonjour")
-    mon_tuple[0]
-    42
-    mon_tuple[1]
-    "bonjour"
+    print(mon_tuple[0])
+    # affiche: 42
+
+    print(mon_tuple[1])
+    # affiche: "bonjour"
 
 Modification
 ------------
@@ -47,7 +48,7 @@ Interdit::
 
     mon_tuple = (42, "bonjour")
     mon_tuple[0] = 44
-    TypeError: 'tuple' object does not support item assignment
+    # erreur: TypeError: 'tuple' object does not support item assignment
 
 
 Test d'appartenance
@@ -55,26 +56,28 @@ Test d'appartenance
 
 Avec ``in``:
 
-   >>> mon_tuple = (42, 14)
-   >>> 42 in mon_tuple
-   True
+   mon_tuple = (42, 14)
+   print(42 in mon_tuple)
+   # affiche: True
 
-   >>> 14 in mon_tuple
-   True
-   >>> 13 in mon_tuple
-   False
+   print(14 in mon_tuple)
+   # affiche: True
+
+   print(13 in mon_tuple)
+   # affiche: False
 
 Déstructuration
 ----------------
 
 Créer plusieurs variables en une seule ligne::
 
-    >>> couple = ("Batman", "Robin")
-    >>> héros, side_kick = couple
-    >>> héros
-    'Batman'
-    >>> side_kick
-    'Robin'
+    couple = ("Batman", "Robin")
+    héros, side_kick = couple
+    print(héros)
+    # affiche: Batman
+
+    print(side_kick)
+    # affiche: Robin
 
 
 Quelques erreurs classiques
@@ -82,15 +85,15 @@ Quelques erreurs classiques
 
 .. code-block:: python
 
-   >>> héros, side_kick, ennemi = couple
-   ValueError (3 != 2)
+   héros, side_kick, ennemi = couple
+   # erreur: ValueError (3 != 2)
 
-   >>> (héros,) = couple
-   ValueError (1 != 2)
+   (héros,) = couple
+   # erreur: ValueError (1 != 2)
 
    # Gare à la virgule:
-   >>> héros, = couple
-   ValueError (1 != 2)
+   héros, = couple
+   # erreur: ValueError (1 != 2)
 
 Pièges
 ------
@@ -110,16 +113,19 @@ Pièges
 
 On peut aussi déstructurer des listes::
 
-    >>> fruits = ["pomme", "banane", "orange"]
-    >>> premier, deuxième, troisième = fruits
-    >>> premier
-    "pomme"
-    >>> deuxième
-    "banane"
-    >>> troisième
-    "orange"
+    fruits = ["pomme", "banane", "orange"]
+    premier, deuxième, troisième = fruits
 
-On dit aussi: unpacking
+    print(premier)
+    # affiche: pomme
+
+    print(deuxième)
+    # affiche: banane
+
+    print(troisième)
+    # affiche: orange
+
+On dit aussi: *unpacking*
 
 Utilisations des tuples
 ------------------------
@@ -147,6 +153,6 @@ Pour retourner plusieurs valeurs::
 
     v, c = tire_carte()
     print(v, "de", c)
-    # 10 de trèfle
+    # affiche: 10 de trèfle
 
 Ce n'est pas une nouvelle syntaxe, juste de la manipulation de tuples!

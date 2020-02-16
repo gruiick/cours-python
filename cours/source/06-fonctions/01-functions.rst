@@ -11,14 +11,22 @@ Définition::
 
 
 * avec `def`
-* avec un `:` à la fin et un *bloc indenté* (appelé le "corps")
+* avec un `:` à la fin et un *bloc indenté* (appelé *le corps de la fonction*).
 
 Appel::
 
-    >>> dire_bonjour()
-    Bonjour
+    dire_bonjour()
 
 * avec le nom de la fonction et des parenthèses
+
+Example complet::
+
+    def dire_bonjour():
+        print("Bonjour")
+
+    bonjour()
+    # Affiche: bonjour'
+
 
 Le pouvoir des fonctions
 ------------------------
@@ -35,6 +43,7 @@ programmation.
 
 
 Fonction avec un argument
+--------------------------
 
 Définition: avec l'argument à l'intérieur des parenthèses::
 
@@ -43,17 +52,10 @@ Définition: avec l'argument à l'intérieur des parenthèses::
 
 Appel: en passant une variable ou une valeur dans les parenthèses::
 
-    >>> dire_bonjour("Germaine")
-    Bonjour Germaine
+    dire_bonjour("Germaine")
 
-     >>> prénom_de_charlotte = "Charlotte"
-     >>> dire_bonjour(prénom_de_charlotte)
-     Bonjour Charlotte
-
-Exécution d'une fonction
-------------------------
-
-C'est exatement comme si on assignait les arguments de la fonction avant d'éxécuter le code
+L'éxécution de l'appel à une foctionne exactement  comme si on assignait
+les arguments de la fonction avant d'éxécuter le code
 dans le corps::
 
     # Ceci:
@@ -65,3 +67,16 @@ dans le corps::
 
     # Lui-même équivalent à:
     print("Bonjour " + "Dimitri")
+
+Example complet::
+
+
+    def dire_bonjour(prénom):
+    	print("Bonjour " + prénom)
+    dire_bonjour("Germaine")
+    # affiche: Bonjour Germaine
+
+    prénom_de_charlotte = "Charlotte"
+    dire_bonjour(prénom_de_charlotte)
+    # affiche: Bonjour Charlotte
+

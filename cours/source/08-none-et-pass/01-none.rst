@@ -8,17 +8,6 @@ Définition
 
 Un peu comme ``True`` et ``False`` qui sont deux valeurs qui servent à représenter tous les booléens.
 
-Représenter l'absence
-----------------------
-
-L'interpréteur intéractif n'affiche rien quand la valeur est None::
-
-    >>> a = 42
-    >>> a
-    42
-    >>> b = None
-    >>> b
-
 Retourner None
 ----------------
 
@@ -26,11 +15,12 @@ En réalité, *toutes* les fonctions pythons retournent *quelque chose*, même q
 elle ne contiennent pas le mot-clé ``return``.::
 
    def ne_renvoie_rien():
-       print("je ne fais qu'afficher quelque chose")
+       x = 2
 
-   >>> resultat = ne_renvoie_rien()
-   "je ne fais qu'afficher quelque chose"
-   >>> resultat
+   resultat = ne_renvoie_rien()
+
+   print(resultat)
+   # affiche: None
 
 Opérations avec None
 ---------------------
@@ -38,17 +28,26 @@ Opérations avec None
 La plupart des fonctions que nous avons vues échouent si on leur passe ``None``
 en argument::
 
-    >>> len(None)
-    TypeError: object of type 'NoneType' has no len()
-    >>> None < 3
-    TypeError: '<' not supported between instances of
-      'NoneType' and 'int'
-    >>> int(None)
-    TypeError: int() argument must be a string,
-      a bytes-like object or a number,
-      not 'NoneType'
-    >>> str(None)
-    'None'
+    x = len(None)
+    # erreur: TypeError
+
+    x = None < 3
+    # erreur: TypeError
+
+    x = int(None)
+    # erreur: TypeError
+
+Mais ``str`` fonctionne::
+
+    x = str(None)
+    print(x)
+    # affiche: 'None'
+
+On peut vérifier si une variable vaut ``None`` avec ``is None``::
+
+    x = ne_renvoie_rien()
+    print(x is None)
+    # affiche: True
 
 Example d'utilisation
 ----------------------
@@ -61,20 +60,10 @@ Example d'utilisation
                 return element
         return None
 
-    >>> trouve_dans_liste(2, [1, 2, 3])
-    2
-    >>> trouve_dans_liste(False, [True, False])
-    False
-    >>> trouve_dans_liste(1, [3, 4])
+    x = trouve_dans_liste(2, [1, 2, 3])
+    print(x)
+    # affiche: 2
 
-
-None est Falsy, et on peut vérifier si une variable vaut ``None`` avec ``is None``::
-
-    # hypothèse: `ma_valeur` n'est pas None
-    mon_element = trouve_dans_liste(ma_valeur, ma_liste)
-    if mon_element is None:
-        print("élément absent de la liste")
-    if not mon_element:
-        # Peut-être que l'élément n'était pas dans la liste,
-        # ou peut-être y était-il, mais avec une valeur falsy
-        ...
+    x = trouve_dans_liste(1, [3, 4])
+    print(x)
+    # affiche: None

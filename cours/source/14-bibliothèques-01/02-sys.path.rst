@@ -4,7 +4,7 @@ sys.path
 En Python, il existe une variable ``path`` prédéfinie dans le module ``sys`` qui fonctionne de manière similaire
 à la variable d'environnement ``PATH``.
 
-Si j'essaye de l'afficher sur ma machine, voici ce que j'obtiens:
+Si j'essaye de l'afficher sur ma machine, voici ce que j'obtiens::
 
     import sys
     print(sys.path)

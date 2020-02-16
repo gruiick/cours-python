@@ -105,14 +105,14 @@ Le code suivant fait exactement la même chose, mais avec une ligne de moins::
 
 On peut *créer* des attributs dans *n'importe quel instance*, en utilisant l'*assignation*::
 
-   >>> mon_instance = MaClasse()
+   mon_instance = MaClasse()
 
    # Création de l'attribut `x` dans `mon_instance`
-   >>> mon_instance.x = 42
+   mon_instance.x = 42
 
    # Accés à l'attribut `x` dans `mon_instance`
-   >>> mon_instance.mon_attribut
-   42
+   print(mon_instance.mon_attribut)
+   # affiche: 42
 
 Méthodes - définition
 ----------------------
@@ -135,12 +135,14 @@ la classe::
     class MaClasse:
         def ma_méthode(self):
                 return 42
-    >>> ma_méthode()
-    Erreur
 
-    >>> mon_instance = MaClasse()
-    >>> mon_instance.ma_méthode()
-    42
+    ma_méthode()
+    # erreur: NameError
+
+    mon_instance = MaClasse()
+    résultat = mon_instance.ma_méthode()
+    print(résultat)
+    # affiche: 42
 
 Notez qu'on ne passe *pas* d'argument quand on apelle `ma_méthode` depuis l'instance.
 
@@ -158,10 +160,10 @@ On peut le voir en utilisant des attributs::
             print(self.x)
 
 
-    >>> mon_instance = MaClasse()
-    >>> mon_instance.x = 42
-    >>> mon_instance.affiche_attribut_x()
-    42
+    mon_instance = MaClasse()
+    mon_instance.x = 42
+    mon_instance.affiche_attribut_x()
+    # Affiche: 42
 
 On peut aussi *créer* des attributs dans une méthode::
 
@@ -171,13 +173,13 @@ On peut aussi *créer* des attributs dans une méthode::
         def affiche_attribut_x(self):
             print(self.x)
 
-    >>> mon_instance = MaClasse()
-    >>> mon_instance.affiche_attribut_x()
-    # Erreur: `mon_instance` n'a pas d'attribut `x`
+    mon_instance = MaClasse()
+    mon_instance.affiche_attribut_x()
+    # erreur: `mon_instance` n'a pas d'attribut `x`
 
-    >>> mon_instance.crée_attribut_x()
-    >>> mon_instance.affiche_attribut_x()
-    42
+    mon_instance.crée_attribut_x()
+    mon_instance.affiche_attribut_x()
+    # affiche: 42
 
 Les méthodes peuveunt aussi prendre plusieurs arguments, en plus de ``self`` - mais ``self`` doit
 toujours être le premier argument.
@@ -192,10 +194,10 @@ Par example, pour créer un attribut avec une certaine valeur::
         def affiche_attribut_x(self);
             print(self.x)
 
-    >>> mon_instance = MaClasse()
-    >>> mon_instance.crée_attribut_x(42)
-    >>> mon_instance.affiche_attribut_x()
-    42
+    mon_instance = MaClasse()
+    mon_instance.crée_attribut_x(42)
+    mon_instance.affiche_attribut_x()
+    # affiche: 42
 
 Méthodes appelant d'autres méthodes
 ------------------------------------
@@ -217,8 +219,8 @@ les unes les autres::
             print("fin de la méthode 2")
 
 
-    >>> mon_instance = MaClasse()
-    >>> mon_instance.méthode_2()
+    mon_instance = MaClasse()
+    mon_instance.méthode_2()
 
 .. code-block::
 
@@ -246,13 +248,13 @@ On utilise souvent ``__init__`` pour créer des attributs::
             self.x = 1
             self.y = 2
 
-    >>> mon_instance = MaClasse()
+    mon_instance = MaClasse()
 
     # __init__ est appelée automatiquement!
-    >>> mon_instance.x
-    1
-    >>> mon_instance.y
-    2
+    print(mon_instance.x)
+    # affiche: 1
+    print(mon_instance.y)
+    # affiche: 2
 
 On prend souvent les *valeurs* des attributs à créer en arguments de la méthode ``__init__``::
 
@@ -264,11 +266,11 @@ On prend souvent les *valeurs* des attributs à créer en arguments de la métho
 Dans ce cas, les arguments de la méthode ``__init__`` apparaissent à l'intérieur des parenthèses après le
 nom de la classe::
 
-    >>> mon_instance = MaClasse(3, 4)
-    >>> mon_instance.x
-    3
-    >>> mon_instance.y
-    4
+    mon_instance = MaClasse(3, 4)
+    print(mon_instance.x)
+    # affiche: 3
+    print(mon_instance.y)
+    # affiche: 4
 
 .. note::
 

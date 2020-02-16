@@ -10,20 +10,26 @@ Une classe à l'intérieur d'une autre classe.
 Dépendances entre fonctions
 -----------------------------
 
-Exemple: on veut dessiner un sapin dans le terminal::
+Exemple ::
 
-    def main():
-        largeur = demander_largeur()
-        dessine_sapin(largeur)
+    def calcule_x():
+        ...
+        # du code ici
 
-    main()
+    def fait_un_truc_avec_x(x):
+        ...
+        # du code ici
+
+    x = calcule_x()
+    fait_un_truc_avec_x(x)
 
 
-On voit que la fonction ``dessine_sapin()`` prend un argument ``largeur``, qui est retourné
-par la fonction ``demander_largeur()``.
 
-``dessine_sapin()`` doit donc être appelée *après* ``demander_largeur()``. On dit que ``dessine_sapin()``
-_dépend_ de ``demander_largeur()``.
+On voit que la fonction ``fait_un_truc_avec_x()`` prend un argument ``x``, qui est retourné
+par la fonction ``calcule_x()``.
+
+``fait_un_truc_avec_x()`` doit donc être appelée *après* ``calcule_x()``. On dit que ``fait_un_truc_avec_x()``
+*dépend* de ``calcule_x()``.
 
 Dépendances entre classes
 -------------------------
@@ -39,8 +45,8 @@ Revoyons la classe Chat::
 Comme le constructeur de la classe Chat prend un nom en argument, il est impossible de construire
 des chats sans nom::
 
-    >>> chat = Chat()
-    TypeError: __init__() missing 1 required positional argument: 'nom'
+    chat = Chat()
+    # erreur: TypeError: __init__() missing 1 required positional argument: 'nom'
 
 De la même façon, si on veut que tous les enfants aient un chat (pourquoi pas, après tout), on peut
 avoir une classe Enfant, dont le constructeur prend une instance de chat en plus du prénom::
@@ -50,11 +56,11 @@ avoir une classe Enfant, dont le constructeur prend une instance de chat en plus
             self.prénom = prénom
             self.chat = chat
 
-     >>> alice = Enfant("Alice")
-     TypeError: __init__() missing 1 required positional argument: 'chat'
+     alice = Enfant("Alice")
+     # erreur: TypeError: __init__() missing 1 required positional argument: 'chat'
 
-     >>> boule_de_poils = Chat("Boule de Poils")
-     >>> alice = Enfant("Alice", boule_de_poils)
+     boule_de_poils = Chat("Boule de Poils")
+     alice = Enfant("Alice", boule_de_poils)
      # OK!
 
 Utilisation de la composition
@@ -78,9 +84,9 @@ et ``ronronne()`` dans la classe chat::
             self.ronronne()
 
 
-    >>> boule_de_poils = Chat("Boule de Poils")
-    >>> boule_de_poils.caresse()
-    Boule de Poils fait "prrrrr"
+    boule_de_poils = Chat("Boule de Poils")
+    boule_de_poils.caresse()
+    # affiche: Boule de Poils fait "prrrrr"
 
 Ensuite, on peut rajouter la méthode ``console()`` dans la classe Enfant,
 qui va:
@@ -95,11 +101,11 @@ qui va:
         def console(self):
             self.chat.caresse()
 
-    >>> boule_de_poils = Chat("Boule de Poils")
-    >>> alice = Enfant("Alice", boule_de_poils)
+    boule_de_poils = Chat("Boule de Poils")
+    alice = Enfant("Alice", boule_de_poils)
     # Alice est triste, on la console
-    >>> alice.console()
-    Boule de Poils fait "prrrrr"
+    alice.console()
+    # affiche: Boule de Poils fait "prrrrr"
     # Alice est consolée :)
 
 On dit parfois qu'on a *délégué* l'implémentation de la méthode ``console()`` de la classe Enfant
