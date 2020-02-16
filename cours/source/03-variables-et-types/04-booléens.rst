@@ -1,57 +1,50 @@
 Booléens et conditions
 ======================
 
-True et False
---------------
+En Python, les variables ``True`` et ``False`` sont toujours définies
+et servent à représenter une valeur vraie ou fausse.
 
-
-En Python ce sont des mots-clés et les valeurs sont en majuscules!
-
+(Notez qu'elles commencent par une majuscule)
 
 Assignation
 -----------
 
-On peut assigner des variables aux valeurs True  et False
+On peut assigner des variables à True ou False::
 
-
-.. code-block:: python
 
     la_terre_est_plate = False
     python_c_est_genial = True
 
 
-## Comparaisons
+Comparaisons
+------------
 
-.. code-block:: python
+Certaines opérations renvoient des booléens:
 
-   >>> a = 2
-   >>> b = 3
-   >>> a > b
-   False
++------+-----------------------------+
+|``=`` | égal                        |
++------+-----------------------------+
+|``!=``| différent                   |
++------+-----------------------------+
+|``>`` | strictement supérieur       |
++------+-----------------------------+
+|``>=``| supérieur ou égal           |
++------+-----------------------------+
+|``<`` | strictement inférieur       |
++------+-----------------------------+
+|``<=``| inférieur                   |
++------+-----------------------------+
 
-.. code-block:: python
+Par example::
 
-   >>> 2 + 2 == 4
-   True
+   a = 2
+   b = 3
+   print(a > b)
+   # affiche: False
 
-Note: ``==`` pour la comparaison, ``=`` pour l'assignation
+   print(2 + 2 == 4)
+   # affiche: True
 
+.. warning::
 
-```
->>> a = 2
->>> b = 3
->>> a != b
-True
->>> 2 + 2 >= 4
-True
-```
-
-
-```
->>> a = 2
->>> a < 2
-False
->>> 1 < a < 3
-True
-```
-
+    Ne pas confondre: ``==`` pour la comparaison et ``=`` pour l'assignation
