@@ -38,12 +38,19 @@ Lancez une invite de commandes et tapez quelque chose comme:
    cd Documents/e2l/python/
    python3 bonjour.py
 
+(Utilisez `python` sous Windows)
 
 Si tout se passe bien, vous devrez voir s'afficher ceci:
 
 .. code-block:: text
 
+
    Bonjour, monde
+
+Vous savez maintenant comment exécuter du code Python dans n'importe quel fichier:
+
+1. Écrire le code dans un fichier
+2. Se rendre dans le répertoire contenant le fichier et lancer `python3`  (ou `python`) suivi du nom du fichier.
 
 print()
 -------
@@ -72,7 +79,7 @@ Pour lire ce cours de manière efficace, il est conseillé de lancer les
 examples de code sur votre machine, et de vérifier si ce qui est
 affiché sur votre machine correspond à ce qui est écrit dans le cours.
 
-Il est aussi recommandé de _ne pas_ copier/coller le code.
+Il est aussi recommandé de **ne pas** copier/coller le code.
 
 À la place, prenez le temps de retaper le code dans votre éditeur.
 
