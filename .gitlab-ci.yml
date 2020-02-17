@@ -1,5 +1,8 @@
 image: python:latest
 
+variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
 before_script:
   - pip install poetry
   - poetry config virtualenvs.in-project true
@@ -17,5 +20,6 @@ pages:
   cache:
     paths:
       - cours/.venv
+      - .cache/pip
   only:
     - master
