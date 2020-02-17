@@ -1,4 +1,4 @@
-Chapitre 10 - tuples
+Chapitre 10 - Tuples
 =====================
 Définition
 ------------

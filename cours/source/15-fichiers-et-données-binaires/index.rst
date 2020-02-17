@@ -1,4 +1,4 @@
-Chapitre 15: Données binaires et fichiers
+Chapitre 15 - Données binaires et fichiers
 ==========================================
 
 On vous a peut-être déjà dit que l'informatique consiste à
