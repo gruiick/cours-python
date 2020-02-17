@@ -1,9 +1,8 @@
 image: python:latest
 
-
-
 before_script:
   - pip install poetry
+  - poetry config virtualenvs.in-project = true
 
 
 pages:
@@ -15,5 +14,8 @@ pages:
   artifacts:
     paths:
       - public
+  cache:
+    paths:
+      - cours/.venv
   only:
     - master
