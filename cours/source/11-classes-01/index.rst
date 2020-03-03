@@ -1,5 +1,5 @@
-Chapitre 11 - Classes (1ère partie)
-===================================
+Chapitre 11 - Introduction aux classes
+======================================
 
 Ce qu’on a vu jusqu’ici:
 

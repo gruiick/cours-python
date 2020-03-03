@@ -1,5 +1,5 @@
-Chapitre 13 - Classes (2ème partie)
-===================================
+Chapitre 13 - Couplage et composition
+=====================================
 
 .. toctree::
    :maxdepth: 1

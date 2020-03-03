@@ -1,5 +1,5 @@
-Chapitre 18 - Classes (3ème partie)
-====================================
+Chapitre 18 - Héritage
+======================
 
 Rappel - composition
 ---------------------
@@ -29,56 +29,176 @@ Pour rappel::
 
 
 
-Héritage
---------
+Vocabulaire
+-----------
 
-L'héritage décrit une autre relation entre classes, appelée parfois un peu abusivement "partage de code".
+Ici on va parler d'héritage, qui décrit une autre relation entre classes, appelée parfois un peu abusivement "partage de code".
 
-Petit détour
-++++++++++++
+Pour indiquer qu'une classe ``B`` hérite d'une classe ``A``, on écrit ``A`` dans des parenthèses au moment de
+déclarer la classe ``B``::
 
-Commencons par une question - qu'est-ce qui ne va pas dans ce code ?::
+    class A:
+       ...
 
-    def faire_le_café():
-        mettre_café_dans_tasse()
-        allumer_bouilloire()
-        attendre_que_ça_bouille()
-        verser_dans_tasse()
-        melanger()
-
-    def faire_le_thé():
-        mettre_thé_dans_tasse()
-        allumer_bouilloire()
-        attendre_que_ça_bouille()
-        verser_dans_tasse()
-        laisser_infuser()
+    class B(A):
+        ...
 
 
-Le proble est la *duplication* du code. Les lignes de ``allumer_bouilloire()`` à ``verser_dans_tasse()`` sont
-identiques.
+Les trois formulations suivantes sont souvent employées:
 
-Du coup:
+* A est la classe *parente* de B.
+* B *hérite* de A.
+* B est une classe *fille* de A.
 
-* Le code est plus long
-* Si jamais la procédure pour faire chauffer l'eau change, il faudra changer
-  le code a deux endroits différents
+Utilisation
+-----------
 
-Une solution est possible est *d'extraire une fonction*::
+Si une méthode n'est pas trouvée dans la classe courante, Python ira la
+chercher dans la classe parente::
+
+    class A:
+       def méthode_dans_a(self):
+           print("dans A")
+
+    class B(A):
+       def méthode_dans_b(self):
+           print("dans B")
 
 
-    def faire_chauffer_l_eau():
-        allumer_bouilloire()
-        attendre_que_ça_bouille()
+    b = B()
+    b.méthode_dans_a()
+    # Affiche: 'dans B', comme d'habitude
+
+    b.méthode_dans_a()
+    # Affiche: 'dans A'
+
+Ordre de résolution
+--------------------
+
+S'il y a plusieurs classes parentes, Python les remonte toutes une à une.
+On dit aussi qu'il y a une *hiérarchie* de classes::
+
+    class A:
+        def méthode_dans_a(self):
+             print("dans A")
+
+    class B(A):
+        def méthode_dans_b(self):
+             print("dans B")
+
+    class C(B):
+        def méthode_dans_c(self):
+             print("dans C")
+
+    c = C()
+    c.méthode_dans_a()
+    # affiche: 'dans A'
+
+Avec \_\_init\_\_
+--------------------
+
+La résolution fonctionne pour toutes les méthodes, y compris ``__init__``::
+
+    class A:
+        def __init__(self):
+             print("initialisation de A")
+
+    class B(A):
+        ...
+
+    b = B()
+    # affiche: "initialisation de A"
+
+Attributs
+----------
+
+Même mécanisme pour les attributs::
+
+    class A:
+        def __init__(self):
+            self.attribut_de_a = 42
+
+    class B(A):
+        ...
+
+    b = B()
+    print(b.attribut_de_a)
+    # affiche: 42
+
+Surcharge
+----------
+
+On peut aussi *surcharger* la méthode de la classe parente dans la classe fille::
+
+    class A:
+       def une_méthode(self):
+           print("je viens de la classe A")
+
+    class B(A):
+        def une_méthode(self):
+            print("je viens de la classe B")
 
 
-    def faire_le_café():
-        mettre_café_dans_tasse()
-        faire_chauffer_l_eau()
-        verser_dans_tasse()
-        melanger()
+    b = B()
+    b.une_méthode()
+    # affiche: "je viens de la classe B'
 
-    def faire_le_thé():
-        mettre_thé_dans_tasse()
-        faire_chauffer_l_eau()
-        verser_dans_tasse()
-        laisser_infuser()
+super()
+-------
+
+On peut utiliser ``super()`` pour chercher *explicitement* une méthode dans la classe parente::
+
+
+    class A:
+       def une_méthode(self):
+           print("je viens de la classe A")
+
+    class B(A):
+        def une_méthode(self):
+            super().une_méthode()
+            print("je viens de la classe B")
+
+    b = B()
+    b.une_méthode()
+    # affiche:
+    # je viens de la classe A
+    # je viens de la classe B
+
+super() et \_\_init\_\_
+------------------------
+
+Erreur très courante::
+
+    class A:
+       def __init__(self):
+           self.attribut_de_a = "bonjour"
+
+    class B(A):
+        def __init__(self):
+           self.attribut_de_b = 42
+
+     b = B()
+     print(b.attribut_de_b)
+     # affiche: 42
+     print(b.attribut_de_a)
+     # erreur:  AttributeError
+
+On a surchargé ``A.__init__()``, du coup l'initialisation de A n'a jamais
+été faite.
+
+La plupart du temps, si ``A`` et ``B`` ont de constructeurs, on appellera
+``super().__init__()`` dans le constructeur de la classe fille::
+
+    class A:
+       def __init__(self):
+           self.attribut_de_a = "bonjour"
+
+    class B(A):
+        def __init__(self):
+           self.attribut_de_b = 42
+
+     b = B()
+     print(b.attribut_de_b)
+     # affiche: 42
+     print(b.attribut_de_a)
+     # affiche:  "bonjour"
