@@ -1,4 +1,4 @@
-all: python-S02-E10.pdf
+all: python-S02-E11.pdf
 
 %.pdf: %.md
 	pandoc --pdf-engine=xelatex -t beamer $< -o $@
