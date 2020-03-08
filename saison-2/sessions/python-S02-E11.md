@@ -64,6 +64,8 @@ class B(A):
     def affiche_a(self):
         print(self.attribut_de_a)
 
+b = B()
+b.affiche_a()
 ```
 
 \vfill
@@ -104,6 +106,9 @@ class B(A):
     def une_méthode(self):
         super().une_méthode()
         print("je viens de la classe B")
+
+b = B()
+print(b.une_méthode())
 ```
 
 \vfill

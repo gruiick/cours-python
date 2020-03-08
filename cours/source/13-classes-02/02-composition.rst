@@ -96,6 +96,7 @@ qui va:
 
     class Enfant:
         def __init__(self, prénom, chat):
+            self.prénom = prénom
             self.chat = chat
 
         def console(self):

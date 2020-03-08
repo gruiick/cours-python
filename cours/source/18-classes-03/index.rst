@@ -66,7 +66,7 @@ chercher dans la classe parente::
 
 
     b = B()
-    b.méthode_dans_a()
+    b.méthode_dans_b()
     # Affiche: 'dans B', comme d'habitude
 
     b.méthode_dans_a()
@@ -195,6 +195,7 @@ La plupart du temps, si ``A`` et ``B`` ont de constructeurs, on appellera
 
     class B(A):
         def __init__(self):
+           super().__init__()
            self.attribut_de_b = 42
 
      b = B()
