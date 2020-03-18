@@ -22,7 +22,7 @@ remarques.
    03-variables-et-types/index
    04-booléens/index
    05-flot-de-controle/index
-   06-fonctions/index
+   06-fonctions-01/index
    07-listes/index
    08-none-et-pass/index
    09-dictionnaires/index
@@ -35,3 +35,4 @@ remarques.
    16-interpréteur-interactif/index
    17-sockets/index
    18-classes-03/index
+   19-functions-02/index

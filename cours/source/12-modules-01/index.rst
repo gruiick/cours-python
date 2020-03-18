@@ -1,5 +1,5 @@
-Chapitre 12 - Modules - 1ère partie
-===================================
+Chapitre 12 - Introduction aux modules
+======================================
 
 Un fichier = un module
 ------------------------

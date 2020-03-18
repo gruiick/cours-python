@@ -1,5 +1,5 @@
-Chapitre 6 - Fonctions
-======================
+Chapitre 6 - Introduction aux fonctions
+=======================================
 
 .. toctree::
    :maxdepth: 1
