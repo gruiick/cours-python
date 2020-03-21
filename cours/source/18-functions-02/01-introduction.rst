@@ -110,6 +110,7 @@ On peut aussi définir une fonction dans une autre fonction::
     def affiche_message(message):
         def affiche():
             print(message)
+        affiche()
 
     affiche_message("Bonjour")
     # affiche: Bonjour
