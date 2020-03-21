@@ -12,11 +12,13 @@ D'une part, on peut créer des variables en les assignant à une valeur::
     x = 4
 
 
+On dit aussi que ``x`` *référence* la valeur ``4``
+
 D'autre part, on peut définir et appeler des fonctions::
 
     # Définition de la fonction:
     def dire_bonjour(nom):
-        print("Bonjour " + nome
+        print("Bonjour " + nom)
 
     # Appel
     dire_bonjour("Max")
@@ -39,7 +41,7 @@ Il se trouve qu'en Python, on peut assigner des variables à ... des fonctions
   def dire_bonjour_en_anglais(nom):
       print("Hello " + nom)
 
-  # Création d'une variable qui pointe sur la fonction française:
+  # Création d'une variable qui référence la fonction française:
   ma_fonction_qui_dit_bonjour = dire_bonjour_en_français
 
   # Appel de la fonction:
@@ -55,7 +57,7 @@ On peut donc dire que lorsqu'on définit une fonction avec `def()` et un corps
 il y a en réalité deux étapes:
 
 1. Python stocke le corps de la fonction quelque part
-2. Il crée une variable pointant vers ce corps
+2. Il crée une variable qui référence ce corps
 
 En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent avec un dictionnaire::
 
@@ -77,8 +79,8 @@ En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent a
 Fonctions en tant qu'argement d'autres fonctions
 ------------------------------------------------
 
-On a vu en début de chapitre qu'on peut créé des variables qui pointent
-vers des fonctions.
+On a vu en début de chapitre qu'on peut créé des variables qui référencent
+des fonctions.
 
 Du coup, rien n'empêche de les passer en *argument* d'autres fonctions.
 
