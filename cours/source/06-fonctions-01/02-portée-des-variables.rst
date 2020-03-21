@@ -1,3 +1,5 @@
+.. _portées-des-variables:
+
 Portée des variables
 ====================
 

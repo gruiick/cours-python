@@ -5,8 +5,4 @@ Chapitre 19 - Décorateurs
    :maxdepth: 1
 
    01-introduction
-
-
-
-
-
+   02-décorateurs

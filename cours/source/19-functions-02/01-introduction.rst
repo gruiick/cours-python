@@ -57,7 +57,22 @@ il y a en réalité deux étapes:
 1. Python stocke le corps de la fonction quelque part
 2. Il crée une variable pointant vers ce corps
 
-En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent avec un dictionnaire:
+En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent avec un dictionnaire::
+
+    fonctions_connues = {
+       "français": dire_bonjour_en_français,
+       "anglais": dire_bonjour_en_anglais,
+    }
+
+    # Ici on stocke la langue parlée par l'utilisateur
+    # et son prénom
+    langue_parlée = ...
+    prénom = ....
+
+    if langue_parlée in fonctions_connues:
+        fonction = fonctions_connues[langue_parlée]
+        fonction(prénom)
+
 
 Fonctions en tant qu'argement d'autres fonctions
 ------------------------------------------------
@@ -89,13 +104,41 @@ Fonctions imbriquées
 
 On peut aussi définir une fonction dans une autre fonction::
 
-    TODO
+
+    def affiche_message(message):
+        def affiche():
+            print(message)
+
+    affiche_message("Bonjour")
+    # affiche: Bonjour
+
+Deux notes importantes:
+
+Premièrement, la fonction `affiche()` qui est imbriquées dans `affiche_message()` n'est pas
+accessible à l'éxtérieur de la fonction qui la contient. En d'autres termes, ce code
+ne fonctionne pas::
+
+    def affiche_message(message):
+        def affiche():
+            print(message)
+
+    affiche()
+    # NameError: 'affiche' is not defined
+
+C'est un mécanisme similaire aux :ref:`portées des variables <portées-des-variables>` vu précédemment.
+
+Deuxièment, la fonction `affiche()` à l'intérieur de `affiche_message()`
+a accès à l'argument `message` de la fonction `affiche_message`. On appelle
+ça une "closure".
+
 
 
 Fonctions retournant des fonctions
 ----------------------------------
 
-Enfin, on peut retourner une fonction depuis une autre fonction::
+En réalité, on combine souvent les closures avec des fonctions qui
+retournent d'autres fonctions::
+
 
     def fabrique_fonction_qui_additionne(n):
         def fonction_résultat(x):
@@ -114,4 +157,8 @@ Un autre paradigme
 
 Le fait qu'on puisse traiter les fonctions comme n'importe quelle
 autre valeur (c'est-à-dire les assigner à des variables, les passer
-en argument et les retourner)
+en argument et les retourner), est caractéristique des langages
+dits "fonctionnels". Python est donc **à la fois** un
+langages *impératif*, *objet* et *fonctionnel*. On dit que
+c'est un langage *multi-paradigme*.
+
