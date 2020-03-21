@@ -33,6 +33,5 @@ remarques.
    14-bibliothèques-01/index
    15-fichiers-et-données-binaires/index
    16-interpréteur-interactif/index
-   17-sockets/index
-   18-classes-03/index
-   19-functions-02/index
+   17-classes-03/index
+   18-functions-02/index
