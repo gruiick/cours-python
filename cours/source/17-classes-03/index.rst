@@ -1,4 +1,4 @@
-Chapitre 18 - Héritage
+Chapitre 17 - Héritage
 ======================
 
 Rappel - composition

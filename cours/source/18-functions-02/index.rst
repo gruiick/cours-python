@@ -1,4 +1,4 @@
-Chapitre 19 - Décorateurs
+Chapitre 18 - Décorateurs
 =========================
 
 .. toctree::
