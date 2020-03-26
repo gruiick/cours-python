@@ -4,8 +4,7 @@ Environnements virtuels
 La solution est d'utiliser un environnement virtuel (*virtualenv* en
 abrégé). C'est un répertoire *isolé* du reste du système.
 
-Il se crée par exemple avec la commande ``python3 -m venv foo-venv``. où
-``foo-venv`` est un répertoire quelconque.
+
 
 Aparté : python3 -m venv sur Debian
 ------------------------------------
@@ -153,16 +152,52 @@ de commandes:
 
 Pour sortir du virtualenv, entrez la commande ``deactivate``.
 
-Conclusion
-----------
+Les environnements virtuels en pratique
+----------------------------------------
+
 
 Le système de gestions des dépendances de Python peut paraître compliqué
 et bizarre, surtout venant d'autres langages.
 
 Mon conseil est de toujours suivre ces deux règles:
 
-* Un virtualenv par projet et par version de Python
+* Un virtualenv par projet
 * Toujours utiliser ``pip`` *depuis* un virtualenv
 
 Certes, cela peut paraître fastidieux, mais c'est une méthode qui vous
 évitera probablement de vous arracher les cheveux (croyez-en mon expérience).
+
+Voici un exemple d'arborescence qui montre deux projets,
+``projet-1`` et ``projet-2``, chacun avec son virtualenv
+dédié:
+
+.. code-block:: text
+
+   projets
+   ├── projet-1
+   │   ├── projet_1.py
+   │   └── .venv
+   │       ├── bin
+   │       ├── include
+   │       ├── lib
+   │       └── ...
+   └── projet-2
+       ├── projet_2.py
+       └── .venv
+           ├── bin
+           ├── include
+           ├── lib
+           └── ...
+
+Notez bien que les sources de chaque projet ``projet_1.py`` et ``projet_2.py``
+sont au même niveau que le répertoire ``.venv`` et non à l'intérieur
+de celui-ci.
+
+Vous pouvez aussi retenir la règle suivante : étant donné  un réportoire
+"X" contenant les sources d'un projet, les commandes à lancer pour créer
+le virtualenv seront:
+
+.. code-block:: console
+
+    cd <X>
+    python3 -m venv .venv
