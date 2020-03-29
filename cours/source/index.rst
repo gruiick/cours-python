@@ -35,3 +35,4 @@ remarques.
    16-interpréteur-interactif/index
    17-classes-03/index
    18-functions-02/index
+   19-exceptions/index
