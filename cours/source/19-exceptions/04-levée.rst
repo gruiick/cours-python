@@ -38,17 +38,3 @@ Dans ce cas, on utilise ``raise`` sans argument::
     exeept ArithmeticError:
         ...
         raise
-
-raise from
-----------
-
-On peut donner une *cause directe* lorsqu'on lève un exception avec ``from``::
-
-    def appelle_maman():
-         numéro = répertoire["Maman"]
-
-    try:
-        appelle_maman()
-    except KeyError as e:
-        raise AppelImpossible from  e
-
