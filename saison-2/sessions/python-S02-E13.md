@@ -1,4 +1,4 @@
-# Cours Python E2L - 04 avril 2020 - par interner
+# Cours Python E2L - 04 avril 2020 - par internet
 
 ## Notes
 
@@ -78,7 +78,7 @@ En fait je voulais prendre des commandes similaires mais je me suis
 trompé de paire:
 * `gt`, et `gb` déplacent le *curseur* pour qu'il soit en haut ou en bas de la fenêtre
 * `vt`, et `vb` déplacent la *fenêtre* pour que le *curseur* soit en haut ou en bas.
-*
+
 35:28:
 'v' entre dans le mode "vue" - il n'y a de mode "visuel" dans kakoune
 
