@@ -1,25 +1,30 @@
-Variables
-=========
+Expressions et variables
+=========================
+
+Instructions
+------------
+
+Pour l'instant, dans tous les examples de code, chaque ligne qu'on a écrit
+contenait une *instruction*.
+
+Un instruction ne renvoie pas de valeur, mais a un
+effet sur le programme.
+
+Par exemple, l'expression ``print("bonjour")`` afiche "bonjour" dasn
+le terminal. On dit que l'expression est *éxécutée*.
 
 Expressions
 -----------
 
-Un peu de vocabulaire avant de continuer.
-
-Quand on écrit ``1 + 2`` en Python, on a ce qu'on
-appelle une *expression* -
+Les instructions peuvent contenir des *expressions*.
 
 Un expression est toujours *évaluée* pour retourner une
-*valeur* (ici 3)
+*valeur*
 
-Quand on écrit ``print(1 + 2)`` on a une *instruction*.
+Par example, ``1 + 2`` es une expression qui renvoie la valeur ``3``
+une fois évaluée.
 
-Un instruction ne renvoie pas de valeur, mais a un
-effet sur le programme, ici l'affichage de la valeur
-de l'expression évaluée dans le terminal.
-
-Enfin, l'expression ``1 + 2`` est constituée de trois
-éléments:
+Elle est constituée de 3 éléments:
 
 * Le *litéral* 1
 * L'*opérateur* ``+``
@@ -28,6 +33,15 @@ Enfin, l'expression ``1 + 2`` est constituée de trois
 Pour évaluer une expression, Python remplace les litéraux
 par leur valeur, puis calcule la valeur finale en
 utilisant les opérateurs.
+
+Notez que les expressions peuvent être imbriquées ::
+
+    1 + (2 * 3)
+
+À droite du plus, on a une expression ``2 + 3``. Quand Python
+évaluera l'expression, il verra d'abord le litéral ``1`` et le ``+``,
+puis il évaluera l'expression à droite (``2*3 = 6``), et finalement
+l'expression en entier (``1 + 6 = 7``).
 
 Variables et valeurs
 --------------------
@@ -113,7 +127,7 @@ Cela fonctionne aussi pour ``-=``, ``/=`` etc.
 Nom des variables
 -----------------
 
-Ci-dessus j'ai utilisé des noms de variables à une lettre, comme en maths,
+Ci-dessus j'ai utilisé des noms de variables à une lettre,
 mais il est préférable d'avoir des noms longs et descriptifs
 
 Aussi, la convention est de:

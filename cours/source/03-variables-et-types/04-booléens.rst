@@ -42,3 +42,29 @@ Par exemple::
 .. warning::
 
     Ne pas confondre: ``==`` pour la comparaison et ``=`` pour l'assignation
+
+Autres opérations booléennes
+-----------------------------
+
++-------+-----------+
+|``not``| négation  |
++-------+-----------+
+|``and``| et        |
++-------+-----------+
+|``or`` | ou        |
++-------+-----------+
+
+Exemples::
+
+    a = not True
+    print(a)
+    # affiche `False`
+
+    il_pleut = True
+    j_ai_un_parapluie = False
+    print(il_pleut and j_ai_un_parapluie)
+    # afiche: False
+
+    je_suis_mouillé = il_pleut and not j_ai_un_parapluie
+    prin(je_suis_mouillé)
+    # afiche: True

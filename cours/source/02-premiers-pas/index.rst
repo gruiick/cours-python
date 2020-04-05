@@ -1,5 +1,5 @@
-Chapitre 2 - Premiers pas
-=========================
+Premiers pas
+============
 
 .. toctree::
    :maxdepth: 1

@@ -1,5 +1,5 @@
-Chapitre 3 - Variables et types
-================================
+Variables et types
+==================
 
 .. toctree::
    :maxdepth: 1
