@@ -59,8 +59,6 @@ Revenons sur ce qu'il s'est passé : nous avions le mot `print` avec des parenth
 et quelque chose à l'intérieur des parenthèses, et ceci a provoqué l'affichage
 du contenu des parenthèses dans le terminal.
 
-C'est *la* principale façon d'intéragir avec du code Python : on peut demander
-à l'interpréteur d'afficher n'importe quel valeur.
 
 Commentaires
 ------------

@@ -75,17 +75,3 @@ et on peut utiliser des parenthèses pour grouper les opérations::
     print((1 + 2) * 3)
     # affiche: 9
 
-Combiner opération et assignation
-----------------------------------
-
-La notation ``+=`` permet de combiner addition et assignation::
-
-   x = 3
-   x = x + 1
-   print(x)
-   # affiche :: 4
-
-   x = 3
-   x += 1
-   print(x)
-   # affiche :: 4

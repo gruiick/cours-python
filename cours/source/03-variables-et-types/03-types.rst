@@ -7,13 +7,13 @@ d'un côté et un entier de l'autre::
 
    a = 42
    b = 4
-   a + b  # ok
+   c = a + b  # ok
 
    salutation = "bonjour, "
    prénom = "Bob"
    salutation + prénom  # ok
 
-   message = "La réponse est " + a
+   résultat = a + prénom
    # affiche:
    # TypeError: can only concatenate str (not "int") to str
 
@@ -32,14 +32,11 @@ Entier vers string
 ++++++++++++++++++
 
 On peut convertir un entier en string en utilisant le mot ``str`` et des parenthèses
-autour de la variable ou de la valeur::
+autour de l'expression::
 
-    message = "La réponse est: " + str(42)
-    print(message)
-    # affiche: La réponse est 42
-
-    réponse = 42
-    message = "La réponse est: " + str(42)
+    x = 40
+    y = 2
+    message = "La réponse est: " + str(x + y)
     print(message)
     # affiche: La réponse est 42
 

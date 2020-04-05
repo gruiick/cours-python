@@ -20,7 +20,6 @@ remarques.
    01-introduction/index
    02-premiers-pas/index
    03-variables-et-types/index
-   04-booléens/index
    05-flot-de-controle/index
    06-fonctions-01/index
    07-listes/index

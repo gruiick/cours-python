@@ -13,11 +13,30 @@ Pourquoi la ligne de commande?
 Les bases
 ----------
 
-On tape un commande, on appuie sur entrée, l'ordinateur interprète ce qui a été tapé et affiche un message:
+Les lignes de commandes sont à taper dans un *terminal*.
 
-* `cd chemin/vers/fichier`
-* `ls` (ou `dir` sous Windows)
-* `pwd`
+* Sur linux, vous en avez probablement un insallé par défaut.
+* Sur macOS, il se trouve dans `Applications/Utilitaires`
+* Sum Windows, il se lance en tapant ``cmd.exe``
 
-* Le premier mot est une *commande*, les autres mots sont des *arguments*
+Dans tous les cas, cela ressemble à ceci:
 
+.. image:: /img/terminal.png
+
+Notez le petit bout de texte avant le curseur : on appelle ça
+une *invite* de commande (``prompt`` en anglais).
+
+Pour lancer une commande, on tape son nom, suivi parfois d'un certain
+nombre de mots séparés par des espaces, puis on appuie sur entrée.
+
+Par exemple, on peut utiliser ``ls`` (ou ``dir``) sous Windows pour lister
+le contenu du répertoire courant:
+
+.. image:: /img/terminal-ls.png
+
+Et on peut utiliser ``cd`` suivi du nom d'un répertoire pour changer de répertoire
+courrant:
+
+.. image:: /img/terminal-cd.png
+
+Notez que l'invite de commande a changé.

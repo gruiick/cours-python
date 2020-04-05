@@ -47,7 +47,7 @@ Concaténation
 -------------
 
 On peut construire de longues chaînes de caractères en
-en concaténatant de plus petites::
+en concaténatant de plus petites, avec l'opérateur ``+``::
 
    name = "John"
    message = "Bonjour " + name + " !"

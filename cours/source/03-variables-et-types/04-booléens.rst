@@ -1,25 +1,19 @@
-Booléens et conditions
-======================
+Booléens
+========
 
-En Python, les variables ``True`` et ``False`` sont toujours définies
-et servent à représenter une valeur vraie ou fausse.
+On appelle *booléenne* une valeur qui peut être soit vraie, soit fausse.
 
-(Notez qu'elles commencent par une majuscule)
+En Python, les littéraux ``True`` et ``False`` représentent respectivement les valeurs
+vraies et fausses.
 
-Assignation
------------
-
-On peut assigner des variables à True ou False::
-
-
-    la_terre_est_plate = False
-    python_c_est_genial = True
+(Notez qu'ils commencent par une majuscule)
 
 
 Comparaisons
 ------------
 
-Certaines opérations renvoient des booléens:
+Certaines expressions renvoient des booléens, c'est à dire
+soit la valeur ``True``, soit la valeur ``False``
 
 +------+-----------------------------+
 |``=`` | égal                        |
@@ -35,7 +29,7 @@ Certaines opérations renvoient des booléens:
 |``<=``| inférieur                   |
 +------+-----------------------------+
 
-Par example::
+Par exemple::
 
    a = 2
    b = 3
