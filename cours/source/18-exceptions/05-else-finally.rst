@@ -35,3 +35,5 @@ qui aurait été utilisé dans le bloc ``try``::
 Si dans le bloc ``try`` une exception **différente** de ``ZeroDivisionError`` est
 levée, on passera *quand même* dans le bloc ``finally``, *puis* l'exception sera
 levée à nouveau.
+
+TODO: exemple plus complet

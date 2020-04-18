@@ -128,8 +128,8 @@ moins un argument appelé `self`, et être à l'intérieur du bloc de la classe:
         def ma_méthode(self):
             return 42
 
-Notez que les méthodes *sont aussi des attributs*. Leur valeur est une *fonction* qui prend
-en argument l'instance courante.
+Notez que les méthodes *sont aussi des attributs*. Leur valeur est une *fonction*
+qui se comporte légèrement différemment des fonctions qu'on a vu jusqu'ici.
 
 Méthodes - appel
 ----------------

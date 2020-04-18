@@ -11,9 +11,9 @@ On peut *gérer* (ou *attraper*) une exception en utilisant un bloc
     try:
         a = 1 / 0
     except ZeroDivisionError:
-        print("Ouelqu'un a essayé de diviser par zéro!")
+        print("Quelqu'un a essayé de diviser par zéro!")
 
-   # Affiche: Ouelqu'un a essayé de diviser par zéro!
+   # Affiche: Quelqu'un a essayé de diviser par zéro!
 
 À noter : le bloc dans ``try`` s'interrompt dès que l'exception est levée,
 et on ne passe dans le bloc ``except`` que si une exception a effectivement
@@ -92,7 +92,7 @@ Accéder à la valeur de l'exception
 On peut récupérer l'instance de l'exception levée avec le mot-clé ``as``::
 
   try:
-      ounver_fichier()
+      ouvrir_fichier()
   except FileNotFoundError as e:
       print("le fichier: ", e.filename, "n'existe pa")
 

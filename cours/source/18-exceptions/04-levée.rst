@@ -35,6 +35,6 @@ Dans ce cas, on utilise ``raise`` sans argument::
 
     try:
         tente_un_truc_risqué()
-    exeept ArithmeticError:
+    except ArithmeticError:
         ...
         raise

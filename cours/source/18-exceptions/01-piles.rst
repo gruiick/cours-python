@@ -39,6 +39,7 @@ dans quel ordre. Elle se lit de haut en bas:
 * `mauvaise_fonction()` a levé une exception
 
 Notez que chaque élément de la pile comprend:
+
 * le nom de la fonction
 * le chemin du module la contetant
 * le numéro et la ligne précise du code qui a été appelé
