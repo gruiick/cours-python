@@ -54,9 +54,10 @@ Appel: en passant une variable ou une valeur dans les parenthèses::
 
     dire_bonjour("Germaine")
 
-L'éxécution de l'appel à une foctionne exactement  comme si on assignait
-les arguments de la fonction avant d'éxécuter le code
-dans le corps::
+Pour évaluer une expression qui contient l'appel a une fonction, on:
+
+* assigne le contenu des parenthèses aux arguments de la fonction
+* puis on éxécute les instructions dans le corps de la fonction
 
     # Ceci:
     dire_bonjour("Dimitri")

@@ -81,8 +81,8 @@ Avec les mots-clés ``for`` et `` in``::
 
    prénoms = ["Alice", "Bob", "Charlie"]
    for prénom in prénoms:
-   	# La variable 'prénom" est assignée à chaque
-   	# élément de la liste
+   	   # Chaque élément de la liste est assigné tour à tour
+       # à la variable 'prénom"
        print("Bonjour", prénom)
 
 .. code-block:: text

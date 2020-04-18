@@ -6,13 +6,10 @@ Introduction
 
 Reprenons ce qu'on a vu jusqu'ici.
 
-D'une part, on peut créer des variables en les assignant à une valeur::
+D'une part, on peut créer des variables en assignant des valeurs à celles-ci::
 
     # Création d'une variable `x` avec la valeur 4
     x = 4
-
-
-On dit aussi que ``x`` *référence* la valeur ``4``
 
 D'autre part, on peut définir et appeler des fonctions::
 
@@ -29,7 +26,9 @@ D'autre part, on peut définir et appeler des fonctions::
 Fonctions en tant que variables
 -------------------------------
 
-Il se trouve qu'en Python, on peut assigner des variables à ... des fonctions
+Il se trouve qu'en Python, on peut assigner des fonctions à des
+variables. C'est différent d'assigner le résultat de l'appel à une
+fonction à une variable, et ça permet de retarder l'appel:
 
 .. code-block:: python
 
@@ -41,10 +40,11 @@ Il se trouve qu'en Python, on peut assigner des variables à ... des fonctions
   def dire_bonjour_en_anglais(nom):
       print("Hello " + nom)
 
-  # Création d'une variable qui référence la fonction française:
+  # Assigne une fonction à la variable - aucune fonction
+  # n'est appelée à ce stade.
   ma_fonction_qui_dit_bonjour = dire_bonjour_en_français
 
-  # Appel de la fonction:
+  # Appel de la fonction (retardé)
   ma_fonction_qui_dit_bonjour("Max")
 
   # Affiche: Bonjour Max
@@ -53,11 +53,11 @@ Il se trouve qu'en Python, on peut assigner des variables à ... des fonctions
 De façon cruciale, notez que l'on n'a *pas* mis de parenthèses à droite
 lorsqu'on a créé la variable `ma_fonction_qui_dit_bonjour`.
 
-On peut donc dire que lorsqu'on définit une fonction avec `def()` et un corps
+On peut donc dire que lorsqu'on définit une fonction avec ``def ma_fonction()`` et un corps:
 il y a en réalité deux étapes:
 
 1. Python stocke le corps de la fonction quelque part
-2. Il crée une variable qui référence ce corps
+2. Il assigne le corps de celle-ci à une variable dont le nom est ``ma_fonction``.
 
 En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent avec un dictionnaire::
 
@@ -79,10 +79,9 @@ En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent a
 Fonctions en tant qu'argement d'autres fonctions
 ------------------------------------------------
 
-On a vu en début de chapitre qu'on peut créé des variables qui référencent
-des fonctions.
+On a vu en début de chapitre qu'on peut assigner des fonctions à des variables.
 
-Du coup, rien n'empêche de les passer en *argument* d'autres fonctions.
+Du coup, rien n'empêche de passer des fonctions en *argument* d'autres fonctions.
 
 Par exemple::
 

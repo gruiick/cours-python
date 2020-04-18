@@ -114,7 +114,7 @@ On peut *créer* des attributs dans *n'importe quel instance*, en utilisant l'*a
    print(mon_instance.x)
    # affiche: 42
 
-Ici l'attribut ``mon_attribut`` de l'instance ``mon_instance`` à la valeur de l'entier ``42``.
+Ici on assigne la valeur ``42`` à l'attribut ``x`` de l'instance ``mon_instance``
 
 Méthodes - définition
 ----------------------

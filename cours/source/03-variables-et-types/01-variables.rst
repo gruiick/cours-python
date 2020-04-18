@@ -7,11 +7,12 @@ Instructions
 Pour l'instant, dans tous les exemples de code, chaque ligne qu'on a écrit
 contenait une *instruction*.
 
-Un instruction ne renvoie pas de valeur, mais a un
-effet sur le programme.
+Un instruction a un effet sur le programe dans lequel elle est présented
 
 Par exemple, l'expression ``print("bonjour")`` affiche "bonjour" dans
 le terminal. On dit que l'expression est *exécutée*.
+
+En règle générale, les expressions sont éxécutées une par une, de haut en bas.
 
 Expressions
 -----------
@@ -48,15 +49,14 @@ Variables et valeurs
 
 On peut associer des *variables* à des *valeurs* en les plaçant
 de part et d'autre du signe ``=`` : on appelle cette opération
-une *assignation*::
-
+une *affectation*::
 
     a = 2
 
-Notez qu'une assignation *n'est pas* une expression, c'est une
-*instruction*.
+Ici on assigne l'entier 2 à la variable ``a``.
 
-On dit aussi que ``a`` est une *référence* vers la valeur ``2``.
+Notez qu'une affectation *n'est pas* une expression, c'est une
+*instruction*.
 
 Si plus tard dans le code, on utilise le nom de la variable,
 tout se passera comme si nom de la variable avait été
@@ -71,8 +71,8 @@ remplacé par sa valeur::
 Variables et expressions
 -------------------------
 
-En fait, on peut assigner une variable à n'importe quelle
-*expression*, et pas simplement des littéraux::
+En fait, on peut assigner n'importe qu'elle *expression* à une variable,
+et pas simplement des littéraux::
 
     a = 1 + 2
     print(a)
@@ -109,8 +109,8 @@ Autres exemples::
 Changer la valeur d'une variable
 ---------------------------------
 
-On peut aussi *changer* la valeur d'une variable en l'assignant
-à une nouvelle valeur::
+On peut aussi *changer* la valeur d'une variable en affectant
+une nouvelle valeur à celle-ci::
 
 
     a = 2
@@ -119,10 +119,10 @@ On peut aussi *changer* la valeur d'une variable en l'assignant
     print(a)
     # affiche: 2, puis 3
 
-Combiner opération et assignation
+Combiner opération et affectation
 ----------------------------------
 
-La notation ``+=`` permet de combiner addition et assignation :
+La notation ``+=`` permet de combiner addition et affectation :
 les deux exemples ci-dessous sont équivalents::
 
    x = 3

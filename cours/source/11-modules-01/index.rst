@@ -17,7 +17,7 @@ Importer un module
 Ou: accéder à du code provenant d'un *autre* fichier source.
 
 Créons un fichier `bonjour.py` contenant seulement une assignation
-d'une variable `a` à l'entier 42 ::
+de l'entier 42 à la variable `a`::
 
     # Dans bonjour.py
     a = 42
@@ -38,7 +38,7 @@ on peut accéder à cette variable en *important* le module::
   Le nom du module est écrit directement, ce n'est *pas* une
   chaîne de caractères.
 
-On voit que l'assignation de la variable `a` dans `bonjour.py` est devenue
+On voit que la variable `a` dans `bonjour.py` est devenue
 un *attribut* du module `bonjour` lorsque `bonjour` a été importé
 
 
@@ -66,7 +66,7 @@ Il est important de noter que:
 * mais il n'est *pas* ré-éxécuté si le module a déjà été importé auparavant.
 
 On peut le voir en mettant du code dans `bonjour.py`,
-en plus des simples définitions de fonctions et assignations
+en plus des simples définitions de fonctions et de créations
 de variables::
 
     # Dans bonjour.py

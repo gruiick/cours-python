@@ -90,9 +90,10 @@ Avec ``for ... in ...``, comme pour les listes::
 
     scores = {"john": 10, "bob": 42}
     for nom in scores:
-    	# `nom` est assigné à "john" puis "bob"
+    	# on assigne la valeur "john" à la variable `nom`, puis "bob"
     	score_associé_au_nom = scores[nom]
-        # score_associé_au_nom est assigné à '10' puis '42'
+        # on assigne la valeur 10 puis la valeur 42 à la variable
+        # score_associé_au_nom
     	print(nom, score_associé_au_nom)
 
 .. code-block::
