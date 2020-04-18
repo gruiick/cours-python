@@ -6,7 +6,7 @@ copyright = "2020, Dimitri Merejkowsky"
 author = "Dimitri Merejkowsky"
 
 
-release = "0.2"
+version = "0.3"
 language = "fr"
 
 templates_path = ["_templates"]
