@@ -89,7 +89,7 @@ Ou gérer des exception de classes différentes avec le même bloc::
 Accéder à la valeur de l'exception
 -----------------------------------
 
-On peut récupérer l'instance de l'exception levée avec ``as``::
+On peut récupérer l'instance de l'exception levée avec le mot-clé ``as``::
 
   try:
       ounver_fichier()

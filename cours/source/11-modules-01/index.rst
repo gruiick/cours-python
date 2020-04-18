@@ -25,7 +25,8 @@ de l'entier 42 à la variable `a`::
 Comme un fichier = un module, on vient de crée un module ``bonjour`` contenant une variable ``a``.
 
 Si maintenant on crée un fichier ``salutations.py`` dans le même répertoire,
-on peut accéder à cette variable en *important* le module::
+on peut accéder à cette variable en *important* le module avec le mot-clé
+``import``::
 
     # Dans salutations.py
     import bonjour

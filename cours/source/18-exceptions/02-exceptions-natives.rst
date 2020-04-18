@@ -40,7 +40,7 @@ dans une liste::
     # IndexError: list assignment index out of range
 
 ``KeyError`` est levée quand on essaye d'accéder à une clé qui n'existe pas
- dans un dictionnaire::
+dans un dictionnaire::
 
     scores = { "Alice" : 10 }
     score_de_bob = scores["Bob"]
