@@ -14,7 +14,7 @@ contrôle, et c'est  l'essence de la programmation!
 if
 ++
 
-On peut utiliser le mot ``if`` pour autoriser ou empécher
+On peut utiliser le mot-clé ``if`` pour autoriser ou empécher
 l'éxcution des instructions suivantes::
 
    a = 3
@@ -71,7 +71,7 @@ Ce code n'affiche pas "a et b sont égaux", mais affiche bien "on continue".
 if / else
 ---------
 
-On peut utiliser le mot ``else`` après un condition en ``if``
+On peut utiliser le mot-clé ``else`` après un condition en ``if``
 pour éxécutér un bloc si la condition est fausse::
 
    a = 3
@@ -104,7 +104,7 @@ conditions::
 while
 -----
 
-On peut utiliser ``while`` pour répéter un bloc tant qu'une condition
+On peut utiliser le mot-clé ``while`` pour répéter un bloc tant qu'une condition
 est vraie::
 
     i = 0
@@ -132,10 +132,10 @@ Dans ce cas, il faut appuyer sur ``CTRL-C`` pour interrompre
 le programme.
 
 
-Combiner while et if
---------------------
+Combiner while, if, et break
+-----------------------------
 
-On peut "sortir" de la boucle ``while`` avec ``break``::
+On peut "sortir" de la boucle ``while`` avec le mot-clé ``break``::
 
     i = 0
     while True:
@@ -150,4 +150,5 @@ On peut "sortir" de la boucle ``while`` avec ``break``::
    2
    3
    4
+
 

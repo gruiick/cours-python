@@ -102,12 +102,15 @@ qui va:
         def console(self):
             self.chat.caresse()
 
+
+Si on combine ces deux classes dans le même morceau de code et qu'on
+exécute les instructions suivantes::
+
     boule_de_poils = Chat("Boule de Poils")
     alice = Enfant("Alice", boule_de_poils)
-    # Alice est triste, on la console
     alice.console()
-    # affiche: Boule de Poils fait "prrrrr"
-    # Alice est consolée :)
+
+On afffichera ```Boule de Poils fait "prrr"`` et alice sera consolée.
 
 On dit parfois qu'on a *délégué* l'implémentation de la méthode ``console()`` de la classe Enfant
 à la méthode ``caresse()`` de la classe Chat.

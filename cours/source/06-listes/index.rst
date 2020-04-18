@@ -1,17 +1,15 @@
 Listes
 ======
 
-// TODO: split in pages
-
 Définition
 ----------
 
-Une liste est une *suite ordonée* d'éléments.
+Une liste est une *suite ordonnée* d'éléments.
 
 Créer une liste
 ---------------
 
-Avec des crochets: ``[``, ``]``, et les élements séparés par des virgules::
+Avec des crochets: ``[``, ``]``, et les éléments séparés par des virgules::
 
     liste_vide = []
     trois_entiers = [1, 2, 3]
@@ -76,10 +74,10 @@ Avec ``in``::
     print("Charlie" in prénoms)
     # affiche: False
 
-Itérer sur les élements d'une liste
+Itérer sur les éléments d'une liste
 ------------------------------------
 
-Avec ``for ... in``::
+Avec les mots-clés ``for`` et `` in``::
 
    prénoms = ["Alice", "Bob", "Charlie"]
    for prénom in prénoms:
@@ -92,6 +90,25 @@ Avec ``for ... in``::
    Bonjour Alice
    Bonjour Bob
    Bonjour Charlie
+
+
+Continue
+--------
+
+On peut interrompre l'exécution du bloc courant avec le mot-clé
+``continue``::
+
+   prénoms = ["Alice", "Bob", "Charlie"]
+   for prénom in prénoms:
+       if prénom == "Bob":
+           continue
+       print("Bonjour", prénom)
+
+.. code-block:: text
+
+   Bonjour Alice
+   Bonjour Charlie
+
 
 Indéxer une liste
 ------------------
@@ -150,7 +167,7 @@ On peut tester si un caractère est présent::
     # affiche: False
 
 
-Mais on neut peut pas modifier une string::
+Mais on ne peut pas modifier une string::
 
    prénom = "Charlotte"
    l = prénom[0]

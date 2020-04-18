@@ -55,7 +55,7 @@ ValueError
 ``ValueError`` est levée (entre autres) quand on tente une maunvaise conversions::
 
    entrée_utilisateur = "pas un nombre"
-   valeu = int(entrée_utilisateur)
+   valeur = int(entrée_utilisateur)
 
 
 KeyboardInterrupt

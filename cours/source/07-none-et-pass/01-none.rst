@@ -4,9 +4,9 @@ None
 Définition
 -----------
 
-``None`` est une "valeur magique" natif en python. il est toujours présent, et il est unique.
+``None`` est un mot-clé qui sert à représenter l'absence.
 
-Un peu comme ``True`` et ``False`` qui sont deux valeurs qui servent à représenter tous les booléens.
+Un peu comme ``True`` et ``False`` qui sonts des mot-clés qui réprésentent des booléens.
 
 Retourner None
 ----------------

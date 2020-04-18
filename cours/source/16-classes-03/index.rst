@@ -4,7 +4,8 @@ Héritage
 Rappel - composition
 ---------------------
 
-Dans le chapitre 13 on a parlé de *composition* qui décrit une relation entre deux classes.
+Dans un chapitre précédent on a parlé de *composition* qui décrit une classe à l'intérieur
+d'une autre classe.
 
 Pour rappel::
 

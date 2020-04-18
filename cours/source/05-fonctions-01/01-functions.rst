@@ -10,7 +10,7 @@ Définition::
         print("Bonjour")
 
 
-* avec `def`
+* avec le mot-clé `def`
 * avec un `:` à la fin et un *bloc indenté* (appelé *le corps de la fonction*).
 
 Appel::
@@ -24,7 +24,7 @@ Example complet::
     def dire_bonjour():
         print("Bonjour")
 
-    bonjour()
+    dire_bonjour()
     # Affiche: bonjour'
 
 

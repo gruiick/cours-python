@@ -68,7 +68,7 @@ Les classes sont utilisées pour construire des *instances*.
 Créons des instances
 ---------------------
 
-On peut faire un plan de construction vide avec le mot clé pass::
+On peut faire un plan de construction vide avec le mot-clé pass::
 
    class MaClasse:
        pass
@@ -111,8 +111,10 @@ On peut *créer* des attributs dans *n'importe quel instance*, en utilisant l'*a
    mon_instance.x = 42
 
    # Accés à l'attribut `x` dans `mon_instance`
-   print(mon_instance.mon_attribut)
+   print(mon_instance.x)
    # affiche: 42
+
+Ici l'attribut ``mon_attribut`` de l'instance ``mon_instance`` à la valeur de l'entier ``42``.
 
 Méthodes - définition
 ----------------------
@@ -125,6 +127,9 @@ moins un argument appelé `self`, et être à l'intérieur du bloc de la classe:
     class MaClasse:
         def ma_méthode(self):
             return 42
+
+Notez que les méthodes *sont aussi des attributs*. Leur valeur est une *fonction* qui prend
+en argument l'instance courante.
 
 Méthodes - appel
 ----------------

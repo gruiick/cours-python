@@ -1,12 +1,14 @@
 pass
 ====
 
-En Python, à cause de l'organisation en blocs indentés, on ne
-peut pas vraiment avoir de blocs vides. Mais parfois, on
-a besoin d'un bloc qui ne fasse rien.
 
-Dans ce cas, on peut utiliser le mot-clé `pass`, par exemple
-après un if::
+À cause de l'organisation du flot de contrôle en blocs indentés, on ne
+peut pas vraiment avoir de blocs vides. Mais parfois, on a besoin d'un bloc
+qui ne fasse rien - c'est là que le mot-clé `pass` rentre en jeu.
+
+`pass` représente une instruction qui ne fait rien.
+
+Un exemple::
 
     une_condition = False
     if une_condition:
@@ -19,3 +21,5 @@ définir une fonction qui ne fait rien::
 
     def ne_fait_rien():
         pass
+
+
