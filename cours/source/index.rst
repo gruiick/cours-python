@@ -35,3 +35,4 @@ remarques.
    16-classes-03/index.rst
    17-décorateurs/index.rst
    18-exceptions/index.rst
+   19-classes-04/index.rst
