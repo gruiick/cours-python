@@ -252,23 +252,6 @@ watchdog = ">=0.7.1"
 
 [[package]]
 category = "main"
-description = "Sphinx Nameko Theme"
-develop = true
-name = "sphinx-nameko-theme"
-optional = false
-python-versions = "*"
-version = "0.0.3"
-
-[package.dependencies]
-sphinx = "*"
-
-[package.source]
-reference = ""
-type = "directory"
-url = "theme/nameko"
-
-[[package]]
-category = "main"
 description = ""
 name = "sphinxcontrib-applehelp"
 optional = false
@@ -369,7 +352,7 @@ pathtools = ">=0.1.1"
 watchmedo = ["PyYAML (>=3.10)", "argh (>=0.24.1)"]
 
 [metadata]
-content-hash = "01e690d6b7c88e54d3437b1ed061e0a145d9d9aee1d7ab440de35a73eccb338e"
+content-hash = "99945a4c8b6cecb34359f2a46ba87ca85ca77321f9b82c6fe14b4f5b1f907195"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -507,7 +490,6 @@ sphinx-autobuild = [
     {file = "sphinx-autobuild-0.7.1.tar.gz", hash = "sha256:66388f81884666e3821edbe05dd53a0cfb68093873d17320d0610de8db28c74e"},
     {file = "sphinx_autobuild-0.7.1-py2-none-any.whl", hash = "sha256:e60aea0789cab02fa32ee63c7acae5ef41c06f1434d9fd0a74250a61f5994692"},
 ]
-sphinx-nameko-theme = []
 sphinxcontrib-applehelp = [
     {file = "sphinxcontrib-applehelp-1.0.1.tar.gz", hash = "sha256:edaa0ab2b2bc74403149cb0209d6775c96de797dfd5b5e2a71981309efab3897"},
     {file = "sphinxcontrib_applehelp-1.0.1-py2.py3-none-any.whl", hash = "sha256:fb8dee85af95e5c30c91f10e7eb3c8967308518e0f7488a2828ef7bc191d0d5d"},
