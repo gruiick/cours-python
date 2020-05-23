@@ -1,7 +1,5 @@
-Programmation en Python
-=======================
-
-Bienvenue!
+Bienvenue
+=========
 
 Ce livre contient les supports de cours destinés aux élève de l'École du Logiciel Libre,
 où je donne des cours sur Python depuis 2018.
@@ -12,6 +10,7 @@ J'espère qu'il vous plaira! Sinon, vous pouvez vous rendre sur `ma page de
 contact <https://dmerej.info/blog/fr/pages/about>`_ et me faire part de vos
 remarques.
 
+Enfin, notez que ce cours est  placé sous licence `CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/deed.fr>`_. Bonne lecture!
 
 .. toctree::
    :maxdepth: 1
