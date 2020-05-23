@@ -7,7 +7,7 @@ import subprocess
 
 def run(*cmd):
     print("$", *cmd)
-    process = subprocess.run(cmd)
+    process = subprocess.run(" ".join(cmd), shell=True)
     if process.returncode != 0:
         sys.exit(1)
 
@@ -47,7 +47,7 @@ def main():
         # fmt: off
         run(
             "mv", "-v", "-f",
-            f"{build_path}/courspython.pdf",
+            f"{build_path}/*.pdf",
             "../cours.pdf",
         )
         # fmt: on
