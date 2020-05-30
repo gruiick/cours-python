@@ -97,7 +97,7 @@ L'expression est constitué d'une classe à gauche du point  (``Voiture``) et
 d'un attribut à droite du point ``fabrique_ferrari`` suivi de parenthèses.
 
 Comme ``fabrique_ferrari`` est une méthode de classe, on va appeler la méthode
-de classe ``fabrique_ferrari`` en lui passent la classe Courante en argument.
+de classe ``fabrique_ferrari`` en lui passant la classe Courante en argument.
 
 On arrive ainsi dans le corps de la méthode de classe ``fabrique_ferrari``, et
 ``cls`` vaut la classe `Voiture`.

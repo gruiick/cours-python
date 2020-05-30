@@ -18,10 +18,10 @@ toujours des instances d'une classe - on peut accéder à la classe qui a servi
 Mais aussi::
 
     print(type(2))
-    # affice: int
+    # affiche: int
 
     print(type("bonjour"))
-    # affice: str
+    # affiche: str
 
 Donc en Python, les entiers sont des instances de la classe ``int``, et les strings des instances de la
 classe ``str``.

@@ -11,7 +11,7 @@ de la fonction décorée::
 
     def mon_décorateur(fonction):
         def fonction_retournée():
-            # fait quelque chose l'argument `fonction`, par exemple
+            # fait quelque chose avec l'argument `fonction`, par exemple
             # l'appeler avec un argument:
             fonction(42)
         return fonction_retournée
