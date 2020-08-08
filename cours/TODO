@@ -4,3 +4,9 @@ illustrer la section sur les virtualenvs avec des
 captures d'écran
 
 Explications sur `globals()` et `locals()`
+
+Software is made of:
+
+* sequence
+* selection
+* iteration
