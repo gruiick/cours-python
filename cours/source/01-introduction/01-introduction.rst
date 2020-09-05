@@ -1,4 +1,4 @@
-Objet de ce livre
+Objet de ce cours
 =================
 
 Apprendre la programmation en partant de rien, en utilisant Python et la ligne de commande
