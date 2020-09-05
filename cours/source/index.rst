@@ -2,15 +2,18 @@ Bienvenue
 =========
 
 Ce cours est principalement destiné aux élève de l'École du Logiciel Libre,
-où je donne des cours sur Python depuis 2018.
+où je donne des cours sur Python depuis 2018. mais il peut être utile à
+toute personne qui voudrait découvrir la programmation.
 
-Il peut être utile à toute personne qui voudrait découvrir la programmation.
+Il est aussi disponible en pdf à l'adresse: https://dmerej.info/python/cours-python.pdf
 
 J'espère qu'il vous plaira! Sinon, vous pouvez vous rendre sur `ma page de
 contact <https://dmerej.info/blog/fr/pages/about>`_ et me faire part de vos
 remarques.
 
-Enfin, notez que ce cours est  placé sous licence `CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/deed.fr>`_. Bonne lecture!
+
+Enfin, notez que ce cours est  placé sous licence `CC BY 4.0
+<https://creativecommons.org/licenses/by/4.0/deed.fr>`_. Bonne lecture!
 
 .. toctree::
    :maxdepth: 1
