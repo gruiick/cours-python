@@ -44,13 +44,6 @@ def main():
     run(program, *opts, "-d", "build", "-b", builder, "source", build_path)
     if format == "pdf":
         run("make", "-C", build_path)
-        # fmt: off
-        run(
-            "mv", "-v", "-f",
-            f"{build_path}/*.pdf",
-            "../cours.pdf",
-        )
-        # fmt: on
 
 
 if __name__ == "__main__":
