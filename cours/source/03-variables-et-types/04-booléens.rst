@@ -41,7 +41,7 @@ Par exemple::
 
 .. warning::
 
-    Ne pas confondre: ``==`` pour la comparaison et ``=`` pour l'affectation
+    Ne pas confondre: ``==`` pour la comparaison et ``=`` pour l'assignation
 
 Autres opérations booléennes
 -----------------------------

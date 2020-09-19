@@ -9,10 +9,10 @@ contenait une *instruction*.
 
 Un instruction a un effet sur le programe dans lequel elle est présented
 
-Par exemple, l'expression ``print("bonjour")`` affiche "bonjour" dans
-le terminal. On dit que l'expression est *exécutée*.
+Par exemple, l'instruction ``print("bonjour")`` affiche "bonjour" dans
+le terminal. On dit que l'instruction est *exécutée*.
 
-En règle générale, les expressions sont éxécutées une par une, de haut en bas.
+En règle générale, les instructions sont éxécutées une par une, de haut en bas.
 
 Expressions
 -----------
@@ -49,13 +49,13 @@ Variables et valeurs
 
 On peut associer des *variables* à des *valeurs* en les plaçant
 de part et d'autre du signe ``=`` : on appelle cette opération
-une *affectation*::
+une *assignation*::
 
     a = 2
 
 Ici on assigne l'entier 2 à la variable ``a``.
 
-Notez qu'une affectation *n'est pas* une expression, c'est une
+Notez qu'une assignation *n'est pas* une expression, c'est une
 *instruction*.
 
 Si plus tard dans le code, on utilise le nom de la variable,
@@ -109,7 +109,7 @@ Autres exemples::
 Changer la valeur d'une variable
 ---------------------------------
 
-On peut aussi *changer* la valeur d'une variable en affectant
+On peut aussi *changer* la valeur d'une variable en assignant
 une nouvelle valeur à celle-ci::
 
 
@@ -119,10 +119,10 @@ une nouvelle valeur à celle-ci::
     print(a)
     # affiche: 2, puis 3
 
-Combiner opération et affectation
+Combiner opération et assignation
 ----------------------------------
 
-La notation ``+=`` permet de combiner addition et affectation :
+La notation ``+=`` permet de combiner addition et assignation :
 les deux exemples ci-dessous sont équivalents::
 
    x = 3

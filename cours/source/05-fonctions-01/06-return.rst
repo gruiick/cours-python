@@ -10,7 +10,7 @@ Récupérer la valeur de retour::
 
    a = 3
    b = 4
-   c = additionner(a, b)   # encore une affectation
+   c = additionner(a, b)   # encore une assignation
    print(c)
    # Affche: 7
 
