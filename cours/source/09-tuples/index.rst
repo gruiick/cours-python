@@ -1,5 +1,5 @@
-Tuples
-======
+Chapitre 9 - Tuples
+====================
 
 Définition
 ------------

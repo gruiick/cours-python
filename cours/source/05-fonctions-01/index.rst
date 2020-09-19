@@ -1,5 +1,5 @@
-Introduction aux fonctions
-==========================
+Chapitre 5 - Introduction aux fonctions
+=======================================
 
 .. toctree::
    :maxdepth: 1

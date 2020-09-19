@@ -1,5 +1,5 @@
-None et pass
-============
+Chapitre 7 - None et pass
+==========================
 
 .. toctree::
    :maxdepth: 1

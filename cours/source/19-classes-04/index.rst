@@ -1,5 +1,5 @@
-Objets
-======
+Chapitre 19 - Objets
+=====================
 
 On a déjà parlé de *programmation* orientée objet en Python, mais pour l'instant
 on a vu que des classes et des instances.

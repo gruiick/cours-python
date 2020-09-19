@@ -1,5 +1,5 @@
-Listes
-======
+Chapitre 6 - Listes
+===================
 
 Définition
 ----------

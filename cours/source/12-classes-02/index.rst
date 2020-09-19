@@ -1,5 +1,5 @@
-Couplage et composition
-=======================
+Chapitre 12 - Couplage et composition
+======================================
 
 .. toctree::
    :maxdepth: 1

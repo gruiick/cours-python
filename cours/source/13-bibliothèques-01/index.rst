@@ -1,5 +1,5 @@
-Bibliothèques
-=============
+Chapitre 13 - Bibliothèques
+===========================
 
 .. toctree::
    :maxdepth: 1

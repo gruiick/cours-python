@@ -1,5 +1,5 @@
-L'interpréteur interactif
-=========================
+Chapitre 15 - L'interpréteur interactif
+=======================================
 
 Démarrage
 ----------

@@ -1,5 +1,5 @@
-Dictionnaires
-==============
+Chapitre 8 - Dictionnaires
+==========================
 
 Définition
 ----------

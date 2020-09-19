@@ -1,5 +1,5 @@
-Héritage
-========
+Chapitre 16 - Héritage
+======================
 
 Rappel - composition
 ---------------------

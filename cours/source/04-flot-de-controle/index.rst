@@ -1,5 +1,5 @@
-Flot de contrôle
-================
+Chapitre 4 - Flot de contrôle
+==============================
 
 .. toctree::
    :maxdepth: 1

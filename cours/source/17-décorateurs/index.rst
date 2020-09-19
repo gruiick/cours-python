@@ -1,5 +1,5 @@
-Décorateurs
-===========
+Chapitre 17 - Décorateurs
+=========================
 
 .. toctree::
    :maxdepth: 1

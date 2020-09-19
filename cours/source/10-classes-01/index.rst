@@ -1,5 +1,5 @@
-Introduction aux classes
-========================
+Chapitre 10 - Introduction aux classes
+======================================
 
 Ce qu’on a vu jusqu’ici:
 

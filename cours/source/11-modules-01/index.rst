@@ -1,5 +1,5 @@
-Introduction aux modules
-========================
+Chapitre 11 - Introduction aux modules
+======================================
 
 Un fichier = un module
 ------------------------
