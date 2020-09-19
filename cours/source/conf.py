@@ -16,7 +16,7 @@ extensions = [
 notfound_context = {
     "title": "Page non trouvée",
 }
-notfound_urls_prefix = "/"
+notfound_urls_prefix = "/python/"
 
 html_show_sourcelink = False
 html_theme = "agogo"
