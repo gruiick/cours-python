@@ -9,7 +9,14 @@ templates_path = ["_templates"]
 exclude_patterns = []
 keep_warnings = True
 
-extensions = ["notfound.extension"]
+extensions = [
+    "notfound.extension",
+]
+
+notfound_context = {
+    "title": "Page non trouvée",
+}
+notfound_urls_prefix = "/"
 
 html_show_sourcelink = False
 html_theme = "agogo"
