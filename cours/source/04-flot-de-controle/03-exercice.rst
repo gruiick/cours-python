@@ -66,5 +66,5 @@ Pour vous aider, vous pouvez partir du squelette suivant::
    entrée_utilisateur = input()
 
    while True:
-        # ....
+        # votre code ici
 
