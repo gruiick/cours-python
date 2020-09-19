@@ -15,7 +15,7 @@ extensions = [
 
 notfound_context = {
     "title": "Page non trouvée",
-    "body": "<h1>Page non trouvée<h1>",
+    "body": "<h1>Page non trouvée</h1>",
 }
 notfound_urls_prefix = "/python/"
 
