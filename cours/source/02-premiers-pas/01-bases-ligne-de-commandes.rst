@@ -17,7 +17,7 @@ Les lignes de commandes sont à taper dans un *terminal*.
 
 * Sur linux, vous en avez probablement un insallé par défaut.
 * Sur macOS, il se trouve dans `Applications/Utilitaires`
-* Sum Windows, il se lance en tapant ``cmd.exe``
+* Sur Windows, il se lance en tapant ``cmd.exe``
 
 Dans tous les cas, cela ressemble à ceci:
 
