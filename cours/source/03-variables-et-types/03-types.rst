@@ -19,7 +19,7 @@ d'un côté et un entier de l'autre::
 
 
 Ceci est notre premier message d'erreur: si l'interpréteur est incapable
-d'éxécuter une instruction, il affiche un message d'erreur est s'interrompt
+d'éxécuter une instruction, il affiche un message d'erreur et s'interrompt
 immédiatement.
 
 

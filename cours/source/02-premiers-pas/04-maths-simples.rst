@@ -17,6 +17,9 @@ On peut utiliser ``+, *, -`` avec des entiers:
    print(2 * 4)   # une étoile pour la multiplication
    # affiche: 8
 
+   print(3 ** 2)  # deux étoiles pour l'opération 'puissance'
+   # affiche: 9
+
 
 Opérations avec des flottants
 -----------------------------

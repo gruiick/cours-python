@@ -15,19 +15,19 @@ Comparaisons
 Certaines expressions renvoient des booléens, c'est à dire
 soit la valeur ``True``, soit la valeur ``False``
 
-+------+-----------------------------+
-|``=`` | égal                        |
-+------+-----------------------------+
-|``!=``| différent                   |
-+------+-----------------------------+
-|``>`` | strictement supérieur       |
-+------+-----------------------------+
-|``>=``| supérieur ou égal           |
-+------+-----------------------------+
-|``<`` | strictement inférieur       |
-+------+-----------------------------+
-|``<=``| inférieur                   |
-+------+-----------------------------+
++-------+-----------------------------+
+|``==`` | égal                        |
++-------+-----------------------------+
+|``!=`` | différent                   |
++-------+-----------------------------+
+|``>``  | strictement supérieur       |
++-------+-----------------------------+
+|``>=`` | supérieur ou égal           |
++-------+-----------------------------+
+|``<``  | strictement inférieur       |
++-------+-----------------------------+
+|``<=`` | inférieur                   |
++-------+-----------------------------+
 
 Par exemple::
 
@@ -66,5 +66,5 @@ Exemples::
     # afiche: False
 
     je_suis_mouillé = il_pleut and not j_ai_un_parapluie
-    prin(je_suis_mouillé)
+    print(je_suis_mouillé)
     # afiche: True
