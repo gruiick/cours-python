@@ -44,6 +44,17 @@ Notez que les expressions peuvent être imbriquées ::
 puis il évaluera l'expression à droite (``2*3 = 6``), et finalement
 l'expression en entier (``1 + 6 = 7``).
 
+Notez que si vous écrivez une ligne contenant une *expression*,
+elle est évaluée mais rien n'est éxécuté::
+
+    print("Bonjour")
+    40 + 2
+    print("Au revoir")
+    # Affiche: 'Bonjour' puis 'Au revoir'
+
+Ici l'expression ``40 + 2`` a été évaluée, mais Python n'a rien fait
+avec le résulat, il est simplement passé à l'instruction suivante.
+
 Variables et valeurs
 --------------------
 
