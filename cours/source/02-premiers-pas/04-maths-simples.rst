@@ -12,7 +12,7 @@ On peut utiliser ``+, *, -`` avec des entiers:
    # affiche: 3
 
    print(6 - 3)
-   # affiche: 4
+   # affiche: 3
 
    print(2 * 4)   # une étoile pour la multiplication
    # affiche: 8
