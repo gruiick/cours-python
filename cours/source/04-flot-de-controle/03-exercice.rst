@@ -33,14 +33,12 @@ Lire une entrée utilisateur
 +++++++++++++++++++++++++++
 
 Pour bloquer le programme et lire une entrée utilisateur, vous pouvez
-utiliser la ligne suivante:
+utiliser la ligne suivante::
 
-```
-entrée_utilisateur = input()
-```
+    entrée_utilisateur = input()
 
 Cette instruction va:
-    * interrompt le script
+    * interrompre le script
     * lire ce que l'utilisateur tape jusqu'à ce qu'il tape "entrée".
     * et assigner la valeur correspondante à la variable ``entrée_utilisateur``.
 
@@ -58,17 +56,15 @@ utiliser les deux lignes suivantes::
 Squelette
 ---------
 
-// TODO:
-* explication du Squelette
-* pas de solution!
+Pour vous aider, vous pouvez partir du squelette suivant::
 
-.. code-block:: python
 
-   # faites moi confiance, les deux lignes ci-dessous
-   # permettent de tirer un nombre au hasard entre 0 et 100
    import random
-   nombre = random.randint(0, 100)
+   nombre_secret = random.randint(0, 100)
 
    print("devine le nombre auquel je pense")
+   entrée_utilisateur = input()
 
-   # votre code ici
+   while True:
+        # ....
+
