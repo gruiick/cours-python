@@ -15,3 +15,4 @@ html_theme = "agogo"
 # Don't use default "<project> <version> documentation"
 html_title = project
 html_static_path = ["_static"]
+html_use_index = False
