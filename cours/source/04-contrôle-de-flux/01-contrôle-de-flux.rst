@@ -1,5 +1,5 @@
-Flot de contrôle
-================
+Contrôle de flux
+=================
 
 Pour l'instant, toutes les instructions que nous avons
 écrites ont été exécutée une par une et dans l'ordre
@@ -7,8 +7,8 @@ d'apparition dans le code source.
 
 De plus, chaque ligne était constituée d'une unique expression.
 
-Modifier l'ordre d'exécution de ces instructions s'appelle modifier le flot de
-contrôle, et c'est  l'essence de la programmation!
+Modifier l'ordre d'exécution de ces instructions s'appelle le *contrôle de
+flux*, et c'est  l'essence de la programmation!
 
 
 if

@@ -22,7 +22,7 @@ Enfin, notez que ce cours est  placé sous licence `CC BY 4.0
    01-introduction/index.rst
    02-premiers-pas/index.rst
    03-variables-et-types/index.rst
-   04-flot-de-controle/index.rst
+   04-contrôle-de-flux/index.rst
    05-fonctions-01/index.rst
    06-listes/index.rst
    07-none-et-pass/index.rst
