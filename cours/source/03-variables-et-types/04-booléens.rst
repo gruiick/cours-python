@@ -26,7 +26,7 @@ soit la valeur ``True``, soit la valeur ``False``
 +-------+-----------------------------+
 |``<``  | strictement inférieur       |
 +-------+-----------------------------+
-|``<=`` | inférieur                   |
+|``<=`` | inférieur ou égal           |
 +-------+-----------------------------+
 
 Par exemple::
