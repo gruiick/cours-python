@@ -21,8 +21,8 @@ Il vous faut implémenter le programme suivant:
    * Afficher "Devine le nombre secret"
    * Bloquer le programme jusqu'à ce que l'utilisateur entre un nombre
      et appuie sur entrée (appelons-le ``entrée_utilisateur``)
-   * Si l'entrée utilisateur est plus grande que le nmobre secret, afficher "trop grand".
-   * Si l'entrée utilisateur est plus petite que le nmobre secret, afficher "tro petit"
+   * Si l'entrée utilisateur est plus grande que le nombre secret, afficher "trop grand".
+   * Si l'entrée utilisateur est plus petite que le nombre secret, afficher "trop petit"
    * Si l'entrée utilisateur est égale au nombre secret, afficher "gagné!" et quitter la boucle.
 
 
@@ -56,22 +56,23 @@ utiliser les deux lignes suivantes::
 Squelette
 ---------
 
-Pour vous aider, vous pouvez partir du squelette suivant::
+Pour commencer, copier le code suivant dans un fichier
+(par exemple, `devine-nombre.py`)
+
+.. literalinclude:: /extraits/devine-nombre.py
 
 
-    import random
+Si vous lancez `python3 devine-nombre.py` vous constaterez que le jeu
+est très difficile parce que le programme affiche simplement "mauvaise
+réponse" en boucle.
 
-    nombre_secret = random.randint(0, 100)
+Le but est de modifier le code pour implémenter correctement le programme,
+et ainsi rendre le jeu jouable :)
 
-    print("devine le nombre auquel je pense entre 0 et 100")
-    entree_utilisateur = int(input())
+Obtenir de l'aide
+------------------
 
-    while True:
-        if entree_utilisateur == nombre_secret:
-            print("bravo")
-            break
-        else:
-            print("mauvaise réponse")
-            entree_utilisateur = int(input())
+Si vous lisez ceci en dehors d'un cours et que vous êtes coincés,
+n'hésitez pas à me contacter via mon mail e2l.
 
-
+Bon courage !
