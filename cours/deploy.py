@@ -7,6 +7,7 @@ def deploy(*, dry_run):
         "rsync",
         "--itemize-changes",
         "--recursive",
+        "--delete",
         "build/html/",
         "dedi3:/srv/nginx/html/python",
     ]
