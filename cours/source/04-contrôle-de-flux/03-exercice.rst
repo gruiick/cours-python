@@ -59,12 +59,19 @@ Squelette
 Pour vous aider, vous pouvez partir du squelette suivant::
 
 
-   import random
-   nombre_secret = random.randint(0, 100)
+    import random
 
-   print("devine le nombre auquel je pense")
-   entrée_utilisateur = input()
+    nombre_secret = random.randint(0, 100)
 
-   while True:
-        # votre code ici
+    print("devine le nombre auquel je pense entre 0 et 100")
+    entree_utilisateur = int(input())
+
+    while True:
+        if entree_utilisateur == nombre_secret:
+            print("bravo")
+            break
+        else:
+            print("mauvaise réponse")
+            entree_utilisateur = int(input())
+
 
