@@ -64,7 +64,7 @@ Pour commencer, copier le code suivant dans un fichier
 
 Si vous lancez `python3 devine-nombre.py` vous constaterez que le jeu
 est très difficile parce que le programme affiche simplement "mauvaise
-réponse" en boucle.
+réponse" en boucle jusqu'à ce que l'utilisateur devine le nombre secret.
 
 Le but est de modifier le code pour implémenter correctement le programme,
 et ainsi rendre le jeu jouable :)
