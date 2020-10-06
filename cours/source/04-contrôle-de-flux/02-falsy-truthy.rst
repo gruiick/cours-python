@@ -51,10 +51,10 @@ Expressions quelconques
 En fait, on peut utiliser tous les opérateurs booléens avec des expressions
 quelconques::
 
-    message = "bonjour"
+    message = ""
     if not message:
-        print("le message n'est pas vide")
-    # affiche : le message n'est pas vide
+        print("le message est vide")
+    # affiche : le message est vide
 
 
     score = 42
