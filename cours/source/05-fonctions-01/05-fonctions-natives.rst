@@ -8,7 +8,7 @@ Fonctions qui sont toujours présentes dans l'interpréteur. On en a déjà vu q
 
 Il y en a tout un tas!
 
-La liste ici:  https://docs.python.org/fr/3/library/functions.html#built-in-funcs
+La liste ici:  https://docs.python.org/fr/3/library/functions.html
 
 Retour sur print
 ----------------
