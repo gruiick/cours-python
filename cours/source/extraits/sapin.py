@@ -19,9 +19,9 @@ def affiche_pied():
     # à compléter
 
 
-def main():
+def affiche_sapin():
     affiche_feuilles()
     affiche_pied()
 
 
-main()
+affiche_sapin()
