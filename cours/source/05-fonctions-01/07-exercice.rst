@@ -1,8 +1,8 @@
 Exercice
 ========
 
-Le but de l'exercice est d'afficher un sapin de largeur 10 dans
-la console, comme ceci
+Le but de l'exercice est d'afficher un sapin de largeur arbitraire dans
+la console, comme ceci:
 
 .. code-block:: text
 
@@ -22,6 +22,7 @@ constituée uniquement de dièses.
 Il y a deux parties au sapin: les feuilles qui forment un triangle
 de largeur 1 tout en haut jusqu'à une ligne de largeur 10 tout en bas,
 et un pied constitué de deux dièses superposés
+
 
 Indices
 -------
