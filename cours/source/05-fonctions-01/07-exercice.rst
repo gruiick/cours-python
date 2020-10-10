@@ -7,20 +7,20 @@ la console, comme ceci:
 .. code-block:: text
 
 
-     #
-    ###
-   #####
-  #######
- #########
-     #
-     #
+      #
+     ###
+    #####
+   #######
+  #########
+      #
+      #
 
 
 Le sapin est composé d'une suite de lignes, chacune des lignes étant
 constituée uniquement de dièses.
 
 Il y a deux parties au sapin: les feuilles qui forment un triangle
-de largeur 1 tout en haut jusqu'à une ligne de largeur 10 tout en bas,
+de largeur 1 tout en haut jusqu'à une ligne de largeur 9 tout en bas,
 et un pied constitué de deux dièses superposés
 
 
@@ -55,5 +55,6 @@ Partir du code suivant:
   la variable  `largeur`
 
 * Demander à l'utilisateur la largeur du sapin en début de programme au lieu
-  d'utiliser la valeur litérale `10`.
+  d'utiliser la valeur litérale `9` - vous pouvez faire l'hypothèse que la largeur
+  est toujours un nombre impair.
 

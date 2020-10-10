@@ -1,4 +1,4 @@
-largeur = 10
+largeur = 9
 
 
 def affiche_ligne(début, fin):
