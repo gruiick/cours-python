@@ -10,3 +10,4 @@ Chapitre 5 - Introduction aux fonctions
    04-par-défaut.rst
    05-fonctions-natives.rst
    06-return.rst
+   07-exercice.rst
