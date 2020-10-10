@@ -1,6 +1,8 @@
 Fonctions à plusieurs arguments
 ===============================
 
+# TODO: Insérer la section sur return plus tôt
+
 On peut mettre autant d'arguments qu'on veut, séparés
 par des virgules::
 
