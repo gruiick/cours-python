@@ -59,6 +59,8 @@ Pour évaluer une expression qui contient l'appel a une fonction, on:
 * assigne le contenu des parenthèses aux arguments de la fonction
 * puis on éxécute les instructions dans le corps de la fonction
 
+.. code-block::
+
     # Ceci:
     dire_bonjour("Dimitri")
 
@@ -69,7 +71,7 @@ Pour évaluer une expression qui contient l'appel a une fonction, on:
     # Lui-même équivalent à:
     print("Bonjour " + "Dimitri")
 
-Example complet::
+Exemple complet::
 
 
     def dire_bonjour(prénom):
