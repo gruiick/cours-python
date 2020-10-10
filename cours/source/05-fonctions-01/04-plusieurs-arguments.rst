@@ -1,13 +1,11 @@
 Fonctions à plusieurs arguments
 ===============================
 
-# TODO: Insérer la section sur return plus tôt
-
 On peut mettre autant d'arguments qu'on veut, séparés
 par des virgules::
 
     def soustraction(x, y):
-    	résultat = x - y
+        résultat = x - y
         return résultat
 
     résultat = soustraction(5, 4)
@@ -21,7 +19,7 @@ En Python, on peut aussi utiliser le *nom* des arguments au lieu de
 leur position::
 
     def dire_bonjour(prénom):
-    	print("Bonjour " + prénom)
+        print("Bonjour " + prénom)
 
     dire_bonjour(prénom="Gertrude")
     # Affiche: Bonjour Gertrude

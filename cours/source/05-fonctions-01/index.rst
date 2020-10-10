@@ -6,8 +6,8 @@ Chapitre 5 - Introduction aux fonctions
 
    01-functions.rst
    02-portée-des-variables.rst
-   03-plusieurs-arguments.rst
-   04-par-défaut.rst
-   05-fonctions-natives.rst
-   06-return.rst
+   03-return.rst
+   04-plusieurs-arguments.rst
+   05-par-défaut.rst
+   06-fonctions-natives.rst
    07-exercice.rst

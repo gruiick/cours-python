@@ -19,7 +19,7 @@ Appel::
 
 * avec le nom de la fonction et des parenthèses
 
-Example complet::
+Exemple complet::
 
     def dire_bonjour():
         print("Bonjour")
@@ -27,6 +27,11 @@ Example complet::
     dire_bonjour()
     # Affiche: bonjour'
 
+* Le *nom* de la fonction est le mot utilisé pour la définir et l'appeler
+* Le *corps* de la fonction est le bloc après le `def()`
+
+* Quand on *définit* une fonction, on associe un nom avec un corps.
+* Quand on *appelle* une fonction, on exécute le corps.
 
 Le pouvoir des fonctions
 ------------------------
@@ -48,7 +53,7 @@ Fonction avec un argument
 Définition: avec l'argument à l'intérieur des parenthèses::
 
     def dire_bonjour(prénom):
-    	print("Bonjour " + prénom)
+        print("Bonjour " + prénom)
 
 Appel: en passant une variable ou une valeur dans les parenthèses::
 
@@ -75,7 +80,7 @@ Exemple complet::
 
 
     def dire_bonjour(prénom):
-    	print("Bonjour " + prénom)
+        print("Bonjour " + prénom)
     dire_bonjour("Germaine")
     # affiche: Bonjour Germaine
 
