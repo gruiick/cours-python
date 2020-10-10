@@ -64,4 +64,4 @@ la même petite string plusieurs fois avec l'opérateur
 
     message = "Na" * 3
     print(message)
-    # affeiche: NaNaNa
+    # affiche: NaNaNa
