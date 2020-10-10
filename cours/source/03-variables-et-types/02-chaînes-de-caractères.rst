@@ -53,3 +53,15 @@ en concaténatant de plus petites, avec l'opérateur ``+``::
    message = "Bonjour " + name + " !"
    print(message)
    # affiche: Bonjour John !
+
+
+Répétition
+-----------
+
+On peut construire une longue string en répétant
+la même petite string plusieurs fois avec l'opérateur
+`*`::
+
+    message = "Na" * 3
+    print(message)
+    # affeiche: NaNaNa
