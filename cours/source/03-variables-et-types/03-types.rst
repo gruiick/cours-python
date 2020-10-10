@@ -49,8 +49,8 @@ Inversement, on peut convertir un string en entrier en utilisant
 le mot ``int`` et des parenthèses::
 
 
-   quarante_deux_en_chiffres = "42"
-   réponse = int(quarante_deux_en_chiffres)
+   quarante_en_chiffres = "40"
+   réponse = int(quarante_en_chiffres) + 2
    print(réponse)
    # affiche: 42
 
