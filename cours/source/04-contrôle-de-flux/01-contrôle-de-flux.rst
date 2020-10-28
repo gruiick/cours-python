@@ -120,6 +120,9 @@ est vraie::
 
 Notez que la variable ``i`` passe par plusieurs valeurs différentes.
 
+Le fait de répéter un bloc pluiseurs fois est souvent appelé une
+*boucle*.
+
 Boucle infinie
 --------------
 
@@ -150,5 +153,3 @@ On peut "sortir" de la boucle ``while`` avec le mot-clé ``break``::
    2
    3
    4
-
-
