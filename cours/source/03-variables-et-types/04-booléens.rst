@@ -43,6 +43,22 @@ Par exemple::
 
     Ne pas confondre: ``==`` pour la comparaison et ``=`` pour l'assignation
 
+Notez que deux valeurs avec des *types* différents sont en général considérés
+comme différents::
+
+    1 == "1"  # False
+
+Mais un flottant peut être égal à un entier::
+
+    1 == 1.0  # True
+
+Et True et False peuvent être comparés à 0 et 1 (pour des raisons "historiques")::
+
+    True == 1   # True
+    False == 0  # True
+
+
+
 Autres opérations booléennes
 -----------------------------
 

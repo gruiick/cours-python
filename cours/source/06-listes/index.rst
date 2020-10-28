@@ -217,3 +217,16 @@ la liste n'est pas vide , ``if`` se comportera comme si on avait mis une valeur 
     # affiche: mon_autre_liste est vide
 
 On dit que les listes vides sont *Falsy* et les listes non-vides *Truthy*
+
+Comparaisons de listes
+-----------------------
+
+On peut utiliser l'opérateur ``==`` avec deux listes de part et
+d'autres. Les listes seront considérées comme égales si
+
+* Elles ont la même taille
+* Tous leurs éléments sont égaux un à un en respectant l'ordre::
+
+    [1] == [2]        # False
+    [1, 2] == [2, 1]  # False
+    [1, 2] == [1, 2]  # True

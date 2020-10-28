@@ -4,7 +4,7 @@ Chapitre 8 - Dictionnaires
 Définition
 ----------
 
-Un dictionaire est une _association_ entre des clés et des valeurs.
+Un dictionaire est une *association* entre des clés et des valeurs.
 
 * Les clés sont uniques
 * Les valeurs sont arbitraires
@@ -19,10 +19,6 @@ Avec des accolades: ``{``, ``}`` ::
     une_clé_une_valeur = {"a": 42}
 
     deux_clés_deux_valeurs = {"a": 42, "b": 53}
-
-Les clés sont uniques::
-
-    {"a": 42, "a": 53} == {"a": 53}
 
 Note: tous les dictionnaires sont truthy, sauf les dictionnaires vides.
 
@@ -137,3 +133,15 @@ Encore et toujours ``del``::
     del mon_entier
     mon_entier += 1
     # erreur: NameError
+
+
+Comparaisons de dictionaires
+-----------------------------
+
+Deux dictionaires sont considérés égaux s'ils ont les mêmes clés
+et les mêmes valeurs. L'ordre n'importe pas::
+
+    {"a":1, "b":2} == {"a":1, "b":2}  # True
+    {"a":1, "b":2} == {"b":2, "a":1}  # True
+    {"a":1, "b":2} == {"a":1, "b":3}  # False
+
