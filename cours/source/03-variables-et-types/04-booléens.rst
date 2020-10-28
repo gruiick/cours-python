@@ -48,15 +48,10 @@ comme différents::
 
     1 == "1"  # False
 
-Mais un flottant peut être égal à un entier::
+Cette règle admet des exceptions, par exemple un flottant peut être égal
+à un entier::
 
     1 == 1.0  # True
-
-Et True et False peuvent être comparés à 0 et 1 (pour des raisons "historiques")::
-
-    True == 1   # True
-    False == 0  # True
-
 
 
 Autres opérations booléennes
