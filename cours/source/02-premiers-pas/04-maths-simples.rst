@@ -31,15 +31,17 @@ C'est le ``.`` qui fait le flottant
 
    print(0.5 + 0.2)
    # affiche: 0.7
+
+On utilise `/` pour les divisions flottantes::
+
+   print(10 / 2)
+   # afiche: 5.0 (et non '5')
+
+Notez que les flottants sont imprécis, ce qui explique le `5` à la fin
+de l'affichage de la division de 10 par 3::
+
    print(10 / 3)
-   3.3333333333333335
-
-.. note::
-
-   Les flottants sont imprécis,
-   ce qui explique le `5` à la fin de l'affichage
-   de la division de 10 par 3
-
+   # affiche:3.3333333333333335
 
 
 Division entières et modulo
