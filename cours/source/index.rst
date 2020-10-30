@@ -7,6 +7,8 @@ toute personne qui voudrait découvrir la programmation.
 
 Il est aussi disponible en pdf à l'adresse: https://dmerej.info/python/cours-python.pdf
 
+Le pdf comme le site sont régulièrement mis à jour, et les sources sont disponibles publiquement sur `le serveur Git de l'E2L <https://githell.e2li.org/E2L_Ivry/cours-python>`_
+
 J'espère qu'il vous plaira! Sinon, vous pouvez vous rendre sur `ma page de
 contact <https://dmerej.info/blog/fr/pages/about>`_ et me faire part de vos
 remarques.
