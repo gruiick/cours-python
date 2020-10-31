@@ -36,7 +36,7 @@ Voila à quoi une session de jeu doit ressembler:
 Consignes
 ---------
 
-* Télécharger les fichiers ``pendu.py`` et ``mots.txt``
+* Télécharger les fichiers :download:`pendu.py </extraits/pendu.py>` et :download:`mots.txt </extraits/mots.txt>`.
 
 * S'assurer que le code fonctionne en lançant ``python3 pendu.py``
 
