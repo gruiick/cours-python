@@ -61,36 +61,13 @@ On ne peut concaténer des listes que avec d'autres listes::
     print(scores)
     # affiche: [1,2,3,4]
 
-Test d'appartenance
--------------------
-
-Avec ``in``::
-
-    prénoms = ["Alice", "Bob"]
-    print("Alice" in prénoms)
-    # affiche: True
-
-    prénoms = ["Alice", "Bob"]
-    print("Charlie" in prénoms)
-    # affiche: False
-
-Modifier une liste
--------------------
-
-Encore une assignation::
-
-    fruits = ["pomme", "orange", "poire"]
-    fruits[0] = "abricot"
-    print(fruits)
-    # affiche: ["abricot", "orange", "poire"]
-
-Indéxer une liste
+Indexer une liste
 ------------------
 
-* Avec ``[]`` et un entier
+On peut récupérer un élément d'une liste à partir de son *index*,
+en utilisant ``[i]`` où ``i`` est l'index de l'élément.
 
-* Les index valides vont de 0 à ``n-1`` où ``n`` est la
-  taille de la liste::
+Les index valides vont de 0 à ``n-1`` où ``n`` est la taille de la liste::
 
     fruits = ["pomme", "orange", "poire"]
 
@@ -100,9 +77,20 @@ Indéxer une liste
     print(fruits[1])
     # affiche: "orange"
 
-    print(list[2])
+    print(fruits[2])
     # affiche: "poire"
 
     fruits[3]
     # erreur: IndexError
+
+
+Modifier une liste
+-------------------
+
+On peut modifier un élément d'une liste en utilisant une assignation::
+
+    fruits = ["pomme", "orange", "poire"]
+    fruits[0] = "abricot"
+    print(fruits)
+    # affiche: ["abricot", "orange", "poire"]
 

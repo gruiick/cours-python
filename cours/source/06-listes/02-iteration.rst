@@ -50,27 +50,3 @@ bloc courant)  avec le mot-clé ``continue``::
 
    Bonjour Alice
    Bonjour Charlie
-
-
-Indéxer une liste
-------------------
-
-* Avec ``[]`` et un entier
-
-* Les index valides vont de 0 à ``n-1`` où ``n`` est la
-  taille de la liste::
-
-    fruits = ["pomme", "orange", "poire"]
-
-    print(fruits[0])
-    # affiche: "pomme"
-
-    print(fruits[1])
-    # affiche: "orange"
-
-    print(list[2])
-    # affiche: "poire"
-
-    fruits[3]
-    # erreur: IndexError
-
