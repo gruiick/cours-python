@@ -4,7 +4,7 @@ Itération
 Itérer sur les éléments d'une liste
 ------------------------------------
 
-Avec les mots-clés ``for`` et `` in``::
+Avec les mots-clés ``for`` et ``in``::
 
    prénoms = ["Alice", "Bob", "Charlie"]
    for prénom in prénoms:
@@ -32,12 +32,12 @@ Comme pour les boucles `while`, on peut interrompre la boucle `for` avec `break`
 .. code-block:: text
 
    Bonjour Alice
-   Bonjour Charlie
+   Bonjour Bob
 
 continue
 --------
 
-On peut interrompre l'exécution *du bloc courant* (et uniqument le
+On peut interrompre l'exécution *du bloc courant* (et uniquement le
 bloc courant)  avec le mot-clé ``continue``::
 
    prénoms = ["Alice", "Bob", "Charlie"]

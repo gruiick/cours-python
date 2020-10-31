@@ -46,20 +46,36 @@ Concaténation de listes
 
 Avec ``+``::
 
-    prénoms = ["Alice", "Bob"]
-    prénoms += ["Charlie", "Eve"]
+    prénoms_1 = ["Alice", "Bob"]
+    prénoms_2 = ["Charlie", "Eve"]
+    prénoms = prénoms_1 + prénoms_2
+
     print(prénoms)
     # affiche: ['Alice', 'Bob', "Charlie", 'Eve']
 
 On ne peut concaténer des listes que avec d'autres listes::
 
     scores = [1, 2, 3]
-    scores += 4
+    scores = scores + 4
     # erreur
 
-    scores += [4]
+    scores = [1, 2, 3]
+    scores = scores + [4]
     print(scores)
     # affiche: [1,2,3,4]
+
+On peut aussi utiliser ``+=`` pour combiner l'assignation et la Concaténation,
+comme avec les nombres::
+
+    a = 3
+    a += 2
+    print(a)
+    # Affiche: 5
+
+    x = [1, 2]
+    x += [3, 4, 5]
+    print(x)
+    # Affiche: [1, 2, 3, 4, 5]
 
 Indexer une liste
 ------------------

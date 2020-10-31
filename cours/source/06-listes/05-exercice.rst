@@ -42,9 +42,9 @@ Consignes
 
 * À ce stade, vous devriez constater plusieurs problèmes:
 
-  * Au lieu d'avoir un mot au hasard, le mot à deviner est toujours "accord"
+  * Au lieu d'avoir un mot au hasard, le mot à deviner est toujours ``accord``
   * Au lieu d'afficher un indice, le code affiche une liste de tentatives
-  * Le jeu est impossible à gagner parce que la fonction `a_gagné` renvoie toujours False
+  * Le jeu est impossible à gagner parce que la fonction ``a_gagné`` renvoie toujours ``False``
 
 Le but de l'exercice est de corriger ces 3 problèmes.
 

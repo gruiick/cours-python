@@ -9,11 +9,15 @@ la liste n'est pas vide , ``if`` se comportera comme si on avait mis une valeur 
 
     ma_liste = [1, 2, 3]
     if ma_liste:
-        print("ma_liste n'est pas vide")
-    # affiche: ma_liste n'est pas vide
+        print("ma_liste est truthy")
+    else:
+        print("ma_liste est falsy")
+    # affiche: ma_liste est truthy
 
     mon_autre_liste = []
-    if not mon_autre_liste:
+    if mon_autre_liste:
+        print("mon_autre_liste n'est pas vide")
+    else:
         print("mon_autre_liste est vide")
     # affiche: mon_autre_liste est vide
 
@@ -42,7 +46,24 @@ d'autres. Les listes seront considérées comme égales si
 * Elles ont la même taille
 * Tous leurs éléments sont égaux un à un en respectant l'ordre::
 
-    [1] == [2]        # False
-    [1, 2] == [2, 1]  # False
-    [1, 2] == [1, 2]  # True
+    x = [1]
+    y = [1, 2]
+    print(x == y)
+    # Affiche False: x et y n'ont pas la même taille
 
+    x = [1, 2]
+    y = [1, 3]
+    print(x == y)
+    # Affiche False: x et y n'ont pas les mêmes éléments
+
+    x = [1, 2]
+    y = [2, 1]
+    print(x == y)
+    # Affiche False: x et y ont les mêmes éléments, mais
+    # pas dans le bon ordre
+
+    x = [1, 2]
+    y = [1]
+    y += [2]
+    print(x == y)
+    # Affiche True: x et y ont les mêmes éléments, dans le même ordre

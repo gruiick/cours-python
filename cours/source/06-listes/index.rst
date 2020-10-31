@@ -6,8 +6,8 @@ Chapitre 6 - Listes
 
    ./01-bases.rst
    ./02-iteration.rst
-   ./03-strings.rst
-   ./04-booléens.rst
+   ./03-booléens.rst
+   ./04-strings.rst
    ./05-exercice.rst
 
 
