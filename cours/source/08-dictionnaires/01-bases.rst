@@ -1,10 +1,10 @@
-Prinipes fondamentaux
-=====================
+Principes fondamentaux
+======================
 
 Définition
 ----------
 
-Un dictionaire est une *association* entre des clés et des valeurs.
+Un dictionnaire est une *association* entre des clés et des valeurs.
 
 * Les clés sont uniques
 * Les valeurs sont arbitraires
@@ -12,12 +12,12 @@ Un dictionaire est une *association* entre des clés et des valeurs.
 Création de dictionnaires
 -------------------------
 
-Les dictionaires sont entourés par des accolades: ``{``, ``}`` ::
+Les dictionnaires sont entourés par des accolades: ``{``, ``}`` ::
 
-    dictionaire_vide =  {}
+    dictionnaire_vide =  {}
 
 Ensuite, chaque paire de clé/valeur est séparée par des virgules ``,``
-avec ``:`` ente la clé et la valer ::
+avec ``:`` ente la clé et la valeur ::
 
     une_clé_une_valeur = {"a": 42}
 

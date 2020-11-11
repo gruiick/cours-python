@@ -4,7 +4,7 @@ Dictionnaires et booléens
 Falsy et truthy
 ----------------
 
-Les dictionaires vides sont falsy, et tous les autres dictionaires sont truthy::
+Les dictionnaires vides sont falsy, et tous les autres dictionnaires sont truthy::
 
    mon_dico = {"a": 1, "b": 2}
    if mon_dico:
@@ -30,10 +30,10 @@ Avec ``in``, comme le listes::
     # affiche: False
 
 
-Comparaisons de dictionaires
+Comparaisons de dictionnaires
 -----------------------------
 
-Deux dictionaires sont considérés égaux s'ils ont les mêmes clés
+Deux dictionnaires sont considérés égaux s'ils ont les mêmes clés
 et les mêmes valeurs. L'ordre n'importe pas::
 
     {"a":1, "b":2} == {"a":1, "b":2}  # True

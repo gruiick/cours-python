@@ -1,4 +1,4 @@
-Itération et dictionaires
+Itération et dictionnaires
 ==========================
 
 Itérer sur les clés
