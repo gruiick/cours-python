@@ -23,11 +23,16 @@ Les dictionnaires vides sont falsy, et tous les autres dictionnaires sont truthy
 Test d'appartenance
 ---------------------
 
-Avec ``in``, comme le listes::
+On peut vérifier si une clé est présente dans un dictionnaires avec
+le mot clé ``in``, un peu comme pour le listes::
 
     scores = {"john": 10, "bob": 42}
+    print("john" in scores)
+    # affiche: True
+
     print("charlie" in scores)
     # affiche: False
+
 
 
 Comparaisons de dictionnaires

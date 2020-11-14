@@ -12,13 +12,25 @@ Le programme doit s'utiliser comme suit:
 
 .. code-block:: console
 
-   python convertisseur.py 1 km miles
+   python convertisseur.py 1 km mi
 
 Il y a trois "mots" après le nom du fichier, séparés par des espaces.
 On appelle ces mots les "arguments" du programme.
 
-Ici, ``1`` est la valeur de départ, ``km`` l'unité d'arrivée
-et ``miles`` l'unité d'arrivée.
+Ici, ``1`` est la valeur de départ, ``km`` l'abbréviation de l'unité d'arrivée
+et ``mi`` l'abbréviation de l'unité d'arrivée.
+
+Voici un tableau pour vous aider:
+
+
+=========   ============    ================
+Nom         Abbréviation    Valeur en mẽtres
+=========   ============    ================
+mètre       m                1
+kilomètre   km               1000
+mille       mi               1609.344
+yard        yd               0.9144
+=========   ============    ================
 
 Squelette
 ----------
