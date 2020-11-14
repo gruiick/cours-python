@@ -6,7 +6,7 @@ Consignes
 
 Le but de l'exercice est d'implémenter un convertisseur d'unités de distance.
 
-Il faut être capables de convertir des kilomètres, des miles, des yards, etc..
+Il faut être capable de convertir des kilomètres, des milles, des yards, etc..
 
 Le programme doit s'utiliser comme suit:
 
@@ -17,14 +17,14 @@ Le programme doit s'utiliser comme suit:
 Il y a trois "mots" après le nom du fichier, séparés par des espaces.
 On appelle ces mots les "arguments" du programme.
 
-Ici, ``1`` est la valeur de départ, ``km`` l'abbréviation de l'unité d'arrivée
-et ``mi`` l'abbréviation de l'unité d'arrivée.
+Ici, ``1`` est la valeur de départ, ``km`` l'abréviation de l'unité d'arrivée
+et ``mi`` l'abréviation de l'unité d'arrivée.
 
 Voici un tableau pour vous aider:
 
 
 =========   ============    ================
-Nom         Abbréviation    Valeur en mètres
+Nom         Abréviation     Valeur en mètres
 =========   ============    ================
 mètre       m                1
 kilomètre   km               1000
