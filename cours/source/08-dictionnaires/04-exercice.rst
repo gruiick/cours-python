@@ -24,7 +24,7 @@ Voici un tableau pour vous aider:
 
 
 =========   ============    ================
-Nom         Abbréviation    Valeur en mẽtres
+Nom         Abbréviation    Valeur en mètres
 =========   ============    ================
 mètre       m                1
 kilomètre   km               1000
