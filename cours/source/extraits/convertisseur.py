@@ -30,7 +30,7 @@ def main():
     unité_de_départ = sys.argv[2]
     unité_d_arrivée = sys.argv[3]
     valeur_de_sortie = convertir(valeur, unité_de_départ, unité_d_arrivée)
-    print(f"{valeur_de_sortie:.6}")
+    print("{:.6}".format(valeur_de_sortie))
 
 
 main()
