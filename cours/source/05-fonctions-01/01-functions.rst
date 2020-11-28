@@ -9,6 +9,8 @@ Définition::
     def dire_bonjour():
         print("Bonjour")
 
+Notez qu'on utilise aussi le *snake case* pour les noms de fonctions, comme pour
+les noms de variables.
 
 * avec le mot-clé `def`
 * avec un `:` à la fin et un *bloc indenté* (appelé *le corps de la fonction*).

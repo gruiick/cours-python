@@ -1,11 +1,11 @@
 Chapitre 10 - Introduction aux classes
 ======================================
 
-Ce qu’on a vu jusqu’ici:
+Ce qu'on a vu jusqu’ici:
 
 * Des types simples (entiers, booléens, ...)
 * Des structures de données (listes, dictionnaires, ...)
-* Des fonctions qui manipulent ces types ou ces types
+* Des fonctions qui manipulent ces types ou ces structures de données
 * Des fonctions qui s’appellent les unes les autres
 
 On appelle cet ensemble de concepts, cette façon d'écrire du code, un *paradigme* -
@@ -17,7 +17,7 @@ Orienté objet - une première définition
 ---------------------------------------
 
 Un "objet" informatique *représente* un véritable "objet" physique
-dans le vrai monde véritable.
+dans le vrai monde.
 
 Ce n'est pas une très bonne définition:
 
@@ -37,8 +37,7 @@ orientée objet permet de mettre au même endroit:
 
 L'important c'est que les deux aillent ensemble!
 
-*Note: ce n'est pas **la** meilleure définition de l'orienté objet, mais on s'en contentera
-pour le moment ...*
+*Note: ce n'est pas la meilleure définition de l'orienté objet, mais on s'en contentera pour le moment ...*
 
 
 Les classes
@@ -55,10 +54,15 @@ On dit souvent qu'en Python, "tout est objet".
 
 Pour bien comprendre cela, il faut d'abord parler des *classes* et des *instances de classes*.
 
-Une classe est un *plan de construction*, et est définie ainsi::
+Une classe est un *plan de construction*, et est définie avec le mot-clé ``class``, suivi
+du nom de la classes::
 
     class MaClasse:
         # du code ici
+
+Notez qu'on n'utilise pas le *snake case* pour les noms de classes, mais
+le *Pascal Case*: le nom commence par une majuscule, et on alterne
+minuscules et majuscules pour séparer les mots.
 
 Comme les fonctions, les classes contienent un *corps*, qui est le bloc *identé* en dessous
 du mot-clé `class`, de nom de la classe et du `:` en fin de ligne.
@@ -78,7 +82,8 @@ un peu comme pour appeler une fonction::
 
     mon_instance = MaClasse()
 
-Ici, ``mon_instance`` est une *instance* de la classe ``MaClasse``.
+Ici, ``mon_instance`` est une *instance* de la classe ``MaClasse``. Notez que ``mon_instance`` utilise
+*snake case*, comme toutes les variables qu'on a vues jusqu'ici.
 
 Attributs
 ---------
@@ -239,10 +244,10 @@ les unes les autres::
 Une méthode spéciale
 ---------------------
 
-Si vous définissez une méthode nomée ``__init__``, celle-ci est appelée *automatiquement*
+Si vous définissez une méthode nommée ``__init__``, celle-ci est appelée *automatiquement*
 quand l'instance est construite.
 
-On dit que c'est une méthode "magique" parce qu'elle fait quelque chose _sans_ qu'on
+On dit que c'est une méthode "magique" parce qu'elle fait quelque chose sans qu'on
 l'appelle explicitement.
 
 On utilise souvent ``__init__`` pour créer des attributs::

@@ -161,6 +161,9 @@ Aussi, la convention est de:
    score = 42
    âge_moyen = 22
 
+On dit qu'on utilise le *snake case* (parce que ça ressemble vaguement
+à un serpent)
+
 Notez que certains noms ne peuvent être utilisés comme nom
 de variables. On les appelle des *mots-clés*. La liste
 est disponible ici: https://docs.python.org/fr/3/reference/lexical_analysis.html#keywords
