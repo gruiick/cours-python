@@ -55,7 +55,7 @@ Interdit::
 Test d'appartenance
 -------------------
 
-Avec ``in``:
+Avec ``in``::
 
    mon_tuple = (42, 14)
    print(42 in mon_tuple)
