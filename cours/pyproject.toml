@@ -6,8 +6,9 @@ authors = ["Dimitri Merejkowsky <dimitri.merejkowsky@tanker.io>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-sphinx = "^2.3.1"
+sphinx = "^3.4.3"
 sphinx-notfound-page = "^0.5"
+sphinx-book-theme = "^0.0.39"
 
 [tool.poetry.dev-dependencies]
 sphinx-autobuild = "^0.7.1"

@@ -20,7 +20,7 @@ notfound_context = {
 notfound_urls_prefix = "/python/"
 
 html_show_sourcelink = False
-html_theme = "agogo"
+html_theme = "sphinx_book_theme"
 # Don't use default "<project> <version> documentation"
 html_title = project
 html_static_path = ["_static"]
