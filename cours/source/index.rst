@@ -7,15 +7,18 @@ toute personne qui voudrait découvrir la programmation.
 
 Il est aussi disponible en pdf à l'adresse: https://dmerej.info/python/cours-python.pdf
 
-Le pdf comme le site sont régulièrement mis à jour, et les sources sont disponibles publiquement sur `le serveur Git de l'E2L <https://githell.e2li.org/E2L_Ivry/cours-python>`_
+Le pdf comme le site sont régulièrement mis à jour, et les sources sont disponibles publiquement sur `le serveur Git de l'E2L <https://githell.e2li.org/E2L_Ivry/cours-python>`_.
 
-J'espère qu'il vous plaira! Sinon, vous pouvez vous rendre sur `ma page de
-contact <https://dmerej.info/blog/fr/pages/about>`_ et me faire part de vos
-remarques.
-
+J'espère qu'il vous plaira! Sinon, n'hésitez pas à vous rendre sur `ma
+page de contact <https://dmerej.info/blog/fr/pages/about>`_ pour me
+faire part de vos remarques.
 
 Enfin, notez que ce cours est  placé sous licence `CC BY 4.0
-<https://creativecommons.org/licenses/by/4.0/deed.fr>`_. Bonne lecture!
+<https://creativecommons.org/licenses/by/4.0/deed.fr>`_, ce qui
+signifie que vous pouvez le partager et le modifier comme bon vous semble,
+à la seule condition de me créditer de façon appropriée.
+
+Bonne lecture!
 
 .. toctree::
    :maxdepth: 1
