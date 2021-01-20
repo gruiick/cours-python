@@ -1,13 +1,15 @@
 Bienvenue
 =========
 
-Ce cours est principalement destiné aux élève de l'École du Logiciel Libre,
+Ce cours est principalement destiné aux élèves de `l'École du Logiciel Libre <https://www.e2li.org>`_,
 où je donne des cours sur Python depuis 2018. mais il peut être utile à
 toute personne qui voudrait découvrir la programmation.
 
 Il est aussi disponible en pdf à l'adresse: https://dmerej.info/python/cours-python.pdf
 
-Le pdf comme le site sont régulièrement mis à jour, et les sources sont disponibles publiquement sur `le serveur Git de l'E2L <https://githell.e2li.org/E2L_Ivry/cours-python>`_.
+Le pdf comme le site sont régulièrement mis à jour, et les sources sont
+disponibles publiquement sur `le serveur Git de l'E2L
+<https://githell.e2li.org/E2L_Ivry/cours-python>`_.
 
 J'espère qu'il vous plaira! Sinon, n'hésitez pas à vous rendre sur `ma
 page de contact <https://dmerej.info/blog/fr/pages/about>`_ pour me
