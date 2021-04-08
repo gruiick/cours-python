@@ -81,7 +81,7 @@ de variables::
     import bonjour
     # affiche: Je suis le module bonjour et tu viens de m’importer
 
-    import bojour
+    import bonjour
     # n'affiche rien
 
 
