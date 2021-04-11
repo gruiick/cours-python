@@ -1,5 +1,5 @@
 # Exercice: remplacer le corps de la fonction
-# par une liste en compréhension
+# par une liste par intention
 def garde_les_positifs(nombres):
     résultat = []
     for nombre in nombres:
