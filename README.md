@@ -16,4 +16,4 @@ Si vous trouvez des erreurs dans le cours ou avez des idées d'amélioration, vo
 
 * Ou me contacter directement : https://dmerej.info/blog/fr/pages/about
 
-En tout cas, toute contribution, même minime, est la Bienvenue !
+En tout cas, toute contribution, même minime, est la bienvenue !
