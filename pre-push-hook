@@ -13,7 +13,6 @@ do
     echo "Deleting stuff, nothing to do"
   else
     (
-       cd cours
        poetry run python build.py --clean --werror
        poetry run python build.py --format pdf
        poetry run python deploy.py
