@@ -12,10 +12,9 @@ do
   if [[ "${local_sha}" = $z40 ]]; then
     echo "Deleting stuff, nothing to do"
   else
-    (
-       poetry run python build.py --clean --werror
-       poetry run python build.py --format pdf
-       poetry run python deploy.py
-    )
+    poetry install
+    poetry run python build.py --clean --werror
+    poetry run python build.py --format pdf
+    poetry run python deploy.py
   fi
 done
