@@ -7,12 +7,12 @@ de représenter du texte. On a utilisé une string pour afficher
 
 On écrit toujours les strings entre guillemets (ou quotes).
 
-soit avec des doubles guillemets::
+soit avec des doubles guillemets : ::
 
     print("Bonjour monde!")
     # affiche: Bonjour monde!
 
-soit avec des guillemets simples::
+soit avec des guillemets simples : ::
 
     print('Bonjour monde!')
     # affiche:  Bonjour monde!
@@ -20,7 +20,7 @@ soit avec des guillemets simples::
 Double et simple quotes
 -----------------------
 
-On peut mettre des simples quotes dans des double quotes et vice-versa::
+On peut mettre des simples quotes dans des double quotes et vice-versa : ::
 
 
    print("Il a dit: 'bonjour' ce matin.")
@@ -47,7 +47,7 @@ Concaténation
 -------------
 
 On peut construire de longues chaînes de caractères en
-en concaténatant de plus petites, avec l'opérateur ``+``::
+en concaténatant de plus petites, avec l'opérateur ``+`` : ::
 
    name = "John"
    message = "Bonjour " + name + " !"
@@ -60,7 +60,7 @@ Répétition
 
 On peut construire une longue string en répétant
 la même petite string plusieurs fois avec l'opérateur
-`*`::
+`*` : ::
 
     message = "Na" * 3
     print(message)
