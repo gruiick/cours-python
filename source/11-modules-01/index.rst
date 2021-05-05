@@ -98,7 +98,7 @@ https://docs.python.org/fr/3/library/index.html
 
 Mettez ce lien dans vos favoris - il vous sera très utile.
 
-Quelques exemples de modules de la bibliothèque standard
+Quelques examples de modules de la bibliothèque standard
 ---------------------------------------------------------
 
 Easter eggs

@@ -4,7 +4,7 @@ Expressions, instructions, et variables
 Instructions
 ------------
 
-Pour l'instant, dans tous les exemples de code, chaque ligne qu'on a écrit
+Pour l'instant, dans tous les examples de code, chaque ligne qu'on a écrit
 contenait une *instruction*.
 
 Un instruction a un effet sur le programe dans lequel elle est présented
@@ -110,7 +110,7 @@ Notez que la valeur de variable `a` n'a pas changé::
     print(a)
     # affiche: 1
 
-Autres exemples::
+Autres examples::
 
     x = 1
     y = 2
@@ -134,7 +134,7 @@ Combiner opération et assignation
 ----------------------------------
 
 La notation ``+=`` permet de combiner addition et assignation :
-les deux exemples ci-dessous sont équivalents::
+les deux examples ci-dessous sont équivalents::
 
    x = 3
    x = x + 1
