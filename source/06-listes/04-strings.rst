@@ -6,7 +6,7 @@ Les strings sont aussi des listes (presque).
 On peut itérer sur les *caractères* d'une string::
 
     for c in "vache":
-    	print(c)
+        print(c)
 
 .. code-block:: console
 

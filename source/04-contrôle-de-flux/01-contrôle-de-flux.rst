@@ -38,7 +38,7 @@ On ne peut pas utiliser d'instruction après un ``if`` en Python.
 Autrement dit, ce code ne fonctionne pas::
 
     if a = 3:
-    	print("a égale 3")
+        print("a égale 3")
     # affiche: SyntaxError
 
 On parle aussi de "bloc" si plusieurs lignes sont identées::
@@ -91,13 +91,13 @@ conditions::
 
     age = 23
     if age < 10:
-    	print("âge inférieur à dix")
+        print("âge inférieur à dix")
     elif 10 <= age < 20:
-    	print("âge entre 10 et 20")
+        print("âge entre 10 et 20")
     elif 20 <= age < 40:
-    	print("âge entre 20 et 40")
+        print("âge entre 20 et 40")
     else:
-    	print("âge supérieur à 40")
+        print("âge supérieur à 40")
     # affiche: âge entre 20 et 40
 
 
@@ -129,7 +129,7 @@ Boucle infinie
 On parle de *boucle infinie* si la condition ne devient jamais fausse::
 
     while True:
-    	print("spam!")
+        print("spam!")
 
 Dans ce cas, il faut appuyer sur ``CTRL-C`` pour interrompre
 le programme.
