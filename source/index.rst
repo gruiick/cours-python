@@ -11,8 +11,7 @@ disponibles publiquement sur `sourcehut <https://git.sr.ht/~dmerej/cours-python>
 
 J'espère qu'il vous plaira! Sinon, n'hésitez pas à vous rendre sur `ma
 page de contact <https://dmerej.info/blog/fr/pages/about>`_ pour me
-faire part de vos remarques, ou à `ouvrir un ticket
-<https://todo.sr.ht/~dmerej/python-course/>`_.
+faire part de vos remarques.
 
 Enfin, notez que ce cours est  placé sous licence `CC BY 4.0
 <https://creativecommons.org/licenses/by/4.0/deed.fr>`_, ce qui
