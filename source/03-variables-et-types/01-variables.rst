@@ -108,7 +108,7 @@ Notez que la valeur de variable `a` n'a pas changé : ::
     print(a)
     # affiche: 1
 
-Autres examples : ::
+Autres exemples : ::
 
     x = 1
     y = 2
@@ -131,7 +131,7 @@ Combiner opération et assignation
 ----------------------------------
 
 La notation ``+=`` permet de combiner addition et assignation :
-les deux examples ci-dessous sont équivalents : ::
+les deux exemples ci-dessous sont équivalents : ::
 
    x = 3
    x = x + 1
