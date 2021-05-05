@@ -8,14 +8,14 @@ d'apparition dans le code source.
 De plus, chaque ligne était constituée d'une unique expression.
 
 Modifier l'ordre d'exécution de ces instructions s'appelle le *contrôle de
-flux*, et c'est  l'essence de la programmation!
+flux*, et c'est l'essence de la programmation!
 
 
 if
 ++
 
 On peut utiliser le mot-clé ``if`` pour autoriser ou empécher
-l'éxcution des instructions suivantes::
+l'exécution des instructions suivantes::
 
    a = 3
    b = 4
