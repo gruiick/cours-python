@@ -3,8 +3,7 @@ Bienvenue
 
 Ce cours est destiné à toute personne qui voudrait découvrir la
 programmation en général et le langage Python en particulier - il est
-également disponible en pdf à l'adresse: https://dmerej.info/python/cours-
-python.pdf
+également disponible en pdf à l'adresse: https://dmerej.info/python/cours-python.pdf
 
 Le pdf comme le site sont régulièrement mis à jour, et les sources sont
 disponibles publiquement sur `sourcehut <https://git.sr.ht/~dmerej/cours-python>`_.
