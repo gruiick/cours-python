@@ -21,3 +21,21 @@ while i < 3:
 ```
 
 Pareil avec une vue "debuggeur"
+
+explication des exercices
+
+insérer exercices pour chaque fin de chapitre
+
+illustrer la section sur les virtualenvs avec des
+
+captures d'écran
+
+Explications sur `globals()` et `locals()`
+
+Software is made of:
+
+* sequence
+* selection
+* iteration
+
+(segue into turing machines)
