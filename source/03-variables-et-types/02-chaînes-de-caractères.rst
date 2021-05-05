@@ -1,11 +1,11 @@
 Chaînes de caractères
 ======================
 
-Les chaînes de caractères, aussi appelées "string", permettent
+Les chaînes de caractères, aussi appelées "strings", permettent
 de représenter du texte. On a utilisé une string pour afficher
 "bonjour monde" dans le chapitre précédent.
 
-On écrit toujours les strings entre guillemets.
+On écrit toujours les strings entre guillemets (ou quotes).
 
 soit avec des doubles guillemets::
 
@@ -14,7 +14,7 @@ soit avec des doubles guillemets::
 
 soit avec des guillemets simples::
 
-    print("Bonjour monde!")
+    print('Bonjour monde!')
     # affiche:  Bonjour monde!
 
 Double et simple quotes

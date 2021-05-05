@@ -41,7 +41,7 @@ Par exemple::
 
 .. warning::
 
-    Ne pas confondre: ``==`` pour la comparaison et ``=`` pour l'assignation
+    Ne pas confondre ``==`` pour la comparaison et ``=`` pour l'assignation
 
 Notez que deux valeurs avec des *types* différents sont en général considérés
 comme différents::
@@ -74,8 +74,8 @@ Exemples::
     il_pleut = True
     j_ai_un_parapluie = False
     print(il_pleut and j_ai_un_parapluie)
-    # afiche: False
+    # affiche: False
 
     je_suis_mouillé = il_pleut and not j_ai_un_parapluie
     print(je_suis_mouillé)
-    # afiche: True
+    # affiche: True
