@@ -1,5 +1,5 @@
 Chaînes de caractères
-======================
+=====================
 
 Les chaînes de caractères, aussi appelées "strings", permettent
 de représenter du texte. On a utilisé une string pour afficher
@@ -60,7 +60,7 @@ Répétition
 
 On peut construire une longue string en répétant
 la même petite string plusieurs fois avec l'opérateur
-`*` : ::
+``*`` : ::
 
     message = "Na" * 3
     print(message)

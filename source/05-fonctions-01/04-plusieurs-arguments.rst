@@ -2,7 +2,7 @@ Fonctions à plusieurs arguments
 ===============================
 
 On peut mettre autant d'arguments qu'on veut, séparés
-par des virgules::
+par des virgules : ::
 
     def soustraction(x, y):
         résultat = x - y
@@ -16,7 +16,7 @@ Arguments nommés
 ----------------
 
 En Python, on peut aussi utiliser le *nom* des arguments au lieu de
-leur position::
+leur position : ::
 
     def dire_bonjour(prénom):
         print("Bonjour " + prénom)

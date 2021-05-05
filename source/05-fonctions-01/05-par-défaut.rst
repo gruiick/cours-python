@@ -1,7 +1,7 @@
 Arguments par défaut
 ====================
 
-On peut aussi mettre des valeurs par défaut::
+On peut aussi mettre des valeurs par défaut : ::
 
     def dire_bonjour(prénom, enthousiaste=False):
         message = "Bonjour " + prénom
@@ -9,7 +9,7 @@ On peut aussi mettre des valeurs par défaut::
             message += "!"
         print(message)
 
-Appel::
+Appel : ::
 
     dire_bonjour("Thomas")
     # affiche: Bonjour Thomas
