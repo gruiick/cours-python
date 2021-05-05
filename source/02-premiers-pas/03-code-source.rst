@@ -24,7 +24,7 @@ Insérez le code suivant dans votre éditeur de texte
 
 Oui, juste ces deux lignes.
 
-Sauvegardez dans un fichier `bonjour.py` dans `Documents/e2l/python` par exemple
+Sauvegardez dans un fichier `bonjour.py` dans `Documents/python` par exemple
 
 
 Lancer du code en ligne de commande
@@ -35,7 +35,7 @@ Lancez une invite de commandes et tapez quelque chose comme:
 
 .. code-block:: console
 
-   cd Documents/e2l/python/
+   cd Documents/python/
    python3 bonjour.py
 
 (Utilisez `python` sous Windows)

@@ -73,6 +73,6 @@ Obtenir de l'aide
 ------------------
 
 Si vous lisez ceci en dehors d'un cours et que vous êtes coincés,
-n'hésitez pas à me contacter via mon mail e2l.
+n'hésitez pas `à me contacter <https://dmerej.info/blog/fr/pages/about/>`.
 
 Bon courage !
