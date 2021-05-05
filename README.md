@@ -1,13 +1,19 @@
-# Cours Python pour E2L
+# Cours Python de Dimitri Merejkowsky
 
-Ce dépôt contient:
+Ce dépôt contient les sources de mon cours de programmation sur Python, disponible
+à l'adresse suivante:
 
-* Le fichier `notes.md` et le répertoire  `fragments` qui sont à usage interne, et servent à préparer les prochaines sessions.
+https://dmerej.info/python
 
-* Un répertoire par saison, contenant à chaque fois les sources des présentations (dans un sous-répertoire 'sessions/'), et le code écrit pendant les ateliers (dans un sous-répertoire 'sources/')
+## Contribuer
 
-* Enfin, un répertoire cours/ contenant les sources du cours en ligne.
+Si vous trouvez des erreurs dans le cours ou avez des idées d'amélioration, vous pouvez:
 
-# License
+* Ouvrir un ticket sur https://todo.sr.ht/~dmerej/python-course
 
-Le contenu de ce dépôt (cours et code source) est mis à disposition gratuitement selon les termes de la [Licence Creative Commons Attribution 3.0 France](https://creativecommons.org/licenses/by/3.0/fr/).
+* Envoyer des correctifs sur https://lists.sr.ht/~dmerej/cours-python -
+  voir https://git-send-email.io/ pour les instructions.
+
+* Ou me contacter directement : https://dmerej.info/blog/fr/pages/about
+
+En tout cas, toute contribution, même minime, est la bienvenue !

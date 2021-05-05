@@ -1,7 +1,7 @@
 Chapitre 18 - Exceptions
 =========================
 
-On a souvent montré des exemples de code qui provoquaient des erreurs au
+On a souvent montré des examples de code qui provoquaient des erreurs au
 cours des chapitres précédents. Il est temps maintenant de se pencher
 davantage sur celles-ci.
 
