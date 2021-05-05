@@ -12,7 +12,7 @@ Si vous trouvez des erreurs dans le cours ou avez des idées d'amélioration, vo
 * Ouvrir un ticket sur https://todo.sr.ht/~dmerej/python-course
 
 * Envoyer des correctifs sur https://lists.sr.ht/~dmerej/cours-python -
-  voir https://git-send-email.io/ pour les instructions)
+  voir https://git-send-email.io/ pour les instructions.
 
 * Ou me contacter directement : https://dmerej.info/blog/fr/pages/about
 
