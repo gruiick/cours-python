@@ -4,7 +4,7 @@ Dictionnaires et booléens
 Falsy et truthy
 ----------------
 
-Les dictionnaires vides sont falsy, et tous les autres dictionnaires sont truthy::
+Les dictionnaires vides sont falsy, et tous les autres dictionnaires sont truthy : ::
 
    mon_dico = {"a": 1, "b": 2}
    if mon_dico:
@@ -21,10 +21,10 @@ Les dictionnaires vides sont falsy, et tous les autres dictionnaires sont truthy
    # affiche: mon_autre_dico est vide
 
 Test d'appartenance
----------------------
+-------------------
 
-On peut vérifier si une clé est présente dans un dictionnaires avec
-le mot clé ``in``, un peu comme pour le listes::
+On peut vérifier si une clé est présente dans un dictionnaire avec
+le mot clé ``in``, un peu comme pour les listes : ::
 
     scores = {"john": 10, "bob": 42}
     print("john" in scores)
@@ -34,12 +34,11 @@ le mot clé ``in``, un peu comme pour le listes::
     # affiche: False
 
 
-
 Comparaisons de dictionnaires
 -----------------------------
 
 Deux dictionnaires sont considérés égaux s'ils ont les mêmes clés
-et les mêmes valeurs. L'ordre n'importe pas::
+et les mêmes valeurs. L'ordre n'a pas d'importance : ::
 
     {"a":1, "b":2} == {"a":1, "b":2}  # True
     {"a":1, "b":2} == {"b":2, "a":1}  # True
