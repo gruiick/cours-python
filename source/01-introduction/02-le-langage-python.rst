@@ -4,37 +4,37 @@ Présentation du langage Python
 Utilisation de Python
 ----------------------
 
-* Aussi appelé "langage de script", `glue language`
+* Aussi appelé "langage de script", `glue language`.
 
-* Bon partout, excellent nulle part
+* Bon partout, excellent nulle part.
 
 * Exemples d'utilisation :
 
-    * Sciences (physique, chimie, linguistique ...)
-    * Animation (Pixar, Disney ...)
-    * Sites web (journaux, youtube, ...)
-    * Ligne de commande
+    * sciences (physique, chimie, linguistique ...) ;
+    * animation (Pixar, Disney ...) ;
+    * sites web (journaux, youtube, ...) ;
+    * ligne de commande ;
     * ...
 
 Petit détour: version d'un programme
 ------------------------------------
 
-* Comme les versions d'un document
-* Si le nombre est plus grand, c'est plus récent
-* Souvent en plusieurs morceaux : `1.3, 1.4, 3.2.5`. etc
+* Comme les versions d'un document.
+* Si le nombre est plus grand, c'est plus récent.
+* Souvent en plusieurs morceaux : `1.3, 1.4, 3.2.5`. etc.
 * Plus l'écart est grand, plus le programme a changé.
-    * `3.2.5 -> 3.2.6`: pas grand-chose
-    * `1.5.1 -> 4.3`: beaucoup de changements
-* On omet souvent le reste des chiffres quand ce n'est pas nécessaire
+    * `3.2.5 -> 3.2.6`: pas grand-chose ;
+    * `1.5.1 -> 4.3`: beaucoup de changements ;
+* On omet souvent le reste des chiffres quand ce n'est pas nécessaire.
 
 Historique
 ----------
 
 * Créé par Guido van Rossum. Conçu à la base pour l'enseignement.
-* Le nom vient des Monty Python (si, si)
-* Python 1: Sortie en 1991
-* Python 2: en 2000
-* Python 3: en 2008
+* Le nom vient des Monty Python (si, si).
+* Python 1 : Sortie en 1991.
+* Python 2 : en 2000.
+* Python 3 : en 2008.
 
 Le grand schisme
 ----------------
