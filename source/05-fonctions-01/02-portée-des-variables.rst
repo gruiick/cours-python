@@ -3,7 +3,7 @@
 Portée des variables
 ====================
 
-Les arguments d'une fonction n'existent que dans le corps de celle-ci::
+Les arguments d'une fonction n'existent que dans le corps de celle-ci : ::
 
     def dire_bonjour(prénom):
         print("Bonjour " + prénom)
@@ -12,7 +12,7 @@ Les arguments d'une fonction n'existent que dans le corps de celle-ci::
     print(prénom)  # Erreur
 
 
-Les variables en dehors des fonctions sont disponibles partout::
+Les variables définies en dehors du corps des fonctions sont disponibles partout : ::
 
     salutation = "Bonjour "
 
@@ -21,7 +21,7 @@ Les variables en dehors des fonctions sont disponibles partout::
 
     dire_bonjour("Dimitri")
 
-Une variable peut avoir en "cacher" une autre si elle a une portée différente::
+Une variable peut avoir en "cacher" une autre si elle a une portée différente : ::
 
 
     prénom = "Dimitri"   # portée: dans tout le programme
