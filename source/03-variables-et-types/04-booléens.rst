@@ -44,18 +44,18 @@ Par exemple::
     Ne pas confondre ``==`` pour la comparaison et ``=`` pour l'assignation
 
 Notez que deux valeurs avec des *types* différents sont en général considérés
-comme différents::
+comme différents : ::
 
     1 == "1"  # False
 
 Cette règle admet des exceptions, par exemple un flottant peut être égal
-à un entier::
+à un entier : ::
 
     1 == 1.0  # True
 
 
 Autres opérations booléennes
------------------------------
+----------------------------
 
 +-------+-----------+
 |``not``| négation  |
@@ -65,7 +65,7 @@ Autres opérations booléennes
 |``or`` | ou        |
 +-------+-----------+
 
-Exemples::
+Exemples : ::
 
     a = not True
     print(a)
