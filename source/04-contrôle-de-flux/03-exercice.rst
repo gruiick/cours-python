@@ -12,18 +12,18 @@ Chaque exercice comporte une suite de consignes, et quelques indices.
 Consignes
 ---------
 
-Il vous faut implémenter le programme suivant:
+Il vous faut implémenter le programme suivant :
 
-1. Tirer un nombre au hasard entre 1 et 100 (appelons-le le ``nombre_secret``)
-2. Démarrer une boucle
-3. À chaque étape:
+1. Tirer un nombre au hasard entre 1 et 100 (appelons-le le ``nombre_secret``).
+2. Démarrer une boucle.
+3. À chaque étape :
 
-   * Afficher "Devine le nombre secret"
-   * Bloquer le programme jusqu'à ce que l'utilisateur entre un nombre
-     et appuie sur entrée (appelons-le ``entrée_utilisateur``)
-   * Si l'entrée utilisateur est plus grande que le nombre secret, afficher "trop grand".
-   * Si l'entrée utilisateur est plus petite que le nombre secret, afficher "trop petit"
-   * Si l'entrée utilisateur est égale au nombre secret, afficher "gagné!" et quitter la boucle.
+   * afficher "Devine le nombre secret" ;
+   * bloquer le programme jusqu'à ce que l'utilisateur entre un nombre
+     et appuie sur entrée (appelons-le ``entrée_utilisateur``) ;
+   * si l'entrée utilisateur est plus grande que le nombre secret, afficher "trop grand" ;
+   * si l'entrée utilisateur est plus petite que le nombre secret, afficher "trop petit" ;
+   * si l'entrée utilisateur est égale au nombre secret, afficher "gagné!" et quitter la boucle.
 
 
 Indices
@@ -33,20 +33,20 @@ Lire une entrée utilisateur
 +++++++++++++++++++++++++++
 
 Pour bloquer le programme et lire une entrée utilisateur, vous pouvez
-utiliser la ligne suivante::
+utiliser la ligne suivante : ::
 
     entrée_utilisateur = input()
 
-Cette instruction va:
-    * interrompre le script
-    * lire ce que l'utilisateur tape jusqu'à ce qu'il tape "entrée".
+Cette instruction va :
+    * interrompre le script ;
+    * lire ce que l'utilisateur tape jusqu'à ce qu'il tape "entrée" ;
     * et assigner la valeur correspondante à la variable ``entrée_utilisateur``.
 
 Tirer un nombre au hasard
 +++++++++++++++++++++++++
 
 Pour tirer un nombre au hasard entre 1 et 100, vous pouvez
-utiliser les deux lignes suivantes::
+utiliser les deux lignes suivantes : ::
 
    import random
    nombre_secret = random.randint(0, 100)
@@ -66,13 +66,13 @@ Si vous lancez `python3 devine-nombre.py` vous constaterez que le jeu
 est très difficile parce que le programme affiche simplement "mauvaise
 réponse" en boucle jusqu'à ce que l'utilisateur devine le nombre secret.
 
-Le but est de modifier le code pour implémenter correctement le programme,
+Votre but est de modifier le code pour implémenter correctement le programme,
 et ainsi rendre le jeu jouable :)
 
 Obtenir de l'aide
 ------------------
 
 Si vous lisez ceci en dehors d'un cours et que vous êtes coincés,
-n'hésitez pas `à me contacter <https://dmerej.info/blog/fr/pages/about/>`.
+n'hésitez pas `à me contacter <https://dmerej.info/blog/fr/pages/about/>`_.
 
 Bon courage !
