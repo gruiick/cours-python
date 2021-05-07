@@ -3,7 +3,7 @@ Relation avec les strings
 
 Les strings sont aussi des listes (presque).
 
-On peut itérer sur les *caractères* d'une string::
+On peut itérer sur les *caractères* d'une string : ::
 
     for c in "vache":
         print(c)
@@ -16,7 +16,7 @@ On peut itérer sur les *caractères* d'une string::
    h
    e
 
-On peut tester si un caractère est présent::
+On peut tester si un caractère est présent : ::
 
     print("e" in "vache")
     # affiche: True
@@ -26,12 +26,12 @@ On peut tester si un caractère est présent::
 
 
 Notez qu'on peut aussi utiliser ``in`` pour tester si
-une chaîne de caractères est contenue dans une autre::
+une chaîne de caractères est contenue dans une autre : ::
 
     print("ch" in "vache")
     # affiche: True
 
-On peut indexer une string::
+On peut indexer une string : ::
 
    prénom = "Charlotte"
    l = prénom[0]
@@ -39,7 +39,7 @@ On peut indexer une string::
    # affiche: "C"
 
 Mais on ne peut pas modifier une string en utilisant
-l'indexation::
+l'indexation : ::
 
    prénom = "Charlotte"
    prénom[0] = "X"

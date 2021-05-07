@@ -2,9 +2,9 @@ Itération
 =========
 
 Itérer sur les éléments d'une liste
-------------------------------------
+-----------------------------------
 
-Avec les mots-clés ``for`` et ``in``::
+Avec les mots-clés ``for`` et ``in`` : ::
 
    prénoms = ["Alice", "Bob", "Charlie"]
    for prénom in prénoms:
@@ -21,7 +21,7 @@ Avec les mots-clés ``for`` et ``in``::
 break
 -----
 
-Comme pour les boucles `while`, on peut interrompre la boucle `for` avec `break`::
+Comme pour les boucles ``while``, on peut interrompre la boucle ``for`` avec ``break`` : ::
 
    prénoms = ["Alice", "Bob", "Charlie"]
    for prénom in prénoms:
@@ -38,7 +38,7 @@ continue
 --------
 
 On peut interrompre l'exécution *du bloc courant* (et uniquement le
-bloc courant)  avec le mot-clé ``continue``::
+bloc courant) avec le mot-clé ``continue`` : ::
 
    prénoms = ["Alice", "Bob", "Charlie"]
    for prénom in prénoms:

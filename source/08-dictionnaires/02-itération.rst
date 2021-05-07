@@ -4,7 +4,7 @@ Itération et dictionnaires
 Itérer sur les clés
 -------------------
 
-Avec ``for ... in ...``, comme pour les listes::
+Avec ``for ... in ...``, comme pour les listes : ::
 
     scores = {"john": 10, "bob": 42}
     for nom in scores:
