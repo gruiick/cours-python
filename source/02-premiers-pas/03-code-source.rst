@@ -2,7 +2,7 @@ Code source
 ===========
 
 Définition
------------------------
+----------
 
 Aussi appelé: "code source", ou "source".
 
@@ -10,10 +10,10 @@ L'essence du logiciel libre :)
 
 
 Notre premier fichier source
------------------------------
+----------------------------
 
 
-Insérez le code suivant dans votre éditeur de texte
+Insérez le code suivant dans votre éditeur de texte :
 
 .. code-block:: python
 
@@ -24,7 +24,7 @@ Insérez le code suivant dans votre éditeur de texte
 
 Oui, juste ces deux lignes.
 
-Sauvegardez dans un fichier `bonjour.py` dans `Documents/python` par exemple
+Sauvegardez dans un fichier `bonjour.py` dans `Documents/python` par exemple.
 
 
 Lancer du code en ligne de commande
@@ -49,7 +49,7 @@ Si tout se passe bien, vous devrez voir s'afficher ceci :
 
 Vous savez maintenant comment exécuter du code Python dans n'importe quel fichier :
 
-1. Écrire le code dans un fichier
+1. Écrire le code dans un fichier ;
 2. Se rendre dans le répertoire contenant le fichier et lancer `python3`  (ou `python`) suivi du nom du fichier.
 
 print()
