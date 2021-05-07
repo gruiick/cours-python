@@ -8,7 +8,7 @@ Si on rajoute un bloc ``else`` après le ``except``, le bloc n'est éxécuté qu
 *aucune* exception n'a été levée::
 
     try:
-    	tente_un_truc_risqué()
+        tente_un_truc_risqué()
     except (ZeroDivisionError, FileNotFoundError):
         print("raté")
     else:
@@ -25,7 +25,7 @@ qui aurait été utilisé dans le bloc ``try``::
     personnage = Personnage()
     try:
         personnage.entre_en_scène()
-    	personnage.tente_un_truc_risqué()
+        personnage.tente_un_truc_risqué()
     except ZeroDivisionError:
         print("raté")
     finally:
