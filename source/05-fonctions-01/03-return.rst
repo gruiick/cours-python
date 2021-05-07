@@ -1,5 +1,5 @@
 Valeur de retour d'une fonction
-=================================
+===============================
 
 On peut également appeler une fonction dans une expression
 à droite d'une assignation de variable.
@@ -19,7 +19,7 @@ Par exemple::
 
 Ici, on peut dire que `42` est le *résultat* de l'appel de la fonction `retourne_42()`.
 
-On peut utiliser `if` avec plusieurs `return` pour changer le résultat d'une fonction::
+On peut utiliser `if` avec plusieurs `return` pour changer le résultat d'une fonction : ::
 
     def peut_conduire(âge):
         if âge < 18:
