@@ -1,5 +1,5 @@
 Contrôle de flux
-=================
+================
 
 Pour l'instant, toutes les instructions que nous avons
 écrites ont été exécutée une par une et dans l'ordre
@@ -8,7 +8,7 @@ d'apparition dans le code source.
 De plus, chaque ligne était constituée d'une unique expression.
 
 Modifier l'ordre d'exécution de ces instructions s'appelle le *contrôle de
-flux*, et c'est l'essence de la programmation !
+flux*, et c'est l'essence même de la programmation !
 
 
 if
@@ -28,7 +28,7 @@ est fausse.
 
 Notes:
 
-* il y a le caractère ``:`` (deux points) à la fin de la ligne
+* il y a le caractère ``:`` (deux points) à la fin de la ligne ;
 * le code en-dessous du ``if`` commence par 4 espaces : on appelle
   cela une *indentation*.
 
@@ -136,7 +136,7 @@ le programme.
 
 
 Combiner while, if, et break
------------------------------
+----------------------------
 
 On peut "sortir" de la boucle ``while`` avec le mot-clé ``break`` : ::
 
