@@ -1,22 +1,22 @@
 Fonctions natives
 =================
 
-Fonctions qui sont toujours présentes dans l'interpréteur. On en a déjà vu quelques unes:
+Fonctions qui sont toujours présentes dans l'interpréteur. On en a déjà vu quelques unes :
 
-* ``print``, ``input``: écrire et lire sur la ligne de commande
-* ``str``, ``int``: convertir des entiers en strings et vice-versa
+* ``print()``, ``input()`` : écrire et lire sur la ligne de commande ;
+* ``str()``, ``int()`` : convertir des entiers en strings et vice-versa.
 
-Il y en a tout un tas!
+Il y en a tout un tas !
 
-La liste ici:  https://docs.python.org/fr/3/library/functions.html
+La liste ici :  https://docs.python.org/fr/3/library/functions.html
 
 Retour sur print
 ----------------
 
-On peut passer autant d'arguments qu'on veut à ``print`` et:
+On peut passer autant d'arguments qu'on veut à ``print()`` et :
 
-* Il les sépare par des espaces
-* Ajoute un retour à la ligne à la fin::
+* il les sépare par des espaces ;
+* ajoute un retour à la ligne à la fin : ::
 
     prénom = "Charlotte"
     print("Bonjour", pŕenom)
@@ -28,7 +28,7 @@ On peut passer autant d'arguments qu'on veut à ``print`` et:
     Ça va ?
 
 
-On peut demander à `print` de changer son séparateur::
+On peut demander à ``print()`` de changer son séparateur : ::
 
     a = "chauve"
     b = "souris"
@@ -38,7 +38,7 @@ On peut demander à `print` de changer son séparateur::
 
     chauve-souris
 
-Ou de changer le caractère de fin::
+Ou de changer le caractère de fin : ::
 
     print("Ceci tient", end="")
     print("sur une seule ligne")

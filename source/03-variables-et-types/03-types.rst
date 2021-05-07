@@ -18,8 +18,8 @@ d'un côté et un entier de l'autre : ::
    # TypeError: can only concatenate str (not "int") to str
 
 
-Ceci est notre premier message d'erreur: si l'interpréteur est incapable
-d'éxécuter une instruction, il affiche un message d'erreur et s'interrompt
+Ceci est notre premier message d'erreur : si l'interpréteur est incapable
+d'exécuter une instruction, il affiche un message d'erreur et s'interrompt
 immédiatement.
 
 
