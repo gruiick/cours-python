@@ -6,9 +6,9 @@ Consignes
 
 Le but de l'exercice est d'implémenter un convertisseur d'unités de distance.
 
-Il faut être capable de convertir des kilomètres, des milles, des yards, etc..
+Il faut être capable de convertir des kilomètres, des milles, des yards, etc.
 
-Le programme doit s'utiliser comme suit:
+Le programme doit s'utiliser comme suit :
 
 .. code-block:: console
 
@@ -17,10 +17,10 @@ Le programme doit s'utiliser comme suit:
 Il y a trois "mots" après le nom du fichier, séparés par des espaces.
 On appelle ces mots les "arguments" du programme.
 
-Ici, ``1`` est la valeur de départ, ``km`` l'abréviation de l'unité d'arrivée
+Ici, ``1`` est la valeur de départ, ``km`` l'abréviation de l'unité de départ 
 et ``mi`` l'abréviation de l'unité d'arrivée.
 
-Voici un tableau pour vous aider:
+Voici un tableau pour vous aider :
 
 
 =========   ============    ================
@@ -33,10 +33,9 @@ yard        yd               0.9144
 =========   ============    ================
 
 Squelette
-----------
+---------
 
-Vous pouvez partir du code suivant:
-
+Vous pouvez partir du code suivant :
 
 
 .. literalinclude:: /extraits/convertisseur.py
@@ -57,4 +56,4 @@ Pour terminer l'exercice, vous n'avez besoin que de modifier les
 fonctions ``trouver_coefficient()``, ``conversion_en_mètres()`` et
 ``conversion_depuis_mètres()``.
 
-À vous de jouer!
+À vous de jouer !
