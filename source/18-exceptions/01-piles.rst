@@ -5,7 +5,7 @@ Reprenons un exemple de code qui provoque une erreur, par exemple en essayant
 de diviser par zéro::
 
   def mauvaise_fonction():
-  	return 1 / 0
+      return 1 / 0
 
   def fonction_intermédiaire():
       mauvaise_fonction()

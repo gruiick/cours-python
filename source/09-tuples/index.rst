@@ -139,11 +139,11 @@ Pour simplifier des conditions::
        ma_valeur == "sud" or
        ma_valeur == "ouest" or
        ma_valeur == "est"):
-       		print("direction", ma_valeur)
+               print("direction", ma_valeur)
 
     # Après:
     if ma_valeur in ("nord", "sud", "est", "ouest"):
-       		print("direction", ma_valeur)
+               print("direction", ma_valeur)
 
 Pour retourner plusieurs valeurs::
 
