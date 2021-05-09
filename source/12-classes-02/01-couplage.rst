@@ -9,10 +9,10 @@ Un couplage décrit une relation entre deux classes.
 Exemple
 -------
 
-Ici on veut représenter des chats et des humains qui adoptent (on non) des chats.
+Ici on veut représenter des chats et des humains qui adoptent (ou non) des chats.
 Tous les chats ont un nom, et tous les humains ont un prénom.
 
-On peut utiliser pour cela deux classes: `Chat` et `Humain`::
+On peut utiliser pour cela deux classes : ``Chat`` et ``Humain``. ::
 
     class Chat:
         def __init__(self, nom):
@@ -31,11 +31,10 @@ On peut utiliser pour cela deux classes: `Chat` et `Humain`::
     # affiche: Alice
 
 Maintenant on veut que les humains puissent adopter des chats.
-Pour cela, on peut rajouter la méthode ``adopte`` dans la classe
+Pour cela, on peut ajouter la méthode ``adopte()`` dans la classe
 ``Humain``.
 
-Cette méthode va prendre un argument - une instance de la
-classe ``Chat``::
+Cette méthode va prendre un argument, une instance de la classe ``Chat`` : ::
 
     class Humain:
         def __init__(self,  prénom):
@@ -49,8 +48,8 @@ classe ``Chat``::
     alice.adopte(boule_de_poils)
     # affiche: "Alice adopte un chat"
 
-On peut accéder au nom du chat depuis la méthode ``adopte``,
-en utilisant la syntaxe ``nom.attribut`` vue précédemment::
+On peut accéder au nom du chat depuis la méthode ``adopte()``,
+en utilisant la syntaxe ``nom.attribut`` vue précédemment : ::
 
     class Humain:
         def __init__(self,  prénom):
@@ -75,9 +74,9 @@ Couplage
            print(self.prénom, "adopte", chat.nom)
 
 Notez également que nous avons écrit ``chat.nom``. ainsi, la méthode ``adopte()``
-ne peut être appelée que part une instance qui a un attribut ``nom`` - sinon
+ne peut être appelée que par une instance qui a un attribut ``nom``, sinon
 on aura une erreur.
 
 Donc si on modifie la classe ``Chat`` et qu'on renomme l'attribut ``nom`` en ``surnom`` par exemple,
-la méthode ``adopte()`` de la classe ``Humain`` cessera de fonctionner: on dit
+la méthode ``adopte()`` de la classe ``Humain`` cessera de fonctionner : on dit
 qu'on a un *couplage* entre les classes ``Chat`` et ``Humain``.

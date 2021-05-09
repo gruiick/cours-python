@@ -1,16 +1,16 @@
 Composition
-============
+===========
 
 
 Définition
------------
+----------
 
 Une classe à l'intérieur d'une autre classe.
 
 Dépendances entre fonctions
------------------------------
+---------------------------
 
-Exemple ::
+Exemple : ::
 
     def calcule_x():
         ...
@@ -24,7 +24,6 @@ Exemple ::
     fait_un_truc_avec_x(x)
 
 
-
 On voit que la fonction ``fait_un_truc_avec_x()`` prend un argument ``x``, qui est retourné
 par la fonction ``calcule_x()``.
 
@@ -36,20 +35,20 @@ Dépendances entre classes
 
 Un bon moyen d'introduire une dépendance entre deux classes est d'utiliser les constructeurs.
 
-Revoyons la classe Chat::
+Revoyons la classe Chat : ::
 
    class Chat:
        def __init__(self, nom):
-           self.nom = nome
+           self.nom = nom
 
 Comme le constructeur de la classe Chat prend un nom en argument, il est impossible de construire
-des chats sans nom::
+des chats sans nom : ::
 
     chat = Chat()
     # erreur: TypeError: __init__() missing 1 required positional argument: 'nom'
 
 De la même façon, si on veut que tous les enfants aient un chat (pourquoi pas, après tout), on peut
-avoir une classe Enfant, dont le constructeur prend une instance de chat en plus du prénom::
+avoir une classe Enfant, dont le constructeur prend une instance de chat en plus du prénom : ::
 
     class Enfant:
         def __init__(self, prénom, chat):
@@ -70,7 +69,7 @@ Maintenant qu'on vit dans un monde où tous les enfants ont chacun un chat, on p
 par exemple consoler tous les enfants en leur demandant de caresser leur chat, chat
 qui va ronronner et faire plaisir à son propriétaire.
 
-voici comment on peut coder cela: d'abord, on rajoute les méthodes ``caresse()``
+voici comment on peut coder cela : d'abord, on rajoute les méthodes ``caresse()``
 et ``ronronne()`` dans la classe chat::
 
     class Chat:
@@ -89,10 +88,10 @@ et ``ronronne()`` dans la classe chat::
     # affiche: Boule de Poils fait "prrrrr"
 
 Ensuite, on peut rajouter la méthode ``console()`` dans la classe Enfant,
-qui va:
+qui va :
 
-* récupérer l'instance de la classe Chat dans ``self`` - comme n'importe quel attribut
-* puis appeler la méthode ``caresse()`` de cette instance::
+* récupérer l'instance de la classe Chat dans ``self``, comme n'importe quel attribut ;
+* puis appeler la méthode ``caresse()`` de cette instance : ::
 
     class Enfant:
         def __init__(self, prénom, chat):
@@ -104,13 +103,13 @@ qui va:
 
 
 Si on combine ces deux classes dans le même morceau de code et qu'on
-exécute les instructions suivantes::
+exécute les instructions suivantes : ::
 
     boule_de_poils = Chat("Boule de Poils")
     alice = Enfant("Alice", boule_de_poils)
     alice.console()
 
-On afffichera ```Boule de Poils fait "prrr"`` et alice sera consolée.
+On affichera ```Boule de Poils fait "prrr"`` et Alice sera consolée.
 
 On dit parfois qu'on a *délégué* l'implémentation de la méthode ``console()`` de la classe Enfant
 à la méthode ``caresse()`` de la classe Chat.

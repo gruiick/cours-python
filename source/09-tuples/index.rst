@@ -1,28 +1,30 @@
 Chapitre 9 - Tuples
-====================
+===================
 
 Définition
-------------
+----------
 
-Un tuple est un ensemble *ordonné* et *immuable* d'éléments. Le nombre, l'ordre et la valeur des éléments sont fixes.
+Un tuple est un ensemble *ordonné* et *immuable* d'éléments (il est aussi 
+appelé *n-uplet* dans la documentation Python). Le nombre, l'ordre et la 
+valeur des éléments sont fixes.
 
 Création de tuples
 ------------------
 
-Avec des parenthèses::
+Avec des parenthèses : ::
 
     tuple_vide = ()
-    tuple_à_un_élement = 1,)   # notez la virgule
+    tuple_à_un_élement = (1,)   # notez la virgule
     tuple_à_deux_éléments = (1, 2)   # on dit aussi: "couple"
 
-Sauf pour le tuple vide, c'est la *virgule* qui fait le tuple
+**Sauf** pour le tuple vide, c'est la *virgule* qui fait le tuple.
 
-Note: tous les tuples sont truthy, sauf les tuples vides.
+Note : tous les tuples sont truthy, sauf les tuples vides.
 
 Tuples hétérogènes
--------------------
+------------------
 
-Comme les listes, les tuples peuvent contenir des éléments de types différents::
+Comme les listes, les tuples peuvent contenir des éléments de types différents : ::
 
     # Un entier et une string
     mon_tuple = (42, "bonjour")
@@ -33,7 +35,7 @@ Comme les listes, les tuples peuvent contenir des éléments de types différent
 Accès
 -----
 
-Avec ``[]`` et l'index de l'élément dans le tuple::
+Avec ``[]`` et l'index de l'élément dans le tuple : ::
 
     mon_tuple = (42, "bonjour")
     print(mon_tuple[0])
@@ -45,7 +47,7 @@ Avec ``[]`` et l'index de l'élément dans le tuple::
 Modification
 ------------
 
-Interdit::
+C'est *interdit* : ::
 
     mon_tuple = (42, "bonjour")
     mon_tuple[0] = 44
@@ -55,7 +57,7 @@ Interdit::
 Test d'appartenance
 -------------------
 
-Avec ``in``::
+Avec ``in`` : ::
 
    mon_tuple = (42, 14)
    print(42 in mon_tuple)
@@ -67,10 +69,10 @@ Avec ``in``::
    print(13 in mon_tuple)
    # affiche: False
 
-Déstructuration
-----------------
+Dissociation
+------------
 
-Créer plusieurs variables en une seule ligne::
+Créer plusieurs variables, à partir d'un tuple, en une seule ligne : ::
 
     couple = ("Batman", "Robin")
     héros, side_kick = couple
@@ -104,15 +106,15 @@ Pièges
    f(a, b, c)   # appelle f() avec trois arguments
 
    f((a, b, c)) # appelle f() avec un seul argument
-                # (qui est lui-même un tuple à 3 valeurs)
+                # (qui est lui-même un tuple de 3 valeurs)
 
    f(())        # appelle f() avec un tuple vide
 
 
-   (a)      # juste la valeur de a entre parenthèses
+   (a)      # juste la variable a entre parenthèses
    (a,)     # un tuple à un élément, qui vaut la valeur de a
 
-On peut aussi déstructurer des listes::
+On peut aussi déstructurer des listes : ::
 
     fruits = ["pomme", "banane", "orange"]
     premier, deuxième, troisième = fruits
@@ -126,12 +128,12 @@ On peut aussi déstructurer des listes::
     print(troisième)
     # affiche: orange
 
-On dit aussi: *unpacking*
+On dit aussi *dissociation* ou *unpacking*.
 
 Utilisations des tuples
-------------------------
+-----------------------
 
-Pour simplifier des conditions::
+Pour simplifier des conditions : ::
 
     # Avant:
     if (
@@ -145,7 +147,7 @@ Pour simplifier des conditions::
     if ma_valeur in ("nord", "sud", "est", "ouest"):
                print("direction", ma_valeur)
 
-Pour retourner plusieurs valeurs::
+Pour retourner plusieurs valeurs : ::
 
     def tire_carte():
         valeur = "10"
@@ -156,4 +158,4 @@ Pour retourner plusieurs valeurs::
     print(v, "de", c)
     # affiche: 10 de trèfle
 
-Ce n'est pas une nouvelle syntaxe, juste de la manipulation de tuples!
+Ce n'est pas une nouvelle syntaxe, juste de la manipulation de tuples !

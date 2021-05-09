@@ -3,21 +3,21 @@ Bienvenue
 
 Ce cours est destiné à toute personne qui voudrait découvrir la
 programmation en général et le langage Python en particulier - il est
-également disponible en pdf à l'adresse: https://dmerej.info/python/cours-python.pdf
+également disponible en pdf à l'adresse : `<https://dmerej.info/python/cours-python.pdf>`_
 
 Le pdf comme le site sont régulièrement mis à jour, et les sources sont
 disponibles publiquement sur `sourcehut <https://git.sr.ht/~dmerej/cours-python>`_.
 
-J'espère qu'il vous plaira! Sinon, n'hésitez pas à vous rendre sur `ma
+J'espère qu'il vous plaira ! Sinon, n'hésitez pas à vous rendre sur `ma
 page de contact <https://dmerej.info/blog/fr/pages/about>`_ pour me
 faire part de vos remarques.
 
-Enfin, notez que ce cours est  placé sous licence `CC BY 4.0
+Enfin, notez que ce cours est placé sous licence `CC BY 4.0
 <https://creativecommons.org/licenses/by/4.0/deed.fr>`_, ce qui
 signifie que vous pouvez le partager et le modifier comme bon vous semble,
 à la seule condition de me créditer de façon appropriée.
 
-Bonne lecture!
+Bonne lecture !
 
 .. toctree::
    :maxdepth: 1
