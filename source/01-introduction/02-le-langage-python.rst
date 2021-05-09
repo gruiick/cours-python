@@ -41,7 +41,7 @@ Le grand schisme
 
 La plupart des langages continuent à être compatibles d'une version à l'autre.
 
-*Ce n'est pas le cas pour Python3*, et cela a causé beaucoup de confusion et de débats.
+**Ce n'est pas le cas pour Python3**, et cela a causé beaucoup de confusion et de débats.
 
 Heureusement, 10 ans plus tard, la situation s'est arrangée, et Python2 a cessé d'être maintenu le premier janvier 2020.
 
@@ -50,4 +50,4 @@ Python3
 
 Ce cours fonctionne donc uniquement avec Python3.
 
-N'utilisez *pas* Python2, sinon certaines choses expliquées ici ne fonctionneront pas :/
+N'utilisez **pas** Python2, sinon certaines choses expliquées ici ne fonctionneront pas :/
