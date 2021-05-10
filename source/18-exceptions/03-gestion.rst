@@ -5,7 +5,7 @@ Bloc try/except
 ---------------
 
 On peut *gérer* (ou *attraper*) une exception en utilisant un bloc
-``try/except`` et le nom d'une classe d'exception::
+``try/except`` et le nom d'une classe d'exception : ::
 
 
     try:
@@ -13,11 +13,11 @@ On peut *gérer* (ou *attraper*) une exception en utilisant un bloc
     except ZeroDivisionError:
         print("Quelqu'un a essayé de diviser par zéro!")
 
-   # Affiche: Quelqu'un a essayé de diviser par zéro!
+    # affiche: Quelqu'un a essayé de diviser par zéro!
 
-À noter : le bloc dans ``try`` s'interrompt dès que l'exception est levée,
-et on ne passe dans le bloc ``except`` que si une exception a effectivement
-été levée.
+À noter : Le bloc dans ``try`` s'interrompt **dès** qu'une exception est levée,
+et on ne passe dans le bloc ``except`` que **si** une exception est effectivement 
+levée.
 
 .. code-block:: python
 
@@ -27,14 +27,14 @@ et on ne passe dans le bloc ``except`` que si une exception a effectivement
         z = x / y
         print("z vaut", z)
     except ZeroDivisionError:
-        print("Ouelqu'un a essayé de diviser par zéro!")
+        print("Quelqu'un a essayé de diviser par zéro!")
 
-   # Affiche: Ouelqu'un a essayé de diviser par zéro!
+    # affiche: Quelqu'un a essayé de diviser par zéro!
 
 
-Notez que la ligne ``print("z vaut", z)`` n'as pas été exécutée.
+Notez que la ligne ``print("z vaut", z)`` n'a pas été exécutée.
 
-Autr exemple:
+Autre exemple :
 
 
 .. code-block:: python
@@ -45,20 +45,21 @@ Autr exemple:
         z = x / y
         print("z vaut", z)
     except ZeroDivisionError:
-        print("Ouelqu'un a essayé de diviser par zéro!")
+        print("Quelqu'un a essayé de diviser par zéro!")
 
-   # Affiche: 'z vaut 7.0'
+    # affiche: 'z vaut 7.0'
 
-Notez que la ligne ``print("Ouelqu'un a essayé de diviser par zéro!")`` n'as pas été exécutée.
+Notez que la ligne ``print("Quelqu'un a essayé de diviser par zéro!")`` n'a pas 
+été exécutée.
 
 Gestion de plusieurs exceptions
---------------------------------
+-------------------------------
 
 Le mot après ``except`` doit être celui d'une classe, et l'exception n'est gérée
-que si sa classe est **égale ou une fille** de celle ci.
+que si sa classe est **égale ou une fille** de celle-ci.
 
 Par exemple, ceci fonctionne car ``ZeroDivisionError`` est bien une fille
-de la classe ``ArithmeticError``::
+de la classe ``ArithmeticError`` : ::
 
     x = 14
     y = 0
@@ -66,36 +67,36 @@ de la classe ``ArithmeticError``::
         z = x / y
         print("z vaut", z)
     except ArithmeticError:
-        print("Ouelqu'un a essayé une opération impossible")
+        print("Quelqu'un a essayé une opération impossible")
 
 
-On peut aussi mettre plusieurs blocs de ``except``::
+On peut aussi mettre plusieurs blocs de ``except`` : ::
 
 
-  try:
-      tente_un_truc_risqué()
-  except ZeroDivisionError:
-      print("raté : division par zéro!")
-  except FileNotFoundError:
-      print("raté : fichier non trouvé")
+    try:
+        tente_un_truc_risqué()
+    except ZeroDivisionError:
+        print("raté : division par zéro!")
+    except FileNotFoundError:
+        print("raté : fichier non trouvé")
 
-Ou gérer des exception de classes différentes avec le même bloc::
+Ou gérer des exceptions de classes différentes avec le même bloc : ::
 
-  try:
-      tente_un_truc_risqué()
-  except (ZeroDivisionError, FileNotFoundError)
-      print("raté!")
+    try:
+        tente_un_truc_risqué()
+    except (ZeroDivisionError, FileNotFoundError)
+        print("raté!")
 
 Accéder à la valeur de l'exception
------------------------------------
+----------------------------------
 
-On peut récupérer l'instance de l'exception levée avec le mot-clé ``as``::
+On peut récupérer l'instance de l'exception levée avec le mot-clé ``as`` : ::
 
-  try:
-      ouvrir_fichier()
-  except FileNotFoundError as e:
-      print("le fichier: ", e.filename, "n'existe pa")
+    try:
+        ouvrir_fichier()
+    except FileNotFoundError as e:
+        print("le fichier: ", e.filename, "n'existe pas")
 
 
 Ici on utilise l'attribut ``filename`` de la classe ``FileNotFoundError``
-pour afficher un message d'erreur
+pour afficher un message d'erreur.

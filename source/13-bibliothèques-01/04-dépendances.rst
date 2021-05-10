@@ -3,13 +3,13 @@ Dépendances
 
 Prenons une autre bibliothèque : ``cli-ui``.
 
-Elle permet d'afficher du texte en couleur dans un terminal::
+Elle permet d'afficher du texte en couleur dans un terminal : ::
 
    import cli_ui
 
    cli_ui.info("Ceci est en", cli_ui.red, "rouge")
 
-Elle permet également d'afficher des tableaux en couleur::
+Elle permet également d'afficher des tableaux en couleur : ::
 
     headers=["name", "score"]
     data = [
@@ -22,9 +22,10 @@ Pour ce faire, elle repose sur la bibliothèque ``tabulate`` vue
 précédemment. On dit que ``cli-ui`` *dépend* de ``tabulate``.
 
 Déclaration des dépendances
-----------------------------
+---------------------------
 
-La déclaration de la dépendance de ``cli-ui`` vers ``tabulate`` s'effectue également dans le fichier ``setup.py``::
+La déclaration de la dépendance de ``cli-ui`` vers ``tabulate`` s'effectue
+également dans le fichier ``setup.py`` : ::
 
     setup(
       name="cli-ui",
@@ -37,9 +38,10 @@ La déclaration de la dépendance de ``cli-ui`` vers ``tabulate`` s'effectue ég
     )
 
 pypi.org
----------
+--------
 
-On comprend dès lors qu'il doit nécessairement exister un *annuaire* permettant de relier les noms de dépendances à leur code source.
+On comprend dès lors qu'il doit nécessairement exister un *annuaire* permettant
+de relier les noms de dépendances à leur code source.
 
 Cet annuaire, c'est le site `pypi.org <https://pypi.org/>`_. Vous y trouverez
 les pages correspondant à `tabulate <https://pypi.org/project/tabulate/>`_
@@ -48,9 +50,11 @@ et `cli-ui <https://pypi.org/project/python-cli-ui/>`_.
 pip
 ---
 
-``pip`` est un outil qui vient par défaut avec Python3[^4]. Vous pouvez également l'installer grâce au script `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_, en lançant ``python3 get-pip.py --user``.
+``pip`` est un outil qui est fréquemment installé en même temps que l'interpréteur Python. Vous pouvez
+également l'installer séparément grâce au script `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_,
+en lançant ``python3 get-pip.py --user``.
 
-Il est conseillé de *toujours* lancer ``pip`` avec ``python3 -m pip``. De cette
+Il est conseillé de **toujours** lancer ``pip`` avec ``python3 -m pip``. De cette
 façon, vous êtes certains d'utiliser le module ``pip`` correspondant à votre
 binaire ``python3``, et vous ne dépendez pas de ce qu'il y a dans votre ``PATH``.
 
@@ -58,7 +62,7 @@ binaire ``python3``, et vous ne dépendez pas de ce qu'il y a dans votre ``PATH`
 dépendances, et également de lancer les différents scripts ``setup.py``.
 
 Comme de nombreux outils, il s'utilise à l'aide de *commandes*. Voici
-comment installer ``cli-ui`` à l'aide de la commande 'install' de  ``pip``:
+comment installer ``cli-ui`` à l'aide de la commande 'install' de  ``pip`` :
 
 .. code-block:: console
 
@@ -71,21 +75,23 @@ comment installer ``cli-ui`` à l'aide de la commande 'install' de  ``pip``:
    Installing collected packages: cli-ui
    Successfully installed cli-ui-0.9.1
 
-On constate ici quelques limitations de ``pip``:
+On constate ici quelques limitations de ``pip`` :
 
-* Il faut penser à utiliser ``--user`` (de la même façon que lorsqu'on lance ``setup.py`` à la main)
+* Il faut penser à utiliser ``--user`` (de la même façon que lorsqu'on lance
+  ``setup.py`` à la main).
 * Si le paquet est déjà installé dans le système, pip ne saura pas le
-  mettre à jour - il faudra passer par le gestionnaire de paquet de
-  la distribution
+  mettre à jour, il faudra passer par le gestionnaire de paquet de
+  la distribution.
 
-En revanche, `pip` contient de nombreuses fonctionnalités intéressantes:
+En revanche, ``pip`` contient de nombreuses fonctionnalités intéressantes :
 
 * Il est capable de désinstaller des bibliothèques (à condition toutefois
-  qu'elles ne soient pas dans un répertoire système)
+  qu'elles ne soient pas dans un répertoire système).
 * Il est aussi capable d'afficher la liste complète des bibliothèques
-  Python accessibles par l'utilisateur courant avec `freeze`.
+  Python accessibles par l'utilisateur courant avec ``freeze``.
 
-Voici un extrait de la commande ``python3 -m pip freeze`` au moment de la rédaction de cet article sur ma machine:
+Voici un extrait de la commande ``python3 -m pip freeze`` au moment de la
+rédaction de cet article sur ma machine :
 
 .. code-block:: console
 
@@ -96,23 +102,23 @@ Voici un extrait de la commande ``python3 -m pip freeze`` au moment de la rédac
    tabulate==0.8.4
 
 On y retrouve les bibliothèques ``cli-ui`` et ``tabulate``, bien sûr, mais
-aussi la bibliothèque ``gaupol``, qui correspond au [programme d'édition de
-sous-titres](https://otsaloma.io/gaupol/) que j'ai installé à l'aide du
+aussi la bibliothèque ``gaupol``, qui correspond au `programme d'édition de
+sous-titres <https://otsaloma.io/gaupol/>`_ que j'ai installé à l'aide du
 gestionnaire de paquets de ma distribution. Précisons que les modules de
-la bibliothèque standard et ceux utilisés directement par pip sont omis
+la bibliothèque standard et ceux utilisés directement par ``pip`` sont omis
 de la liste.
 
 On constate également que chaque bibliothèque possède un *numéro de version*.
 
 Numéros de version
--------------------
+------------------
 
 Les numéros de version remplissent plusieurs rôles, mais l'un des principaux
 est de spécifier des changements incompatibles.
 
 Par exemple, pour ``cli-ui``, la façon d'appeler la fonction ``ask_choice``
 a changé entre les versions 0.7 et 0.8, comme le montre cet extrait du
-`changelog <https://tankerhq.github.io/python-cli-ui/changelog.html#v0-8-0)>`_:
+`changelog <https://tankerhq.github.io/python-cli-ui/changelog.html#v0-8-0)>`_ :
 
   *The list of choices used by ask_choice is now a named keyword argument:*
 
@@ -126,14 +132,14 @@ a changé entre les versions 0.7 et 0.8, comme le montre cet extrait du
 Ceci s'appelle un *changement d'API*.
 
 Réagir aux changements d'API
------------------------------
+----------------------------
 
-Plusieurs possibilités:
+Plusieurs possibilités :
 
 * On peut bien sûr adapter le code pour utiliser la nouvelle API, mais cela
   n'est pas toujours possible ni souhaitable.
 * Une autre solution est de spécifier des *contraintes* sur le numéro de
-  version dans la déclaration des dépendances. Par exemple::
+  version dans la déclaration des dépendances. Par exemple : ::
 
    setup(
      install_requires=[
@@ -156,7 +162,7 @@ En revanche, si vous lancez ``sudo pip`` (où ``pip`` avec un compte root),
 vous allez écrire dans ces mêmes répertoire et vous risquez de "casser"
 certains programmes de votre système.
 
-Mais il y a un autre problème encore pire.
+Mais il y a un autre problème encore pire...
 
 Conflit de dépendances
 ----------------------

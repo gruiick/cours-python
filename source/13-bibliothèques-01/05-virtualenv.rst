@@ -1,5 +1,5 @@
 Environnements virtuels
-========================
+=======================
 
 La solution est d'utiliser un environnement virtuel (*virtualenv* en
 abrégé). C'est un répertoire *isolé* du reste du système.
@@ -7,7 +7,7 @@ abrégé). C'est un répertoire *isolé* du reste du système.
 
 
 Aparté : python3 -m venv sur Debian
-------------------------------------
+-----------------------------------
 
 La commande `python3 -m venv` fonctionne en général partout, dès
 l'installation de Python3 (*out of the box*, en Anglais), *sauf* sur Debian
@@ -17,7 +17,7 @@ Si vous utilisez Debian, la commande pourrait ne pas fonctionner. En fonction
 des messages d'erreur que vous obtenez, il est possible de résoudre le
 problème en :
 
-* installant le paquet ``python3-venv``,
+* installant le paquet ``python3-venv`` ;
 * ou en utilisant d'abord ``pip`` pour installer ``virtualenv``, avec
   ``python3 -m pip install virtualenv --user`` puis en lançant ``python3 -m
   virtualenv foo-venv``.
@@ -29,7 +29,7 @@ Ce répertoire contient de nombreux fichiers et dossiers, et notamment un
 binaire dans ``foo-venv/bin/python3``.
 
 Voyons comment il se comporte en le comparant au binaire ``/usr/bin/python3``
-habituel:
+habituel :
 
 .. code-block:: console
 
@@ -53,12 +53,12 @@ habituel:
     '/home/dmerej/foo-venv/lib/python3.7/site-packages,
    ]
 
-À noter:
+À noter :
 
-* Le répertoire "global" dans ``~/.local/lib`` a disparu
+* Le répertoire "global" dans ``~/.local/lib`` a disparu.
 * Seuls quelques répertoires systèmes sont présents (ils correspondent
-  plus ou moins à l'emplacement des modules de la bibliothèque standard)
-* Un répertoire *au sein* du virtualenv a été rajouté
+  plus ou moins à l'emplacement des modules de la bibliothèque standard).
+* Un répertoire *au sein* du virtualenv a été ajouté.
 
 Ainsi, l'isolation du virtualenv est reflété dans la différence de la
 valeur de ``sys.path``.
@@ -77,13 +77,13 @@ créés avec l'ancienne version du paquet.
 
 
 Comportement de pip dans le virtualenv
----------------------------------------
+--------------------------------------
 
 D'après ce qui précède, le virtualenv ne devrait contenir aucun module
 en dehors de la bibliothèque standard et de ``pip`` lui-même.
 
 On peut s'en assurer en lançant ``python3 -m pip freeze`` depuis le virtualenv
-et en vérifiant que rien ne s'affiche:
+et en vérifiant que rien ne s'affiche :
 
 .. code-block:: console
 
@@ -120,20 +120,20 @@ Cette fois, aucune bibliothèque n'est marquée comme déjà installée,
 et on récupère donc ``cli-ui`` et toutes ses dépendances.
 
 On a enfin notre solution pour résoudre notre conflit de dépendances :
-on peut simplement créer un virtualenv par projet. Ceci nous permettra
+On peut simplement créer un virtualenv par projet. Ceci nous permettra
 d'avoir effectivement deux versions différentes de ``cli-ui``, isolées les
 unes des autres.
 
 Activer un virtualenv
-----------------------
+---------------------
 
 Devoir préciser le chemin du virtualenv en entier pour chaque commande peut
 devenir fastidieux ; heureusement, il est possible *d'activer* un virtualenv,
 en lançant une des commandes suivantes :
 
-* ``source foo-venv/bin/activate`` - si vous utilisez un shell POSIX
-* ``source foo-venv/bin/activate.fish`` - si vous utilisez Fish
-* ``foo-venv\bin\activate.bat`` - sous Windows
+* ``source foo-venv/bin/activate``, si vous utilisez un shell POSIX ;
+* ``source foo-venv/bin/activate.fish``, si vous utilisez Fish ;
+* ``foo-venv\bin\activate.bat``, sous Windows.
 
 Une fois le virtualenv activé, taper ``python``, ``python3`` ou ``pip`` utilisera
 les binaires correspondants dans le virtualenv automatiquement,
@@ -141,7 +141,7 @@ et ce, tant que la session du shell sera ouverte.
 
 Le script d'activation ne fait en réalité pas grand-chose à part modifier
 la variable ``PATH`` et rajouter le nom du virtualenv au début de l'invite
-de commandes:
+de commandes :
 
 .. code-block:: console
 
@@ -153,34 +153,34 @@ de commandes:
 Pour sortir du virtualenv, entrez la commande ``deactivate``.
 
 Les environnements virtuels en pratique
-----------------------------------------
+---------------------------------------
 
 
 Le système de gestions des dépendances de Python peut paraître compliqué
 et bizarre, surtout venant d'autres langages.
 
-Mon conseil est de toujours suivre ces deux règles:
+Mon conseil est de toujours suivre ces deux règles :
 
-* Un virtualenv par projet
-* Toujours utiliser ``pip`` *depuis* un virtualenv
+* un virtualenv par projet ;
+* toujours utiliser ``pip`` *depuis* un virtualenv.
 
 Certes, cela peut paraître fastidieux, mais c'est une méthode qui vous
 évitera probablement de vous arracher les cheveux (croyez-en mon expérience).
 
 Voici un exemple d'arborescence qui montre deux projets,
 ``projet-1`` et ``projet-2``, chacun avec son virtualenv
-dédié:
+dédié :
 
 .. code-block:: text
 
    projets
    ├── projet-1
-   │   ├── projet_1.py
-   │   └── .venv
-   │       ├── bin
-   │       ├── include
-   │       ├── lib
-   │       └── ...
+   │   ├── projet_1.py
+   │   └── .venv
+   │       ├── bin
+   │       ├── include
+   │       ├── lib
+   │       └── ...
    └── projet-2
        ├── projet_2.py
        └── .venv
@@ -193,11 +193,11 @@ Notez bien que les sources de chaque projet ``projet_1.py`` et ``projet_2.py``
 sont au même niveau que le répertoire ``.venv`` et non à l'intérieur
 de celui-ci.
 
-Vous pouvez aussi retenir la règle suivante : étant donné  un réportoire
+Vous pouvez aussi retenir la règle suivante : étant donné  un répertoire
 "X" contenant les sources d'un projet, les commandes à lancer pour créer
-le virtualenv seront:
+le virtualenv seront :
 
 .. code-block:: console
 
-    cd <X>
-    python3 -m venv .venv
+    $ cd X/
+    $ python3 -m venv .venv

@@ -1,13 +1,13 @@
 Chapitre 16 - Héritage
 ======================
 
-Rappel - composition
----------------------
+Rappel : composition
+--------------------
 
-Dans un chapitre précédent on a parlé de *composition* qui décrit une classe à l'intérieur
-d'une autre classe.
+Dans un chapitre précédent, on a parlé de *composition* qui décrit une classe 
+à l'intérieur d'une autre classe.
 
-Pour rappel::
+Pour rappel : ::
 
 
     class Chat:
@@ -33,10 +33,11 @@ Pour rappel::
 Vocabulaire
 -----------
 
-Ici on va parler d'héritage, qui décrit une autre relation entre classes, appelée parfois un peu abusivement "partage de code".
+Ici on va parler d'héritage, qui décrit une autre relation entre classes, 
+appelée parfois un peu abusivement "partage de code".
 
-Pour indiquer qu'une classe ``B`` hérite d'une classe ``A``, on écrit ``A`` dans des parenthèses au moment de
-déclarer la classe ``B``::
+Pour indiquer qu'une classe ``B`` hérite d'une classe ``A``, on écrit ``A`` 
+dans des parenthèses au moment de déclarer la classe ``B`` : ::
 
     class A:
        ...
@@ -45,7 +46,7 @@ déclarer la classe ``B``::
         ...
 
 
-Les trois formulations suivantes sont souvent employées:
+Les trois formulations suivantes sont souvent employées :
 
 * A est la classe *parente* de B.
 * B *hérite* de A.
@@ -55,7 +56,7 @@ Utilisation
 -----------
 
 Si une méthode n'est pas trouvée dans la classe courante, Python ira la
-chercher dans la classe parente::
+chercher dans la classe parente : ::
 
     class A:
        def méthode_dans_a(self):
@@ -74,10 +75,10 @@ chercher dans la classe parente::
     # Affiche: 'dans A'
 
 Ordre de résolution
---------------------
+-------------------
 
 S'il y a plusieurs classes parentes, Python les remonte toutes une à une.
-On dit aussi qu'il y a une *hiérarchie* de classes::
+On dit aussi qu'il y a une *hiérarchie* de classes : ::
 
     class A:
         def méthode_dans_a(self):
@@ -96,9 +97,9 @@ On dit aussi qu'il y a une *hiérarchie* de classes::
     # affiche: 'dans A'
 
 Avec \_\_init\_\_
---------------------
+-----------------
 
-La résolution fonctionne pour toutes les méthodes, y compris ``__init__``::
+La résolution fonctionne pour toutes les méthodes, y compris ``__init__`` : ::
 
     class A:
         def __init__(self):
@@ -111,9 +112,9 @@ La résolution fonctionne pour toutes les méthodes, y compris ``__init__``::
     # affiche: "initialisation de A"
 
 Attributs
-----------
+---------
 
-Même mécanisme pour les attributs::
+Même mécanisme pour les attributs : ::
 
     class A:
         def __init__(self):
@@ -127,9 +128,9 @@ Même mécanisme pour les attributs::
     # affiche: 42
 
 Surcharge
-----------
+---------
 
-On peut aussi *surcharger* la méthode de la classe parente dans la classe fille::
+On peut aussi *surcharger* la méthode de la classe parente dans la classe fille : ::
 
     class A:
        def une_méthode(self):
@@ -147,7 +148,8 @@ On peut aussi *surcharger* la méthode de la classe parente dans la classe fille
 super()
 -------
 
-On peut utiliser ``super()`` pour chercher *explicitement* une méthode dans la classe parente::
+On peut utiliser ``super()`` pour chercher *explicitement* une méthode dans la 
+classe parente : ::
 
 
     class A:
@@ -166,9 +168,9 @@ On peut utiliser ``super()`` pour chercher *explicitement* une méthode dans la 
     # je viens de la classe B
 
 super() et \_\_init\_\_
-------------------------
+-----------------------
 
-Erreur très courante::
+Erreur très courante : ::
 
     class A:
        def __init__(self):
@@ -182,13 +184,13 @@ Erreur très courante::
      print(b.attribut_de_b)
      # affiche: 42
      print(b.attribut_de_a)
-     # erreur:  AttributeError
+     # erreur: AttributeError
 
 On a surchargé ``A.__init__()``, du coup l'initialisation de A n'a jamais
 été faite.
 
-La plupart du temps, si ``A`` et ``B`` ont de constructeurs, on appellera
-``super().__init__()`` dans le constructeur de la classe fille::
+La plupart du temps, si ``A`` et ``B`` ont des constructeurs, on appellera
+``super().__init__()`` dans le constructeur de la classe fille : ::
 
     class A:
        def __init__(self):
@@ -203,4 +205,4 @@ La plupart du temps, si ``A`` et ``B`` ont de constructeurs, on appellera
      print(b.attribut_de_b)
      # affiche: 42
      print(b.attribut_de_a)
-     # affiche:  "bonjour"
+     # affiche: "bonjour"

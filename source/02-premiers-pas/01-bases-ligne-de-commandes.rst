@@ -29,7 +29,7 @@ une *invite* de commande (``prompt`` en anglais).
 Pour lancer une commande, on tape son nom, suivi parfois d'un certain
 nombre de mots séparés par des espaces, puis on appuie sur entrée.
 
-Par exemple, on peut utiliser ``ls`` (ou ``dir``) sous Windows pour lister
+Par exemple, on peut utiliser ``ls`` (ou ``dir`` sous Windows) pour lister
 le contenu du répertoire courant :
 
 .. image:: /img/terminal-ls.png

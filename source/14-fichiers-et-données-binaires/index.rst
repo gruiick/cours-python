@@ -2,7 +2,7 @@ Chapitre 14 - Données binaires et fichiers
 ==========================================
 
 On vous a peut-être déjà dit que l'informatique consiste à
-manipuler des suites de 0 et et de 1s, mais qu'en est-t-il
+manipuler des suites de 0 et et de 1s, mais qu'en est-il
 exactement ?
 
 De manière surprenante, la réponse à cette question

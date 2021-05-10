@@ -2,22 +2,22 @@ Chapitre 15 - L'interpréteur interactif
 =======================================
 
 Démarrage
-----------
+---------
 
 Jusqu'ici, on a toujours lancé la commande Python avec ``python`` suivi du nom
 d'un fichier source.
 
 Il est égalemnet possible de lancer la commande ``python3`` sans argument.
 
-Dans ce cas, on se retrouve avec une **autre** invite de commandes:
+Dans ce cas, on se retrouve avec une **autre** invite de commandes :
 
 .. code-block:: console
 
-   $ python3
-   Python 3.7.1 (default, Oct 22 2018, 10:41:28)
-   [GCC 8.2.1 20180831] on linux
-   Type "help", "credits" or "license" for more information.
-   >>>
+    $ python3
+    Python 3.7.1 (default, Oct 22 2018, 10:41:28)
+    [GCC 8.2.1 20180831] on linux
+    Type "help", "credits" or "license" for more information.
+    >>>
 
 Deux invites de commandes
 -------------------------
@@ -25,22 +25,22 @@ Deux invites de commandes
 Notez les trois chevrons: ``>>>``. Cela vous permet de différencier l'invite
 de commandes du système d'exploitation de celle de Python.
 
-* Système d'exploitation -> Python: taper ``python3`` (sans arguments)
-* Python -> Système d'exploitation: taper ``quit()``
+* Système d'exploitation -> Python : taper ``python3`` (sans arguments).
+* Python -> Système d'exploitation : taper ``quit()``.
 
 Fonctionnement de l'interpréteur
 --------------------------------
 
-L'interpréteur fonctionne dans une boucle:
+L'interpréteur fonctionne dans une boucle :
 
-1. Lire le code qui a été tapé (soit une ligne, soit une succession de blocs)
-2. Évaluation du code qui a été entré
-3. Affichage de la valeur le cas échéant
-4. Retour au début
+1. Lire le code qui a été tapé (soit une ligne, soit une succession de blocs) ;
+2. Évaluation du code qui a été entré ;
+3. Affichage de la valeur le cas échéant ;
+4. Retour au début.
 
-(En anglais, on dit "REPL" - read/eval/print/loop)
+(En anglais, on dit "REPL" pour "read/eval/print/loop")
 
-Example d'une session interactive::
+Example d'une session interactive : ::
 
     >>> a = 42
     >>> a
@@ -50,7 +50,7 @@ Example d'une session interactive::
     46
 
 
-Notez que si la variable est None, l'interpréteur n'affiche rien::
+Notez que si la variable est None, l'interpréteur n'affiche rien : ::
 
     >>> def ne_fait_rien():
             pass
@@ -64,17 +64,17 @@ Notez que si la variable est None, l'interpréteur n'affiche rien::
 Interpréteur interactif et imports
 ----------------------------------
 
-Recréons un fichier ``bonjour.py`` contenant::
+Recréons un fichier ``bonjour.py`` contenant : ::
 
-   # dans bonjour.py
-   salutation = "Bonjour,"
-   def dire_bonjour(nom):
+    # dans bonjour.py
+    salutation = "Bonjour,"
+    def dire_bonjour(nom):
         print(salutation, nom)
 
 
 On peut démarrer un interpréteur interactif dans le répertoire
 contenant le fichier ``bonjour`.py``, et "jouer" avec
-les attributs du module bonjour:
+les attributs du module bonjour : ::
 
     >>> import bonjour
     >>> bonjour.dire_bonjour("Bob")
@@ -88,4 +88,4 @@ les attributs du module bonjour:
 .. warning::
 
     Si le contenu de bonjour.py change, il faut *relancer*
-    l'Interpréteur intéractif et refaire l'import.
+    l'interpréteur interactif et refaire l'import.

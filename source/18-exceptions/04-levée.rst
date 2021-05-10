@@ -4,19 +4,19 @@ Levée d'exceptions
 raise
 -----
 
-On peut lever explicitement un exception en appelant le mot-clé ``raise`` suivi
+On peut lever explicitement une exception en appelant le mot-clé ``raise`` suivi
 d'une **instance** d'une classe.
 
-Par exemple en utilisant une exception native::
+Par exemple en utilisant une exception native : ::
 
     def dire_bonjour(prénom):
         if not prénom:
             raise ValueError("prénom vide")
 
 Définition d'exceptions à la carte
------------------------------------
+----------------------------------
 
-On peut ré-utiliser les exceptions natives, ou définir sa propre classe::
+On peut ré-utiliser les exceptions natives, ou définir sa propre classe : ::
 
     class OpérationImpossible(Exception):
         pass
@@ -27,11 +27,11 @@ On peut ré-utiliser les exceptions natives, ou définir sa propre classe::
             raise OpérationImpossible()
 
 Gérer puis re-lever l'exception géré
--------------------------------------
+------------------------------------
 
-Parfois il est utile de re-lever l'exception qu'on vient de géner.
+Parfois il est utile de re-lever l'exception qu'on vient de gérer.
 
-Dans ce cas, on utilise ``raise`` sans argument::
+Dans ce cas, on utilise ``raise`` sans argument : ::
 
     try:
         tente_un_truc_risqué()
