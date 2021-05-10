@@ -118,7 +118,12 @@ Regardez l'exemple suivant : ::
     y = 0b0010011 # 19
     z = 0b1010010 # 82
 
-Notez que le premier bit est plus "fort" que le dernier on dit qu'on est en "little endian".
+Notez que le premier bit est plus "fort" que le dernier. On passe de 18
+à 82 quand le premier bit passe de 0 à 1. À l'inverse, on passe
+seulement de 18 à 19 quand le dernier bit passe de 0 à 1. On dit qu'on a
+utilisé un mode Petit-boutisme ("little endian" en Anglais).
+
+.. seealso:: La page wikipedia consacée au `boutisme <https://fr.wikipedia.org/wiki/Boutisme>`_.
 
 
 Manipuler des octets en Python
