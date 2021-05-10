@@ -6,12 +6,12 @@ Introduction
 
 Reprenons ce qu'on a vu jusqu'ici.
 
-D'une part, on peut créer des variables en assignant des valeurs à celles-ci::
+D'une part, on peut créer des variables en assignant des valeurs à celles-ci : ::
 
     # Création d'une variable `x` avec la valeur 4
     x = 4
 
-D'autre part, on peut définir et appeler des fonctions::
+D'autre part, on peut définir et appeler des fonctions : ::
 
     # Définition de la fonction:
     def dire_bonjour(nom):
@@ -28,7 +28,7 @@ Fonctions en tant que variables
 
 Il se trouve qu'en Python, on peut assigner des fonctions à des
 variables. C'est différent d'assigner le résultat de l'appel à une
-fonction à une variable, et ça permet de retarder l'appel:
+fonction à une variable, et ça permet de retarder l'appel :
 
 .. code-block:: python
 
@@ -51,15 +51,16 @@ fonction à une variable, et ça permet de retarder l'appel:
 
 
 De façon cruciale, notez que l'on n'a *pas* mis de parenthèses à droite
-lorsqu'on a créé la variable `ma_fonction_qui_dit_bonjour`.
+lorsqu'on a créé la variable ``ma_fonction_qui_dit_bonjour``.
 
-On peut donc dire que lorsqu'on définit une fonction avec ``def ma_fonction()`` et un corps:
-il y a en réalité deux étapes:
+On peut donc dire que lorsqu'on définit une fonction avec ``def ma_fonction()`` 
+et un corps, il y a en réalité deux étapes :
 
-1. Python stocke le corps de la fonction quelque part
+1. Python stocke le corps de la fonction quelque part ;
 2. Il assigne le corps de celle-ci à une variable dont le nom est ``ma_fonction``.
 
-En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent avec un dictionnaire::
+En Python, il est assez fréquent d'utiliser un code tel que celui-ci, souvent 
+avec un dictionnaire : ::
 
     fonctions_connues = {
        "français": dire_bonjour_en_français,
@@ -76,26 +77,25 @@ En Python, il est assez fréquent d'utiliser de code tel que celui-ci, souvent a
         fonction(prénom)
 
 
-Fonctions en tant qu'argement d'autres fonctions
+Fonctions en tant qu'argument d'autres fonctions
 ------------------------------------------------
 
 On a vu en début de chapitre qu'on peut assigner des fonctions à des variables.
 
 Du coup, rien n'empêche de passer des fonctions en *argument* d'autres fonctions.
 
-Par exemple::
+Par exemple : ::
 
     def appelle_deux_fois(f):
         f()
         f()
-
 
     def crier():
         print("Aline !")
 
     appelle_deux_fois(crier)
 
-    # Affiche:
+    # affiche:
     # Aline !
     # Aline !
 
@@ -103,7 +103,7 @@ Par exemple::
 Fonctions imbriquées
 --------------------
 
-On peut aussi définir une fonction dans une autre fonction::
+On peut aussi définir une fonction dans une autre fonction : ::
 
 
     def affiche_message(message):
@@ -114,11 +114,11 @@ On peut aussi définir une fonction dans une autre fonction::
     affiche_message("Bonjour")
     # affiche: Bonjour
 
-Deux notes importantes:
+Deux notes importantes :
 
-Premièrement, la fonction `affiche()` qui est imbriquées dans `affiche_message()` n'est pas
-accessible à l'éxtérieur de la fonction qui la contient. En d'autres termes, ce code
-ne fonctionne pas::
+Premièrement, la fonction ``affiche()`` qui est imbriquées dans ``affiche_message()`` 
+n'est pas accessible à l'extérieur de la fonction qui la contient. En d'autres 
+termes, ce code ne fonctionne pas : ::
 
     def affiche_message(message):
         def affiche():
@@ -127,19 +127,19 @@ ne fonctionne pas::
     affiche()
     # NameError: 'affiche' is not defined
 
-C'est un mécanisme similaire aux :ref:`portées des variables <portées-des-variables>` vu précédemment.
+C'est un mécanisme similaire aux :ref:`portées des variables <portées-des-variables>` 
+vu précédemment.
 
-Deuxièment, la fonction `affiche()` à l'intérieur de `affiche_message()`
-a accès à l'argument `message` de la fonction `affiche_message`. On appelle
+Deuxièment, la fonction ``affiche()`` à l'intérieur de ``affiche_message()``
+a accès à l'argument ``message`` de la fonction ``affiche_message()``. On appelle
 ça une "closure".
-
 
 
 Fonctions retournant des fonctions
 ----------------------------------
 
 En réalité, on combine souvent les closures avec des fonctions qui
-retournent d'autres fonctions::
+retournent d'autres fonctions : ::
 
 
     def fabrique_fonction_qui_additionne(n):
@@ -151,16 +151,16 @@ retournent d'autres fonctions::
     additionne_2 = fabrique_fonction_qui_additionne(2)
     y = additionne_2(5)
     print(y)
-    # Affiche: 7
+    # affiche: 7
 
 
 Un autre paradigme
--------------------
+------------------
 
 Le fait qu'on puisse traiter les fonctions comme n'importe quelle
 autre valeur (c'est-à-dire les assigner à des variables, les passer
 en argument et les retourner), est caractéristique des langages
 dits "fonctionnels". Python est donc **à la fois** un
-langages *impératif*, *objet* et *fonctionnel*. On dit que
-c'est un langage *multi-paradigme*.
+langage *impératif*, *objet* et *fonctionnel*. On dit que
+c'est un langage *multi-paradigmes*.
 

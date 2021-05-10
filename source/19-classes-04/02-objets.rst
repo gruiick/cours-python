@@ -1,9 +1,8 @@
 Objets
 ======
 
-
 En fait, *tout ce qu'on manipule en Python* est un objet. Et tous les objets sont
-toujours des instances d'une classe - on peut accéder à la classe qui a servi
+toujours des instances d'une classe. On peut accéder à la classe qui a servi
 à instancier un objet avec la fonction ``type``, par exemple::
 
     class MaClasse:
@@ -11,11 +10,11 @@ toujours des instances d'une classe - on peut accéder à la classe qui a servi
 
     mon_instance = MaClasse()
     print(type(mon_instance))
-    # Affiche:
+    # affiche:
     # <class '__main__.MaClasse'>
 
 
-Mais aussi::
+Mais aussi : ::
 
     print(type(2))
     # affiche: int
@@ -23,17 +22,17 @@ Mais aussi::
     print(type("bonjour"))
     # affiche: str
 
-Donc en Python, les entiers sont des instances de la classe ``int``, et les strings des instances de la
-classe ``str``.
+Donc en Python, les entiers sont des instances de la classe ``int``, et les 
+strings des instances de la classe ``str``.
 
-Ainsi, vous pouvez voir l'expression ``x = str(y)`` de deux façons:
+Ainsi, vous pouvez voir l'expression ``x = str(y)`` de deux façons :
 
-* Soit on appelle la fonction native ``str`` pour convertir ``y`` en string
+* Soit on appelle la fonction native ``str`` pour convertir ``y`` en string.
 
 * Soit on crée une nouvelle instance de la classe ``str`` en appelant le constructeur
   de la classe ``str`` avec ``y`` en argument.
 
-Notez que ça ne s'arrète pas là::
+Notez que ça ne s'arrète pas là : ::
 
     def ma_fonction():
         pass
@@ -54,7 +53,7 @@ Notez que ça ne s'arrète pas là::
     # affiche: module
 
 
-Et même::
+Et même : ::
 
     print(type(MaClasse))
     # affiche: type
@@ -62,30 +61,30 @@ Et même::
     print(type(type))
     # affiche: type
 
-Et oui, les classes elles-mêmes sont des instances de classe! (la classe ``type``)
+Et oui, les classes elles-mêmes sont des instances de classe ! (de la classe ``type``)
 
-Du coup en Python, le terme 'objet' désigne *toujours* une instance de classe - même
+Du coup en Python, le terme 'objet' désigne *toujours* une instance de classe, même
 ``None`` est une instance d'une classe (elle s'appelle ``NoneType``).
 
 Ordre de résolution
---------------------
+-------------------
 
 Il est temps de revenir sur l'évaluation des expressions impliquant des
 attributs.
 
-On a vu trois systèmes différents:
+On a vu trois systèmes différents :
 
-Appeler une fonction définie dans un module::
+Appeler une fonction définie dans un module : ::
 
     import mon_module
     mon_module.ma_fonction()
 
-Appeler une méthode d'instance définie dans une classe::
+Appeler une méthode d'instance définie dans une classe : ::
 
     mon_instance = MaClasse()
     mon_instance.ma_méthode()
 
-Appeler une méthode de classe définie dans une classe::
+Appeler une méthode de classe définie dans une classe : ::
 
     MaClasse.ma_méthod_de_classe()
 
@@ -93,17 +92,17 @@ D'après ce qu'on a vu dans la section précédente, on sait maintenant que
 dans tous les cas, à gauche du point se situe un objet, et que tous
 les objets sont des instances d'une classe (appelé le "type" de l'objet).
 
-Pour évaluer l'expression ``mon_objet.mon_attribut``, où `mon_objet`` est une
-instance de ``mon_type``, Python cherche toujours l'attribut dans deux endroits:
+Pour évaluer l'expression ``mon_objet.mon_attribut``, où ``mon_objet`` est une
+instance de ``mon_type``, Python cherche toujours l'attribut dans deux endroits :
 
-* D'abord en tant qu'attribut de l'instance ``mon_objet``
-* Ensuite, en tant qu'attribut de la classe ``mon_type``
+* d'abord en tant qu'attribut de l'instance ``mon_objet`` ;
+* ensuite, en tant qu'attribut de la classe ``mon_type``.
 
 La recherche se poursuit ainsi en suivant toutes les classe parentes de
 ``mon_type``.
 
 
-On peut voir ce mécanisme en action dans le code suivant::
+On peut voir ce mécanisme en action dans le code suivant : ::
 
     class A:
         def f1(self):
@@ -133,10 +132,10 @@ On peut voir ce mécanisme en action dans le code suivant::
 
 
 Conclusion
-------------
+----------
 
-Maintenant vous devriez comprendre pourquoi on dit parfois qu'en
+Maintenant, vous devriez comprendre pourquoi on dit parfois qu'en
 Python, **tout est objet**.
 
-Dans un prochain chapitre, on expliquera pourquoi en plus de cela
+Dans un prochain chapitre, on expliquera pourquoi, en plus de cela,
 on peut dire qu'en Python, **tout est dictionnaire**.
