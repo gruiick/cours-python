@@ -50,8 +50,8 @@ et `cli-ui <https://pypi.org/project/python-cli-ui/>`_.
 pip
 ---
 
-``pip`` est un outil qui vient par défaut avec Python3[^4]. Vous pouvez 
-également l'installer grâce au script `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_, 
+``pip`` est un outil qui est fréquemment installé en même temps que l'interpréteur Python. Vous pouvez
+également l'installer séparément grâce au script `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_,
 en lançant ``python3 get-pip.py --user``.
 
 Il est conseillé de **toujours** lancer ``pip`` avec ``python3 -m pip``. De cette
