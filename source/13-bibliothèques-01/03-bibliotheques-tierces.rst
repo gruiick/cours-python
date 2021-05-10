@@ -114,6 +114,6 @@ Un point important est que vous n'avez en général pas besoin de lancer le
 script directement. Vous pouvez utiliser ``python3 -m tabulate``. Procéder 
 de cette façon est intéressant puisque vous n'avez pas à vous soucier de 
 rajouter le chemin d'installation des scripts dans la variable d'environnement 
-`̀`PATH``.
+``PATH``.
 
 
