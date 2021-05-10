@@ -24,7 +24,7 @@ précédemment. On dit que ``cli-ui`` *dépend* de ``tabulate``.
 Déclaration des dépendances
 ---------------------------
 
-La déclaration de la dépendance de ``cli-ui`` vers ``tabulate`` s'effectue 
+La déclaration de la dépendance de ``cli-ui`` vers ``tabulate`` s'effectue
 également dans le fichier ``setup.py`` : ::
 
     setup(
@@ -40,7 +40,7 @@ La déclaration de la dépendance de ``cli-ui`` vers ``tabulate`` s'effectue
 pypi.org
 --------
 
-On comprend dès lors qu'il doit nécessairement exister un *annuaire* permettant 
+On comprend dès lors qu'il doit nécessairement exister un *annuaire* permettant
 de relier les noms de dépendances à leur code source.
 
 Cet annuaire, c'est le site `pypi.org <https://pypi.org/>`_. Vous y trouverez
@@ -77,7 +77,7 @@ comment installer ``cli-ui`` à l'aide de la commande 'install' de  ``pip`` :
 
 On constate ici quelques limitations de ``pip`` :
 
-* Il faut penser à utiliser ``--user`` (de la même façon que lorsqu'on lance 
+* Il faut penser à utiliser ``--user`` (de la même façon que lorsqu'on lance
   ``setup.py`` à la main).
 * Si le paquet est déjà installé dans le système, pip ne saura pas le
   mettre à jour, il faudra passer par le gestionnaire de paquet de
@@ -90,7 +90,7 @@ En revanche, ``pip`` contient de nombreuses fonctionnalités intéressantes :
 * Il est aussi capable d'afficher la liste complète des bibliothèques
   Python accessibles par l'utilisateur courant avec ``freeze``.
 
-Voici un extrait de la commande ``python3 -m pip freeze`` au moment de la 
+Voici un extrait de la commande ``python3 -m pip freeze`` au moment de la
 rédaction de cet article sur ma machine :
 
 .. code-block:: console
