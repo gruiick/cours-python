@@ -260,13 +260,13 @@ Avec ``encode()`` et ``decode()`` : ::
 
 
 Notez que dans le deuxième exemple, on est bien en train de "décoder"
-un paquet de ``0`` et de ``1``. Il peut s'écrire ainsi :
-
+un paquet de ``0`` et de ``1``. Il peut s'écrire ainsi : ::
 
     bytes = b"\x74\x61\x62\x6c\x65"
     décodé = bytes.decode("ascii")
     print(décodé)
     # affiche: table
+
 
 Plus loin que l'ASCII
 ---------------------
@@ -307,13 +307,13 @@ D'abord, UTF-8 est rétro-compatible avec ASCII : ::
 
     encodé = "abc".encode("utf-8")
     print(encodé)
-    # Affiche: b'abc'
+    # affiche: b'abc'
 
 Ensuite, certains caractères (comme ``é``) sont représentés par 2 octets : ::
 
     encodé = "café".encode("utf-8")
     print(encodé)
-    # Affiche: b'caf\xc3\xa9"
+    # affiche: b'caf\xc3\xa9"
 
 
 Enfin, certains caractères (comme les emojis) sont représentés par 3 voire plus octets.
