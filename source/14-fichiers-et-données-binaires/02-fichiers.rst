@@ -31,7 +31,7 @@ En pratique, voici ce que cela donne : ::
     f = open("mon_script.py", "r")
     code = f.read()
     print(code)
-    # affiche le code dans le fichier foo.py
+    # affiche le code présent dans le fichier mon_script.py
 
     f = open("cours.pdf", "rb")
     données = f.read()
