@@ -36,7 +36,7 @@ La base 16
 ----------
 
 En informatique, on se sert souvent de la base 16. C'est le même principe : on se
-sert des "chiffres" de ``0`` à ``F`` (``A`` vaut 10, ``B`` vaut 11, jusqu'à ``F`` 
+sert des "chiffres" de ``0`` à ``F`` (``A`` vaut 10, ``B`` vaut 11, jusqu'à ``F``
 qui vaut 15).
 
 Ainsi, la suite ``DA2`` peut être interprétée comme suit : ::
@@ -153,8 +153,8 @@ On peut aussi interpréter les octets comme du texte : C'est la table ASCII.
 
 .. image::  ../img/ascii-table.png
 
-La table se lit ainsi : si on veut connaître la suite de 0 et de 1 qui correspond 
-à ``B``, on lit les 3 premiers bits de haut en bas sur la colonne ``100``, puis 
+La table se lit ainsi : si on veut connaître la suite de 0 et de 1 qui correspond
+à ``B``, on lit les 3 premiers bits de haut en bas sur la colonne ``100``, puis
 les 4 bits sur la ligne ``0010``.
 Du coup 'B' s'écrit en 7 bits ``1000010``, soit '66' en décimal, et '42' en hexadécimal.
 
@@ -163,10 +163,10 @@ ASCII - remarques
 
 * C'est *vieux*, 1960 !
 * Le A est pour American.
-* Ça sert à *envoyer* du texte vers des terminaux d'où les "caractères" 
+* Ça sert à *envoyer* du texte vers des terminaux d'où les "caractères"
   non-imprimables dans la liste.
 * Mais c'est une convention *très* utilisée.
-* Un message de 4 lettres ASCII sera souvent envoyé comme 4 octets (même si 
+* Un message de 4 lettres ASCII sera souvent envoyé comme 4 octets (même si
   seulement 28 bits sont nécessaires).
 
 Utiliser ASCII en Python
@@ -185,7 +185,7 @@ Avec ``chr`` et ``ord`` : ::
 Affichage des bytearrays en Python
 ----------------------------------
 
-Python utilise ASCII pour afficher les bytearrays si les caractères sont 
+Python utilise ASCII pour afficher les bytearrays si les caractères sont
 "imprimables" : ::
 
     data = bytearray([97, 98, 99])
@@ -205,13 +205,13 @@ Et ``\x`` pour l'affichage en hexa si les caractères ne sont pas imprimables : 
     print(data)
     # affiche: bytearray(b"\x07ELF")
 
-Notez bien que ce qu'affiche Python n'est qu'une *interpétation* d'une séquence 
+Notez bien que ce qu'affiche Python n'est qu'une *interpétation* d'une séquence
 d'octets.
 
 Types
 -----
 
-La variable ``b"abc"`` est une "chaîne d'octets", de même que ``"abc"`` est 
+La variable ``b"abc"`` est une "chaîne d'octets", de même que ``"abc"`` est
 une "chaîne de caractères".
 
 Python appelle ces types ``bytes`` et ``str`` : ::
@@ -226,8 +226,8 @@ Python appelle ces types ``bytes`` et ``str`` : ::
 bytes et bytearray
 ------------------
 
-De la même manière qu'on ne peut pas modifier un caractère à l'intérieur d'une 
-string, on ne peut pas modifier un bit, ou un octet dans une variable de type 
+De la même manière qu'on ne peut pas modifier un caractère à l'intérieur d'une
+string, on ne peut pas modifier un bit, ou un octet dans une variable de type
 ``bytes`` : ::
 
     a = "foo"
@@ -326,8 +326,8 @@ Enfin, certains caractères (comme les emojis) sont représentés par 3 voire pl
 Conséquences
 -------------
 
-* On peut représenter *tout* type de texte avec UTF-8 (latin, chinois, coréen, 
+* On peut représenter *tout* type de texte avec UTF-8 (latin, chinois, coréen,
   langues disparues, ...).
 * On ne peut pas accéder à la n-ième lettre directement dans une chaîne
-  encodée en UTF-8, il faut parcourir lettre par lettre (ce qui en pratique est 
+  encodée en UTF-8, il faut parcourir lettre par lettre (ce qui en pratique est
   rarement un problème).
