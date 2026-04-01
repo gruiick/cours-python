@@ -58,6 +58,7 @@ quelconques : ::
 
 
     score = 42
+    message = "pas un message vide"
     if message and score:
         print("le message et le score sont truthy")
     # affiche: le message et le score sont truthy

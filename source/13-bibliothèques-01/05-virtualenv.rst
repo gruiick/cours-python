@@ -201,3 +201,15 @@ le virtualenv seront :
 
     $ cd X/
     $ python3 -m venv .venv
+
+Pour conclure
+-------------
+
+Pour installer `pandas` dans le projet `foo`, trois étapes
+
+1. Créer un virtualenv dans `foo/.venv`
+2. Activer le virtualenv 
+3. Installer `pandas` en lançant `pip install pandas` depuis le virtualenv
+
+Notez qu'il est possible de faire cela en passant par l'IDE
+(VS Code ou PyCharm)

@@ -21,6 +21,7 @@ notfound_context = {
 }
 notfound_urls_prefix = "/python/"
 
+html_favicon = "favicon.png"
 html_show_sourcelink = False
 html_show_copyright = False
 html_theme = "sphinx_book_theme"

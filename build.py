@@ -5,9 +5,9 @@ import shutil
 import subprocess
 
 
-def run(*cmd):
+def run(*cmd, **kwargs):
     print("$", *cmd)
-    process = subprocess.run(" ".join(cmd), shell=True)
+    process = subprocess.run(" ".join(cmd), shell=True, **kwargs)
     if process.returncode != 0:
         sys.exit(1)
 
@@ -43,7 +43,7 @@ def main():
     build_path = f"build/{builder}"
     run(program, *opts, "-d", "build", "-b", builder, "source", build_path)
     if format == "pdf":
-        run("make", "-C", build_path)
+        run("tectonic", "*.tex", cwd="build/latex")
 
 
 if __name__ == "__main__":

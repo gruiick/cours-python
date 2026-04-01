@@ -285,6 +285,41 @@ des parenthèses après le nom de la classe : ::
 
    Pour cette  raison, ``__init__`` est souvent appelé le **constructeur** de la classe.
 
+Les constructeurs en pratique
+-----------------------------
+
+Une bonne pratique consiste à créer *tous* les attributs nécessaires dans le constructeur.
+
+Si les atttributs ont une valeur par défaut, ou une valeur initiale, on peut les créer
+dans le constructeur directement.
+
+Sinon, on créera l'attribut avec une valeur qui viendra d'un paramètre du constructeur (souvent
+avec le même nom)
+
+Premier example::
+
+    class Point2D:
+        # x et  y n'ont pas de bonne valeur par défault,
+        # donc on utilise un constructeur qui prend
+        # x et y en paramètre
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
+
+    origine = Point2D(0, 0)
+
+
+Deuxième example::
+
+    class Joueur:
+        # Quand on crée un joueur, il a un score à 0
+        def __init__(self, nom):
+            self.nom = nom
+            self.score = 0
+
+    alice = Joueur("alice")
+
+
 Récapitulatif
 -------------
 

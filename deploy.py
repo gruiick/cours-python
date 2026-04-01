@@ -8,8 +8,9 @@ def deploy(*, dry_run):
         "--itemize-changes",
         "--recursive",
         "--delete",
+        "--chown=dmerej:www-data",
         "build/html/",
-        "dedi3:/srv/nginx/html/python",
+        "dedi4:/srv/nginx/python",
     ]
     if dry_run:
         cmd.append("--dry-run")
@@ -19,7 +20,7 @@ def deploy(*, dry_run):
     cmd = [
         "scp",
         "build/latex/programmationenpython.pdf",
-        "dedi3:/srv/nginx/html/python/cours-python.pdf",
+        "dedi4:/srv/nginx/python/cours-python.pdf",
     ]
     print(*cmd)
     if not dry_run:

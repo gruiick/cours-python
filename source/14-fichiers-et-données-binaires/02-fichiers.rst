@@ -35,7 +35,7 @@ En pratique, voici ce que cela donne : ::
 
     f = open("cours.pdf", "rb")
     données = f.read()
-    # données est mainteant une grosse suite
+    # données est maintenant une grosse suite
     # d'octets
 
     f = open("cours.pdf", "r")
